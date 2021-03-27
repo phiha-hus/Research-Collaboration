@@ -1,0 +1,1860 @@
+*
+*We would like to thank Sequent Computer Systems Inc. 
+*for the computer used to run netlib.
+*
+*** from netlib, Mon Sep  2 04:54:43 EDT 1991 ***
+# to unbundle, sh this file (in an empty directory)
+echo siam.sty 1>&2
+sed >siam.sty <<'//GO.SYSIN DD siam.sty' 's/^-//'
+-% siam.sty 11 Feb 88, based on article.sty 5 Feb 88
+-\typeout{Document Style 'siam'. Released 11 February 1988}
+-
+-\def\@ptsize{0} \@namedef{ds@11pt}{\def\@ptsize{1}}
+-\@namedef{ds@12pt}{\def\@ptsize{2}} 
+-\def\ds@twoside{\@twosidetrue \@mparswitchtrue} \def\ds@draft{\overfullrule
+-5pt} 
+-\@options
+-\input siam1\@ptsize.sty\relax
+-
+-
+-\def\labelenumi{\arabic{enumi}.} 
+-\def\theenumi{\arabic{enumi}} 
+-\def\labelenumii{(\alph{enumii})}
+-\def\theenumii{\alph{enumii}}
+-\def\p@enumii{\theenumi}
+-\def\labelenumiii{\roman{enumiii}.}
+-\def\theenumiii{\roman{enumiii}}
+-\def\p@enumiii{\theenumi(\theenumii)}
+-\def\labelenumiv{\Alph{enumiv}.}
+-\def\theenumiv{\Alph{enumiv}} 
+-\def\p@enumiv{\p@enumiii\theenumiii}
+-
+-\def\labelitemi{$\bullet$}
+-\def\labelitemii{\bf --}
+-\def\labelitemiii{$\ast$}
+-\def\labelitemiv{$\cdot$}
+-
+-\def\verse{\let\\=\@centercr 
+- \list{}{\itemsep\z@ \itemindent -1.5em\listparindent \itemindent 
+- \rightmargin\leftmargin\advance\leftmargin 1.5em}\item[]}
+-\let\endverse\endlist
+-\def\quotation{\list{}{\listparindent 1.5em
+- \itemindent\listparindent
+- \rightmargin\leftmargin \parsep 0pt plus 1pt}\item[]}
+-\let\endquotation=\endlist
+-\def\quote{\list{}{\rightmargin\leftmargin}\item[]}
+-\let\endquote=\endlist
+-
+-\def\descriptionlabel#1{\hspace\labelsep \bf #1}
+-\def\description{\list{}{\labelwidth\z@ \itemindent-\leftmargin
+- \let\makelabel\descriptionlabel}}
+-\let\enddescription\endlist
+-
+-\newcounter{part}
+-\newcounter {section}
+-\newcounter {subsection}[section]
+-\newcounter {subsubsection}[subsection]
+-\newcounter {paragraph}[subsubsection]
+-\newcounter {subparagraph}[paragraph]
+-
+-\def\@begintheorem#1#2{\par\bgroup{\sc #1\ #2. }\it\ignorespaces}
+-\def\@opargbegintheorem#1#2#3{\par\bgroup{\sc #1\ #2\ (#3). }\it\ignorespaces}
+-\def\@endtheorem{\egroup}
+-\def\proof{\par{\it Proof}. \ignorespaces}
+-\def\endproof{{\ \vbox{\hrule\hbox{%
+-   \vrule height1.3ex\hskip0.8ex\vrule}\hrule
+-  }}\par}
+-\newtheorem{theorem}{Theorem}[section]
+-\newtheorem{lemma}[theorem]{Lemma}
+-\newtheorem{corollary}[theorem]{Corollary}
+-\newtheorem{proposition}[theorem]{Proposition}
+-
+-\def\theequation{\arabic{equation}}
+-\def\@eqnnum{\hbox to .01pt{}\rlap{\rm \hskip -\displaywidth(\theequation)}}
+-
+-
+-\def\titlepage{\@restonecolfalse\if@twocolumn\@restonecoltrue\onecolumn
+- \else \newpage \fi \thispagestyle{empty}\c@page\z@}
+-\def\endtitlepage{\if@restonecol\twocolumn \else \newpage \fi}
+-
+-\arraycolsep 5pt \tabcolsep 6pt \arrayrulewidth .4pt \doublerulesep 2pt 
+-\tabbingsep \labelsep 
+-
+-\skip\@mpfootins = \skip\footins
+-\fboxsep = 3pt \fboxrule = .4pt 
+-
+-\def\thepart{\Roman{part}} \def\thesection {\arabic{section}}
+-\def\thesubsection {\thesection.\arabic{subsection}}
+-\def\thesubsubsection {\thesubsection .\arabic{subsubsection}}
+-\def\theparagraph {\thesubsubsection.\arabic{paragraph}}
+-\def\thesubparagraph {\theparagraph.\arabic{subparagraph}}
+-\def\@sect#1#2#3#4#5#6[#7]#8{\ifnum #2>\c@secnumdepth
+-     \def\@svsec{}\else 
+-     \refstepcounter{#1}\edef\@svsec{\csname the#1\endcsname.\hskip .5em }\fi
+-     \@tempskipa #5\relax
+-      \ifdim \@tempskipa>\z@ 
+-        \begingroup #6\relax
+-          \@hangfrom{\hskip #3\relax\@svsec}{\interlinepenalty \@M #8\par}
+-        \endgroup
+-       \csname #1mark\endcsname{#7}\addcontentsline
+-         {toc}{#1}{\ifnum #2>\c@secnumdepth \else
+-                      \protect\numberline{\csname the#1\endcsname}\fi
+-                    #7}\else
+-        \def\@svsechd{#6\hskip #3\@svsec #8.\csname #1mark\endcsname
+-                      {#7}\addcontentsline
+-                           {toc}{#1}{\ifnum #2>\c@secnumdepth \else
+-                             \protect\numberline{\csname the#1\endcsname}\fi
+-                       #7}}\fi
+-     \@xsect{#5}}
+-\def\@ssect#1#2#3#4#5{\@tempskipa #3\relax
+-   \ifdim \@tempskipa>\z@
+-     \begingroup #4\@hangfrom{\hskip #1}{\interlinepenalty \@M #5.\par}\endgroup
+-   \else \def\@svsechd{#4\hskip #1\relax #5.}\fi
+-    \@xsect{#3}}
+-
+-
+-\def\@pnumwidth{1.55em}
+-\def\@tocrmarg {2.55em}
+-\def\@dotsep{4.5}
+-\setcounter{tocdepth}{3}
+-
+-\def\tableofcontents{\section*{Contents\@mkboth{CONTENTS}{CONTENTS}}
+- \@starttoc{toc}}
+-\def\l@part#1#2{\addpenalty{\@secpenalty}
+- \addvspace{2.25em plus 1pt} \begingroup
+- \@tempdima 3em \parindent \z@ \rightskip \@pnumwidth \parfillskip
+--\@pnumwidth 
+- {\bf \leavevmode #1\hfil \hbox to\@pnumwidth{\hss #2}}\par
+- \nobreak \endgroup}
+-\def\l@section#1#2{\addpenalty{\@secpenalty} \addvspace{1.0em plus 1pt}
+-\@tempdima 1.5em \begingroup
+- \parindent \z@ \rightskip \@pnumwidth 
+- \parfillskip -\@pnumwidth 
+- \bf \leavevmode \advance\leftskip\@tempdima \hskip -\leftskip #1\nobreak\hfil
+-\nobreak\hbox to\@pnumwidth{\hss #2}\par
+- \endgroup}
+-\def\l@subsection{\@dottedtocline{2}{1.5em}{2.3em}}
+-\def\l@subsubsection{\@dottedtocline{3}{3.8em}{3.2em}}
+-\def\l@paragraph{\@dottedtocline{4}{7.0em}{4.1em}}
+-\def\l@subparagraph{\@dottedtocline{5}{10em}{5em}}
+-\def\listoffigures{\section*{List of Figures\@mkboth
+- {LIST OF FIGURES}{LIST OF FIGURES}}\@starttoc{lof}}
+-\def\l@figure{\@dottedtocline{1}{1.5em}{2.3em}}
+-\def\listoftables{\section*{List of Tables\@mkboth
+- {LIST OF TABLES}{LIST OF TABLES}}\@starttoc{lot}}
+-\let\l@table\l@figure
+-
+-
+-\def\thebibliography#1{\par\addvspace{29pt}%
+-\begin{center}\footnotesize REFERENCES\end{center}\@mkboth
+- {REFERENCES}{REFERENCES}\addvspace{.15in}\nopagebreak\list
+- {[\arabic{enumi}]}{\settowidth\labelwidth{[#1]}\leftmargin\labelwidth
+- \advance\leftmargin\labelsep \advance\leftmargin 16pt \itemindent -16pt
+- \usecounter{enumi}}
+- \def\newblock{\hskip .11em plus .33em minus .07em}
+- \sloppy\clubpenalty4000\widowpenalty4000
+- \sfcode`\.=1000\relax\footnotesize}
+-\let\endthebibliography=\endlist
+- 
+-
+-\newif\if@restonecol
+-\def\theindex{\@restonecoltrue\if@twocolumn\@restonecolfalse\fi
+-\columnseprule \z@
+-\columnsep 35pt\twocolumn[\section*{Index}]
+- \@mkboth{INDEX}{INDEX}\thispagestyle{plain}\parindent\z@
+- \parskip\z@ plus .3pt\relax\let\item\@idxitem}
+-\def\@idxitem{\par\hangindent 40pt}
+-\def\subitem{\par\hangindent 40pt \hspace*{20pt}}
+-\def\subsubitem{\par\hangindent 40pt \hspace*{30pt}}
+-\def\endtheindex{\if@restonecol\onecolumn\else\clearpage\fi}
+-\def\indexspace{\par \vskip 10pt plus 5pt minus 3pt\relax}
+-
+-\def\footnoterule{\kern-3\p@ 
+- \hrule width .5in 
+- \kern 2.6\p@} 
+-
+-\long\def\@makefntext#1{\parindent .25in\noindent 
+- \hbox to .25in{\hss$^{\@thefnmark}$\kern 3pt}#1}
+-
+-
+-\setcounter{topnumber}{2}
+-\def\topfraction{.7}
+-\setcounter{bottomnumber}{1}
+-\def\bottomfraction{.3}
+-\setcounter{totalnumber}{3}
+-\def\textfraction{.2}
+-\def\floatpagefraction{.5}
+-\setcounter{dbltopnumber}{2}
+-\def\dbltopfraction{.7}
+-\def\dblfloatpagefraction{.5}
+-
+-\def\@figtxt{figure}
+-\long\def\@makecaption#1#2{\footnotesize
+- \ifx\@captype\@figtxt
+- \vskip 10pt 
+- \setbox\@tempboxa\hbox{{\sc #1}. {\it #2}}
+- \ifdim \wd\@tempboxa >\hsize \leavevmode\hbox to .25in{\hfil}%
+-  {\sc #1}. {\it #2}\par \else
+-  \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+- \fi\else\hbox to\hsize{\hfil{\sc #1}\hfil}%
+- \setbox\@tempboxa\hbox{{\it #2}}%
+- \ifdim \wd\@tempboxa >\hsize \leavevmode\hbox to .25in{\hfil}{\it #2}\par \else
+- \hbox to \hsize{\hfil\box\@tempboxa\hfil}\fi
+- \vskip 10pt
+- \fi}
+-
+-
+-\newcounter{figure}
+-\def\thefigure{\@arabic\c@figure}
+-\def\fps@figure{tp}
+-\def\ftype@figure{1}
+-\def\ext@figure{lof}
+-\def\fnum@figure{Fig.\ \thefigure}
+-\def\figure{\@float{figure}}
+-\let\endfigure\end@float
+-\@namedef{figure*}{\@dblfloat{figure}}
+-\@namedef{endfigure*}{\end@dblfloat}
+-\newcounter{table}
+-\def\thetable{\@arabic\c@table}
+-\def\fps@table{tp}
+-\def\ftype@table{2}
+-\def\ext@table{lot}
+-\def\fnum@table{Table \thetable}
+-\def\table{\@float{table}}
+-\let\endtable\end@float
+-\@namedef{table*}{\@dblfloat{table}}
+-\@namedef{endtable*}{\end@dblfloat}
+-
+-
+-\def\maketitle{\par
+- \begingroup
+- \def\thefootnote{\fnsymbol{footnote}}
+- \def\@makefnmark{\hbox 
+- to 0pt{$^{\@thefnmark}$\hss}} 
+- \if@twocolumn 
+- \twocolumn[\@maketitle] 
+- \else \newpage
+- \global\@topnum\z@ \@maketitle \fi\thispagestyle{plain}\@thanks
+- \endgroup
+- \setcounter{footnote}{0}
+- \let\maketitle\relax
+- \let\@maketitle\relax
+- \gdef\@thanks{}\gdef\@author{}\gdef\@title{}\let\thanks\relax}
+-\def\@maketitle{\newpage
+- \null
+- \begin{center}
+-  {\bf\@ucnothanks\@title\par}\vskip .075in
+-  {\footnotesize\spaceskip=1.5\fontdimen2\the\font
+-  \@tempswafalse\expandafter\@doauth\@author\and\relax}
+- \end{center}
+- \par \vskip .11in}
+-\def\@ucnothanks#1{\expandafter\@ucnt#1\thanks\relax}
+-\def\@ucnt#1\thanks{\uppercase{#1}\futurelet\@tempa\@ucnta}
+-\def\@ucnta{\ifx\@tempa\relax\else\@ucntb\fi}
+-\def\@ucntb#1\thanks\relax{\thanks{#1}}
+-\def\@doauth#1\and{\let\@nextdoa=\@doauth
+- \def\@tempc{\@ucnothanks{#1}}
+- \futurelet\@tempa\@doautha}
+-\def\@doautha{\ifx\@tempa\relax
+-  \if@tempswa {\ \scriptsize AND }\fi
+-  \let\@nextdoa=\relax
+- \else
+-  \if@tempswa , \fi
+- \fi
+- \@tempc\unskip\@tempswatrue\@nextdoa}
+-\let\and=\relax
+-\def\@abssec#1{\vspace{.05in}\footnotesize \parindent .2in
+-{\bf #1. }\ignorespaces}
+-\def\abstract{\@abssec{Abstract}}
+-\def\keywords{\@abssec{Key words}}
+-\def\AMSMOS{\@abssec{AMS(MOS) subject classifications}}
+-
+-\def\endabstract{\par\vspace{.1in}}
+-\let\endkeywords\endabstract
+-\let\endAMSMOS\endabstract
+-
+-\mark{{}{}} 
+-
+-\def\ps@plain{\let\@mkboth\@gobbletwo
+-     \def\@oddhead{}\def\@oddfoot{\footnotesize\rm\hfil\thepage
+-     \hfil}\def\@evenhead{}\let\@evenfoot\@oddfoot}
+-\if@twoside \def\ps@headings{\let\@mkboth\markboth
+-\def\@oddfoot{}\def\@evenfoot{}\def\@evenhead{
+-\rm\rlap{\thepage}\footnotesize\rm
+-\hfil \leftmark\hfil}\def\@oddhead{\hbox{}\hfil
+-{\footnotesize\rm\rightmark \hfil}\llap{\rm\thepage}}
+-\def\sectionmark##1{\markboth {\uppercase{\ifnum \c@secnumdepth
+->\z@
+- \thesection.\hskip 1em\relax \fi ##1}}{}}\def\subsectionmark##1{\markright
+-{\ifnum \c@secnumdepth >\@ne
+- \thesubsection.\hskip 1em\relax \fi ##1}}}
+-\else \def\ps@headings{\let\@mkboth\markboth\def\@oddfoot{}\def\@evenfoot{}%
+-\def\@oddhead{\hbox{}\hfil{\footnotesize\rm \rightmark}\hfil
+-\llap{\rm\thepage}}\def\sectionmark##1{\markright
+-{\uppercase{\ifnum \c@secnumdepth >\z@
+- \thesection.\hskip 1em\relax \fi ##1}}}}
+-\fi
+-\def\ps@myheadings{\let\@mkboth\@gobbletwo
+-\def\@oddhead{\hbox{}\hfil{\footnotesize\rm \rightmark}\hfil
+-\llap{\rm\thepage}}\def\@oddfoot{}%
+-\def\@evenhead{\rm\rlap{\thepage}\footnotesize\rm
+-\hfil \leftmark\hfil\hbox{}}\def\@evenfoot{}\def\sectionmark##1{}%
+-\def\subsectionmark##1{}}
+-
+-
+-\def\today{\ifcase\month\or
+- January\or February\or March\or April\or May\or June\or
+- July\or August\or September\or October\or November\or December\fi
+- \space\number\day, \number\year}
+-
+-\ps@plain \pagenumbering{arabic} \onecolumn \if@twoside\else\raggedbottom\fi 
+//GO.SYSIN DD siam.sty
+echo siam10.sty 1>&2
+sed >siam10.sty <<'//GO.SYSIN DD siam10.sty' 's/^-//'
+-% siam10.sty 5 Feb 88, based on art10.sty 22 Dec 87
+-\lineskip 1pt \normallineskip 1pt
+-\def\baselinestretch{1}
+-
+-\def\@normalsize{\@setsize\normalsize{12pt}\xpt\@xpt
+-\abovedisplayskip 10pt plus2pt minus5pt\belowdisplayskip \abovedisplayskip
+-\abovedisplayshortskip \abovedisplayskip
+-\belowdisplayshortskip \belowdisplayskip \let\@listi\@listI}
+-\def\small{\@setsize\small{11pt}\ixpt\@ixpt
+-\abovedisplayskip 8.5pt plus 3pt minus 4pt\belowdisplayskip \abovedisplayskip
+-\abovedisplayshortskip \abovedisplayskip\belowdisplayshortskip \belowdisplayskip
+-\def\@listi{\leftmargin\leftmargini \leftmargin\leftmargini \topsep \z@\parsep \z@
+-\itemsep \parsep}}
+-\def\footnotesize{\@setsize\footnotesize{9.5pt}\viiipt\@viiipt
+-\abovedisplayskip 6pt plus 2pt minus 4pt\belowdisplayskip \abovedisplayskip
+-\abovedisplayshortskip \abovedisplayskip\belowdisplayshortskip \belowdisplayskip
+-\def\@listi{\leftmargin\leftmargini \topsep \z@\parsep \z@
+-\itemsep \parsep}}
+-\def\scriptsize{\@setsize\scriptsize{8pt}\viipt\@viipt}
+-\def\tiny{\@setsize\tiny{6pt}\vpt\@vpt}
+-\def\large{\@setsize\large{14pt}\xiipt\@xiipt}
+-\def\Large{\@setsize\Large{18pt}\xivpt\@xivpt}
+-\def\LARGE{\@setsize\LARGE{22pt}\xviipt\@xviipt}
+-\def\huge{\@setsize\huge{25pt}\xxpt\@xxpt}
+-\def\Huge{\@setsize\Huge{30pt}\xxvpt\@xxvpt}
+-\normalsize 
+-
+-\oddsidemargin  .5in \evensidemargin .5in
+-\marginparwidth 1.25in \marginparsep .25in
+- \topmargin \z@ \headheight 10pt \headsep .2in \footskip .2in
+-
+-\textheight 8.25in \textwidth 5.125in \columnsep 10pt \columnseprule 0pt 
+-
+-\footnotesep 6.65pt 
+-\skip\footins 13pt plus 4pt minus 2pt 
+-\floatsep 12pt plus 2pt minus 2pt \textfloatsep 20pt plus 2pt minus 4pt
+-\intextsep 12pt plus 2pt minus 2pt \@maxsep 20pt \dblfloatsep 12pt plus 2pt
+-minus 2pt \dbltextfloatsep 20pt plus 2pt minus 4pt \@dblmaxsep 20pt 
+-\@fptop 0pt plus 1fil \@fpsep 8pt plus 2fil \@fpbot 0pt plus 1fil 
+-\@dblfptop 0pt plus 1fil \@dblfpsep 8pt plus 2fil \@dblfpbot 0pt plus 1fil
+-\marginparpush 5pt 
+-
+-\parskip 0pt plus 1pt \parindent .25in \partopsep \z@
+-\@lowpenalty 51 \@medpenalty 151 \@highpenalty 301 
+-\@beginparpenalty -\@lowpenalty \@endparpenalty -\@lowpenalty \@itempenalty
+--\@lowpenalty 
+-
+-
+-\def\part{\par \addvspace{4ex} \@afterindentfalse \secdef\@part\@spart} 
+-\def\@part[#1]#2{\ifnum \c@secnumdepth >\m@ne \refstepcounter{part}
+-\addcontentsline{toc}{part}{\thepart \hspace{1em}#1}\else
+-\addcontentsline{toc}{part}{#1}\fi { \parindent 0pt \raggedright 
+- \ifnum \c@secnumdepth >\m@ne \bf Part \thepart \par \nobreak \fi
+-\bf #2\markboth{}{}\par } \nobreak \vskip 3ex \@afterheading } 
+-\def\@spart#1{{\parindent 0pt \raggedright 
+- \bf 
+- #1\par} \nobreak \vskip 3ex \@afterheading } 
+-\def\section{\@startsection {section}{1}{.25in}{1.3ex plus .5ex minus 
+-    .2ex}{-.5em plus -.1em}{\bf}}
+-\def\subsection{\@startsection {subsection}{2}{.25in}{1.3ex plus .5ex minus 
+-    .2ex}{-.5em plus -.1em}{\bf}}
+-\def\subsubsection{\@startsection {subsubsection}{3}{.25in}{1.3ex plus .5ex minus 
+-    .2ex}{-.5em plus -.1em}{\bf}}
+-\def\paragraph{\@startsection {paragraph}{4}{.25in}{1.3ex plus .5ex minus 
+-    .2ex}{-.5em plus -.1em}{\it}}
+-\def\subparagraph{\@startsection {subparagraph}{4}{.25in}{1.3ex plus .5ex minus 
+-    .2ex}{-.5em plus -.1em}{\it}}
+-
+-
+-\setcounter{secnumdepth}{3}
+-
+-\def\appendix{\par
+- \setcounter{section}{0}
+- \setcounter{subsection}{0}
+- \def\thesection{\Alph{section}}}
+-
+-
+-\leftmargini .5in
+-\leftmarginii 22pt \leftmarginiii 18.7pt \leftmarginiv 17pt \leftmarginv 10pt
+-\leftmarginvi 10pt
+-\leftmargin\leftmargini
+-\labelsep 5pt
+-\labelwidth\leftmargini\advance\labelwidth-\labelsep
+-\def\@listI{\leftmargin\leftmargini \parsep \z@ \topsep \z@ \itemsep \parsep}
+-\let\@listi\@listI
+-\@listi 
+-\def\@listii{\leftmargin\leftmarginii
+- \labelwidth\leftmarginii\advance\labelwidth-\labelsep
+- \topsep \z@
+- \parsep \z@
+- \itemsep \parsep}
+-\def\@listiii{\leftmargin\leftmarginiii
+- \labelwidth\leftmarginiii\advance\labelwidth-\labelsep
+- \topsep \z@
+- \parsep \z@ \partopsep \z@
+- \itemsep \topsep}
+-\def\@listiv{\leftmargin\leftmarginiv
+- \labelwidth\leftmarginiv\advance\labelwidth-\labelsep}
+-\def\@listv{\leftmargin\leftmarginv
+- \labelwidth\leftmarginv\advance\labelwidth-\labelsep}
+-\def\@listvi{\leftmargin\leftmarginvi
+- \labelwidth\leftmarginvi\advance\labelwidth-\labelsep}
+-
+//GO.SYSIN DD siam10.sty
+echo siam11.sty 1>&2
+sed >siam11.sty <<'//GO.SYSIN DD siam11.sty' 's/^-//'
+-% siam11.sty 5 Feb 88, based on art11.sty 22 Dec 87
+-\lineskip 1pt \normallineskip 1pt
+-\def\baselinestretch{1}
+-
+-\def\@normalsize{\@setsize\normalsize{13.6pt}\xipt\@ixpt
+-\abovedisplayskip 11pt plus3pt minus6pt\belowdisplayskip \abovedisplayskip
+-\abovedisplayshortskip \abovedisplayskip
+-\belowdisplayshortskip \belowdisplayskip \let\@listi\@listI}
+-\def\small{\@setsize\small{12pt}\xpt\@xpt
+-\abovedisplayskip 10pt plus2pt minus5pt\belowdisplayskip \abovedisplayskip
+-\abovedisplayshortskip \abovedisplayskip\belowdisplayshortskip \belowdisplayskip
+-\def\@listi{\leftmargin\leftmargini \topsep \z@\parsep \z@
+-\itemsep \parsep}}
+-\def\footnotesize{\@setsize\footnotesize{11pt}\ixpt\@ixpt
+-\abovedisplayskip 8pt plus 2pt minus 4pt\belowdisplayskip \abovedisplayskip
+-\abovedisplayshortskip \abovedisplayskip\belowdisplayshortskip \belowdisplayskip
+-\def\@listi{\leftmargin\leftmargini \topsep \z@\parsep \z@
+-\itemsep \parsep}}
+-\def\scriptsize{\@setsize\scriptsize{9.5pt}\viiipt\@viiipt}
+-\def\tiny{\@setsize\tiny{7pt}\vipt\@vipt}
+-\def\large{\@setsize\large{14pt}\xiipt\@xiipt}
+-\def\Large{\@setsize\Large{18pt}\xivpt\@xivpt}
+-\def\LARGE{\@setsize\LARGE{22pt}\xviipt\@xviipt}
+-\def\huge{\@setsize\huge{25pt}\xxpt\@xxpt}
+-\def\Huge{\@setsize\Huge{30pt}\xxvpt\@xxvpt}
+-\normalsize 
+-
+-\voffset -.4in
+-\oddsidemargin  .3in \evensidemargin .3in
+-\marginparwidth 1.14in \marginparsep .25in
+- \topmargin \z@ \headheight 11pt \headsep .22in \footskip .22in
+-
+-\textheight 9in \textwidth 5.64in \columnsep 11pt \columnseprule 0pt 
+-
+-\footnotesep 7.3pt 
+-\skip\footins 14pt plus 4pt minus 2pt 
+-\floatsep 12pt plus 2pt minus 2pt \textfloatsep 20pt plus 2pt minus 4pt
+-\intextsep 12pt plus 2pt minus 2pt \@maxsep 20pt \dblfloatsep 12pt plus 2pt
+-minus 2pt \dbltextfloatsep 20pt plus 2pt minus 4pt \@dblmaxsep 20pt 
+-\@fptop 0pt plus 1fil \@fpsep 8pt plus 2fil \@fpbot 0pt plus 1fil 
+-\@dblfptop 0pt plus 1fil \@dblfpsep 8pt plus 2fil \@dblfpbot 0pt plus 1fil
+-\marginparpush 5pt 
+-
+-\parskip 0pt plus 1pt \parindent .275in \partopsep \z@
+-\@lowpenalty 51 \@medpenalty 151 \@highpenalty 301 
+-\@beginparpenalty -\@lowpenalty \@endparpenalty -\@lowpenalty \@itempenalty
+--\@lowpenalty 
+-
+-
+-\def\part{\par \addvspace{4ex} \@afterindentfalse \secdef\@part\@spart} 
+-\def\@part[#1]#2{\ifnum \c@secnumdepth >\m@ne \refstepcounter{part}
+-\addcontentsline{toc}{part}{\thepart \hspace{1em}#1}\else
+-\addcontentsline{toc}{part}{#1}\fi { \parindent 0pt \raggedright 
+- \ifnum \c@secnumdepth >\m@ne \bf Part \thepart \par \nobreak \fi
+-\bf #2\markboth{}{}\par } \nobreak \vskip 3ex \@afterheading } 
+-\def\@spart#1{{\parindent 0pt \raggedright 
+- \bf 
+- #1\par} \nobreak \vskip 3ex \@afterheading } 
+-\def\section{\@startsection {section}{1}{.275in}{1.4ex plus .5ex minus 
+-    .2ex}{-.55em plus -.1em}{\bf}}
+-\def\subsection{\@startsection {subsection}{2}{.275in}{1.4ex plus .5ex minus 
+-    .2ex}{-.55em plus -.1em}{\bf}}
+-\def\subsubsection{\@startsection {subsubsection}{3}{.275in}{1.4ex plus .5ex minus 
+-    .2ex}{-.55em plus -.1em}{\bf}}
+-\def\paragraph{\@startsection {paragraph}{4}{.275in}{1.4ex plus .5ex minus 
+-    .2ex}{-.55em plus -.1em}{\it}}
+-\def\subparagraph{\@startsection {subparagraph}{4}{.275in}{1.4ex plus .5ex minus 
+-    .2ex}{-.55em plus -.1em}{\it}}
+-
+-
+-\setcounter{secnumdepth}{3}
+-
+-\def\appendix{\par
+- \setcounter{section}{0}
+- \setcounter{subsection}{0}
+- \def\thesection{\Alph{section}}}
+-
+-
+-\leftmargini .55in
+-\leftmarginii 2.2em \leftmarginiii 1.87em \leftmarginiv 1.7em \leftmarginv 1em
+-\leftmarginvi 1em
+-\leftmargin\leftmargini
+-\labelsep .5em
+-\labelwidth\leftmargini\advance\labelwidth-\labelsep
+-\def\@listI{\leftmargin\leftmargini \parsep \z@ \topsep \z@ \itemsep \parsep}
+-\let\@listi\@listI
+-\@listi 
+-\def\@listii{\leftmargin\leftmarginii
+- \labelwidth\leftmarginii\advance\labelwidth-\labelsep
+- \topsep \z@
+- \parsep \z@
+- \itemsep \parsep}
+-\def\@listiii{\leftmargin\leftmarginiii
+- \labelwidth\leftmarginiii\advance\labelwidth-\labelsep
+- \topsep \z@
+- \parsep \z@ \partopsep \z@
+- \itemsep \topsep}
+-\def\@listiv{\leftmargin\leftmarginiv
+- \labelwidth\leftmarginiv\advance\labelwidth-\labelsep}
+-\def\@listv{\leftmargin\leftmarginv
+- \labelwidth\leftmarginv\advance\labelwidth-\labelsep}
+-\def\@listvi{\leftmargin\leftmarginvi
+- \labelwidth\leftmarginvi\advance\labelwidth-\labelsep}
+-
+//GO.SYSIN DD siam11.sty
+echo siam12.sty 1>&2
+sed >siam12.sty <<'//GO.SYSIN DD siam12.sty' 's/^-//'
+-% siam12.sty 5 Feb 88, based on art12.sty 22 Dec 87
+-\lineskip 1pt \normallineskip 1pt
+-\def\baselinestretch{1}
+-
+-\def\@normalsize{\@setsize\normalsize{15pt}\xiipt\@xiipt
+-\abovedisplayskip 12pt plus3pt minus7pt\belowdisplayskip \abovedisplayskip
+-\abovedisplayshortskip \abovedisplayskip
+-\belowdisplayshortskip \belowdisplayskip \let\@listi\@listI}
+-\def\small{\@setsize\small{13.6pt}\xipt\@xipt
+-\abovedisplayskip 11pt plus3pt minus6pt\belowdisplayskip \abovedisplayskip
+-\abovedisplayshortskip \abovedisplayskip\belowdisplayshortskip \belowdisplayskip
+-\def\@listi{\leftmargin\leftmargini \topsep \z@\parsep \z@
+-\itemsep \parsep}}
+-\def\footnotesize{\@setsize\footnotesize{12pt}\xpt\@xpt
+-\abovedisplayskip 10pt plus2pt minus5pt\belowdisplayskip \abovedisplayskip
+-\abovedisplayshortskip \abovedisplayskip\belowdisplayshortskip \belowdisplayskip
+-\def\@listi{\leftmargin\leftmargini \topsep \z@\parsep \z@
+-\itemsep \parsep}}
+-\def\scriptsize{\@setsize\scriptsize{9.5pt}\viiipt\@viiipt}
+-\def\tiny{\@setsize\tiny{7pt}\vipt\@vipt}
+-\def\large{\@setsize\large{18pt}\xivpt\@xivpt}
+-\def\Large{\@setsize\Large{22pt}\xviipt\@xviipt}
+-\def\LARGE{\@setsize\LARGE{25pt}\xxpt\@xxpt}
+-\def\huge{\@setsize\huge{30pt}\xxvpt\@xxvpt}
+-\let\Huge=\huge
+-\normalsize 
+-
+-\voffset -.4in
+-\if@twoside \oddsidemargin .5in \evensidemargin -.15in
+-\else \oddsidemargin  .25in \evensidemargin .25in \fi
+-\marginparwidth 1in \marginparsep .25in
+- \topmargin \z@ \headheight 12pt \headsep .24in \footskip .2in
+-
+-\textheight 9in \textwidth 6.15in \columnsep 12pt \columnseprule 0pt 
+-
+-\footnotesep 8pt 
+-\skip\footins 16pt plus 5pt minus 3pt 
+-\floatsep 14pt plus 4pt minus 4pt \textfloatsep 20pt plus 2pt minus 4pt
+-\intextsep 14pt plus 4pt minus 4pt \@maxsep 20pt \dblfloatsep 12pt plus 2pt
+-minus 2pt \dbltextfloatsep 20pt plus 2pt minus 4pt \@dblmaxsep 20pt 
+-\@fptop 0pt plus 1fil \@fpsep 8pt plus 2fil \@fpbot 0pt plus 1fil 
+-\@dblfptop 0pt plus 1fil \@dblfpsep 8pt plus 2fil \@dblfpbot 0pt plus 1fil
+-\marginparpush 5pt 
+-
+-\parskip 0pt plus 1pt \parindent .3in \partopsep \z@
+-\@lowpenalty 51 \@medpenalty 151 \@highpenalty 301 
+-\@beginparpenalty -\@lowpenalty \@endparpenalty -\@lowpenalty \@itempenalty
+--\@lowpenalty 
+-
+-
+-\def\part{\par \addvspace{4ex} \@afterindentfalse \secdef\@part\@spart} 
+-\def\@part[#1]#2{\ifnum \c@secnumdepth >\m@ne \refstepcounter{part}
+-\addcontentsline{toc}{part}{\thepart \hspace{1em}#1}\else
+-\addcontentsline{toc}{part}{#1}\fi { \parindent 0pt \raggedright 
+- \ifnum \c@secnumdepth >\m@ne \bf Part \thepart \par \nobreak \fi
+-\bf #2\markboth{}{}\par } \nobreak \vskip 3ex \@afterheading } 
+-\def\@spart#1{{\parindent 0pt \raggedright 
+- \bf 
+- #1\par} \nobreak \vskip 3ex \@afterheading } 
+-\def\section{\@startsection {section}{1}{.3in}{1.6ex plus .6ex minus 
+-    .2ex}{-.5em plus -.1em}{\bf}}
+-\def\subsection{\@startsection {subsection}{2}{.3in}{1.6ex plus .6ex minus 
+-    .2ex}{-.5em plus -.1em}{\bf}}
+-\def\subsubsection{\@startsection {subsubsection}{3}{.3in}{1.6ex plus .6ex minus 
+-    .2ex}{-.5em plus -.1em}{\bf}}
+-\def\paragraph{\@startsection {paragraph}{4}{.3in}{1.6ex plus .6ex minus 
+-    .2ex}{-.5em plus -.1em}{\it}}
+-\def\subparagraph{\@startsection {subparagraph}{4}{.3in}{1.6ex plus .6ex minus 
+-    .2ex}{-.5em plus -.1em}{\it}}
+-
+-
+-\setcounter{secnumdepth}{3}
+-
+-\def\appendix{\par
+- \setcounter{section}{0}
+- \setcounter{subsection}{0}
+- \def\thesection{\Alph{section}}}
+-
+-
+-\leftmargini .6in
+-\leftmarginii 2.2em \leftmarginiii 1.87em \leftmarginiv 1.7em \leftmarginv 1em
+-\leftmarginvi 1em
+-\leftmargin\leftmargini
+-\labelsep .5em
+-\labelwidth\leftmargini\advance\labelwidth-\labelsep
+-\def\@listI{\leftmargin\leftmargini \parsep \z@ \topsep \z@ \itemsep \parsep}
+-\let\@listi\@listI
+-\@listi 
+-\def\@listii{\leftmargin\leftmarginii
+- \labelwidth\leftmarginii\advance\labelwidth-\labelsep
+- \topsep \z@
+- \parsep \z@
+- \itemsep \parsep}
+-\def\@listiii{\leftmargin\leftmarginiii
+- \labelwidth\leftmarginiii\advance\labelwidth-\labelsep
+- \topsep \z@
+- \parsep \z@ \partopsep \z@
+- \itemsep \topsep}
+-\def\@listiv{\leftmargin\leftmarginiv
+- \labelwidth\leftmarginiv\advance\labelwidth-\labelsep}
+-\def\@listv{\leftmargin\leftmarginv
+- \labelwidth\leftmarginv\advance\labelwidth-\labelsep}
+-\def\@listvi{\leftmargin\leftmarginvi
+- \labelwidth\leftmarginvi\advance\labelwidth-\labelsep}
+-
+//GO.SYSIN DD siam12.sty
+echo siam.bst 1>&2
+sed >siam.bst <<'//GO.SYSIN DD siam.bst' 's/^-//'
+-% SIAM bibliography style (24-Jan-88 version)
+-%    numeric labels, alphabetic order, Mathematical Reviews abbreviations,
+-%    names in \sc, titles in italics, book titles mixed upper-lower and article
+-%    titles lowercase, commas separate all fields except before "notes".
+-%
+-%   History
+-%    1/30/86	(HWT)	Original version, by Howard Trickey.
+-%    6/15/87	(HWT)	Fix format.editors---Martin Costabel.
+-%    1/24/88	(OP&HWT) Updated for BibTeX version 0.99a, Oren Patashnik;
+-%			THIS `siam' VERSION DOES NOT WORK WITH BIBTEX 0.98i.
+-
+-ENTRY
+-  { address
+-    author
+-    booktitle
+-    chapter
+-    edition
+-    editor
+-    howpublished
+-    institution
+-    journal
+-    key
+-    month
+-    note
+-    number
+-    organization
+-    pages
+-    publisher
+-    school
+-    series
+-    title
+-    type
+-    volume
+-    year
+-  }
+-  {}
+-  { label }
+-
+-INTEGERS { output.state before.all mid.sentence after.block }
+-
+-FUNCTION {init.state.consts}
+-{ #0 'before.all :=
+-  #1 'mid.sentence :=
+-  #2 'after.block :=
+-}
+-
+-STRINGS { s t }
+-
+-FUNCTION {output.nonnull}
+-{ 's :=
+-  output.state mid.sentence =
+-    { ", " * write$ }
+-    { output.state after.block =
+-	{ add.period$ write$
+-	  newline$
+-	  "\newblock " write$
+-	}
+-	'write$
+-      if$
+-      mid.sentence 'output.state :=
+-    }
+-  if$
+-  s
+-}
+-
+-FUNCTION {output}
+-{ duplicate$ empty$
+-    'pop$
+-    'output.nonnull
+-  if$
+-}
+-
+-FUNCTION {output.check}
+-{ 't :=
+-  duplicate$ empty$
+-    { pop$ "empty " t * " in " * cite$ * warning$ }
+-    'output.nonnull
+-  if$
+-}
+-
+-FUNCTION {output.bibitem}
+-{ newline$
+-  "\bibitem{" write$
+-  cite$ write$
+-  "}" write$
+-  newline$
+-  ""
+-  before.all 'output.state :=
+-}
+-
+-FUNCTION {fin.entry}
+-{ add.period$
+-  write$
+-  newline$
+-}
+-
+-FUNCTION {new.block}
+-{ output.state before.all =
+-    'skip$
+-    { after.block 'output.state := }
+-  if$
+-}
+-
+-FUNCTION {not}
+-{   { #0 }
+-    { #1 }
+-  if$
+-}
+-
+-FUNCTION {and}
+-{   'skip$
+-    { pop$ #0 }
+-  if$
+-}
+-
+-FUNCTION {or}
+-{   { pop$ #1 }
+-    'skip$
+-  if$
+-}
+-
+-FUNCTION {new.block.checka}
+-{ empty$
+-    'skip$
+-    'new.block
+-  if$
+-}
+-
+-FUNCTION {field.or.null}
+-{ duplicate$ empty$
+-    { pop$ "" }
+-    'skip$
+-  if$
+-}
+-
+-FUNCTION {emphasize}
+-{ duplicate$ empty$
+-    { pop$ "" }
+-    { "{\em " swap$ * "}" * }
+-  if$
+-}
+-
+-FUNCTION {scapify}
+-{ duplicate$ empty$
+-    { pop$ "" }
+-    { "{\sc " swap$ * "}" * }
+-  if$
+-}
+-
+-INTEGERS { nameptr namesleft numnames }
+-
+-FUNCTION {format.names}
+-{ 's :=
+-  #1 'nameptr :=
+-  s num.names$ 'numnames :=
+-  numnames 'namesleft :=
+-    { namesleft #0 > }
+-    { s nameptr "{f.~}{vv~}{ll}{, jj}" format.name$ 't :=
+-      nameptr #1 >
+-	{ namesleft #1 >
+-	    { ", " * t * }
+-	    { numnames #2 >
+-		{ "," * }
+-		'skip$
+-	      if$
+-	      t "others" =
+-		{ " et~al." * }
+-		{ " and " * t * }
+-	      if$
+-	    }
+-	  if$
+-	}
+-	't
+-      if$
+-      nameptr #1 + 'nameptr :=
+-      namesleft #1 - 'namesleft :=
+-    }
+-  while$
+-}
+-
+-STRINGS { last.authors }
+-
+-FUNCTION {init.last.authors}
+-{ "" 'last.authors :=
+-}
+-
+-FUNCTION {format.authors}
+-{ author empty$
+-    { "" 'last.authors :=
+-      ""
+-    }
+-    { author last.authors =
+-        { "\leavevmode\vrule height 2pt depth -1.6pt width 23pt" }
+-        { author format.names scapify }
+-      if$
+-      author 'last.authors :=
+-    }
+-  if$
+-}
+-
+-FUNCTION {format.organization}
+-{ organization empty$
+-    { "" 'last.authors :=
+-      ""
+-    }
+-    { organization last.authors =
+-        { "\leavevmode\vrule height 2pt depth -1.6pt width 23pt" }
+-        { organization scapify }
+-      if$
+-      organization 'last.authors :=
+-    }
+-  if$
+-}
+-
+-FUNCTION {format.editors}
+-{ editor empty$
+-    { "" 'last.authors :=
+-      ""
+-    }
+-    { editor last.authors =
+-        { "\leavevmode\vrule height 2pt depth -1.6pt width 23pt" }
+-	{ editor format.names scapify }
+-      if$
+-      editor num.names$ #1 >
+-        { ", eds." * }
+-	{ ", ed." * }
+-      if$
+-      editor 'last.authors :=
+-    }
+-  if$
+-}
+-
+-FUNCTION {format.ineditors}
+-{ editor empty$
+-    { "" }
+-    { editor format.names
+-      editor num.names$ #1 >
+-	{ ", eds." * }
+-	{ ", ed." * }
+-      if$
+-    }
+-  if$
+-}
+-
+-FUNCTION {format.title}
+-{ title empty$
+-    { "" }
+-    { title "t" change.case$ emphasize }
+-  if$
+-}
+-
+-FUNCTION {n.dashify}
+-{ 't :=
+-  ""
+-    { t empty$ not }
+-    { t #1 #1 substring$ "-" =
+-	{ t #1 #2 substring$ "--" = not
+-	    { "--" *
+-	      t #2 global.max$ substring$ 't :=
+-	    }
+-	    {   { t #1 #1 substring$ "-" = }
+-		{ "-" *
+-		  t #2 global.max$ substring$ 't :=
+-		}
+-	      while$
+-	    }
+-	  if$
+-	}
+-	{ t #1 #1 substring$ *
+-	  t #2 global.max$ substring$ 't :=
+-	}
+-      if$
+-    }
+-  while$
+-}
+-
+-FUNCTION {format.date}
+-{ year empty$
+-    { month empty$
+-	{ "" }
+-	{ "there's a month but no year in " cite$ * warning$
+-	  month
+-	}
+-      if$
+-    }
+-    { month empty$
+-	'year
+-	{ month " " * year * }
+-      if$
+-    }
+-  if$
+-}
+-
+-FUNCTION {format.btitle}
+-{ title emphasize
+-}
+-
+-FUNCTION {tie.or.space.connect}
+-{ duplicate$ text.length$ #3 <
+-    { "~" }
+-    { " " }
+-  if$
+-  swap$ * *
+-}
+-
+-FUNCTION {either.or.check}
+-{ empty$
+-    'pop$
+-    { "can't use both " swap$ * " fields in " * cite$ * warning$ }
+-  if$
+-}
+-
+-FUNCTION {format.bvolume}
+-{ volume empty$
+-    { "" }
+-    { "vol.~" volume *
+-      series empty$
+-	'skip$
+-	{ " of " * series * }
+-      if$
+-      "volume and number" number either.or.check
+-    }
+-  if$
+-}
+-
+-FUNCTION {format.number.series}
+-{ volume empty$
+-    { number empty$
+-	{ series field.or.null }
+-	{ "no.~" number *
+-	  series empty$
+-	    { "there's a number but no series in " cite$ * warning$ }
+-	    { " in " * series * }
+-	  if$
+-	}
+-      if$
+-    }
+-    { "" }
+-  if$
+-}
+-
+-FUNCTION {format.edition}
+-{ edition empty$
+-    { "" }
+-    { edition "l" change.case$ "~ed." * }
+-  if$
+-}
+-
+-INTEGERS { multiresult }
+-
+-FUNCTION {multi.page.check}
+-{ 't :=
+-  #0 'multiresult :=
+-    { multiresult not
+-      t empty$ not
+-      and
+-    }
+-    { t #1 #1 substring$
+-      duplicate$ "-" =
+-      swap$ duplicate$ "," =
+-      swap$ "+" =
+-      or or
+-	{ #1 'multiresult := }
+-	{ t #2 global.max$ substring$ 't := }
+-      if$
+-    }
+-  while$
+-  multiresult
+-}
+-
+-FUNCTION {format.pages}
+-{ pages empty$
+-    { "" }
+-    { pages multi.page.check
+-	{ "pp.~" pages n.dashify * }
+-	{ "p.~" pages * }
+-      if$
+-    }
+-  if$
+-}
+-
+-FUNCTION {format.vol.year}
+-{ volume field.or.null
+-  year empty$
+-    { "empty year in " cite$ * warning$ }
+-    { " (" year * ")" * * }
+-  if$
+-}
+-
+-FUNCTION {format.chapter.pages}
+-{ chapter empty$
+-    'format.pages
+-    { type empty$
+-	{ "ch.~" chapter * }
+-	{ type "l" change.case$ chapter tie.or.space.connect }
+-      if$
+-      pages empty$
+-	'skip$
+-	{ ", " * format.pages * }
+-      if$
+-    }
+-  if$
+-}
+-
+-FUNCTION {format.in.ed.booktitle}
+-{ booktitle empty$
+-    { "" }
+-    { editor empty$
+-	{ "in " booktitle * }
+-	{ "in " booktitle * ", " * format.ineditors * }
+-      if$
+-    }
+-  if$
+-}
+-
+-FUNCTION {empty.misc.check}
+-{ author empty$ title empty$ howpublished empty$
+-  month empty$ year empty$ note empty$
+-  and and and and and
+-  key empty$ not and
+-    { "all relevant fields are empty in " cite$ * warning$ }
+-    'skip$
+-  if$
+-}
+-
+-FUNCTION {format.thesis.type}
+-{ type empty$
+-    'skip$
+-    { pop$
+-      type "l" change.case$
+-    }
+-  if$
+-}
+-
+-FUNCTION {format.tr.number}
+-{ type empty$
+-    { "Tech. Report" }
+-    'type
+-  if$
+-  number empty$
+-    { "l" change.case$ }
+-    { number tie.or.space.connect }
+-  if$
+-}
+-
+-FUNCTION {format.article.crossref}
+-{ key empty$
+-    { journal empty$
+-	{ "need key or journal for " cite$ * " to crossref " * crossref *
+-	  warning$
+-	  ""
+-	}
+-	{ "in " journal * }
+-      if$
+-    }
+-    { "in " key * }
+-  if$
+-  " \cite{" * crossref * "}" *
+-}
+-
+-FUNCTION {format.crossref.editor}
+-{ editor #1 "{vv~}{ll}" format.name$
+-  editor num.names$ duplicate$
+-  #2 >
+-    { pop$ " et~al." * }
+-    { #2 <
+-	'skip$
+-	{ editor #2 "{ff }{vv }{ll}{ jj}" format.name$ "others" =
+-	    { " et~al." * }
+-	    { " and " * editor #2 "{vv~}{ll}" format.name$ * }
+-	  if$
+-	}
+-      if$
+-    }
+-  if$
+-}
+-
+-FUNCTION {format.book.crossref}
+-{ volume empty$
+-    { "empty volume in " cite$ * "'s crossref of " * crossref * warning$
+-      "in "
+-    }
+-    { "vol.~" volume *
+-      " of " *
+-    }
+-  if$
+-  editor empty$
+-  editor field.or.null author field.or.null =
+-  or
+-    { key empty$
+-	{ series empty$
+-	    { "need editor, key, or series for " cite$ * " to crossref " *
+-	      crossref * warning$
+-	      "" *
+-	    }
+-	    { series * }
+-	  if$
+-	}
+-	{ key * }
+-      if$
+-    }
+-    { format.crossref.editor * }
+-  if$
+-  " \cite{" * crossref * "}" *
+-}
+-
+-FUNCTION {format.incoll.inproc.crossref}
+-{ editor empty$
+-  editor field.or.null author field.or.null =
+-  or
+-    { key empty$
+-	{ booktitle empty$
+-	    { "need editor, key, or booktitle for " cite$ * " to crossref " *
+-	      crossref * warning$
+-	      ""
+-	    }
+-	    { "in " booktitle * }
+-	  if$
+-	}
+-	{ "in " key * }
+-      if$
+-    }
+-    { "in " format.crossref.editor * }
+-  if$
+-  " \cite{" * crossref * "}" *
+-}
+-
+-FUNCTION {article}
+-{ output.bibitem
+-  format.authors "author" output.check
+-  format.title "title" output.check
+-  crossref missing$
+-    { journal "journal" output.check
+-      format.vol.year output
+-    }
+-    { format.article.crossref output.nonnull }
+-  if$
+-  format.pages output
+-  new.block
+-  note output
+-  fin.entry
+-}
+-
+-FUNCTION {book}
+-{ output.bibitem
+-  author empty$
+-    { format.editors "author and editor" output.check }
+-    { format.authors output.nonnull
+-      crossref missing$
+-	{ "author and editor" editor either.or.check }
+-	'skip$
+-      if$
+-    }
+-  if$
+-  format.btitle "title" output.check
+-  crossref missing$
+-    { format.bvolume output
+-      format.number.series output
+-      publisher "publisher" output.check
+-      address output
+-    }
+-    { format.book.crossref output.nonnull }
+-  if$
+-  format.edition output
+-  format.date "year" output.check
+-  new.block
+-  note output
+-  fin.entry
+-}
+-
+-FUNCTION {booklet}
+-{ output.bibitem
+-  format.authors output
+-  format.title "title" output.check
+-  howpublished new.block.checka
+-  howpublished output
+-  address output
+-  format.date output
+-  new.block
+-  note output
+-  fin.entry
+-}
+-
+-FUNCTION {inbook}
+-{ output.bibitem
+-  author empty$
+-    { format.editors "author and editor" output.check }
+-    { format.authors output.nonnull
+-      crossref missing$
+-	{ "author and editor" editor either.or.check }
+-	'skip$
+-      if$
+-    }
+-  if$
+-  format.btitle "title" output.check
+-  crossref missing$
+-    { format.bvolume output
+-      format.number.series output
+-      publisher "publisher" output.check
+-      address output
+-    }
+-    { format.book.crossref output.nonnull }
+-  if$
+-  format.edition output
+-  format.date "year" output.check
+-  format.chapter.pages "chapter and pages" output.check
+-  new.block
+-  note output
+-  fin.entry
+-}
+-
+-FUNCTION {incollection}
+-{ output.bibitem
+-  format.authors "author" output.check
+-  format.title "title" output.check
+-  crossref missing$
+-    { format.in.ed.booktitle "booktitle" output.check
+-      format.bvolume output
+-      format.number.series output
+-      publisher "publisher" output.check
+-      address output
+-      format.edition output
+-      format.date "year" output.check
+-    }
+-    { format.incoll.inproc.crossref output.nonnull }
+-  if$
+-  format.chapter.pages output
+-  new.block
+-  note output
+-  fin.entry
+-}
+-
+-FUNCTION {inproceedings}
+-{ output.bibitem
+-  format.authors "author" output.check
+-  format.title "title" output.check
+-  crossref missing$
+-    { format.in.ed.booktitle "booktitle" output.check
+-      format.bvolume output
+-      format.number.series output
+-      address empty$
+-	{ organization output
+-	  publisher output
+-	  format.date "year" output.check
+-	}
+-	{ address output.nonnull
+-	  format.date "year" output.check
+-	  organization output
+-	  publisher output
+-	}
+-      if$
+-    }
+-    { format.incoll.inproc.crossref output.nonnull }
+-  if$
+-  format.pages output
+-  new.block
+-  note output
+-  fin.entry
+-}
+-
+-FUNCTION {conference} { inproceedings }
+-
+-FUNCTION {manual}
+-{ output.bibitem
+-  author empty$
+-    { format.organization output }
+-    { format.authors output.nonnull }
+-  if$
+-  format.btitle "title" output.check
+-  author empty$
+-    'skip$
+-    { organization output }
+-  if$
+-  address output
+-  format.edition output
+-  format.date output
+-  new.block
+-  note output
+-  fin.entry
+-}
+-
+-FUNCTION {mastersthesis}
+-{ output.bibitem
+-  format.authors "author" output.check
+-  format.title "title" output.check
+-  "master's thesis" format.thesis.type output.nonnull
+-  school "school" output.check
+-  address output
+-  format.date "year" output.check
+-  new.block
+-  note output
+-  fin.entry
+-}
+-
+-FUNCTION {misc}
+-{ output.bibitem
+-  format.authors output
+-  format.title output
+-  howpublished new.block.checka
+-  howpublished output
+-  format.date output
+-  new.block
+-  note output
+-  fin.entry
+-  empty.misc.check
+-}
+-
+-FUNCTION {phdthesis}
+-{ output.bibitem
+-  format.authors "author" output.check
+-  format.btitle "title" output.check
+-  "PhD thesis" format.thesis.type output.nonnull
+-  school "school" output.check
+-  address output
+-  format.date "year" output.check
+-  new.block
+-  note output
+-  fin.entry
+-}
+-
+-FUNCTION {proceedings}
+-{ output.bibitem
+-  editor empty$
+-    { format.organization output }
+-    { format.editors output.nonnull }
+-  if$
+-  format.btitle "title" output.check
+-  format.bvolume output
+-  format.number.series output
+-  address empty$
+-    { editor empty$
+-	'skip$
+-	{ organization output }
+-      if$
+-      publisher output
+-      format.date "year" output.check
+-    }
+-    { address output.nonnull
+-      format.date "year" output.check
+-      editor empty$
+-	'skip$
+-	{ organization output }
+-      if$
+-      publisher output
+-    }
+-  if$
+-  new.block
+-  note output
+-  fin.entry
+-}
+-
+-FUNCTION {techreport}
+-{ output.bibitem
+-  format.authors "author" output.check
+-  format.title "title" output.check
+-  format.tr.number output.nonnull
+-  institution "institution" output.check
+-  address output
+-  format.date "year" output.check
+-  new.block
+-  note output
+-  fin.entry
+-}
+-
+-FUNCTION {unpublished}
+-{ output.bibitem
+-  format.authors "author" output.check
+-  format.title "title" output.check
+-  new.block
+-  note "note" output.check
+-  format.date output
+-  fin.entry
+-}
+-
+-FUNCTION {default.type} { misc }
+-
+-MACRO {jan} {"Jan."}
+-
+-MACRO {feb} {"Feb."}
+-
+-MACRO {mar} {"Mar."}
+-
+-MACRO {apr} {"Apr."}
+-
+-MACRO {may} {"May"}
+-
+-MACRO {jun} {"June"}
+-
+-MACRO {jul} {"July"}
+-
+-MACRO {aug} {"Aug."}
+-
+-MACRO {sep} {"Sept."}
+-
+-MACRO {oct} {"Oct."}
+-
+-MACRO {nov} {"Nov."}
+-
+-MACRO {dec} {"Dec."}
+-
+-MACRO {acmcs} {"ACM Comput. Surveys"}
+-
+-MACRO {acta} {"Acta Inf."}
+-
+-MACRO {cacm} {"Comm. ACM"}
+-
+-MACRO {ibmjrd} {"IBM J. Res. Dev."}
+-
+-MACRO {ibmsj} {"IBM Syst.~J."}
+-
+-MACRO {ieeese} {"IEEE Trans. Softw. Eng."}
+-
+-MACRO {ieeetc} {"IEEE Trans. Comput."}
+-
+-MACRO {ieeetcad}
+- {"IEEE Trans. Comput.-Aided Design Integrated Circuits"}
+-
+-MACRO {ipl} {"Inf. Process. Lett."}
+-
+-MACRO {jacm} {"J.~Assoc. Comput. Mach."}
+-
+-MACRO {jcss} {"J.~Comput. System Sci."}
+-
+-MACRO {scp} {"Sci. Comput. Programming"}
+-
+-MACRO {sicomp} {"SIAM J. Comput."}
+-
+-MACRO {tocs} {"ACM Trans. Comput. Syst."}
+-
+-MACRO {tods} {"ACM Trans. Database Syst."}
+-
+-MACRO {tog} {"ACM Trans. Gr."}
+-
+-MACRO {toms} {"ACM Trans. Math. Softw."}
+-
+-MACRO {toois} {"ACM Trans. Office Inf. Syst."}
+-
+-MACRO {toplas} {"ACM Trans. Prog. Lang. Syst."}
+-
+-MACRO {tcs} {"Theoretical Comput. Sci."}
+-
+-READ
+-
+-FUNCTION {sortify}
+-{ purify$
+-  "l" change.case$
+-}
+-
+-INTEGERS { len }
+-
+-FUNCTION {chop.word}
+-{ 's :=
+-  'len :=
+-  s #1 len substring$ =
+-    { s len #1 + global.max$ substring$ }
+-    's
+-  if$
+-}
+-
+-FUNCTION {sort.format.names}
+-{ 's :=
+-  #1 'nameptr :=
+-  ""
+-  s num.names$ 'numnames :=
+-  numnames 'namesleft :=
+-    { namesleft #0 > }
+-    { nameptr #1 >
+-	{ "   " * }
+-	'skip$
+-      if$
+-      s nameptr "{vv{ } }{ll{ }}{  f{ }}{  jj{ }}" format.name$ 't :=
+-      nameptr numnames = t "others" = and
+-	{ "et al" * }
+-	{ t sortify * }
+-      if$
+-      nameptr #1 + 'nameptr :=
+-      namesleft #1 - 'namesleft :=
+-    }
+-  while$
+-}
+-
+-FUNCTION {sort.format.title}
+-{ 't :=
+-  "A " #2
+-    "An " #3
+-      "The " #4 t chop.word
+-    chop.word
+-  chop.word
+-  sortify
+-  #1 global.max$ substring$
+-}
+-
+-FUNCTION {author.sort}
+-{ author empty$
+-    { key empty$
+-	{ "to sort, need author or key in " cite$ * warning$
+-	  ""
+-	}
+-	{ key sortify }
+-      if$
+-    }
+-    { author sort.format.names }
+-  if$
+-}
+-
+-FUNCTION {author.editor.sort}
+-{ author empty$
+-    { editor empty$
+-	{ key empty$
+-	    { "to sort, need author, editor, or key in " cite$ * warning$
+-	      ""
+-	    }
+-	    { key sortify }
+-	  if$
+-	}
+-	{ editor sort.format.names }
+-      if$
+-    }
+-    { author sort.format.names }
+-  if$
+-}
+-
+-FUNCTION {author.organization.sort}
+-{ author empty$
+-    { organization empty$
+-	{ key empty$
+-	    { "to sort, need author, organization, or key in " cite$ * warning$
+-	      ""
+-	    }
+-	    { key sortify }
+-	  if$
+-	}
+-	{ "The " #4 organization chop.word sortify }
+-      if$
+-    }
+-    { author sort.format.names }
+-  if$
+-}
+-
+-FUNCTION {editor.organization.sort}
+-{ editor empty$
+-    { organization empty$
+-	{ key empty$
+-	    { "to sort, need editor, organization, or key in " cite$ * warning$
+-	      ""
+-	    }
+-	    { key sortify }
+-	  if$
+-	}
+-	{ "The " #4 organization chop.word sortify }
+-      if$
+-    }
+-    { editor sort.format.names }
+-  if$
+-}
+-
+-FUNCTION {presort}
+-{ type$ "book" =
+-  type$ "inbook" =
+-  or
+-    'author.editor.sort
+-    { type$ "proceedings" =
+-	'editor.organization.sort
+-	{ type$ "manual" =
+-	    'author.organization.sort
+-	    'author.sort
+-	  if$
+-	}
+-      if$
+-    }
+-  if$
+-  "    "
+-  *
+-  year field.or.null sortify
+-  *
+-  "    "
+-  *
+-  title field.or.null
+-  sort.format.title
+-  *
+-  #1 entry.max$ substring$
+-  'sort.key$ :=
+-}
+-
+-ITERATE {presort}
+-
+-SORT
+-
+-STRINGS { longest.label }
+-
+-INTEGERS { number.label longest.label.width }
+-
+-FUNCTION {initialize.longest.label}
+-{ "" 'longest.label :=
+-  #1 'number.label :=
+-  #0 'longest.label.width :=
+-}
+-
+-FUNCTION {longest.label.pass}
+-{ number.label int.to.str$ 'label :=
+-  number.label #1 + 'number.label :=
+-  label width$ longest.label.width >
+-    { label 'longest.label :=
+-      label width$ 'longest.label.width :=
+-    }
+-    'skip$
+-  if$
+-}
+-
+-EXECUTE {initialize.longest.label}
+-
+-ITERATE {longest.label.pass}
+-
+-FUNCTION {begin.bib}
+-{ preamble$ empty$
+-    'skip$
+-    { preamble$ write$ newline$ }
+-  if$
+-  "\begin{thebibliography}{"  longest.label  * "}" * write$ newline$
+-}
+-
+-EXECUTE {begin.bib}
+-
+-EXECUTE {init.state.consts}
+-
+-EXECUTE {init.last.authors}
+-
+-ITERATE {call.type$}
+-
+-FUNCTION {end.bib}
+-{ newline$
+-  "\end{thebibliography}" write$ newline$
+-}
+-
+-EXECUTE {end.bib}
+//GO.SYSIN DD siam.bst
+echo fixup.sty 1>&2
+sed >fixup.sty <<'//GO.SYSIN DD fixup.sty' 's/^-//'
+-% FIXUP DOCUMENT STYLE OPTION
+-%    for LaTeX Version 2.09 <25 Jan 1988>
+-%        by John Hobby
+-%
+-% If the fleqn style option is also used, it should precede this one.
+-
+-
+-\hyphenation{bi-dif-fer-en-tial buzz-word data-path equi-vari-ant gauss-ian
+-	hexa-dec-i-mal le-gendre mass-a-chu-setts non-smooth
+-	qua-si-smooth stand-alone time-stamp wave-guide white-space}
+-
+-
+-
+-
+-% Fix Plain's \bigl, \Bigl, etc. macros so that they try to scale with
+-% LaTeX size changes.  This uses the fact that \@setsize sets \ht\strutbox
+-% to be 70% of the normal unstretched baselineskip.
+-
+-\def\big#1{{\hbox{$\left#1\vcenter to1.428\ht\strutbox{}\right.\n@space$}}}
+-\def\Big#1{{\hbox{$\left#1\vcenter to2.142\ht\strutbox{}\right.\n@space$}}}
+-\def\bigg#1{{\hbox{$\left#1\vcenter to2.857\ht\strutbox{}\right.\n@space$}}}
+-\def\Bigg#1{{\hbox{$\left#1\vcenter to3.571\ht\strutbox{}\right.\n@space$}}}
+-
+-
+-
+-
+-
+-% Fix \sbox and \mbox so that they do not take the box contents as a parameter.
+-% This makes environments that  depend on catcode changes work inside
+-
+-\def\sbox#1{\setbox#1\hbox}
+-\def\mbox{\leavevmode\hbox}
+-
+-
+-
+-
+-
+-
+-% Apply \addpenalty's trick for not confusing \addvspace so that the \write
+-% from \addtocontents or \addcontentsline will not mess up vertical spacing
+-
+-\def\addvstuff#1{%
+-    \ifvmode\ifdim\lastskip=\z@ #1%
+-	    \else \@tempskipb\lastskip
+-		  \vskip -\lastskip #1\vskip\@tempskipb
+-	    \fi
+-    \else #1\fi}
+-
+-\def\addpenalty#1{\ifvmode 
+-   \if@minipage\else\if@nobreak\else
+-      \addvstuff{\penalty#1}%
+-      \fi\fi
+-   \else\@noitemerr\fi}
+-
+-\long\def\addtocontents#1#2{%
+-    \if@filesw \begingroup
+-	\let\label\@gobble \let\index\@gobble
+-	\def\protect##1{\string\string\string##1\string\space\space}%
+-	\edef\@tempa{\write \@auxout {\string\@writefile{#1}{#2}}}%
+-	\addvstuff{\@tempa \if@nobreak \ifvmode\nobreak\fi\fi}%
+-    \endgroup\fi}
+-
+-\def\addcontentsline#1#2#3{%
+-    \if@filesw \begingroup
+-	\let\label\@gobble \let\index\@gobble
+-	\def\protect##1{\string\string\string##1\string\space\space}%
+-	\@temptokena{\thepage}%
+-	\edef\@tempa{\write \@auxout{\string\@writefile{#1}%
+-			{\protect\contentsline{#2}{#3}{\the\@temptokena}}}}%
+-	\addvstuff{\@tempa \if@nobreak \ifvmode\nobreak\fi\fi}%
+-    \endgroup\fi}
+-
+-
+-
+-
+-% Make floats use the trick from the minipage environment to avoid extraneous
+-% space at the top.  e.g., "\begin{figure} \begin{center}..."
+-
+-\def\@xfloat#1[#2]{\ifhmode \@bsphack\@floatpenalty -\@Mii\else
+-   \@floatpenalty-\@Miii\fi\def\@captype{#1}\ifinner
+-      \@parmoderr\@floatpenalty\z@
+-    \else\@next\@currbox\@freelist{\@tempcnta\csname ftype@#1\endcsname
+-       \multiply\@tempcnta\@xxxii\advance\@tempcnta\sixt@@n
+-       \@tfor \@tempa :=#2\do
+-                        {\if\@tempa h\advance\@tempcnta \@ne\fi
+-                         \if\@tempa t\advance\@tempcnta \tw@\fi
+-                         \if\@tempa b\advance\@tempcnta 4\relax\fi
+-                         \if\@tempa p\advance\@tempcnta 8\relax\fi
+-         }\global\count\@currbox\@tempcnta}\@fltovf\fi
+-    \global\setbox\@currbox\vbox\bgroup 
+-    \hsize\columnwidth \@parboxrestore
+-    \@minipagetrue
+-    \everypar{\global\@minipagefalse\everypar{}}}
+-
+-
+-
+-
+-% We now redefine the eqnarray environment to correct the space around
+-% the operator.  Since the fleqn document style option also redefines
+-% this environment, we carefully check the previous definition before
+-% making any changes.  Any changes to the definition in LaTeX itself
+-% or in the fleqn document style option will cause the `Warning: unable...'
+-% message to appear.  If this happens it will be necessary to update the
+-% definitions of \@tempa and \@tempb below and incorperate the changes into
+-% the new definitions of \eqnarray.
+-
+-
+-% This is the current definition of \eqnarray for the fleqn document style
+-% option:
+-
+-\def\@tempa{\stepcounter{equation}\let\@currentlabel=\theequation
+-\global\@eqnswtrue
+-\global\@eqcnt\z@\tabskip\mathindent\let\\=\@eqncr
+-\abovedisplayskip\topsep\ifvmode\advance\abovedisplayskip\partopsep\fi
+-\belowdisplayskip\abovedisplayskip
+-\belowdisplayshortskip\abovedisplayskip
+-\abovedisplayshortskip\abovedisplayskip
+-$$\halign to
+-\linewidth\bgroup\@eqnsel\hskip\@centering$\displaystyle\tabskip\z@
+-{##}$&\global\@eqcnt\@ne \hskip 2\arraycolsep \hfil${##}$\hfil
+-&\global\@eqcnt\tw@ \hskip 2\arraycolsep $\displaystyle{##}$\hfil 
+-\tabskip\@centering&\llap{##}\tabskip\z@\cr}
+-
+-
+-% Here is the corresponding defintion from latex.tex:
+-
+-\def\@tempb{\stepcounter{equation}\let\@currentlabel=\theequation
+-\global\@eqnswtrue
+-\global\@eqcnt\z@\tabskip\@centering\let\\=\@eqncr
+-$$\halign to \displaywidth\bgroup\@eqnsel\hskip\@centering
+-  $\displaystyle\tabskip\z@{##}$&\global\@eqcnt\@ne 
+-  \hskip 2\arraycolsep \hfil${##}$\hfil
+-  &\global\@eqcnt\tw@ \hskip 2\arraycolsep $\displaystyle\tabskip\z@{##}$\hfil 
+-   \tabskip\@centering&\llap{##}\tabskip\z@\cr}
+-
+-
+-\ifx\eqnarray\@tempa		% If the fleqn document style option is in effect
+-
+-	\def\eqnarray{\stepcounter{equation}\let\@currentlabel=\theequation
+-	\global\@eqnswtrue
+-	\global\@eqcnt\z@\tabskip\mathindent\let\\=\@eqncr
+-	\abovedisplayskip\topsep\ifvmode\advance\abovedisplayskip\partopsep\fi
+-	\belowdisplayskip\abovedisplayskip
+-	\belowdisplayshortskip\abovedisplayskip
+-	\abovedisplayshortskip\abovedisplayskip
+-	$$\halign to \linewidth\bgroup\hfil
+-	  $\displaystyle\tabskip\z@{##}$&\global\@eqcnt\@ne
+-	  \hfil$\displaystyle{{}##{}}$\hfil
+-	  &\global\@eqcnt\tw@ $\displaystyle{##}$\hfil 
+-	   \tabskip\@centering&\llap{##}\tabskip\z@\cr}
+-
+-\else\ifx\eqnarray\@tempb	% Else try the default eqnarray environment
+-
+-	\def\eqnarray{\stepcounter{equation}\let\@currentlabel=\theequation
+-	\global\@eqnswtrue
+-	\global\@eqcnt\z@\tabskip\@centering\let\\=\@eqncr
+-	$$\halign to \displaywidth\bgroup\hfil
+-	  $\displaystyle\tabskip\z@{##}$&\global\@eqcnt\@ne 
+-	  \hfil$\displaystyle{{}##{}}$\hfil
+-	  &\global\@eqcnt\tw@ $\displaystyle{##}$\hfil 
+- 	  \tabskip\@centering&\llap{##}\tabskip\z@\cr}
+-
+-\else	\typeout{Warning: Unable to fix unknown version of \string\enarray.}
+-\fi\fi
+-
+-\def\@tempa{}			% Free up TeX's memory
+-\def\@tempb{}
+//GO.SYSIN DD fixup.sty
+echo numinsec.sty 1>&2
+sed >numinsec.sty <<'//GO.SYSIN DD numinsec.sty' 's/^-//'
+-% SIAM Style option to get numbering of equations, figures, tables within sections
+-
+-\@addtoreset{equation}{section}   % Makes \section reset 'equation' counter.
+-\def\theequation{\thesection.\arabic{equation}}
+-
+-\@addtoreset{theorem}{section}
+-\def\thetheorem{\thesection.\@arabic\c@theorem}
+-\def\thelemma{\thesection.\@arabic\c@theorem}
+-\def\thecorollary{\thecorollary.\@arabic\c@theorem}
+-\def\theproposition{\theproposition.\@arabic\c@theorem}
+-
+-\@addtoreset{figure}{section}
+-\def\thefigure{\thesection.\@arabic\c@figure}
+-
+-\@addtoreset{table}{section}
+-\def\thetable{\thesection.\@arabic\c@table}
+//GO.SYSIN DD numinsec.sty
+

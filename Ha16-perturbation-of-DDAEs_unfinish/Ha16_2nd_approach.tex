@@ -1,0 +1,514 @@
+% HaM15 Numerical solution of DDAES
+% Phi 22.01.14
+% Volker 09.03.14
+% Volker 3.6.14
+% Phi 28.10.14
+% Volker 29.10.14
+% Phi 06.11.14
+% Phi 09.12.14
+% Volker 17.12.14
+% Phi 13.01.15
+\documentclass[final]{siamltex}
+
+\usepackage{amsfonts,epsfig}
+\usepackage{amsmath,amssymb} %$#
+%\usepackage{graphicx}
+
+\usepackage[square,sort&compress,comma,numbers]{natbib}  % Use the "Natbib" style for the references in the Bibliography
+\def\bibfont{\footnotesize}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{algcompatible}
+
+% \usepackage{paralist}
+% \renewenvironment{itemize}[1]{\begin{compactitem}#1}{\end{compactitem}}
+% \renewenvironment{enumerate}[1]{\begin{compactenum}#1}{\end{compactenum}}
+% \renewenvironment{description}[0]{\begin{compactdesc}}{\end{compactdesc}}
+
+\usepackage{showlabels}
+\renewcommand{\showlabelfont}{\small\slshape\color{red}}
+\usepackage{lineno}
+\linenumbers
+\usepackage[colorlinks,pdfpagelabels]{hyperref} %$#
+\hypersetup{citecolor=blue}
+
+
+% Common extra environments
+\newtheorem{thm}[theorem]{Theorem}
+
+\newtheorem{rem}[theorem]{Remark}
+\newtheorem{lem}[theorem]{Lemma}
+\newtheorem{defi}[theorem]{Definition}
+\newtheorem{exa}[theorem]{Example}
+
+\newtheorem{ass}[theorem]{Assumption}
+\newtheorem{hyp}[theorem]{Hypothesis}
+\newtheorem{pro}[theorem]{Procedure}
+
+%=====================================================================================================================================
+%
+%opening
+\begin{document}
+
+
+%=====================================================================================================================================
+%
+% new def-s and commands
+\input{new_command}
+%
+
+%=====================================================================================================================================
+
+\title{Perturbation and stability analysis of Linear Delay Differential-Algebraic Equations\footnotemark[1]}
+
+%\title{Reformulation and Numerical solution of general nonlinear Delay-Differential-Algebraic Equations \footnotemark[1]}
+
+\author{Phi Ha\footnotemark[2] \and Volker Mehrmann\footnotemark[3] \and Caren Tischendorf\footnotemark[2]}
+
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\footnotetext[1]{This work was supported by DFG Collaborative Research Centre 910,
+{\it Control of self-organizing nonlinear systems: Theoretical methods and concepts of application}}
+\footnotetext[3]{ Institut f\"{u}r Mathematik, MA 4-5, TU Berlin, Stra\ss e des 17. Juni 136, D-10623 Berlin,
+Germany; mehrmann@math.tu-berlin.de}
+\footnotetext[2]{ Humboldt University of Berlin, Dept. of Mathematics, Rudower Chaussee 25, D-12489 Berlin,
+Germany; \{ha,tischendorf\}@math.hu-berlin.de}
+
+\maketitle
+
+\newcommand{\thedate}{\today}
+
+\begin{center}
+\thedate
+\end{center}
+
+\begin{abstract}
+In this article we study the perturbation analysis of initial value problems for linear delay differential-algebraic equations (DDAEs) with time variable coefficients.
+First the perturbation index concept for DAEs \cite{HaiLR89} is extended to DDAEs, which followed by the index upper bound theorem for a general linear DDAEs. 
+Then we consider the contractivity properties of the solutions and determne sufficient conditions for the asymptitic stability of the zero solution by considering a suitable reformulation of the given system.
+In the last part of the article a cass of nuerical methods preserbing the above mentioned stability properties is studied.
+\end{abstract}
+
+\begin{keywords} Delay differential-algebraic equation, differential-algebraic equation, delay differential equations, method of steps, derivative array, classification of DDAEs.
+\end{keywords}
+
+\begin{AMS}
+34A09, 34A12, 65L05, 65H10.
+\end{AMS}
+
+\pagestyle{myheadings}
+\thispagestyle{plain}
+\markboth{P. Ha and V. Mehrmann and C. Tischendorf}{Perturbation and stability analysis of DDAEs}
+
+
+%
+{
+\newcommand{\mc}[3]{\multicolumn{#1}{#2}{#3}}
+
+\begin{center}
+\begin{tabular}{c|l} \hline
+Notation & Meaning \\ \hline           
+$\| \cdot \|$ & The usual Euclidean norm in $\C^n$ \\
+$\bbI$ & The time interval, i.e. $\bbI= [t_0,t_f)$ \\
+$C^m(\bbI)$ & The space of m times continuously differentiable functions on $\bbI$ \\
+$\| \cdot \|_{\infty}$ & The sup-norm in $C^0$ defined as $\| f \|_m := \sup \{ \| f(t) \| | t \in \bbI\}$ \\
+$\| \cdot \|^t_{\infty}$ & The sup-norm of the restricted function $f_{|[t_0,t]}$, i.e. \\
+                         & \quad $\| f \|^t_{\infty} := \sup \{ \| f(s) \|, \ <t_0  \leq s \leq t \}$ \\ 
+$\| \cdot \|_m$ & The norm in $C^m(\bbI)$ defined as $\| f \|_m := \sum_{i=0}^m \| f^{(i)} \|_{\infty} $ \\
+$\| \cdot \|^t_m$ & The norm in $C^m(\bbI)$ of the restricted function $f_{|[t_0,t]}$, i.e. \\ 
+                  & \quad $\| f \|_m := \sum_{i=0}^m \| f^{(i)} \|^t_{\infty} $ \\       
+$g^i$  & The restricted function $g^i := g_{|\bbI_i}$, where $\bbI_j=[\eta_{j-1},\eta_{j}]$, for $j \geq 1$.\\
+$\De$  & The shift backward operator, i.e. $\De x(t) := x(t-\tau(t))$\\ \hline 
+\end{tabular}
+\end{center}
+}
+%
+
+\vskip .5cm
+
+%===========================================================================================================================
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Preliminaries and notations}\label{pre}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%===========================================================================================================================
+
+% In this paper we consider the following systems 
+
+In this paper we study the perturbation analysis of initial value problems for general \emph{linear delay dif\-fer\-en\-ti\-al-al\-ge\-bra\-ic equations (DDAEs) with variable coefficients} 
+and a delay function $\tau>0$ of the form
+%
+\begin{equation}\label{eq1.1}
+  E(t) \dot{x}(t) = A(t) x(t) + B(t) x(t-\tau(t)) + f(t), 
+\end{equation}
+%
+in a time interval $\bbI=[t_0,t_f)$, where $\dot{x}$ denotes the time derivative of the vector valued function $x$. As in many applications, usutally the delay function $\tau$ are required to satisfy the following properties, 
+see \cite{BelZ03}:
+%
+\begin{enumerate}
+ \item[H1)] $\tau(t)$ is a continuous function.
+ \item[H2)] $\tau(t) \geq \tau_0 > 0$ for any $t\geq t_0$.
+ \item[H3)] for every $s \geq t_0$ the equation $t-\tau(t)=s$ has a unique solution on $(s,t_f]$.
+\end{enumerate}
+%
+The desired function $x$ maps from $\bbI_{\tau}:=[t_0-\tau_0,t_f)$ to $\complex^n$ and the coefficients are matrix functions $E, \ A, \ B: \bbI \rar \complex^{m,n}$, and $f: \bbI \rar \complex^{m}$. 
+%
+To achieve uniqueness of solutions of  \eqref{eq1.1} one typically has to prescribe initial functions of the form
+%
+\begin{equation}\label{eq1.1ic}
+\phi: [-\tau_0,0] \rar \complex^{n},\ \mbox{\rm such that}\  x|_{[-\tau_0,0]}=\phi.
+\end{equation}
+%
+% \textbf{
+% For simplicity, we assume that  $t_f = \ell \tau$, so that the time interval is $\bbI=[0,\ell \tau)$, for an integer $\ell\in\N$. We also allow for $\ell=\infty$ and then set $\bbI=[0,\infty)$.
+% }
+%
+
+% Most of the results in this paper can also be extended to multiple delays, but here we only discuss the single delay case. 
+% DDAEs of the form (\ref{eq1.1}) arise as linearization of nonlinear DDAEs $F(t,\dot x(t), x(t), x(t-\tau(t))) = 0$
+% around a non-stationary nominal solution \cite{Cam95b}, and they describe the local behavior in the neighborhood of the nominal solution. Here, however, we restrict ourselves to the linear variable coefficient case.
+
+\medskip
+
+Two important subclasses of \eqref{eq1.1} that occur in various applications are dif\-fe\-ren\-ti\-al-al\-ge\-bra\-ic equations (DAEs)
+with $B\equiv 0$, and delay differential equations (DDEs), where $m=n$ and $E$ is the identity matrix. A typical viewpoint that is often taken in the analysis and numerical solution of DDEs and DDAEs is to introduce an artificial inhomogeneity
+$g(t)=B(t)x(t-\tau)+f(t)$ and to consider instead of \eqref{eq1.1} the \emph{associated DAE}
+%
+\begin{equation}\label{eq1.2}
+ E(t)\dot{x}(t) = A(t) x(t) + g(t) \ \mbox{ for all } \ t \in \bbI.
+\end{equation}
+%
+If the associated DAE \eqref{eq1.2} is uniquely solvable for all sufficiently smooth inhomogeneities $g$ and appropriate consistent initial vectors, then the
+solution of (\ref{eq1.1}) with initial function (\ref{eq1.1ic}) can be uniquely determined step-by-step by solving a sequence of DAEs on consecutive intervals
+$[i\tau_0,(i+1)\tau_0]$. This is the most common approach for systems with delays, often called the \emph{(Bellman) method of steps},  see e.g., \cite{AscP95,BakPT02,BelC63,BelZ03,Cam80,Cam91,GugH07,ShaG06,ZhuP97}.
+However, even for DDAE system with constant matrix coefficients, this approach may fail for general, since the dynamic of DDAEs is much richer than the one for DAEs. 
+
+Even in the case of constant delay, i.e. $\tau(t) \equiv \tau$, most of the investigation sofar reformulate the system in a DAE form by introducing a new inhomogeniety function. For example the linear DDAE \eqref{eq1.1} will be reinterpreted as the associated DAE \eqref{eq1.2} 
+with the inhomogeniety $g:=B(t)x(t-\tau)+f(t)$. Therein the index concepts for DDAEs are defined to be the corresponding index concepts for DAEs, for example, see e.g. \cite{AscP95,GugH01,ShaG06,CamL09}. 
+In a more general situation, the dynamic of the DDAE \eqref{eq1.1} is much richer than the one for the associated DAE \eqref{eq1.2}, for example \eqref{eq1.1} has a unique solution, eventhough \eqref{eq1.2} has infinitely many 
+solution. One of these important situations, namely \emph{noncausal}, i.e., the solution at the present time $t$ depends not only on the systems coefficients at past and current time points ($s\leq t$), has been considered in 
+\cite{HaMS14,HaM15}. Therein, the index concept for DDAE systems is studied for general noncausal, linear time variable coefficient DDAEs. 
+We recall the following result from \cite{HaM15}, in comparison with Theorem 3.2 of \cite{HaM15}.
+%
+\begin{thm}
+Consider the DDAE \eqref{eq1.1} and assume that the following hold
+ %
+ \begin{enumerate}
+  \item[i)] The pair of shift index functions $\ka(t)$ and strangeness index $\mu(t)$ is well-defined for every $t\in \bbI$.
+  \item[ii)] The shift index function $\ka$ is a constant on the whole interval $\bbI$.
+  \item[iii)] The system \eqref{eq1.1} is not of advanced type.
+  \item[iv)] The corresponding initial value problem for the DDAE \eqref{eq1.1} has a unique solution.
+ \end{enumerate}
+%
+Then solution of the DDAE \eqref{eq1.1} is exactly the solution of the so-called \emph{regular, strangeness-free} DDAE
+%
+\be\label{eq1.3}
+  \underbrace{\m{\hE_{1}(t) \\ 0}}_{\hE} \dot{x}(t) \!=\! 
+  \underbrace{\m{\hA_{1}(t) \\ \hA_{2}(t) }}_{\hA} x(t) \!+\!
+  \underbrace{\m{\hB_{1}(t) \\ \hB_{2}(t) }}_{\hB} x(t-\tau) \!+\! 
+  \underbrace{\m{\hf_{1}(t) \\ \hf_{2}(t) }}_{\hf}, \quad \pm{ d \\ a}
+\ee
+%
+where $d$, $a$ are the size of the corresponding block equations and the matrix-valued function $\m{\hE_{1} \\ \hA_{2} }$ is pointwise invertible. Moreover, herein \eqref{eq1.3}, the functions 
+$\hf_1$, $\hf_2$ depends on $f^{(i)}(t+j\tau)$, $i=0,\dots,\mu$, $j=0,\dots,\ka$.\\
+\end{thm}
+%
+
+We note that, under the smoothness assumption $\hE \in C^0(\bbI,\C^{d,n})$, $\hA \in C^0(\bbI,\C^{a,n})$, there exist pointwise orthogonal matrix functions $P\in C^0(\bbI,\C^{n,n})$ and 
+$Q\in C^1(\bbI,\C^{n,n})$, see e.g. \cite{DieE99,KunM91}, such that 
+%
+\be\label{eq1.4}
+ P\hE Q = \m{I_d & 0 \\ 0 & 0} , \quad  P \hA Q - P \hE \dot{Q} = \m{A_{11} & 0 \\ 0 & -I_a}.
+\ee
+%
+In fact, the columns of $P$ and $Q$ could be constructed from the ranges and null spaces of $\hE$ and $\hA$ as follows
+%
+\bens
+ P = \m{\range(\hE^H) & \ker(\hE)^H}^T, \quad Q = \m{\range(\hE) & \ker(\hE)}
+\eens
+%
+where the superscripts $H$ (reps. $T$) indicates the conjugate transpose (resp. the transpose) of the corresponding matrix.
+
+Changing the variable $x=Qy := Q \m{y_1 \\ y_2}$ and scaling the whole system \eqref{eq1.3} with $P$ we obtain the following system 
+%
+\be\label{eq1.5}
+  \m{I_d & 0 \\ 0 & 0 } \m{\dot{y}_1(t) \\ \dot{y}_2(t)} \!=\! \m{A_{11} & 0 \\ 0 & -I_a} \m{y_1(t) \\ y_2(t)} \!+\!
+  \m{B_{11} & B_{12} \\ B_{21} & B_{22}} \m{y_1(t-\tau) \\ y_2(t-\tau)} \!+\! \m{f_{1} \\ f_{2} }. \quad \pm{ d \\ a}
+\ee
+%
+The computation of these matrix-valued functions is not numerically stable and hence, is still an open problem. We, therefore, will directly consider the regular, strangeness-free DDAE \eqref{eq1.3}. 
+%
+Since $\rank(\hE)=a$ for all $t\in\hro{I}$, there exists a smooth orthogonal projector $Q$ onto the kernel of $\hE$, see e.g. \cite{DieE99,KunM91}. Let $P=I_n-Q$ which is the orthogonal projection on the cokernel of $\hE^T$. 
+Making use of the tractability index concept \cite{LamMT13}, we decouple the system \eqref{eq1.3} as follows.\\ 
+%
+\begin{theorem}
+Consider the DDAE \eqref{eq1.3} with the smooth orthogonal projections $P$ (resp. $Q$) onto the kernel of $\hE$ (resp. $\hE^T$). Then $G:=\hE-\hA Q$ is pointwise invertible. Moreover, the solution $x$ of the corresponding IVP 
+for the DDAE \eqref{eq1.3} can be represented in the following form
+%
+\bens\label{eq1.6}
+ x(t) &=& z(t) + v(t), \\
+ v(t) &=& Q(t) G^{-1}(t)  \Big( \hA(t)z(t) + \hB(t)x(t-\tau) + \hf(t) \Big)
+\eens
+%
+where $z(t)=P(t)x(t)$ solves the following linear system
+%
+\bens
+   \dot{z}(t) &=& \Big( \dot{P}(t) \!+\! P(t) [I \!+\! \dot{P}(t)] G^{-1}(t) \hA(t) \Big) z(t) \!+\! P(t) [I \!+\! \dot{P}(t)]  G^{-1}(t)  \Big( \hB(t)x(t-\tau) \!+\! \hf(t) \Big), \\
+   z(t) &=& P(t) \phi(t) \mbox{  for all  } t \in [t_0-\tau_0,t_0].
+\eens
+%
+\end{theorem}
+%
+
+%===========================================================================================================================
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Perturbation analysis of linear DDAEs}\label{perturbation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%===========================================================================================================================
+
+To our best knowledge, the perturbation theory of DDAEs is almost open, and only several results are already known \cite{AscP95,GugH07}. In order to partially fill in this gap, in this section we firstly study 
+the sensitivity of the solution $x(t)$ to the IVP \eqref{eq1.1},\eqref{eq1.1ic} with respect to systems perturbation, which is followed by the discussion of contractivity and robust stability. 
+%
+Inherited from the perturbation analysis of DDEs and of DAEs, one can perturb not only the system coefficients $E$, $A$, $B$, $f$ (as for DAEs) but also the delay function $\tau(t)$ and the initial function $\phi(t)$ (as for DDEs) 
+as well. However, the structual properties of the systems, for example the index concept, will be strongly affected by arbitrary perturbation on the system coefficients. 
+The similar situation will occur for the perturbation in the delay function $\tau$, which could lead to stabilization or destablization effect, even for scalar equations. 
+These topics go beyond the scope of this article, and therefore, will be left for future researchs. We refer the 
+interested readers to \cite{DuLMT13} (resp. \cite{BelZ03}, Chapter 1, \cite{Log98}) for further details in the \emph{''structural perturbation''} analysis of DAEs (reps. perturbation in the delay function).
+
+\begin{rem}
+ The robustness of regular, sfree DDAEs with respect to the perturbation only in $\phi$, but not in $\fr{d \phi}{dt}$. This feature distinguishes the two classes of sfree DDAEs and neutral DDEs?
+\end{rem}
+
+Now we recall the following result, see \cite{Sor84,Sor06,Zen97}.
+\begin{lem}\label{Lem1}
+Consider the following ODE
+%
+\bens
+ \dot{x}(t) &=& L(t) y(t) +  \Phi(t), \quad t \in \bbI = [t_0,t_f], \\
+ x(t_0) &=& x_0, 
+\eens
+%
+where the forcing term $\Phi \in C^0$. Given an inner product $\langle \cdot, \cdot  \rangle$ and the corresponding norm $\| \cdot \|$. Let $\mu[L](t)$ be the logarithmic norm induced by $\langle \cdot, \cdot  \rangle$. 
+Then the following inequalities hold for all $t \geq t_0$
+%
+\be\label{eq2.-1}
+ \|x(t)\| \leq E(t,t_0) \|x_0\| +  \int_{t_0}^{t} E(t,s) \n{\Phi(s)}ds.
+\ee
+%
+where $E(t_2,t_1) := exp \Big(\int_{s=t_1}^{t_2} \mu[L](s) \Big) ds)$.\\ 
+%
+Moreover, in the case that $\mu[L](t) \not=0$ for all $t\geq t_0$, then 
+%
+\be\label{eq2.0}
+ \| x(t) \|  \leq E(t,t_0) \| x_0 \| + \Big| 1 - E(t,t_0) \Big|  \sup_{t_0 \leq s \leq t} \Big\| \fr{\Phi(s)}{|\mu[L](s)|} \Big\|_{\infty}. 
+\ee
+%
+\end{lem}
+\begin{proof}
+The idea is combined from the articles \cite{Sor06} and \cite{Zen97}, which is briefly described in the followings.
+\begin{enumerate}
+ \item[A)] Using the upperright Dini derivative, we obtain the following estimation
+ %
+ \be\label{eq2.-2}
+   \mathrm{D}^+_t \|x(t)\| \leq \mu[L](t) \ \|x(t)\| + \n{\Phi(t)}
+ \ee
+ %
+ \item[B)] Noticing that the function $E(t,t_0) = exp \Big(\int_{s=t_0}^{t} \mu[L](s) \Big) $ has the property
+ %
+ \be\label{eq2.-5}
+     \frac{d}{dt} E(t,t_0) =  \mu[L](t) E(t,t_0).
+ \ee
+ %
+ \item[C)] Consider the scalar function $y(t) := \fr{\|x(t)\|}{E(t,t_0)}$, from \eqref{eq2.-2} we obtain
+ %
+ \be\label{eq2.-3}
+   \mathrm{D}^+_t y(t) \leq \fr{ \n{\Phi(t)} }{E(t,t_0)}.
+ \ee
+ %
+ \item[D)] Integrate the inequality \eqref{eq2.-3} from $t_0$ to $t$ we obtain 
+ %
+ \bens
+  y(t) &\leq& y(t_0) + \int_{t_0}^{t} \fr{ \n{\Phi(s)} }{ E(s,t_0) }ds, \\
+  \iff  \quad \|x(t)\| &\leq& E(t,t_0) \|x_0\| +  \int_{t_0}^{t} E(t,s) \n{\Phi(s)}ds,
+ \eens
+ %
+which is nothing else than \eqref{eq2.-1}.\\
+
+\noindent Similar to \eqref{eq2.-5} we have the identity
+%
+\[
+ \frac{d}{ds} E(t,s) =  -\mu[L](s) E(t,s).
+\]
+%
+and therefore \eqref{eq2.-1} gives us
+%
+\bens
+   \|x(t)\| &\leq& E(t,t_0) \|x_0\| +  \int_{t_0}^{t} \Big( \frac{d}{ds}E(t,s) \Big)  \frac{\n{\Phi(s)}}{-\ml(s)}ds, \\
+            &\leq& E(t,t_0) \|x_0\| +  \Big| \int_{t_0}^{t} \Big( \frac{d}{ds}E(t,s) \Big) ds \Big| \  \sup_{t_0 \leq s \leq t} \Big\| \fr{\Phi(s)}{|-\mu[L](s)|} \Big\|_{\infty}, 
+\eens
+%
+which yields \eqref{eq2.0} after direct calculation.
+\end{enumerate}
+
+\end{proof}
+
+In the following two theorems we study the sensitivity and robust stability of the corresponding IVP for system \eqref{eq1.3}. 
+
+%
+\begin{thm}\label{thm1}
+Consider the regular, strangeness-free DDAE \eqref{eq1.3}. Moreover, assume that the matrix coefficients satisfy the following properties:
+%
+\begin{enumerate}
+ \item[i)] The matrix-valed functions $E$, $A$, $B$, $f$ are sufficiently smooth so that the matrix functions $P$ and $Q$ in \eqref{eq1.4} exist, and the system \eqref{eq1.5} is well defined.
+ \item[ii)] The inverse of the transformation matrix $Q$ is uniformly bounded on $\hro{I}$, i.e. $\|Q^{-1}\|_{\infty} < \infty$. 
+\end{enumerate}
+%
+If $\bbI$ is bounded, then there exists a positive constant $C$ which depends on the systems coefficients of \eqref{eq1.3}, and of length of $\bbI$, so that 
+%
+\be\label{eq2.1} 
+   \| x(t) \|  \leq C \ \Big(  \| \phi \|_{\infty} + \| f \|^t_{\infty} \Big) .
+\ee
+%
+\end{thm}
+\begin{proof} Within this proof, for convenience, we skip the argument $(t)$ in all system coefficients and also in the delay function $\tau(t)$. 
+By the assumption on $\tau$, we can split the interval $\bbI$ into subintervals by the following points
+%
+\be
+ \eta_0 = t_0 < \eta_1  < \dots < \eta_j < \eta_{j+1} < \dots 
+\ee
+%
+where $\eta_{j+1}$ is the unique solution of the equation $t-\tau(t) = \eta_{j}$. We set $\bbI_0 = [-\tau_0,t_0]$, $\bbI_j=[\eta_{j-1},\eta_{j}]$, for $j \geq 1$. For an arbitrary function $g$, the super script $i$ indicates 
+the restricted function on the interval $\bbI_{i}$, i.e., $g^i = g_{|\bbI_i}$. We rewrite the system \eqref{eq1.5} as the coupled system
+%
+\be
+ \bc 
+    \dot{y}_1(t) &= A_{11} y_1(t) + \m{B_{11} & B_{12}} \De y(t-\tau) + f_{1}, \\
+     y_2(t)      &= \m{B_{21} & B_{22}} \De y(t-\tau) \!+\! f_{2}.
+ \ec
+\ee
+%
+Without loss of generality, we assume that $t\in \bbI_j$. Thus we have
+%
+\[
+ \bc 
+    \dot{y}^j_1(t) &= A_{11} y^j_1(t) + \m{B_{11} & B_{12}} y^{j-1}(t-\tau) + f^j_{1}, \\
+     y^j_2(t)      &= \m{B_{21} & B_{22}} y^{j-1}(t-\tau) \!+\! f^j_{2}.
+ \ec
+\]
+%
+Set $\Phi^j = \m{B_{11} & B_{12}} y^{j-1}(t-\tau) + f_{1}$, $t\in \bbI_j$. By applying Lemma \ref{Lem1} we see that there exist constant $\a_1$, $\a_2 \in \R_+$ so that the following estimation holds
+%
+\bsq
+%
+\be\label{eq2.10a}
+  \n{y^j_1(t)} \leq \a_1 \n{y^j_1(\eta_{j-1})} + \a_2 \n{\Phi^j}^t_{\infty}.
+\ee
+%
+On the other hand we see that 
+%
+\be\label{eq2.10b}
+  \n{y^j_2(t)} \leq \n{ \m{B_{21} & B_{22}}  }_{\infty} \ \n{y^{j-1}}_{\infty} + \n{f^j_{2}}^t_{\infty}.
+\ee
+%
+\esq
+%
+Combining \eqref{eq2.10a} and \eqref{eq2.10b} and notice that 
+%
+\bens
+  \n{y^j_1(\eta_{j-1})} \leq \n{y^{j-1}_1}_{\infty}, \quad \n{\Phi^j}^t_{\infty} \leq \n{ \m{B_{11} & B_{12}}}_{\infty} \ \n{y^{j-1}}_{\infty} + \n{f^j_1}^t_{\infty},
+\eens
+%
+we see that there exist $\b \in \R_+$ so that 
+%
+\be\label{eq2.11} 
+   \n{y^j(t)} \leq \b \n{y^{j-1}}_{\infty} + \b \n{f^j}^t_{\infty}.
+\ee
+%
+Due to the arbitrarity of $t \in \bbI_j$ this also leads to
+%
+\bes
+ \n{y^j}_{\infty} \leq \b \n{y^{j-1}}_{\infty} + \b \n{f^j}_{\infty}.
+\ees
+%
+It is clear that the constant $\b$ depends on $j$. However, if the interval $\bbI$ is bounded, one may assume that this constant is uniform for every $j$. Thus, simple induction gives 
+%
+\bes
+    \n{y^{j-1}}_{\infty} \leq \b^{j-1} \n{y^{0}}_{\infty} + \sum_{i=1}^{j-2} \b^i \n{f^{j+1-i}}_{\infty},
+\ees
+%
+and finally \eqref{eq2.11} leads to $\n{y^j(t)} \leq \b^{j-1} \n{y^{0}}_{\infty} + \sum_{i=1}^{j-2} \b^i \n{f^{j+1-i}}_{\infty} + \b \n{f^j}^t_{\infty}.$\\
+%
+% \bes
+%   \n{y^j(t)} \leq \b \n{y^{j-1}}_{\infty} + \b \n{f^j}^t_{\infty} \leq \b^{j-1} \n{y^{0}}_{\infty} + \sum_{i=1}^{j-2} \b^i \n{f^{j+1-i}}_{\infty} + \b \n{f^j}^t_{\infty}.
+% \ees
+%
+Let $C:= \underset{j}{\max} \{ \sum_{i=1}^{j-2}\b^i + \b,\ \b^{j-1} \}$ we then have \eqref{eq2.1}.
+\end{proof}
+
+
+
+
+\begin{rem} 
+We notice that, the estimation \eqref{eq2.1} requires the infinity-norm of the function $f$ on the whole interval $[0,t]$, instead of only at the point $t$ as for DAEs. This feature is typical for time delay systems, since the 
+inhomogeneity in the past can also have strong impact on the present solution.
+\end{rem}
+
+From Theorem \ref{thm1} we can easily see that the solution $x(t)$ to the corresponding IVP of the DDAE \eqref{eq1.4} is robust under perturbation of the initial function $\phi$ and of the inhomogeneity $f$. 
+This means that the corresponding IVP of the DDAE \eqref{eq1.4} has perturbation index index at most $1$ along an arbitrary solution, in the sense of the following definition, which is 
+directly extended from the concept of perturbation index for DAEs \cite{HaiLR89}.
+%Now we want extend this result for arbitrarily high index DDAE systems. The following definition directly extend the concept of perturbation index for DAEs to the one for DDAEs.
+
+\begin{defi} The IVP 
+%
+\bens
+  F(t,x(t),\dot{x}(t),x(t-\tau(t))) &=& 0,  \qquad t \in \bbI, \\
+                        x|_{[-\tau_0,0]} &=& \phi, 
+\eens
+%
+has \emph{perturbation index $\nu \geq 1$} along the solution $\bar{x}$ if $\nu$ is the smallest positive integer such that for the perturbed problem 
+%
+\bens
+  F(t,x(t),\dot{x}(t),x(t-\tau(t))) &=& \de (t), \qquad t \in \bbI, \\
+                        x|_{[-\tau_0,0]} &=& \phi + \de\phi, 
+\eens
+%
+the defect $\de x(t) := x(t)-\bar{x}$ satisfies the following inequality
+%
+\be
+   \| \de x(t) \|  \leq C \ \Big(  \| \de \phi \|_{\nu-1} + \| \de \|^t_{\nu-1} \Big) .
+\ee
+%
+for sufficiently small $\de(t)$ in the $\| \cdot \|_{\nu-1}$ norm. Here $C$ is a positive constant which depends on $F$, $\phi$, $\bar{x}$, and length of the time interval $\bbI$.\\
+\noindent In the case that there exist the estimation 
+%
+\be
+   \| \de x(t) \|  \leq C \ \Big(  \int_{t_0-\tau_0}^{t_0} \| \de \phi(s)\|ds  +  \int_0^t \| \de(s)\|ds \Big) .
+\ee
+%
+\end{defi}
+
+
+
+
+%===========================================================================================================================
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Contractivity and stability properties of linear DDAEs}\label{contractivity}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%===========================================================================================================================
+
+
+
+
+%===========================================================================================================================
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion and outlooks}\label{conclusion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%===========================================================================================================================
+
+
+
+\bibliographystyle{siam}
+\bibliography{Phi_Jan_20_15}
+
+\end{document}
+

@@ -1,0 +1,132 @@
+\begin{thebibliography}{10}
+
+\bibitem{AscP95}
+{\sc U.~M. Ascher and L.~R. Petzold}, {\em The numerical solution of
+  delay-differential algebraic equations of retarded and neutral type}, {SIAM}
+  J. Numer. Anal., 32 (1995), pp.~1635--1657.
+
+\bibitem{BakPT02}
+{\sc C.~T.~H. Baker, C.~A.~H. Paul, and H.~Tian}, {\em Differential algebraic
+  equations with after-effect}, J. Comput. Appl. Math., 140 (2002), pp.~63--80.
+
+\bibitem{BelGZ99}
+{\sc A.~Bellen, N.~Guglielmi, and M.~Zennaro}, {\em On the contractivity and
+  asymptotic stability of systems of delay differential equations of neutral
+  type}, BIT Numerical Mathematics, 39 (1999), pp.~1--24.
+
+\bibitem{BelZ03}
+{\sc A.~Bellen and M.~Zennaro}, {\em Numerical Methods for Delay Differential
+  Equations}, Oxford University Press, Oxford, UK, 2003.
+
+\bibitem{BelC63}
+{\sc R.~Bellman and K.~L. Cooke}, {\em Differential-difference equations},
+  Mathematics in Science and Engineering, Elsevier Science, 1963.
+
+\bibitem{Cam80}
+{\sc S.~L. Campbell}, {\em Singular linear systems of differential equations
+  with delays}, Appl. Anal., 2 (1980), pp.~129--136.
+
+\bibitem{Cam91}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em Comments on 2-{D}
+  descriptor systems}, Automatica, 27 (1991), pp.~189--192.
+
+\bibitem{DieE99}
+{\sc L.~Dieci and T.~Eirola}, {\em On smooth decompositions of matrices},
+  {SIAM} J. Matr. Anal. Appl., 20 (1999), pp.~800--819.
+
+\bibitem{DuLMT13}
+{\sc N.~H. Du, V.~H. Linh, V.~Mehrmann, and D.~D. Thuan}, {\em Stability and
+  robust stability of linear time-invariant delay differential-algebraic
+  equations.}, {SIAM} J. Matr. Anal. Appl., 34 (2013), pp.~1631--1654.
+
+\bibitem{GugH07}
+{\sc N.~Guglielmi and E.~Hairer}, {\em Computing breaking points in implicit
+  delay differential equations}, Adv. Comput. Math., 29 (2008), pp.~229--247.
+
+\bibitem{HaM15}
+{\sc P.~Ha and V.~Mehrmann}, {\em Analysis and numerical solution of linear
+  delay differential-algebraic equations}, BIT Numerical Mathematics,  (2015),
+  pp.~1--25.
+
+\bibitem{HaMS14}
+{\sc P.~Ha, V.~Mehrmann, and A.~Steinbrecher}, {\em Analysis of linear variable
+  coefficient delay differential-algebraic equations}, J. Dynam. Differential
+  Equations,  (2014), pp.~1--26.
+
+\bibitem{HaiLR89}
+{\sc E.~Hairer, C.~Lubich, and M.~Roche}, {\em The Numerical Solution of
+  Differential-Algebraic Systems by {R}unge-{K}utta Methods}, Springer-Verlag,
+  Berlin, Germany, 1989.
+
+\bibitem{HigG99}
+{\sc I.~Higueras and B.~Garcia-Celayeta}, {\em Logarithmic norms for matrix
+  pencils}, SIAM Journal on Matrix Analysis and Applications, 20 (1999),
+  pp.~646--666.
+
+\bibitem{HigMT03a}
+{\sc I.~Higueras, R.~M{\"a}rz, and C.~Tischendorf}, {\em Stability preserving
+  integration of index-1 {DAE}s}, Appl. Numer. Math., 45 (2003), pp.~175--200.
+
+\bibitem{HigMT03b}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em Stability preserving
+  integration of index-2 {DAE}s}, Appl. Numer. Math., 45 (2003), pp.~201--229.
+
+\bibitem{HuM95}
+{\sc G.-D. Hu and T.~Mitsui}, {\em Stability analysis of numerical methods for
+  systems of neutral delay-differential equations}, BIT Numerical Mathematics,
+  35 (1995), pp.~504--515.
+
+\bibitem{KunM91}
+{\sc P.~Kunkel and V.~Mehrmann}, {\em Smooth factorizations of matrix valued
+  functions and their derivatives}, Numer. Math., 60 (1991), pp.~115--132.
+
+\bibitem{LamMT13}
+{\sc R.~Lamour, R.~M{\"a}rz, and C.~Tischendorf}, {\em Differential-algebraic
+  equations: {A} projector based analysis.}, Differential-Algebraic Equations
+  Forum 1. Berlin: Springer, 2013.
+
+\bibitem{Log98}
+{\sc H.~Logemann}, {\em Destabilizing effects of small time delays on
+  feedback-controlled descriptor systems}, Linear Algebra and its Applications,
+  272 (1998), pp.~131 -- 153.
+
+\bibitem{LogT96}
+{\sc H.~Logemann and S.~Townley}, {\em The effect of small delays in the
+  feedback loop on the stability of neutral systems}, Systems \& Control
+  Letters, 27 (1996), pp.~267 -- 274.
+
+\bibitem{ShaG06}
+{\sc L.~F. Shampine and P.~Gahinet}, {\em Delay-differential-algebraic
+  equations in control theory}, Appl. Numer. Math., 56 (2006), pp.~574--588.
+
+\bibitem{SleI72}
+{\sc M.~Slemrod and E.~Infante}, {\em Asymptotic stability criteria for linear
+  systems of difference-differential equations of neutral type and their
+  discrete analogues}, Journal of Mathematical Analysis and Applications, 38
+  (1972), pp.~399 -- 415.
+
+\bibitem{Sor84}
+{\sc G.~S{\"o}derlind}, {\em On nonlinear difference and differential
+  equations}, BIT Numerical Mathematics, 24, pp.~667--680.
+
+\bibitem{Sor06}
+\leavevmode\vrule height 2pt depth -1.6pt width 23pt, {\em The logarithmic
+  norm. history and modern theory}, BIT Numerical Mathematics, 46 (2006),
+  pp.~631--652.
+
+\bibitem{Tor89}
+{\sc L.~Torelli}, {\em Stability of numerical methods for delay differential
+  equations}, Journal of Computational and Applied Mathematics, 25 (1989),
+  pp.~15 -- 26.
+
+\bibitem{Zen97}
+{\sc M.~Zennaro}, {\em Asymptotic stability analysis of runge-kutta methods for
+  nonlinear systems of delay differential equations}, Numerische Mathematik, 77
+  (1997), pp.~549--563.
+
+\bibitem{ZhuP97}
+{\sc W.~Zhu and L.~R. Petzold}, {\em Asymptotic stability of linear delay
+  differential-algebraic equations and numerical methods}, Appl. Numer. Math.,
+  24 (1997), pp.~247 -- 264.
+
+\end{thebibliography}
