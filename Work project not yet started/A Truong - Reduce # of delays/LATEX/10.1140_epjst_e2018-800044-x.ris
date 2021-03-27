@@ -1,0 +1,18 @@
+TY  - JOUR
+AU  - Wagemakers, Alexandre
+AU  - Used, Javier
+AU  - Sanjuán, Miguel A. F.
+PY  - 2018
+DA  - 2018/11/01
+TI  - Reducing the number of time delays in coupled dynamical systems
+JO  - The European Physical Journal Special Topics
+SP  - 1281
+EP  - 1289
+VL  - 227
+IS  - 10
+AB  - When several dynamical systems interact, the transmission of the information between them necessarily implies a time delay. When the time delay is not negligible, the study of the dynamics of these interactions deserve a special treatment. We will show here that under certain assumptions, it is possible to reduce the number of time delays without altering the global dynamics. We will focus here on graphs of interactions with identical time delays and bidirectional connections. With these premises, it is possible to find a configuration where a number nz of time delays have been removed with nv − 1 ≤ nz ≤ nv2 /4, where nv is the number of dynamical systems on a connected graph.
+SN  - 1951-6401
+UR  - https://doi.org/10.1140/epjst/e2018-800044-x
+DO  - 10.1140/epjst/e2018-800044-x
+ID  - Wagemakers2018
+ER  - 

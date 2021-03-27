@@ -1,0 +1,24 @@
+Dear Prof. Riaza,
+
+
+
+my name is Phi Ha. I am a former PhD student by Volker Mehrmann and former Postdoc by Caren Tischendorf. 
+Recently I am working with the hyperbolicity and exponential dichotomy of DAEs, and I have one problem, which really bothers me. 
+So I would be very grateful if you could provide some help or suggestions. 
+
+
+
+My problem is that, there are very very few example about hyperbolicity of index 1 DAEs (in the sense that there exist eigenvalues with both positive and negative real part. This leads to exponential dichotomy). 
+My only example, till now, comes from your article
+
+A matrix pencil approach to the local stability analysis of non-linear circuits, INTERNATIONAL JOURNAL OF CIRCUIT THEORY AND APPLICATIONS,
+Int. J. Circ. Theor. Appl. 2004; 32:23–46
+
+which is Example 4.1 about the Josephson junction. Therefore, I would be very grateful if you could suggest some other examples for hyperbolicity. 
+By the way, I still wonder (may be quite solly) whether hyperbolicity could occur in case that the electrical network contains only Resistor, Inductor and Capacitor. 
+How do you think about this?
+
+Thank you very much in advanced,
+
+With best regards,
+Phi Ha.

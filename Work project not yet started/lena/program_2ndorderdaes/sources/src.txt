@@ -1,0 +1,1435 @@
+::::::::::::::
+bdfk2_dae.m
+::::::::::::::
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BDFk-Verfahren, variable-step variable-order BDF
+%
+% Loesen der differentiell-algebraischen Gleichung 2. Ordung der Form
+% M y''(t)=D y'(t) + S y(t) + f(t,y,y')
+%
+% mit BDF der Ordnung Ordnung k
+%
+% CALL  : [t,h,y,y_est,y_interpol]=bdfk2dae(funct,y0,y1,t0,a,N,K,RTOL,ATOL,H0)
+%
+% INPUT : funct - Name der aufzurufenden Routine, die die Matrizen M, D, S und Vektor f bestimmt
+%                 (Text-String)
+%         y0,y1 - initial value
+%         t0    - initial time         t\in[t0,t0+a]
+%         a     - length of interval   t\in[t0,t0+a]
+%         N     - number of steps
+%         K     - maximal order
+%
+% OUTPUT: t    - time steps t=[t0,t0+h,...,t0+(N-1)*h,t0+N*h=t0+a]
+%         h    - stepsizes
+%         y    - approximation of solution at t(i)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [t,h,y]=bdfk2_dae(funct,funct_d1,funct_d2,funct_d3,nL,y0,y1,t0,a,N,K,RTOL,ATOL,H0,step,exponent)
+
+% check input arguments
+maxOrder=2;
+if(K>maxOrder || K<1)
+     error('wrong order');
+end
+
+if(a==0)
+    error('wrong interval');
+end
+
+TIME=t0:a/N:t0+a;
+t(1)=t0;
+
+TOUT=t0+a;
+
+% initial stepsize
+if(H0==0)
+    H0 = sign(TOUT-t0)*min(10^(-3)*abs(TOUT-t0),0.5*myNorm(y1,RTOL,ATOL)^(-1));
+end
+
+h(1)=H0(1);
+
+[n,m]=size(y0);
+[n1,m1]=size(y1);
+
+y(1:n,1)=y0;
+y(n+1:n+n1,1)=y1;
+y_interpol(:,1)=y(:,1);
+
+iNoRej=0;nef=0;ncf=0;nsf=0;iPhase=0;newOrder = 0;
+
+% integration
+i=1;I=1;
+
+while(i<=2000 && t(i)<=TOUT)
+    i
+    t(i+1) = t(i)+h(i);
+    h(i+1) = h(i);
+
+    %order selection -> k
+    if( i <= 6)
+        if(K==1)
+            if(i==1)
+                KK(1)=1;
+                KK(2)=2;
+                KK(3)=0;
+            end
+            if(i>1)
+                KK(1)=1;
+                KK(2)=1;
+                KK(3)=0;
+            end
+        end
+        if(K==2)
+            if(i==1)
+                KK(1)=1;
+                KK(2)=2;
+                KK(3)=0;
+            end
+            if(i==2)
+                KK(1)=2;
+                KK(2)=1;
+                KK(3)=3;
+            end
+            if(i==3)
+                KK(1)=2;
+                KK(2)=2;
+                KK(3)=1;
+            end
+            if(i>3)
+                KK(1)=2;
+                KK(2)=2;
+                KK(3)=2;
+            end
+        end
+    else %( i> 4)
+%         if(newOrder==1) % increase order
+%             if( KK(1) == maxOrder) % k=k+1
+%                 temp = KK(1);
+%             else
+%                 temp = KK(1)+1;
+%             end
+%             for zz = temp+1:-1:2
+%                 KK(zz) = KK(zz-1);
+%             end
+%             KK(1) = temp;
+% 
+%         elseif(newOrder==2) % decrease order
+%             if( KK(1) == 1)
+%                 KK(1) = KK(1);
+%             else
+%                 KK(1) = KK(1)-1;
+%             end
+%             for zz = KK(1)+1:-1:2
+%                 KK(zz) = KK(zz-1) ;
+%             end
+%         elseif(newOrder==3) % order constant
+%             KK(1) = KK(1);
+%             for zz=KK(1)+1:-1:2
+%                 KK(zz) = KK(zz-1);
+%             end
+%         else
+%             error('order selection');
+%         end
+    end
+
+    
+    if( i<4 )
+        if(i==1) 
+            T=[t(2),t(1),t(1)-h(1),t(1)-2*h(1),t(1)-3*h(1)];
+        end
+        if(i==2) 
+            T=[t(3),t(2),t(1),t(1)-h(1),t(1)-2*h(1),t(1)-3*h(1)];
+        end
+        if(i==3) 
+            T=[t(4),t(3),t(2),t(1),t(1)-h*(1)];
+        end
+    else
+        time = KK(KK(1)+1)+KK(1)+1;
+        T=t(i+1:-1:i- time +2);
+    end
+
+
+    [y(:,i+1),converged, IER ] = bdf2_step(funct,funct_d1,funct_d2,funct_d3,n,nL,KK,T,t,h,i,y,RTOL,ATOL);
+
+
+
+    % Error Estimate - extrapolation
+    if(i<=4)
+        y_est(:,i+1)=extrapol(t,y,i-1);
+        err2(:,i+1)=myNorm(y_est(:,i+1)-y(:,i+1),RTOL,ATOL);
+    end
+    if(i>4)
+        y_est(:,i+1)=extrapol(t,y,3);
+        err2(:,i+1)=myNorm(y_est(:,i+1)-y(:,i+1),RTOL,ATOL);
+    end
+
+
+    hmin = 4*eps*max(abs(t(i+1)),abs(TOUT));
+
+    EST=err2(:,i+1);
+
+
+    if( step ==1 )
+
+        if( i>5)
+            if( err2(:,i+1) <= 1.0)
+
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                % step successful
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                if(iPhase==0)
+                    newOrder = 1;
+                    h(i+1)=2*h(i);
+                    iPhase=0;
+                    iNoRej=0;
+                else
+                    r=(2*EST+0.0001)^(-1/(KK(1)+1));
+                    if( r < 2.0)
+                        if( r > 1.0)
+                            h(i+1)=h(i);
+                        else
+                            r = max(0.5,min(0.9,r));
+                            h(i+1)=r*h(i);
+                        end
+                    else
+                        h(i+1)=2*h(i);
+                    end
+                    iPhase=0;
+                    newOrder = 3;
+                end
+
+                nef=0;
+                ncf=0;
+                nsf=0;
+
+                % interpolation between meshpoints
+                if(TIME(I+1)==t(i+1))
+                    y_interpol(:,I+1)=y(:,i+1);
+                    I=I+1;
+                elseif(TIME(I+1)<t(i+1))
+                    while(TIME(I+1)<t(i+1))
+                        if(i>5)
+                            nn=5;
+                        else
+                            nn=i;
+                        end
+                        y_interpol(:,I+1)=interpol(t,y,TIME(I+1),nn);
+                        I=I+1;
+                        if(I-1==N)
+                            return
+                        end
+                    end
+                end
+
+            else
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                % reject step, step unsucessful
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                iPhase=1;
+
+                %restore y,t,y_est,err1
+                y=y(:,1:i);
+                t=t(1:i);
+                y_est=y_est(:,1:i);
+                err2=err2(:,1:i);
+
+                i=i-1;
+                iNoRej=iNoRej+1;
+
+                %test whether failure was due to corrector iteration  or error test failure
+                if(converged==0)   % Newton iteration converged
+                    nef = nef+1;
+                    if(nef > 1)
+                        if( nef > 2)
+                            newOrder=2;
+                            r=0.25;
+                            h(i+1)=r*h(i+1);
+                            if(abs(h(i+1))<hmin)
+                                error('minimal stepsize 1');
+                            end
+                        else % second error test failure
+                            newOrder=3;
+                            r=0.25;
+                            h(i+1)=r*h(i+1);
+                            if(abs(h(i+1))<hmin)
+                                error('minimal stepsize 2');
+                            end
+                        end
+                    else  % first error test failure
+                        newOrder=3;
+                        r=0.9*(2.0*EST+0.0001)^(-1/(KK(1)+1));
+                        r=max(0.25,min(0.9,r));
+                        h(i+1)=r*h(i+1);
+                        if(abs(h(i+1))<hmin)
+                            error('minimal stepsize 3');
+                        end
+                    end
+
+                else % Newton iteration failed to converge
+                    if(IER == 0)
+                        ncf=ncf+1;
+                        r=0.25;
+                        h(i+1)=r*h(i+1);
+                        if(abs(h(i+1))<hmin)
+                            error('minimal stepsize 4');
+                        end
+                    else
+                        nsf=nsf+1;
+                        r=0.25;
+                        h(i+1)=r*h(i+1);
+                        if(abs(h(i+1))<hmin || nsf >3 )
+                            error('minimal stepsize or nsf >3');
+                        end
+
+                    end
+
+                    newOrder=3;
+                end
+
+            end
+        else
+            % interpolation between meshpoints
+            if(TIME(I+1)==t(i+1))
+                y_interpol(:,I+1)=y(:,i+1);
+                I=I+1;
+            elseif(TIME(I+1)<t(i+1))
+                y_interpol(:,I+1)=interpol(t,y,TIME(I+1),i);
+                I=I+1;
+            end
+        end
+
+    else    % constant stepsize
+        h(i+1) =h(i);
+
+
+        if( i>5)
+            %if( err2(:,i+1) <= 1.0)
+
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                % step successful
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                if(iPhase==0)
+                    newOrder = 1;
+                    iPhase=0;
+                    iNoRej=0;
+                else
+                    iPhase=0;
+                    newOrder = 3;
+                end
+
+                nef=0;
+                ncf=0;
+                nsf=0;
+
+                % interpolation between meshpoints
+                if(TIME(I+1)==t(i+1))
+                    y_interpol(:,I+1)=y(:,i+1);
+                    I=I+1;
+                elseif(TIME(I+1)<t(i+1))
+                    while(TIME(I+1)<t(i+1))
+                        if(i>5)
+                            nn=5;
+                        else
+                            nn=i;
+                        end
+                        y_interpol(:,I+1)=interpol(t,y,TIME(I+1),nn);
+                        I=I+1;
+                        if(I-1==N)
+                            return
+                        end
+                    end
+                end
+
+
+            %else
+%                 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                 % reject step, step unsucessful
+%                 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%                 iPhase=1;
+% 
+%                 %restore y,t,y_est,err1
+%                 y=y(:,1:i);
+%                 t=t(1:i);
+%                 y_est=y_est(:,1:i);
+%                 err2=err2(:,1:i);
+% 
+%                 i=i-1;
+%                 iNoRej=iNoRej+1;
+% 
+%                 %test whether failure was due to corrector iteration  or error test failure
+%                 if(converged==0)   % Newton iteration converged
+%                     nef = nef+1;
+%                     if(nef > 1)
+%                         if( nef > 2)
+%                             newOrder=2;
+%                         else % second error test failure
+%                             newOrder=3;
+%                         end
+%                     else  % first error test failure
+%                         newOrder=3;
+%                     end
+% 
+%                 else % Newton iteration failed to converge
+%                     if(IER == 0)
+%                         ncf=ncf+1;
+%                     else
+%                         nsf=nsf+1;
+%                     end
+%                     newOrder=3;
+%                 end
+% 
+%             end
+        else
+            % interpolation between meshpoints
+            if(TIME(I+1)==t(i+1))
+                y_interpol(:,I+1)=y(:,i+1);
+                I=I+1;
+            elseif(TIME(I+1)<t(i+1))
+                y_interpol(:,I+1)=interpol(t,y,TIME(I+1),i);
+                I=I+1;
+            end
+        end
+    end
+
+    i=i+1;
+    
+end
+
+::::::::::::::
+bdf2_step.m
+::::::::::::::
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% BDF step
+%
+% solves nonlinear system of equations with Newton's method
+% DF*d=-F
+%
+% Iteration  x(m+1)=x(m)-c*inv(J)* F(x(m))
+%
+% CALL  :
+% [y,x,converged,IER]=Newton(funct,t,h,x0,y,RTOL,ATOL,K,a)
+%
+% INPUT:    funct   - Name der aufzurufenden Routine, die die Matrizen M, D,
+%                     S und Vektor f bestimmt
+%
+%           x0      - starting value for Newton-iteration
+%           t       - current time
+%           h       - current stepsize
+%           K       - current order
+%           a       - vector of bdf coefficients
+%           RTOL    - relative tolerance
+%           ATOL    - absolute tolerance
+%
+% OUTPUT: y         - approximation of solution at t(i+1)
+%         x         - all iterates
+%         coverged  - converged==0->Iteration has converged, converged==1->
+%                     iteratiom fails to converge
+%         IER       - IER=-1 ->DF singular, else regular
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%   
+function [ y,converged, IER ] = bdf2_step(funct,funct_d1,funct_d2,funct_d3,n,nL,KK,TT,t,h,i,y,RTOL,ATOL,exponent )
+
+    % BDF coefficients of BDF(l,j,k)
+    a = bdfk_coef(KK,TT);
+    
+    nq = n-nL;  % nL=1 !!
+
+    %predictor value
+    sum1=0;
+    for ii=1:KK(1)+1
+        sum1=sum1+phi_star(ii,i,y,t(1:i),h);
+    end
+
+    %starting value for Newton-Iteration
+    x(:,1)=sum1;
+    d(:,1)=sum1;
+
+    % Newton-Iteration
+    m=1;          
+    maxIt = 4; 
+    abbruch=1;
+    converged = 0;
+
+    while(abbruch >= 0.33 && m<=maxIt)
+    
+        y_0=y(1:n,:);
+        y_1=y(n+1:n+nq,:);
+    
+        % Zusammenbau von F
+        sum1 = 0;
+        sum2 = 0;
+        sum3 = 0;
+        term_a = 0;
+    
+        for c=1:KK(1)
+            sum1 = sum1 + a(c)*divDiff( t(i+1-c:i+1),[y_1(:,i+1-c:i),x(n+1:n+nq,m)],c);
+            prod=1;
+            for j=1:c-1
+                prod = prod*(t(i+1)-t(i+1-j));
+            end
+            sum3 = sum3 + prod*divDiff(t(i+1-c:i+1),[y_0(1:nq,i+1-c:i),x(1:nq,m)],c);
+            sum2 = sum2 + 1/(t(i+1)-t(i+1-c));
+            prod2=1;
+            for j=1:c
+                prod2=prod2*(t(i+1)-t(i+1-j));
+            end
+            term_a=term_a+a(c)*1/prod2;
+        end
+        
+        F =  [feval(funct,    t(i+1),x(1:n,m),x(n+1:n+nq,m), sum1 )
+              x(n+1:n+nq,m)-sum3];
+              
+              
+        D1=feval(funct_d1,t(i+1),x(1:n,m),x(n+1:n+nq,m), sum1);
+        D2=feval(funct_d3,t(i+1),x(1:n,m),x(n+1:n+nq,m), sum1,'bdf')*term_a-feval(funct_d2,t(i+1),x(1:n,m),x(n+1:n+nq,m), sum1,'bdf');
+        D3= eye(nq,nq+nL).*(-sum2);
+        D4= eye(nq,nq);
+        DF= [D1 D2
+             D3 D4];
+
+        if( det(DF) == 0) % J singular
+            IER=-1;
+        else
+            IER=0; % J regular
+        end; 
+    
+        % Gauss Zerlegung
+        [L,U,P]=lu(DF);
+        bb = P*(-F);
+        %yy = L\bb;
+        %d(:,m+1) = U\yy;
+        yy = forward(L,bb);
+        d(:,m+1) = backward(U,yy);
+        
+        
+        x(:,m+1)=x(:,m)+d(:,m+1);
+    
+        m=m+1;
+        if(m>2)
+            rho = (myNorm(x(:,m)-x(:,m-1),RTOL,ATOL)/myNorm(x(:,2)-x(:,1),RTOL,ATOL))^(1/(m-1));
+            abbruch = rho/(1-rho)*myNorm(x(:,m)-x(:,m-1),RTOL,ATOL);
+            if(rho>0.9)
+                converged = 1;
+                y=x(:,m);
+                return;
+            end
+        end
+    end
+
+    if(m > maxIt)
+        converged = 1;
+    end
+
+    y=x(:,m);
+    
+    
+    
+    ::::::::::::::
+RK2dae.m
+::::::::::::::
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Runge-Kutta method
+%
+% Solution of second order differential-algebraic equations ( equations of motion)
+% of the form
+% M q''(t)= f(t,q,q')-G^T(q,t)lambda
+%       0 = g(q,t)
+%
+% with 2-stage Runge-Kutta method.
+%
+% CALL  :
+% [t,h,y,y_2]=RK2dae(funct,y0,y1,t0,a,N,s,RTOL,ATOL,H0,type)
+%
+% INPUT : funct - name of routine to determin
+%                 (Text-String)
+%         y0,y1 - initial values
+%         t0    - initial time     t\in[t0,t0+a]
+%         a     - Intervallaenge   t\in[t0,t0+a]
+%         N     - number of steps
+%         s     - number of stages, s=2 !
+%         RTOL  - relative error tolerance
+%         ATOL  - absolute error tolerance
+%         H0    - initial stepsize, if H0=0 then the code determines the
+%                 initial stepsize
+%         type  - type of Runge-Kutta method
+%                 type = 'Gauss'
+%                        'Radau'
+%                        'Lobatto'
+%
+% OUTPUT: t    - time steps
+%         h    - vector of stepsizes
+%         y    - approximate solution at times t(i)
+%
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [t,h,y,y_interpol,TIME]=RK2dae(funct,funct_d1,funct_d2,funct_d3,y0,y1,t0,a,N,s,RTOL,ATOL,H0,type,step)
+
+t(1)=t0;
+
+TIME=t0:a/N:t0+a;
+TOUT = t0+a;
+
+% initial stepsize
+if(H0==0)
+    H0 = sign(TOUT-t0)*min(10^(-3)*abs(TOUT-t0),0.5*myNorm(y1,RTOL,ATOL)^(-1));
+end
+
+TOUT=t0+a;
+
+h(1)=H0;
+
+[n,m]=size(y0);
+[n1,m1]=size(y1);
+
+y(1:n,1)=y0;
+y(n+1:n+n1,1)=y1;
+y_2(:,1)=y(:,1);
+y_1(:,1)=y(:,1);
+y_interpol(:,1)=y(:,1);
+
+
+iNoRej = 0;nef=0;nsf=0;iPhase=0;%newOrder = 0;
+
+i=1;I=1;
+
+%facmax = 1.5;facmin = 0.2;fac = 0.8;
+%p=2;
+
+% Integration
+while(i<=700&& t(i)<=TOUT )
+    i
+    t(i+1) = t(i)+h(i);
+    h(i+1) = h(i);
+
+    [y(:,i+1),converged] = RK_step(funct,funct_d1,funct_d2,funct_d3,n,y(:,1:i),i,h(i),t(1:i),s,type,RTOL,ATOL);
+
+    % Error Estimate - Extrapolationsmethode
+    if(i<=4)
+        y_est(:,i+1)=extrapol(t,y,i-1);
+        err2(:,i+1)=myNorm(y_est(:,i+1)-y(:,i+1),RTOL,ATOL);
+    end
+    if(i>4)
+        y_est(:,i+1)=extrapol(t,y,3);
+        err2(:,i+1)=myNorm(y_est(:,i+1)-y(:,i+1),RTOL,ATOL);
+    end
+
+    hmin = 4*eps*max(abs(t(i+1)),abs(TOUT));
+
+    EST=err2(:,i+1);
+
+    if( step ==1)
+
+        if( i>5)
+            if( err2(:,i+1) <= 1.0)
+
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                % step successful
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                if(iPhase==0)
+                    h(i+1)=2*h(i);
+                    iPhase=0;
+                    iNoRej=0;
+                else
+                    r=(2*EST+0.0001)^(-1/(1+1));
+                    if( r < 2.0)
+                        if( r > 1.0)
+                            h(i+1)=h(i);
+                        else
+                            r = max(0.5,min(0.9,r));
+                            h(i+1)=r*h(i);
+                        end
+                    else
+                        h(i+1)=2*h(i);
+                    end
+                    iPhase=0;
+                end
+
+                nef=0;
+                %ncf=0;
+                nsf=0;
+
+                % interpolation between meshpoints
+                if(TIME(I+1)==t(i+1))
+                    y_interpol(:,I+1)=y(:,i+1);
+                    I=I+1;
+                elseif(TIME(I+1)<t(i+1))
+                    while(TIME(I+1)<t(i+1))
+                        if(i>5)
+                            nn=5;
+                        else
+                            nn=i;
+                        end
+                        y_interpol(:,I+1)=interpol(t,y,TIME(I+1),nn);
+                        I=I+1;
+                        if(I-1==N)
+                            return
+                        end
+                    end
+                end
+
+            else
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                % reject step, step unsucessful
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                iPhase=1;
+
+                %restore y,t,y_est,err1
+                y=y(:,1:i);
+                t=t(1:i);
+                y_est=y_est(:,1:i);
+                err2=err2(:,1:i);
+
+                i=i-1;
+                iNoRej=iNoRej+1;
+
+                %test whether failure was due to corrector iteration  or error test failure
+                if(converged==0)   % Newton iteration converged
+                    nef = nef+1;
+                    if(nef > 1)
+                        if( nef > 2)
+                            r=0.25;
+                            h(i+1)=r*h(i+1);
+                            if(abs(h(i+1))<hmin)
+                                error('minimal stepsize');
+                            end
+                        else % second error test failure
+                            r=0.25;
+                            h(i+1)=r*h(i+1);
+                            if(abs(h(i+1))<hmin)
+                                error('minimal stepsize');
+                            end
+                        end
+                    else  % first error test failure
+                        r=0.9*(2.0*EST+0.0001)^(-1/(1+1));
+                        r=max(0.25,min(0.9,r));
+                        h(i+1)=r*h(i+1);
+                        if(abs(h(i+1))<hmin)
+                            error('minimal stepsize');
+                        end
+                    end
+
+                else % Newton iteration failed to converge
+                    nsf=nsf+1;
+                    r=0.25;
+                    h(i+1)=r*h(i+1);
+                    if(abs(h(i+1))<hmin || nsf >3 )
+                        error('minimal stepsize');
+                    end
+
+                end
+
+            end
+        else
+            % interpolation between meshpoints
+            if(TIME(I+1)==t(i+1))
+                y_interpol(:,I+1)=y(:,i+1);
+                I=I+1;
+            elseif(TIME(I+1)<t(i+1))
+                y_interpol(:,I+1)=interpol(t,y,TIME(I+1),i);
+                I=I+1;
+            end
+
+        end
+
+    else    % constant stepsize
+        h(i+1)=h(i);
+        if( i>5)
+            if( err2(:,i+1) <= 1.0)
+
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                % step successful
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                if(iPhase==0)
+                    iPhase=0;
+                    iNoRej=0;
+                else
+                    iPhase=0;
+                end
+
+                nef=0;
+                %ncf=0;
+                nsf=0;
+
+                % interpolation between meshpoints
+                if(TIME(I+1)==t(i+1))
+                    y_interpol(:,I+1)=y(:,i+1);
+                    I=I+1;
+                elseif(TIME(I+1)<t(i+1))
+                    while(TIME(I+1)<t(i+1))
+                        if(i>5)
+                            nn=5;
+                        else
+                            nn=i;
+                        end
+                        y_interpol(:,I+1)=interpol(t,y,TIME(I+1),nn);
+                        I=I+1;
+                        if(I-1==N)
+                            return
+                        end
+                    end
+                end
+
+            else
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                % reject step, step unsucessful
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                iPhase=1;
+
+                %restore y,t,y_est,err1
+                y=y(:,1:i);
+                t=t(1:i);
+                y_est=y_est(:,1:i);
+                err2=err2(:,1:i);
+
+                i=i-1;
+                iNoRej=iNoRej+1;
+
+                %test whether failure was due to corrector iteration  or error test failure
+                if(converged==0)   % Newton iteration converged
+                    nef = nef+1;
+                else % Newton iteration failed to converge
+                    nsf=nsf+1;
+                end
+            end
+        else
+            % interpolation between meshpoints
+            if(TIME(I+1)==t(i+1))
+                y_interpol(:,I+1)=y(:,i+1);
+                I=I+1;
+            elseif(TIME(I+1)<t(i+1))
+                y_interpol(:,I+1)=interpol(t,y,TIME(I+1),i);
+                I=I+1;
+            end
+
+        end
+    end
+    
+    i=i+1;
+    
+end
+
+::::::::::::::
+RK_step.m
+::::::::::::::
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Runge-Kutta step
+%
+% Performs one Runge-Kutta step
+%
+% CALL  :
+% [t,h,y,y_2]=RK_step(funct,y,i,h,t,s,type,RTOL,ATOL)
+%
+% INPUT : funct - name of routine to determin F
+%                 (Text-String)
+%         y     - 
+%         i     - number of current step
+%         h     - current stepsize
+%         t     - current time
+%         s     - number of stages, s=2 !
+%         RTOL  - relative error tolerance
+%         ATOL  - absolute error tolerance
+%         type  - type of Runge-Kutta method
+%                 type = 'Gauss'
+%                        'Radau'
+%                        'Lobatto'
+%
+% OUTPUT: t    - time steps
+%         h    - vector of stepsizes
+%         y    - approximate solution at times t(i)
+%         
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [y_new,converged]=RK_step(funct,funct_d1,funct_d2,funct_d3,n,y,i,h,t,s,type,RTOL,ATOL)   
+
+% starting value for Newton iteration
+x0=zeros(s*n,1);
+
+% maximal number of iterations
+MAXIT = 20;
+
+x(:,1)=x0;   
+d(:,1)=x0;
+abbruch=1;
+
+% RK-coefficients
+[A,At,b,bt,c] = RK_coef(s,type);
+
+% Iteration counter
+m=1;  
+while(abbruch >= 0.33 && m<=MAXIT)
+    
+    ddY = x(:,m);
+   
+    Y  = kron(ones(s,1),eye(n,n))*y(1:n,i) + h*kron(c',eye(n,n))*y(n+1:2*n,i) + h^2*kron(At,eye(n,n))*ddY;
+    dY = kron(ones(s,1),eye(n,n))*y(n+1:2*n,i) + h*kron(A,eye(n,n))*ddY;   
+    
+    for j=1:s
+        F(n*(j-1)+1:n*j,1)  = feval( funct,t(i)+c(j)*h,Y(n*(j-1)+1:n*j),dY(n*(j-1)+1:n*j),ddY(n*(j-1)+1:n*j));
+    
+       J(n*(j-1)+1:n*j,n*(j-1)+1:n*j) = feval(funct_d1,t(i)+c(j)*h,Y(n*(j-1)+1:n*j),dY(n*(j-1)+1:n*j),ddY(n*(j-1)+1:n*j));
+       K(n*(j-1)+1:n*j,n*(j-1)+1:n*j) = feval(funct_d2,t(i)+c(j)*h,Y(n*(j-1)+1:n*j),dY(n*(j-1)+1:n*j),ddY(n*(j-1)+1:n*j),'rk');
+       M(n*(j-1)+1:n*j,n*(j-1)+1:n*j) = feval(funct_d3,t(i)+c(j)*h,Y(n*(j-1)+1:n*j),dY(n*(j-1)+1:n*j),ddY(n*(j-1)+1:n*j),'rk');
+    end
+
+    %DF = eye(s*n,s*n) - h^2*kron(At,eye(n,n))*J - h*kron(A,eye(n,n))*K; 
+    DF = M + h^2*kron(At,eye(n,n))*J + h*kron(A,eye(n,n))*K; 
+   
+    DF2=1/(h^2)*DF;
+    F2=1/(h^2)*F;
+    
+    [LL,UU,PP]=lu(DF2);
+    f_neu=-PP*F2;
+    yy = forward(LL,f_neu);
+    z1 = backward(UU,yy);
+    
+    d(:,m+1)=z1;
+    x(:,m+1)=x(:,m)+d(:,m+1);
+    
+    m=m+1;
+    if(m>2)
+        rho = (myNorm(x(:,m)-x(:,m-1),RTOL,ATOL)/myNorm(x(:,2)-x(:,1),RTOL,ATOL))^(1/(m-1));
+        abbruch = rho/(1-rho)*myNorm(x(:,m)-x(:,m-1),RTOL,ATOL);
+    end
+end % end while
+
+if(m<MAXIT)
+    converged = 0;
+else
+    converged = 1;
+end
+
+
+y_i = y(1:n,i);
+yp_i= y(n+1:2*n,i);
+
+y_ip1  = y_i + h*yp_i + h^2*kron(bt,eye(n,n))*x(:,m);
+yp_ip1 = yp_i+ h*kron(b,eye(n,n))*x(:,m);
+
+
+% the new approximation at t(i)+h
+y_new(:,1)=[y_ip1;yp_ip1];
+
+
+
+
+
+::::::::::::::
+glm2_dae.m
+::::::::::::::
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% GLM-Verfahren, variable-step variable-order GLM
+%
+% Loesen der differentiell-algebraischen Gleichung 2. Ordung der Form
+% M y''(t)=D y'(t) + S y(t) + f(t,y,y')
+%
+% mit GLM der Ordnung Ordnung k
+%
+% CALL  : [t,h,y,y_est,y_interpol]=bdfk2dae(funct,y0,y1,t0,a,N,K,RTOL,ATOL,H0)
+%
+% INPUT : funct - Name der aufzurufenden Routine, die die Matrizen M, D, S und Vektor f bestimmt
+%                 (Text-String)
+%         y0,y1 - initial value
+%         t0    - initial time         t\in[t0,t0+a]
+%         a     - length of interval   t\in[t0,t0+a]
+%         N     - number of steps
+%         K     - maximal order
+%
+% OUTPUT: t    - time steps t=[t0,t0+h,...,t0+(N-1)*h,t0+N*h=t0+a]
+%         h    - stepsizes
+%         y    - approximation of solution at t(i)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+function [t,h,y,yp,y_est]=glm2_dae(funct,funct_start,funct_d1,funct_d2,funct_d3,y0,y1,t0,a,N,p,q,k,s,RTOL,ATOL,H0,step)
+
+if(a==0)
+    error('wrong interval');
+end
+
+TIME=t0:a/N:t0+a;
+t(1)=t0;
+
+TOUT=t0+a;
+
+% initial stepsize
+if(H0==0)
+    H0 = sign(TOUT-t0)*min(10^(-3)*abs(TOUT-t0),0.5*myNorm(y1,RTOL,ATOL)^(-1));
+end
+
+h(1)=H0(1);
+
+[n,m]=size(y0);
+
+iNoRej = 0;nef=0;nsf=0;iPhase=0;
+%newOrder = 0;
+
+%facmax = 1.5;
+%facmin = 0.2;
+%fac = 0.8;
+
+
+% integration
+i=1;
+I=1;
+
+%[y(:,1)] = starting(funct,funct_d1,funct_d2,funct_d3,n,p,q,k,s,h,t0,y0,y1,RTOL,ATOL);
+y(:,1) = feval(funct_start,t0,h(1),s);
+yp(:,1)  = y(n+1:2*n,1)/h(1);
+
+Y(:,1)   = kron(ones(s,1),eye(n,n))*y0;
+dY(:,1)   = kron(ones(s,1),eye(n,n))*y1;
+ddY(:,1)  = kron(ones(s,1),eye(n,n))*y1;
+
+y_interpol(:,1)=y(:,1);
+y2(1:n,1) = y(1:n,1);
+y2(n+1:2*n,1) = yp(:,1);
+
+while(i<700 && t(i)<=TOUT)
+    i;
+    t(i+1) = t(i)+h(i);
+    h(i+1) = h(i);
+
+    % GLM coefficients
+    [M,c] = glm_coef(p,s,h(i));
+    
+%     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     At = M(1:s,1:s)
+%     Ut = M(1:s,s+1:s+k)
+%     A  = M(s+1:s+s,1:s)
+%     U  = M(s+1:s+s,s+1:s+k)
+%     Bt = M(2*s+1:2*s+s,1:s )
+%     Vt = M(2*s+1:2*s+s,s+1:s+k )
+% %     [V,E]=eig(Vt);
+%      stabilityRegion(A,At,U,Ut,Vt,Bt,s);
+%     %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    
+
+    %internal stages -> Newton
+    [Y(:,i+1),dY(:,i+1),ddY(:,i+1),converged]= glm_internal(funct,funct_d1,funct_d2,funct_d3,ddY(:,i),y(:,i),n,M,c,h,i,t(i),s,k,RTOL,ATOL,0 );
+
+    % output quantities
+    [y(:,i+1)] =  glm_external(y(:,i), ddY(:,i+1),n,M,h,i,s,k );
+    yp(:,i+1)  =  y(n+1:2*n,i+1)/h(i);
+
+    y2(1:n,i+1) = y(1:n,i+1);
+    y2(n+1:2*n,i+1) = yp(:,i+1);
+
+    % Error Estimate - Extrapolationsmethode
+    if(i<=4)
+        y_est(:,i+1)=extrapol(t,y2,i-1);
+        err2(:,i+1)=myNorm(y_est(:,i+1)-y2(:,i+1),RTOL,ATOL);
+    end
+    if(i>4)
+        y_est(:,i+1)=extrapol(t,y2,3);
+        err2(:,i+1)=myNorm(y_est(:,i+1)-y2(:,i+1),RTOL,ATOL);
+    end
+
+
+    hmin = 4*eps*max(abs(t(i+1)),abs(TOUT));
+
+    EST=err2(:,i+1);
+
+    if( step ==1)
+
+        if( i>5)
+            if( err2(:,i+1) <= 1.0)
+
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                % step successful
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                if(iPhase==0)
+                    h(i+1)=2*h(i);
+                    iPhase=0;
+                    iNoRej=0;
+                else
+                    r=(2*EST+0.0001)^(-1/(1+1));
+                    if( r < 2.0)
+                        if( r > 1.0)
+                            h(i+1)=h(i);
+                        else
+                            r = max(0.5,min(0.9,r));
+                            h(i+1)=r*h(i);
+                        end
+                    else
+                        h(i+1)=2*h(i);
+                    end
+                    iPhase=0;
+                end
+
+                nef=0;
+                %ncf=0;
+                nsf=0;
+
+                % interpolation between meshpoints
+                if(TIME(I+1)==t(i+1))
+                    y_interpol(:,I+1)=y(:,i+1);
+                    I=I+1;
+                elseif(TIME(I+1)<t(i+1))
+                    while(TIME(I+1)<t(i+1))
+                        if(i>5)
+                            nn=5;
+                        else
+                            nn=i;
+                        end
+                        y_interpol(:,I+1)=interpol(t,y,TIME(I+1),nn);
+                        I=I+1;
+                        if(I-1==N)
+                            return
+                        end
+                    end
+                end
+
+            else
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                % reject step, step unsucessful
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                iPhase=1;
+
+                %restore y,t,y_est,err1
+                y=y(:,1:i);
+                t=t(1:i);
+                y_est=y_est(:,1:i);
+                err2=err2(:,1:i);
+
+                i=i-1;
+                iNoRej=iNoRej+1;
+
+                %test whether failure was due to corrector iteration  or error test failure
+                if(converged==0)   % Newton iteration converged
+                    nef = nef+1;
+                    if(nef > 1)
+                        if( nef > 2)
+                            r=0.25;
+                            h(i+1)=r*h(i+1);
+                            if(abs(h(i+1))<hmin)
+                                error('minimal stepsize');
+                            end
+                        else % second error test failure
+                            r=0.25;
+                            h(i+1)=r*h(i+1);
+                            if(abs(h(i+1))<hmin)
+                                error('minimal stepsize');
+                            end
+                        end
+                    else  % first error test failure
+                        r=0.9*(2.0*EST+0.0001)^(-1/(1+1));
+                        r=max(0.25,min(0.9,r));
+                        h(i+1)=r*h(i+1);
+                        if(abs(h(i+1))<hmin)
+                            error('minimal stepsize');
+                        end
+                    end
+
+                else % Newton iteration failed to converge
+                    nsf=nsf+1;
+                    r=0.25;
+                    h(i+1)=r*h(i+1);
+                    if(abs(h(i+1))<hmin || nsf >3 )
+                        error('minimal stepsize');
+                    end
+
+                end
+
+            end
+        else
+            % interpolation between meshpoints
+            if(TIME(I+1)==t(i+1))
+                y_interpol(:,I+1)=y(:,i+1);
+                I=I+1;
+            elseif(TIME(I+1)<t(i+1))
+                y_interpol(:,I+1)=interpol(t,y,TIME(I+1),i);
+                I=I+1;
+            end
+
+        end
+
+    else    % constant stepsize
+        h(i+1)=h(i);
+        if( i>5)
+            if( err2(:,i+1) <= 1.0)
+
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                % step successful
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                if(iPhase==0)
+                    iPhase=0;
+                    iNoRej=0;
+                else
+                    iPhase=0;
+                end
+
+                nef=0;
+                %ncf=0;
+                nsf=0;
+
+                % interpolation between meshpoints
+                if(TIME(I+1)==t(i+1))
+                    y_interpol(:,I+1)=y(:,i+1);
+                    I=I+1;
+                elseif(TIME(I+1)<t(i+1))
+                    while(TIME(I+1)<t(i+1))
+                        if(i>5)
+                            nn=5;
+                        else
+                            nn=i;
+                        end
+                        y_interpol(:,I+1)=interpol(t,y,TIME(I+1),nn);
+                        I=I+1;
+                        if(I-1==N)
+                            return
+                        end
+                    end
+                end
+
+            else
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                % reject step, step unsucessful
+                %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+                iPhase=1;
+
+                %restore y,t,y_est,err1
+                y=y(:,1:i);
+                t=t(1:i);
+                y_est=y_est(:,1:i);
+                err2=err2(:,1:i);
+
+                i=i-1;
+                iNoRej=iNoRej+1;
+
+                %test whether failure was due to corrector iteration  or error test failure
+                if(converged==0)   % Newton iteration converged
+                    nef = nef+1;
+                else % Newton iteration failed to converge
+                    nsf=nsf+1;
+                end
+            end
+        else
+            % interpolation between meshpoints
+            if(TIME(I+1)==t(i+1))
+                y_interpol(:,I+1)=y(:,i+1);
+                I=I+1;
+            elseif(TIME(I+1)<t(i+1))
+                y_interpol(:,I+1)=interpol(t,y,TIME(I+1),i);
+                I=I+1;
+            end
+
+        end
+    end
+
+    i=i+1;
+end
+
+::::::::::::::
+glm_external.m
+::::::::::::::
+% output quantities
+function    [y] = glm_external( yn,Ypp,n,M,h,i,s,k )
+
+Bt = M(2*s+1:2*s+s,1:s );
+Vt = M(2*s+1:2*s+s,s+1:s+k );
+
+if( i>1)
+    D = zeros(k,k);
+    for j=1:k
+        D(j,j)=(h(i)/h(i-1))^(j-1);
+    end
+    
+    yn = kron(D,eye(n,n))*yn;
+end
+
+y = kron(Vt,eye(n,n))*yn + h(i)^2*kron(Bt,eye(n,n))*Ypp;
+::::::::::::::
+glm_internal.m
+::::::::::::::
+%internal stages -> Newton
+function     [Y,dY,ddY,converged] = glm_internal(funct,funct_d1,funct_d2,funct_d3,ddYn,y,n,M,c,h,j,t,s,k,RTOL,ATOL,start)
+
+At = M(1:s,1:s);
+Ut = M(1:s,s+1:s+k);
+A  = M(s+1:s+s,1:s);
+U  = M(s+1:s+s,s+1:s+k); 
+
+%starting value for Newton-Iteration
+Y0 = ddYn;
+
+% maximal number of iterations
+MAXIT = 20;
+
+x(:,1)=Y0;   
+dx(:,1)=Y0;
+abbruch=1;
+
+if( j>1)
+    D = zeros(k,k);
+    for jj=1:k
+        D(jj,jj)=(h(j)/h(j-1))^(jj-1);
+    end
+    y=kron(D,eye(n,n))*y;
+end
+
+% Iteration counter
+m=1; 
+
+while(abbruch >= 0.33 && m<=MAXIT)
+    
+    ddY = x(:,m);
+    
+    Y  = kron(Ut,eye(n,n))*y + h(j)^2*kron(At,eye(n,n))*ddY;
+    dY = kron(U,eye(n,n))*y  + h(j)*kron(A,eye(n,n))*ddY;   
+    
+    for i=1:s
+       J(n*(i-1)+1:n*i,n*(i-1)+1:n*i) = feval(funct_d1,t+c(i)*h(j),Y(n*(i-1)+1:n*i),dY(n*(i-1)+1:n*i),ddY(n*(i-1)+1:n*i));
+       K(n*(i-1)+1:n*i,n*(i-1)+1:n*i) = feval(funct_d2,t+c(i)*h(j),Y(n*(i-1)+1:n*i),dY(n*(i-1)+1:n*i),ddY(n*(i-1)+1:n*i),'glm');
+       L(n*(i-1)+1:n*i,n*(i-1)+1:n*i) = feval(funct_d3,t+c(i)*h(j),Y(n*(i-1)+1:n*i),dY(n*(i-1)+1:n*i),ddY(n*(i-1)+1:n*i),'glm');
+    end
+
+    for i=1:s
+        F(n*(i-1)+1:n*i,1)  = feval( funct,t+c(i)*h(j),Y(n*(i-1)+1:n*i),dY(n*(i-1)+1:n*i),ddY(n*(i-1)+1:n*i));
+    end
+    
+    DF = L + h(j)^2*kron(At,eye(n,n))*J + h(j)*kron(A,eye(n,n))*K; 
+    
+    DF=1/(h(1)^2)*DF;
+    F=1/(h(1)^2)*F;
+     
+    [LL,UU,PP]=lu(DF);
+    f_neu=-PP*F;
+    yy = forward(LL,f_neu);
+    if(start == 1)
+        z1 = backward(UU,yy,1);
+    else
+        z1 = backward(UU,yy);
+    end
+    
+    dx(:,m+1)=z1;
+    x(:,m+1)=x(:,m)+dx(:,m+1);
+    
+    m=m+1;
+    if(m>2)
+        rho = (myNorm(x(:,m)-x(:,m-1),RTOL,ATOL)/myNorm(x(:,2)-x(:,1),RTOL,ATOL))^(1/(m-1));
+        abbruch = rho/(1-rho)*myNorm(x(:,m)-x(:,m-1),RTOL,ATOL);
+    end
+end % end while
+
+if(m<MAXIT)
+    converged = 0;
+else
+    converged = 1;
+end
+
+ddY = x(:,m);
+
+::::::::::::::
+starting.m
+::::::::::::::
+
+function [y] = starting(funct,funct_d1,funct_d2,funct_d3,n,p,q,s,h,t0,y0,y1,RTOL,ATOL)
+
+     Y   = kron(ones(s,1),eye(n,n))*y0;
+     dY  = kron(ones(s,1),eye(n,n))*y1;
+     ddY = kron(ones(s,1),eye(n,n))*y1;
+     
+
+     y(1:n,1)=y0;
+     y(n+1:2*n,1)=h*y1;
+     
+     c = 0:1/p:1;
+     
+     [S] = startProc(p,c,h);
+     
+     %internal stages -> Newton
+     [Y,dY,ddY]= glm_internal(funct,funct_d1,funct_d2,funct_d3,Y,dY,ddY,y,n,S,c,h,1,t0,p,q,s,2,RTOL,ATOL,1 ); 
+
+    % output quantities
+     [y] =  glm_external(funct,t0,y, ddY,n,S,c,h,1,p,q,s,2 ); 
+::::::::::::::
+startProc.m
+::::::::::::::
+% Starting procedure
+%
+% p order of method
+% c vector of abscissae of lenght p+1
+function [S] = startProc(p,c,h)
+
+% 
+% if( length(c) ~= p+1)
+%     error('wrong input');
+% end
+% 
+% J = zeros(p+1,p+1);
+% C = zeros(p+1,p+1);
+% M = zeros(p+1,p+1);
+% for i=1:p+1
+%     for j=1:p+1
+%         if( i == j+1)
+%             J(i,j)=1;
+%         end
+%         if( i == j+2)
+%             M(i,j)=1;
+%         end
+%         if j==1
+%             C(i,j)=1;
+%         else
+%             C(i,j)=c(i)^(j-1)/faculty(j-1);
+%         end
+%     end
+% end
+% 
+% At = C*M*inv(C);
+% Bt = M*inv(C);
+% A = C*J*inv(C);
+% 
+% Ut(:,1) = ones(p+1,1);
+% Ut(:,2) = c';
+% 
+% Vt = zeros(p+1,2);
+% Vt(1:2,1:2) = eye(2,2);
+% 
+% U = zeros(p+1,2);
+% U(:,2) = 1/h*ones(p+1,1);
+% 
+% S = [ At Ut
+%       A  U
+%       Bt  Vt];
+
+
+s = p+1;
+
+%if( length(c) ~= s)
+%    error('wrong input');
+%end
+
+J = zeros(s,s);
+C = zeros(s,s);
+M = zeros(s,s);
+for i=1:s
+    for j=1:s
+        if( i == j+1)
+            J(i,j)=1;
+        end
+        if( i == j+2)
+            M(i,j)=1;
+        end
+        if j==1
+            C(i,j)=1;
+        else
+            C(i,j)=c(i)^(j-1)/faculty(j-1);
+        end
+    end
+end
+
+At = C*M*inv(C);
+Bt = M*inv(C);
+A = C*J*inv(C);
+
+Ut(:,1) = ones(s,1);
+Ut(:,2) = c';
+
+Vt = zeros(s,2);
+Vt(1:2,1:2) = eye(2,2);
+
+U = zeros(s,2);
+U(:,2) = 1/h*ones(s,1);
+
+S = [ At Ut
+      A  U
+      Bt  Vt];

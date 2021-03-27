@@ -1,0 +1,17 @@
+@misc{beattie2019structurepreserving,
+      title={Structure-preserving Interpolatory Model Reduction for Port-Hamiltonian Differential-Algebraic Systems}, 
+      author={Chris A. Beattie and Serkan Gugercin and Volker Mehrmann},
+      year={2019},
+      eprint={1910.05674},
+      archivePrefix={arXiv},
+      primaryClass={math.NA}
+}
+
+@misc{hauschild2019model,
+      title={Model reduction techniques for linear constant coefficient port-Hamiltonian differential-algebraic systems}, 
+      author={Sarah-Alexa Hauschild and Nicole Marheineke and Volker Mehrmann},
+      year={2019},
+      eprint={1901.10242},
+      archivePrefix={arXiv},
+      primaryClass={math.OC}
+}

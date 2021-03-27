@@ -1,0 +1,18 @@
+TY  - JOUR
+AU  - Beattie, Christopher
+AU  - Mehrmann, Volker
+AU  - Xu, Hongguo
+AU  - Zwart, Hans
+PY  - 2018
+DA  - 2018/10/20
+TI  - Linear port-Hamiltonian descriptor systems
+JO  - Mathematics of Control, Signals, and Systems
+SP  - 17
+VL  - 30
+IS  - 4
+AB  - The modeling framework of port-Hamiltonian systems is systematically extended to linear constrained dynamical systems (descriptor systems, differential-algebraic equations) of arbitrary index and with time-varying constraints. A new algebraically and geometrically defined system structure is derived. It is shown that this structure is invariant under equivalence transformations, and that it is adequate also for the modeling of high-index descriptor systems. The regularization procedure for descriptor systems to make them suitable for simulation and control is modified to preserve the port-Hamiltonian form. The relevance of the new structure is demonstrated with several examples.
+SN  - 1435-568X
+UR  - https://doi.org/10.1007/s00498-018-0223-3
+DO  - 10.1007/s00498-018-0223-3
+ID  - Beattie2018
+ER  - 

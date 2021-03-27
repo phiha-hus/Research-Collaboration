@@ -1,0 +1,106 @@
+\subsection{Causal concept}
+The solvability analyses of differential-algebraic equations and descriptor systems in both continuous and discrete-time cases share one important concept \emph{causality}. Even though they have different definitions, their meanings are closely related. We will discuss the relations between them in this subsection. 
+
+\subsection{Index reduction}
+As in Section \ref{Sec2}, we will rewrite \eqref{eq4.1} in the behavior form
+%
+\begin{equation}\label{eq4.2}
+\m{A_{} & B_{} & C_{}} \ \m{x(n+2) \\ x(n+1) \\ x(n)} + D u(n) = 0.
+\end{equation}
+%
+In the index reduction procedure of continuous time systems, one should avoid differentiating equations that involve an input function, due to the fact that it may not be differentiable. 
+Here, we will also keep this spirit, and hence, will not shift any equation that involve an input function, since it may destroy the causality of the considered system. In the following lemma, we give the first condensed form for system \eqref{eq4.1}.
+
+\begin{lemma}\label{lem4.1} Consider the descriptor system \eqref{eq4.1}. Then, there exist two pointwise orthogonal matrices $U$, $V$ such that the following identities hold.
+%
+\be\label{eq4.3}
+U \m{M & D & K} \!=\!
+\m{M_{1}  & D_{1}    & K_{1}     \\
+	0    & D_{2}    & K_{2}     \\
+	0    & 0          & K_{3}     \\  \hline
+	0    & D_{4}    & K_{4}     \\
+	0    & 0          & K_{5}     \\  \hline 
+	0    & 0          & 0}, 
+\
+U B V \!=\!
+\m{ B_{11}		& B_{12}  & B_{13} \\
+	0 			& 0		    & B_{24} \\
+	0 			& 0		    & 0        \\	\hline 
+	0      	& \Si_{1} & B_{44} \\ 
+	0     		& 0		    & \Si_{0}        \\ \hline
+	0     		& 0         & 0}, 
+\quMB \pm{r_{2} \\ r_{1} \\ r_{0} \\ \vphi_{1} \\ \vphi_{0} \\  v}
+\ee
+%
+where sizes of the block rows are $r_{2}$, $r_{1}$, $r_{0}$, $\vphi_{1}$, $\vphi_{0}$, $v$, the matrices $A_{1}$, $\m{ B_{2} \\ B_{4} }$, $C_{3}$ are of full row rank, and the matrices $\Si_{2}$, $\Si_{1}$, $\Si_{0}$ are nonsingular and diagonal.
+\end{lemma}
+
+\proof
+Since the proof is quite lengthy and technical, we will split it into several steps.
+\eproof
+
+\begin{corollary}\label{coro4.0} Consider the descriptor system \eqref{eq4.1}. Then, there exist 
+two pointwise nonsingular matrices $\tU$, $V$ such that the following identities hold.
+%
+\be\label{eq4.4}
+	\tU \m{A_{} & B_{} & C_{}} \!=\!
+	\m{A_{1}  & B_{1}    & C_{1}     \\
+		0    & B_{2}    & C_{2}     \\
+		0    & 0          & C_{3}     \\  \hline
+		A_{4}  & B_{4}    & C_{4}     \\
+		0    & B_{5}    & C_{5}     \\
+		0    & 0          & C_{6}     \\  \hline 
+		0    & 0          & 0}, \quad 
+	\tU D V  \!=\!
+	\m{ 0  & 0 			& 0			& 0		  \\
+		0  & 0 			& 0		    & 0		  \\
+		0  & 0 			& 0		    & 0        \\	\hline 
+		0  &\Si_{2}   & 0         & 0			 \\
+		0  & 0      	& \Si_{1} & 0			 \\ 
+		0  & 0     		& 0		    & \Si_{0}        \\ \hline
+		0  & 0     		& 0         & 0       	
+	}.  
+	\quad \pm{r_{2} \\ r_{1} \\ r_{0} \\ \vphi_{2} \\ \vphi_{1} \\ \vphi_{0} \\  v}  
+\ee
+	%	
+Here the matrices $\m{A_{1} \\ A_{4} }$, $\m{ B_{2} \\ B_{5} }$, $C_{3}$ are of full row rank.	The matrices $\Si_{2}$, $\Si_{1}$, $\Si_{0}$ are nonsingular and diagonal.
+\end{corollary}
+\begin{proof}
+The proof is straight forward by row elimination in the last two block columns of \eqref{eq4.3}.
+\end{proof}
+
+Since the first three block equations of \eqref{eq4.4} does not involve an input function $u$, we can apply Algorithm \ref{Alg1} to transform \eqref{eq4.1} to its strangeness-free formulation, as in the next corollary. We notice that, since the considered system \eqref{eq4.1} is time-invariant, so Assumption \ref{Ass1} is automatically fulfilled.
+
+\begin{corollary}\label{coro4.2}
+Consider the descriptor system \eqref{eq4.1} and the two matrices $\tU$, $V$ such that we obtain the form \eqref{eq4.4}. 
+Then, by applying Algorithm \ref{Alg1} to the transformed descriptor system
+%
+\[
+ \tU \m{A_{} & B_{} & C_{}} \m{x(n+2) \\ x(n+1) \\ x(n) } + \tU D V v(n) = 0,
+\]
+% 
+where $u(n) = V v(n)$ for all $n\geq n_0$, we obtain the strangness-free descriptor system 
+%
+\be\label{sfree-descriptor}
+\pm{\hr_{2} \\ \hr_{1} \\ \hr_{0} \\ \vphi_{2} \\ \vphi_{1} \\ \vphi_{0} \\  \hv} \
+\m{\hA_{1}& \hB_{1}    & \hC_{1}     \\
+	0		& \hB_{2}    & \hC_{2}     \\
+	0		&    0          & \hC_{3}		 \\ \hline
+	A_{4}  & B_{4}    & C_{4}     \\
+	0    & B_{5}    & C_{5}     \\
+	0    & 0          & C_{6}     \\ \hline
+	0    & 0          & 0}
+\m{x(n+2) \\ x(n+1) \\ x(n)} + 
+\m{ 0  & 0 			& 0			& 0		  \\
+	0  & 0 			& 0		    & 0		  \\
+	0  & 0 			& 0		    & 0        \\	\hline 
+	0  &\Si_{2}   & 0         & 0			 \\
+	0  & 0      	& \Si_{1} & 0			 \\ 
+	0  & 0     		& 0		    & \Si_{0}        \\ \hline
+	0  & 0     		& 0         & 0       	
+} v(n) = \m{0 \\ 0 \\ 0 \\ \hline 0 \\ 0 \\ 0 \\ \hline  0 },
+\ee
+%
+where the matrices $\m{\hA_{1} \\ \hB_{2} \\ \hC_{3}}$, $A_{4}$, $B_{5}$, $C_{6}$ have full row rank.
+%
+\end{corollary}

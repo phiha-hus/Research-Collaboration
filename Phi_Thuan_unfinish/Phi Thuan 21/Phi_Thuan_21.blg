@@ -1,0 +1,60 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Phi_Thuan_21.aux
+Reallocating 'name_of_file' (item size: 1) to 9 items.
+The style file: amsplain.bst
+Reallocating 'name_of_file' (item size: 1) to 14 items.
+Reallocating 'name_of_file' (item size: 1) to 13 items.
+A level-1 auxiliary file: Appendix.aux
+Database file #1: Phi_July_2019.bib
+I was expecting a `,' or a `}'---line 4573 of file Phi_July_2019.bib
+ :   Journal                  = IEEE 
+ :                                   Trans. Automat. Control,
+I'm skipping whatever remains of this entry
+Repeated entry---line 6741 of file Phi_July_2019.bib
+ : @inproceedings{Kel01
+ :                     ,
+I'm skipping whatever remains of this entry
+Warning--missing pages in Abd19
+You've used 25 entries,
+            2213 wiz_defined-function locations,
+            997 strings with 12285 characters,
+and the built_in function-call counts, 7110 in all, are:
+= -- 622
+> -- 275
+< -- 1
++ -- 113
+- -- 85
+* -- 565
+:= -- 1161
+add.period$ -- 25
+call.type$ -- 25
+change.case$ -- 119
+chr.to.int$ -- 0
+cite$ -- 26
+duplicate$ -- 295
+empty$ -- 663
+format.name$ -- 85
+if$ -- 1491
+int.to.chr$ -- 0
+int.to.str$ -- 25
+missing$ -- 57
+newline$ -- 85
+num.names$ -- 49
+pop$ -- 164
+preamble$ -- 1
+purify$ -- 93
+quote$ -- 0
+skip$ -- 163
+stack$ -- 0
+substring$ -- 483
+swap$ -- 35
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 82
+warning$ -- 1
+while$ -- 69
+width$ -- 27
+write$ -- 224
+(There were 2 error messages)

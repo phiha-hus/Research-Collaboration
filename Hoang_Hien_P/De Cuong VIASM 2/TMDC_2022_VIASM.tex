@@ -1,0 +1,152 @@
+\documentclass[11pt,reqno, a4paper]{report}
+\usepackage{amsmath,amsxtra,amssymb,latexsym, amscd,amsthm}
+\usepackage[mathscr]{eucal}
+\usepackage{graphicx}
+\usepackage{cases}
+%\input setbmp
+%\usepackage{vnfonts}
+\usepackage[utf8]{vietnam}
+\usepackage{multicol,color}
+
+\vfuzz2pt 
+
+
+
+\numberwithin{equation}{section}
+\newcommand{\1}{\boldsymbol{1}}
+\textwidth 16 truecm
+\setlength{\evensidemargin} {-0.04cm}  %Lề phải 2.54cm-0.04cm=2.5cm
+\setlength{\oddsidemargin}{0.46cm}     %Lề trái 2.54cm+0.46cm=3cm
+\setlength{\textheight}{25.7cm}
+\setlength{\topmargin}{-1.2cm}          %Lề trên 2.54cm-0.04cm=2.5cm
+%vsize=21.1 truecm
+%\setlength{\parindent}{0.8cm}
+
+%\parskip 1pt
+
+ \font\inh=cmr10 \font\cto=cmr10
+\font\tit=cmbx12 \font\tmd=cmbx10 \font\ab=cmti9 \font\cn=cmr9
+
+\usepackage[colorlinks,pdfpagelabels]{hyperref} %$#
+
+\def\ker{\text{Ker}}
+\def\bar{\overline}
+\def\ind{\text{Ind}}
+\def\a.s{\text{\;a.s.\;}}
+\def\supp{\text{supp\;}}
+\def\TT{\mathbb T}
+\def\NN{\mathbb N}
+\def\ZZ{\mathbb Z}
+\def\RR{\mathbb R}
+\def\UT{{\mathscr U\mathbb T}}
+%\pagestyle{headings}
+\def\be{\begin{equation}}
+\def\ee{\end{equation}}        
+
+\include{New_command}
+
+
+\begin{document}
+\fontsize{13pt}{18pt}\selectfont 
+ \pagestyle{empty}
+
+\centerline{\Large{\textbf{THUYẾT MINH ĐỀ CƯƠNG NGHIÊN CỨU}}}\
+
+
+ \medskip
+
+  \noindent  {\bf 1. Tên đề tài nghiên cứu}: 
+{\it Một số bài toán định tính trong lý thuyết ổn định và điều khiển của các hệ động lực suy biến và có trễ}\\
+(Some qualitative problems in the stability analysis and control theory of singular and delay systems)\\
+
+  \noindent Chủ nhiệm: PGS. TS. Lê Văn Hiện \\
+
+  \noindent {\bf 2. Mục tiêu: }
+Nghiên cứu một số bài toán mới về ổn định, ổn định hóa bằng điều khiển phản hồi (feedback) và điều khiển được trong các hệ động lực mô tả bởi các phương trình vi phân (hoặc sai phân) đại số, vi phân (hoặc sai phân) có trễ.\\
+
+  \noindent {\bf 3. Nội dung nghiên cứu:} 
+ Kể từ những công trình tiên phong của Gear (\cite{Gea71a,Gea77}) trong những năm 1970 cho đến nay, các hệ động lực suy biến (hay còn được gọi là các phương trình vi phân/sai phân đại số) viết tắt là DAEs đã thu hút được rất nhiều sự quan tâm của nhiều nhóm nghiên cứu trên thế giới cũng như tại Việt Nam. Từ phương diện ứng dụng, các hệ suy biến có vai trò vô cùng quan trọng trong việc mô hình hóa tự động các bài toán công nghiệp hay kỹ thuật, với nhiều ứng dụng như trong mạch điện, cơ học đa vật thể, mô phỏng quá trình hóa học, cơ học chất lỏng, ...  
+ %
+ Hệ suy biến với thời gian liên tục được mô tả bởi các phương trình vi phân đại số. Phương trình này là mô hình cho nhiều lĩnh vực ứng dụng, chẳng hạn như trong mô phỏng các hệ cơ học đa vật thể, mô phỏng điện từ, hoá học, động lực chất lỏng và nhiều lĩnh vực khác (xem \cite{BreCP96,LamMT13,IlcR13}). Mô hình toán học của các phương trình vi phân đại số tổng quát có dạng
+ %
+ \begin{equation}
+ F(\dot{x}(t),x(t),t) = 0 
+ \end{equation}%
+ trong đó đạo hàm $\dot{x}$ không rút được theo $x$ và $t$ bởi hàm $F$ không thỏa mãn các điều kiện của định lý hàm ẩn.  Đối với các hệ suy biến, ngoài phần động lực còn có các ràng buộc đại số trên biến trạng thái. Điều này gây ra các khó khăn trong việc nghiên cứu tính giải được, giải số và ổn định của nghiệm và dẫn đến khái niệm chỉ số để phân tích mức độ phức tạp của hệ suy biến so với các phương trình vi phân thường (ODEs). Để tham khảo một các đầy đủ các kiến thức cơ sở về các hệ suy biến, chúng tôi trích dẫn đến các tài liệu kinh điển \cite{BreCP96,LamMT13,KunM06}. \\
+ %
+ Bên cạnh đó, trong thực tế có rất nhiều các bài toán của kỹ thuật, vật lý, sinh học, kinh tế ... được mô tả bởi các hệ điều khiển. Lý thuyết điều khiển được phát triển từ khi sự thực hiện các điều khiển cơ học bắt đầu cần được mô tả và phân tích một cách toán học. Bên cạnh lý thuyết ổn định, lý thuyết điều khiển của các hệ suy biến rất được quan tâm nghiên cứu. Ở đó, hệ suy biến tổng quát có dạng
+ %
+ \begin{equation}
+ F(\dot{x}(t),x(t),t,u(t)) = 0 \end{equation}
+ %
+ trong đó $u$ là biến điều khiển. Cũng như trong lý thuyết điều khiển của các hệ không suy biến, một số tính chất định tính được đặc biệt quan tâm là tính điều khiển được, tính quan sát được, tính ổn định hóa được thông qua điều khiển ngược (feedback). Đã có hàng trăm bài báo và sách chuyên khảo được công bố trong hai ba chục năm gần đây về các hướng nghiên cứu này (xem các tài liệu tổng quan và các chuyên khảo \cite{Dai89,IlcR13} trong phần Tài liệu trích dẫn). \\ 
+
+ Trong khoảng hai thập kỷ trở lại đây, các hệ động lực/điều khiển suy biến có trễ dạng 
+ %
+ \begin{equation} 
+ F(\dot{x}(t),x(t),x(t-\tau(t)),t,u(t)) = 0, 
+ \end{equation}
+ %
+ trong đó $\tau(t)$ là hàm nhận giá trị vector không âm đã và đang được quan tâm đặc biệt. 
+ Các hệ suy biến có trễ này có thể được xem xét như một dạng tổng quát hóa tự nhiên của lớp các hệ suy biến không trễ (DAEs)
+ hay các hệ có trễ nhưng không suy biến (DDEs), và do đó có rất nhiều ứng dụng trong các bài toán công nghiệp hay kỹ thuật.
+ Bên cạnh ý nghĩa ứng dụng, các hệ suy biến có trễ cũng là đối tượng nghiên cứu lý thuyết rất thú vị bởi vì các hệ này có những tính chất đặc biệt mà hai lớp hệ con DAEs và DDEs không có được \cite{DuLMT13,Ha18}. 
+ Một ví dụ tiêu biểu cho sự đặc biệt của lớp phương trình này, đó là ngay cả trong trường hợp hệ số hằng (linear time invariant systems), nếu như tất cả các giá trị riêng của hàm đặc trưng (characteristic function) nằm ở nửa mặt phẳng trái, thì hệ phương trình vẫn có thể không ổn định, thậm chí là có nghiệm không bị chặn (xem \cite{DuLMT13,Ha18}). 
+  Vì vậy, để nghiên cứu lớp các hệ suy biến có trễ cần có những công cụ mạnh của các lĩnh vực toán học khác nhau như lý thuyết phương trình vi phân có trễ, lý thuyết chỉ số và điều khiển của hệ suy biến, giải tích hàm, lý thuyết ổn định Lyapunov, bất đẳng thức ma trận tuyến tính LMI, lý thuyết phổ và số mũ, ....
+ %
+ Từ phương diện lý thuyết điều khiển, cho đến nay các công trình nghiên cứu trong và ngoài nước còn tương đối ít và mới chỉ tập trung chủ yếu cho lý thuyết ổn định trong trường hợp hệ chuyển mạch tuyến tính, tức là hệ có dạng 
+ $$
+ E \dot{x}(t) = A x(t) + A_d x(t-\tau) + B u(t),
+ $$
+ trong đó $ E,A,A_d, B$ là các ma trận hằng.  
+ %
+Chi tiết hơn, lý thuyết ổn định của lớp hệ điều khiển suy biến có trễ này đã được phân tích theo một số hướng nghiên cứu sau đây.
+\begin{enumerate}
+\item[1.] Phương pháp hàm Lyapunov-Krasovskii được xem xét bởi nhóm nghiên cứu trong nước của GS. Vũ Ngọc Phát (Viện Toán Học), PGS. TS. Lê Văn Hiện (Trường ĐH Sư phạm Hà Nội), cũng như một số nhóm nghiên cứu ngoài nước (xem \cite{Fri02,XuDSL02}).
+ \item[2.]	Phương pháp bán kính ổn định để nghiên cứu tính ổn định vững được nghiên cứu bởi nhóm nghiên cứu trong nước của GS. TS. Nguyễn Hữu Dư, PGS. TSKH. Vũ Hoàng Linh (ĐHKHTN, ĐHQGHN), PGS. TS. Đỗ Đức Thuận (ĐH Bách Khoa HN) và ngoài nước bởi GS. Volker Mehrmann (Đại học Kỹ Thuật Berlin, CHLB Đức) (xem \cite{DuLMT13}). 
+\item[3.]	Phương pháp phổ và giả phổ được xem xét bởi nhóm nghiên cứu trong nước của PGS. TSKH. Vũ Hoàng Linh, TS. Hà Phi (ĐHKHTN, ĐHQGHN), PGS. TS. Đỗ Đức Thuận (ĐH Bách Khoa HN) và ngoài nước bởi GS. Wim Michiels (Đại học KU Leuven, Bỉ) (xem \cite{Boi13,CamL09,Ha18,LinT15,Mic11}). 
+\end{enumerate}
+%Các thành viên của nhóm nghiên cứu cũng đã có nhiều kết quả công bố trong nhiều năm qua về các bài toán này (xem Danh mục các công trình công bố 5 năm gần đây của nhóm).  
+Mặc dù vậy, vẫn còn nhiều câu hỏi mở trong lý thuyết ổn định của các hệ suy biến có trễ, đặc biệt là trong trường hợp hệ được nghiên cứu có hệ số biến thiên dạng
+ \begin{equation}\label{eq5}
+  E(t) \dot{x}(t) = A(t) x(t) + A_d(t) x(t-\tau) + B(t) u(t).
+ \end{equation}
+Đối với các hệ này, các phương pháp trên vẫn còn rất ít được xem xét, và phạm vi áp dụng của các kết quả thu được còn rất hạn chế. Trong khi đó, phương pháp phổ (sử dụng số mũ Lyapunov, phổ Bohl, phổ Sacker-Sell) mới chỉ được nghiên cứu cho các hệ suy biến không trễ \cite{LinM09}.
+Bên cạnh đó, mặc dù lý thuyết điều khiển của các hệ suy biến không trễ (hệ mô tả) đã được nghiên cứu rất sâu trong hai thập kỷ gần đây (xem \cite{BieCM12,IlcR13}), và điều tương tự cũng đúng với các hệ điều khiển không suy biến có trễ (xem \cite{Chu92,MicN14,Zho06}) nhưng đến nay vẫn chỉ có rất ít các nghiên cứu về các tính chất điều khiển cho các hệ suy biến có trễ (xem \cite{Sen08,Wei01}). \\
+% 
+\noindent Từ những vấn đề nêu trên, câu hỏi nảy sinh tự nhiên là làm sao để: 
+1) Phát triển các phương pháp phổ để nghiên cứu về tính chất ổn định của các hệ suy biến có trễ ; 
+2) Xây dựng hay mở rộng các kết quả về các tính chất điều khiển như tính điều khiển được, tính quan sát được, tính ổn định hóa được cho các hệ suy biến có trễ trên. \\
+
+\noindent Mục tiêu chính của đề tài "Một số bài toán định tính trong lý thuyết ổn định và điều khiển của các hệ động lực suy biến và có trễ" là nghiên cứu một số bài toán mới trong lý thuyết ổn định và điều khiển của các hệ tuyến tính được mô tả bởi các phương trình vi phân, sai phân và phương trình tuyến tính suy biến có trễ, nhằm nhận được các kết quả định tính và xây dựng các thuật toán số để tính toán và áp dụng vào các hệ cụ thể. Trong đó sẽ tập trung vào một số bài toán cụ thể sau đây:
+
+\noindent{\bf 3.1.} Nghiên cứu bài toán điều khiển bền vững cho các hệ suy biến có trễ dạng \eqref{eq5}. 
+Mục tiêu là nhận được các điều kiện đặc trưng (và có thể kiểm tra được thông qua các thuật toán trên các phần mềm tính toán khoa học như MATLAB, PYTHON) cho một số tính chất định tính quan trọng của các hệ điều khiển suy biến có trễ trên cả hai thang thời gian liên tục cũng như rời rạc. Những kết quả nghiên cứu gần đây \cite{LinNT16,HaL21} đã đưa ra một số kết quả thú vị về tính ổn định và phân tích cấu trúc của các ma trận hệ số của các hệ suy biến không trễ bậc hai. Chúng tôi sẽ mở rộng và áp dụng những kết quả này vào việc phân tích tính chất điều khiển của các hệ suy biến có trễ thông qua việc phân tích cấu trúc của bộ tứ ma trận $(E,A,A_d,B)$.
+
+\noindent {\bf 3.2.} Nghiên cứu bài toán ổn định và ổn định hóa sử dụng phương pháp phổ cho hệ \eqref{eq5}. 
+Chú ý rằng trong đề tài này, ta sẽ mở rộng những kết quả trong phương pháp phổ cho hệ có chỉ số bất kỳ , và sử dụng những công cụ như số mũ Lyapunov, phổ Sacker-Sell, phổ Bohl, hay hàm Lambert để mở rộng các kết quả trong lý thuyết phương trình vi phân đại số cho các phương trình vi phân đại số có trễ. 
+\\
+
+\noindent {\bf 4. Kế hoạch triển khai và những hoạt động chính: }
+Đề tài dự kiến thực hiện trong thời gian 5 tháng, trong khoảng thời gian từ tháng 06/2022 đến 10/2022, với sự tài trợ của VIASM, với kế hoạch hoạt động chính là: \\
+-  Nghiên cứu theo nhóm tại VIASM.\\
+-  Tổ chức 1 hội thảo, dự kiến tiêu đề "Một số bài toán của các hệ điều khiển suy biến và có trễ" có sự tham gia của một số chuyên gia quốc tế và mời ở lại làm việc cùng trong thời gian ngắn.\\
+- Hợp tác với các nhóm nghiên cứu khác trong nước ở trường ĐHKH Tự nhiên, Viện Toán học, Trường ĐH Quốc tế.... và ngoài nước ở trường TU Berlin, University of Groningen....\\
+
+\noindent {\bf 5.  Dự kiến kết quả:}  Hoàn thành 2-3 bài báo theo chủ đề nghiên cứu, gửi đăng tạp chí  quốc tế nằm trong ISI, hoặc VJM, Acta Math Viet.\\
+
+\noindent {\bf 6. Tài liệu tham khảo}
+\bibliographystyle{abbrv}
+%\bibliography{Phi_July_2019}
+\bibliography{Viasm_2022}
+
+\hspace*{8cm}  \emph{Hà Nội, ngày 24 tháng 12 năm 2020}
+
+\hspace*{9cm}                                                                                    \textbf{Chủ nhiệm đề tài}\\
+\\
+\\
+
+
+		\hspace*{9.0cm}                                                                               \textbf{PGS. TS. Lê Văn Hiện }\\
+\end{document}
+

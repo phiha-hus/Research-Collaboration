@@ -1,0 +1,77 @@
+\begin{thebibliography}{9}
+% this bibliography was produced with the style dinat.bst v2.5
+\makeatletter
+\newcommand{\dinatlabel}[1]%
+{\ifNAT@numbers\else\NAT@biblabelnum{#1}\hspace{2\labelsep}\fi}
+\makeatother
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+\expandafter\ifx\csname url\endcsname\relax\def\url#1{\texttt{#1}}\fi
+
+\bibitem[Anderson(1983)]{And83}
+\dinatlabel{Anderson 1983} \textsc{Anderson}, D.H.:
+\newblock \emph{Compartmental modeling and tracer kinetics}.
+\newblock Springer-Verlag, 1983
+\newblock (Lecture notes in biomathematics). --
+\newblock URL \url{http://books.google.de/books?id=EDOLAAAAIAAJ}. --
+\newblock ISBN 9783540123033
+
+\bibitem[Benvenuti und Farina(2002)]{BenF02}
+\dinatlabel{Benvenuti und Farina 2002} \textsc{Benvenuti}, L.~;
+  \textsc{Farina}, L.:
+\newblock Positive and compartmental systems.
+\newblock In: \emph{IEEE Trans. Automat. Control}
+\newblock 47 (2002), S.~370--373
+
+\bibitem[Daoutidis(2015)]{Dao15}
+\dinatlabel{Daoutidis 2015} \textsc{Daoutidis}, Prodromos:
+\newblock \emph{DAEs in Model Reduction of Chemical Processes: An Overview}.
+\newblock In: \emph{Surveys in Differential-Algebraic Equations II.
+  Differential-Algebraic Equations Forum}, Springer, Cham, 2015
+
+\bibitem[Farina und Rinaldi(2000)]{FarR00}
+\dinatlabel{Farina und Rinaldi 2000} \textsc{Farina}, L.~; \textsc{Rinaldi},
+  S.:
+\newblock \emph{Positive linear systems: theory and applications}.
+\newblock Wiley, 2000
+\newblock (Pure and applied mathematics). --
+\newblock URL \url{http://books.google.de/books?id=6EjK1SoQfgMC}. --
+\newblock ISBN 9780471384564
+
+\bibitem[Jacquez(1993)]{Jac93}
+\dinatlabel{Jacquez 1993} \textsc{Jacquez}, J.~A.:
+\newblock Qualitative Theory of Compartmental Systems.
+\newblock In: \emph{SIAM Review}
+\newblock 35 (1993), S.~43--79
+
+\bibitem[Jacquez(1972)]{Jac72}
+\dinatlabel{Jacquez 1972} \textsc{Jacquez}, J.A.:
+\newblock \emph{Compartmental analysis in biology and medicine: Kinetics of
+  distribution of tracer-labeled materials}.
+\newblock Elsevier Pub. Co., 1972. --
+\newblock URL \url{http://books.google.de/books?id=Us1qAAAAMAAJ}. --
+\newblock ISBN 9780444410467
+
+\bibitem[Kumar und Daoutidis(1997)]{KumD97}
+\dinatlabel{Kumar und Daoutidis 1997} \textsc{Kumar}, Aditya~;
+  \textsc{Daoutidis}, Prodromos:
+\newblock High-Index DAE Systems in Modeling and Control Of Chemical Processes.
+\newblock In: \emph{IFAC Proceedings Volumes}
+\newblock 30 (1997), Nr.~6, S.~393 -- 398. --
+\newblock IFAC Conference on Control of Industrial Systems
+
+\bibitem[Kumar und Daoutidis(1998)]{KumD98}
+\dinatlabel{Kumar und Daoutidis 1998} \textsc{Kumar}, Aditya~;
+  \textsc{Daoutidis}, Prodromos:
+\newblock \emph{Control of Nonlinear Differential Algebraic Equation Systems :
+  An Overview}. Bd. 353.
+\newblock In: \emph{Nonlinear Model Based Process Control. NATO ASI Series
+  (Series E: Applied Sciences)} Bd.~353, 1998
+
+\bibitem[Pantelides(1988)]{Pan88}
+\dinatlabel{Pantelides 1988} \textsc{Pantelides}, Constantinos~C.:
+\newblock The Consistent Initialization of Differential-Algebraic Systems.
+\newblock In: \emph{SIAM Journal on Scientific and Statistical Computing}
+\newblock 9 (1988), Nr.~2, S.~213--231. --
+\newblock URL \url{https://doi.org/10.1137/0909014}
+
+\end{thebibliography}

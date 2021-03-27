@@ -1,0 +1,157 @@
+In order to reveal all hidden constraints of \eqref{eq2.5} we propose the idea, that starting from $j=1$, we use difference equations of order smaller than $j$ to reduce the number of scalar difference equations of order $j$. This task will be performed in Lemmata \ref{Lem2.1} and \ref{Lem2.2} below.
+
+\begin{lemma}\label{Lem2.1} For a fixed $n\geq n_0$, we consider the equation \eqref{eq2.5b}, \eqref{eq2.5c} and also the shifted version of \eqref{eq2.5c} which reads
+	%
+	\be\label{eq2.5c-shift} C_{n+1,3} x(n+1) = g_3(n+1).
+	\ee%
+If the pair $(B_{n,2},C_{n+1,3})$ has hidden redundancy, then there exist matrices $S \in \C^{d_1,r_1}$, $Z_1 \in \C^{s_1,r_1}$, $Z_2 \in \C^{s_1,r_0}$ such that the following conditions hold.
+	\begin{enumerate}
+		\item[i)] The matrix $\m{S \\ Z1} \in \C^{r_1,r_1}$ is unitary and $Z_1 B_{n,2}+Z_2 C_{n+1,3}=0$.   
+		\item[ii)] System \eqref{eq2.5} is equivalent to the new system, where equation \eqref{eq2.5b} is replaced by the coupled system
+		%
+		\begin{subequations}\label{eq2.6}
+			\begin{alignat}{1}
+			\label{eq2.6a} SB_{n,2} x(n+1)  + SC_{n,2} x(n) &= Sg_2(n), \\
+			\label{eq2.6b} Z_1 C_{n,2} x(n) &= Z_1 g_2(n)+Z_2 g_3(n+1). 
+			\end{alignat}
+		\end{subequations}
+	\end{enumerate}
+\end{lemma}
+\proof
+First, by applying Lemma \ref{lem1.2} to the matrix pair $(B_{n,2},C_{n+1,3})$ we obtain three matrices $S$, $Z_1$, $Z_2$ that fulfill the condition i). Now we will prove that they also fulfill the condition ii). By scaling equation \eqref{eq2.5b} with the matrix $\m{S \\ Z_1}$ we can decompose it as
+%
+\begin{subequations}\label{eq2.7}
+	\begin{alignat}{1}
+          \label{eq2.7a}  SB_{n,2} x(n+1)  + SC_{n,2} x(n) &= Sg_2(n),  \quad d_1 \ \mbox{equations},     \\
+          \label{eq2.7b}  Z_1 B_{n,2} x(n+1)  + Z_1 C_{n,2} x(n) &= Z_1 g_2(n),  \quad s_1 \ \mbox{equations}. 
+	\end{alignat}
+\end{subequations}
+%  
+Due to the shifted equation \eqref{eq2.5c-shift}, we see that $$Z_1 B_{n,2} x(n+1) = - Z_2 C_{n+1,3} x(n+1) = -Z_2 g_3(n+1).$$ 
+Inserting this into equation \eqref{eq2.7b} yields exactly \eqref{eq2.6b}.\\
+On the other hand, \eqref{eq2.7b} is a consequence of \eqref{eq2.6b} and \eqref{eq2.5c-shift} and this implies the equivalence between the systems \eqref{eq2.5} and the new system
+%
+%
+\be\label{eq2.9}
+\pm{ r_{2} \\ \hline d_1 \\ s_1 \\ \hline r_{0} \\  v} \ 
+\m{    A_{n,1} & B_{n,1}    & C_{n,1}  \\ \hline
+0	& SB_{n,2}    & SC_{n,2}     \\
+0	&     0       & Z_1 C_{n,2} \\ \hline 
+0	&     0       & C_{n,3} \\  
+	0      & 0          & 0 } 
+\m{x(n\!+\!2) \\ x(n\!+\!1) \\ x(n)} \!=\! \m{ g_1(n) \\ \hline  S g_2(n) \\  Z_1 g_2(n)\!+\!Z_2 g_3(n\!+\!1) \\  \hline g_3(n) \\  g_4(n)}. 
+\ee
+%
+where $d_1+s_1 = r_1$. This completes the proof.
+\eproof
+
+Clearly, in comparison with system \eqref{eq2.5}, we have reduced the number of 1st-order difference equations by $s_1$ and increased the number of 0-order difference equations by $s_1$. The upper rank of the new behavior matrix is 
+%
+\[ \tilde{r} = 3r_2 + 2 (r_1-s_1) + (s_1 + r_0) = r-s_1 \leq r.
+\]
+%
+Thus, we can call the process which transforms \eqref{eq2.2} into the new form \eqref{eq2.9}, the \emph{first order index reduction step}.
+By combining and compressing the third and fourth block rows of \eqref{eq2.9}, we can rewrite this system as
+%
+\be\label{eq2.10}
+\pm{r_{2} \\ \hline \\[-0.35cm] d_1 \\ s_1 + r_0 \\ v} \qquad
+\m{A_{n,1}& B_{n,1}    & C_{n,1}  \\ \hline \\[-0.35cm]
+0	& \tB_{n,2}    & \tC_{n,2}     \\
+0	&    0          & \tC_{n,3} \\  
+	0     & 0            & 0}
+\m{x(n+2) \\ x(n+1) \\ x(n)} = \m{ g_1(n) \\ \hline \\[-0.4cm] \tg_2(n) \\  \tg_3(n) \\ g_4(n)}.  
+\ee
+%
+Analogously, one can construct a \emph{second order index reduction step}, which aims to reduce the number of second order difference equations in \eqref{eq2.9} by some $s_2 \geq 0$. This step is based on removing the hidden redundancy in the pair 
+$\left( A_{n,1}, \m{\tB_{n+1,2} \\ \tC_{n+2,3}} \right)$ of system \eqref{eq2.10} as in Lemma \ref{Lem2.2} below. We notice, that unlike the case of the first order index reduction step, now we may need to use two shifts, since the third block row equation of \eqref{eq2.10} will be shifted two times. 
+
+\begin{lemma}\label{Lem2.2} For a fixed $n\geq n_0$, we consider the second and third block row equations of system \eqref{eq2.10} and their shifted versions which reads
+%
+\bens
+\label{2.5b-shift} \tB_{n+1,2} x(n+2)  + \tC_{n+1,2} x(n+1) &= \tg_2(n+1),\\    
+\label{2.5c-doubleshift} \tC_{n+2,3} x(n+2) &= \tg_3(n+2). 
+\eens
+%
+If the pair $\left( A_{n,1}, \m{\tB_{n+1,2} \\ \tC_{n+2,3}} \right)$ has hidden redundancy, then there exist matrices $\tS \in \C^{d_2,r_2}$, $\tZ_1 \in \C^{s_2,r_2}$, $\m{\tZ_2 & \tZ_3} \in \C^{s_2,r_1+r_0}$ such that the following conditions hold.
+\begin{enumerate}
+	\item[i)] The matrix $\m{\tS \\ \tZ1} \in \C^{r_2,r_2}$ is unitary and $\tZ_1 A_{n,1} + \m{\tZ_2 & \tZ_3} \m{\tB_{n+1,2} \\ \tC_{n+2,3}} = 0$.   
+	\item[ii)] System \eqref{eq2.10} is equivalent to the new system, where the equation \eqref{eq2.5a} is replaced by the coupled system
+	%
+	\bens
+	\tS A_{n,1} x(n+2)  + \tS B_{n,1} x(n+1)  +  \tS C_{n,1} x(n) &=& \tS g_1(n), \\
+	\left( \tZ_1 B_{n,1} \!+\! \tZ_2 C_{n\!+\!1,2} \right) x(n\!+\!1)  \!+\!  \tZ_1 C_{n,1} x(n) &=& \tZ_1 g_1(n) + \tZ_2\tg_2(n\!+\!1) \\
+	&&+ \tZ_3 \tg_3(n\!+\!2). 			
+	\eens
+\end{enumerate}
+\end{lemma}
+\proof
+	This proof is similar to the one of Lemma \ref{Lem2.1}, and hence, we omit it for the sake of brevity.
+\eproof
+
+Making use of Lemma \ref{Lem2.2}, we can transform \eqref{eq2.6} into the following system, without changing the solution space. 
+%
+\ben\label{eq2.11}
+\pm{ d_{2} \\ s_2 \\ \hline \\[-0.35cm] d_1 \\ r_0 + s_1 \\ v} \qquad 
+&& \m{    \tS A_{n,1} & \tS B_{n,1}    & \tS C_{n,1}  \\
+0	& \tZ_1 B_{n,1} + \tZ_2 \tC_{n+1,2}    & \tZ_1 C_{n,1} \\ \hline \\[-0.35cm]
+0	& \tB_{n,2}  & \tC_{n,2}     \\
+0	&    0        & \tC_{n,3} \\ 
+	0      & 0          & 0 } 
+\m{x(n+2) \\ x(n+1) \\ x(n)} \notag \\
+&=& \m{ \tS g_1(n) \\  \tZ_1 g_1(n) + \tZ_2 \tg_2(n+1) + \tZ_3 \tg_3(n+2) \\ \hline \\[-0.35cm] \tg_2(n) \\  \tg_3(n) \\  g_4(n)}. 
+\een
+%
+Consequently, we have reduced the number of second order difference equations in \eqref{eq2.10} from $r_2$ to 
+$d_2=r_2-s_2$. We further notice, that even though the numbers of first and zero order difference equations may increase, the upper rank $r_u$ still decreases, due to the following estimation
+%
+\[
+r_u^{new} \leq 3 d_2 + 2 (s_2 + d_1) + (s_1 + r_0) = r_u-(s_2+s_1).
+\]
+%
+In conclusion, after performing the first, and then the second order reduction steps, we have reduced the upper rank $r_u$ at least by $s_2+s_1$. Continuing in this way until $s_1=s_2=0$, we obtain the following algorithm.
+%
+\begin{algorithm}[H]
+	\caption{Strangeness-free formulation for SiDEs at the time point $n$}
+	\label{Alg1}
+	\begin{algorithmic}[1]
+		\State \textbf{Input:} The SiDE \eqref{eq2.1} and its behavior form \eqref{eq2.2}. Set $i=0$.
+		\State \textbf{Return:} The resulting system in a special form.
+    	\State Transform the behavior matrix $\m{A_n & B_n & C_n}$ to the block upper triangular form
+		%
+		\[\tM :=
+		\begin{bmatrix}
+		A_{n,1} & B_{n,1}  & C_{n,1}     \\
+		0       & B_{n,2}  & C_{n,2}      \\
+		0       & 0        & C_{n,3}  \\ 
+		0       & 0        & 0
+		\end{bmatrix}, \quad
+		\begin{matrix}{r_2}\\
+		{r_1}\\
+		{r_{0}}\\  
+		{v}
+		\end{matrix}
+		\]
+		where all the matrices $A_{n,1}$, $B_{n,2}$, $C_{n,3}$ on the main diagonal have full row rank.
+		%		
+		\algstore{myalg}
+		\end{algorithmic}
+		\end{algorithm}
+		%
+		\begin{algorithm}[H]
+		\begin{algorithmic}[1]
+		\algrestore{myalg}		
+     	%
+     	\IF{$\m{A_{n,1} \\ B_{n+1,2} \\ C_{n+2,3}}$ has full row rank} STOP. 
+     	%
+     	\ELSE{ set $i := i + 1$ and go to 6} 
+     	%
+		\State Remove the hidden redundancy of the pair $(B_{n+1,2},C_{n+2,3})$ as in Lemma \ref{Lem2.1} to obtain system \eqref{eq2.10}.
+		%
+		\State Remove the hidden redundancy of the pair $(A_{n,1},\m{\tB_{n+1,2} \\ \tC_{n+2,3}})$ as in Lemma \ref{Lem2.2} to obtain system \eqref{eq2.11}.
+		%
+		\State Go back to 3.
+		\ENDIF
+	\end{algorithmic}
+\end{algorithm}
+%
+Since after each step of index reduction the upper rank $r^{i}_u$ has been decreased at least by $s^{i}_2+s^{i}_1$, Algorithm \ref{Alg1} must terminate after a finite number $\mu$ of iterations, which will be called the \emph{strangeness-index} of the SiDE \eqref{eq2.1}. Thus, we have the following theorem.

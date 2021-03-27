@@ -1,0 +1,289 @@
+%
+% This is a general template file for the LaTeX package SVJour3
+% for Springer journals.          Springer Heidelberg 2010/09/16
+%
+% Copy it to a new file with a new name and use it as the basis
+% for your article. Delete % signs as needed.
+%
+% This template includes a few options for different layouts and
+% content for various journals. Please consult a previous issue of
+% your journal as needed.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+%
+%\documentclass{svjour3}                     % onecolumn (standard format)
+%\documentclass[smallcondensed]{svjour3}     % onecolumn (ditto)
+\documentclass[smallextended]{svjour3}       % onecolumn (second format)
+%\documentclass[twocolumn]{svjour3}          % twocolumn
+%
+\smartqed  % flush right qed marks, e.g. at end of proof
+%
+\usepackage{amsmath,amssymb}
+
+%% In order to avoid the cònliction LaTeX Error: Command \proof already defined.
+\let\proof\relax 
+\let\endproof\relax
+%%
+\usepackage{amsthm}
+\usepackage{subeqnarray}
+\usepackage[backref=page]{hyperref}
+\usepackage[square, numbers, comma, sort&compress]{natbib}
+\usepackage{graphicx}
+\usepackage[active]{srcltx}
+\usepackage{epstopdf} 
+%\usepackage{showlabels}
+%
+% \usepackage{mathptmx}      % use Times fonts if available on your TeX system
+%
+% insert here the call for the packages your document requires
+%\usepackage{latexsym}
+% etc.
+%
+% please place your own definitions here and don't use \def but
+% \newcommand{}{}
+%
+% Insert the name of "your journal" with
+% \journalname{myjournal}
+%
+\include{command}
+%\include{Newcommands}
+
+\begin{document}
+	
+\title{Stability analysis of arbitrarily high-index positive delay-descriptor systems % \thanks{Grants or other notes
+%about the article that should go on the front page should be
+%placed here. General acknowledgments should be placed at the end of the article.}
+}
+
+%\subtitle{Characterizations of positive descriptor systems}
+
+\titlerunning{Characterizations of positive descriptor systems}        % if too long for running head
+
+\author{Phan Thanh Nam \and Ha Phi 
+}
+
+%\authorrunning{Short form of author list} % if too long for running head
+
+\institute{Phan Thanh Nam \at
+           Technische Universit\"at Berlin, Strasse de 17. Juni 136, Berlin, Germany \\
+          \email{mehrmann@math.tu-berlin.de}
+          \and
+          Phi Ha \at
+          Hanoi University of Science, VNU \\ 	Nguyen Trai Street 334, Thanh Xuan, Hanoi, Vietnam \\ 
+          \email{haphi.hus@vnu.edu.vn}          
+}
+
+\date{Received: \today / Accepted: date}
+% The correct dates will be entered by the editor
+
+
+\maketitle
+
+\begin{abstract}
+This paper deals with the stability analysis of positive delay-descrip\-tor systems with arbitrarily high index. 
+First we discuss the solvability problem (i.e., about the existence and uniqueness of a solution), which is followed by the study on characterizations of the (internal) positivity. Finally, we discuss the stability analysis. 
+Numerically verifiable conditions in terms of matrix inequality for the system's coefficients are proposed, and are examined in several examples. 
+
+\keywords{Positivity \and Delay \and Descriptor systems \and Strangeness-index . } 
+% \PACS{PACS code1 \and PACS code2 \and more}
+% \subclass{MSC code1 \and MSC code2 \and more}
+\end{abstract}
+
+
+%=========================================================================================
+\noindent \textbf{Nomenclature} \\[.1cm]
+%
+\begin{tabular}{|c|c|}
+	\hline
+$\N$ ($\N_0$)	&  the set of natural numbers (including $0$)  \\
+$\R$ ($\C$)   	&  the set of real (complex) numbers \\
+$\C_{-}$		&  the set $\{\lb \in \C \ | \ Re \lb <0\}$ \\
+$I$ ($I_n$)		&  the identity matrix (of size $n \times n$) \\
+$x^{(j)}$       &  the $j$-th derivative of a function $x$ \\
+$C^p([-\tau,0],\r^n)$ & the space of $p$-times continuously differentiable functions \\
+& from $[-\tau,0]$ to $\r^n$ (for $ 0 \leq p \leq \infty$) \\
+$\|\cdot\|_{\infty}$ & the norm of the Banach space $C^0([-\tau,0],\r^n)$. \\ \hline
+\end{tabular}
+
+%=========================================================================================
+%Section 1
+
+\section{Introduction} \label{sec1}
+Our focus in the present paper is on the positivity and stability analysis of linear, constant coefficients {\it delay-descriptor systems} of the form
+%
+\begin{equation}\label{delay-descriptor}
+  E\dot{x}(t) = A x(t) + A_d x(t-\tau) + B u(t), \ \mbox{ for all } t\in [t_0,t_f),
+\end{equation}
+%
+where $E$, $A$, $B\in \r^{\ell,n}$, $x:[t_0-\tau,t_f) \rar \r^n$, $f:[t_0,t_f)\to \r^{n}$, and $\tau>0$ is a constant delay. \
+Together with \eqref{delay-descriptor}, we are also concern with the associated \emph{zero-input system}
+%
+\be\label{zero-input system}
+E\dot{x}(t) = A x(t) + A_d x(t-\tau), \ \mbox{ for all } t\in [t_0,t_f).
+\ee
+%
+Systems of the form \eqref{delay-descriptor} can be considered as a general combination of two important classes of dynamical systems, namely \emph{descriptor systems} (DAEs)
+%
+\begin{equation}\label{eq1.2}
+ E \dot{x}(t) = A x(t) + B u(t),
+\end{equation}
+%
+where the matrix $E$ is allowed to be singular ($\det E=0$), and \emph{delay-differential equations} (DDEs) %
+\begin{equation}\label{eq1.3}
+ \dot{x}(t) = A x(t) + A_d x(t-\tau) + B u(t). 
+\end{equation}
+%
+delay-descriptor systems of the form \eqref{delay-descriptor} have been arisen in various applications, see \cite{AscP95,Cam80,HalL93,ShaG06,ZhuP97} and the references there in. 
+From the theoretical viewpoint, the study for such systems is much more complicated than that for standard DDEs or DAEs. The dynamics of DDAEs has been strongly enriched, and many interesting properties, which occur neither for DAEs nor for DDEs, have been observed for DDAEs \cite{Cam95c,DuLMT13,HaM12,HaM16}. Due to these reasons, recently more and more attention has been devoted to DDAEs, \cite{CamL09,Fri02,HaM12,HaM16,Mic11,ShaG06,TiaYK11,LinT15}. \\
+
+[....] \\
+
+The short outline of this work is as follows. Firstly, in Section \ref{sec2}, we briefly recall the solvability analysis to system \eqref{delay-descriptor}, which is followed by an imporant result about solution comparison for system \eqref{zero-input system} (Theorem \ref{solution comparison}). 
+Based on the explicit solution representation in Section \ref{sec2}, we characterize the posivity of system \eqref{delay-descriptor} in Section \ref{sec3}. We establish there algebraic, numerically verifiable conditions in terms of the system matrix coefficients. To follow, in Section \ref{sec4} we discuss further about the zero-input system \eqref{zero-input system} under biconditional requirements: stability and positivity.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 2  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Preliminaries} \label{sec2}
+
+In this section we discuss the solvability analysis, including the solution representation and the comparison principal for the corresponding IVP to the system \eqref{delay-descriptor}, which reads in details
+%
+\begin{align}
+\notag	E\dot{x}(t)    &= A x(t) + A_d x(t-\tau) + B u(t), \ \mbox{ for all } t\in [t_0,t_f),  \\
+	x|_{[t_0-\tau,t_0]} &= \vphi: [t_0-\tau,t_0] \rightarrow \r^{n}. \label{initial condition}
+\end{align}
+%
+Here, $\vphi$ is a prescribed initial trajectory, which is necessary to achieve uniqueness of solutions.
+Without loss of generality, we assume that $t_0 = 0$ and $t_f = n_f \tau$, where $n_f \in \N$. 
+
+\subsection{Existence and uniqueness of the solutions}
+
+It is well-known (e.g. \cite{DuLMT13}) that we may consider different solution concepts for system \eqref{delay-descriptor}.
+The reason is, that $E(0)\dot{x}(0^+)$ which arises from the right hand side in \eqref{delay-descriptor} at $0$ may not be equal to $E(0)\dot{\vphi}(0^-)$.
+%
+Moreover, it has been observed in \cite{BakPT02,Cam80,GugH07} that a discontinuity of $\dot{x}$ at $t=0$ may propagate with time, and typically $\dot{x}$ is discontinuous at every point $j\tau, \ j\in\N_0$ or it may not even exist. To deal with this property of DDAEs, we use the following solution concept. % for \eqref{delay-descriptor}.
+%
+\begin{definition}\label{solution} Let us consider a fixed input function $u(t)$.\\
+i) A function $x:[-\tau,\infty)\rar\r^n$ is called a \emph{piecewise differentiable solution} of \eqref{delay-descriptor}, if $Ex$ is piecewise continuously differentiable, $x$ is continuous and satisfies \eqref{delay-descriptor} at every  $t\in [t_0,t_f) \setminus \underset{j\in \N_0}{\cup} \{j\tau\}$. \\
+ii) A function $x:[-\tau,\infty)\rar\r^n$ is called a \emph{classical solution} of \eqref{delay-descriptor}
+if it is at least continuous and satisfies \eqref{delay-descriptor} at every  $t\in [t_0,t_f)$. 
+\end{definition}
+
+Throughout this paper whenever we speak of a solution, we mean a piecewise differentiable solution. Notice that, like DAEs, DDAEs are not solvable for arbitrary initial conditions, but they have to obey certain consistency conditions.
+%
+\begin{definition}\label{consistency} An initial function $\vphi$ is called \emph{consistent} with \eqref{delay-descriptor} if the associated initial value problem (IVP) \eqref{delay-descriptor}, \eqref{initial condition} has at least one solution.
+	System \eqref{delay-descriptor} is called \emph{solvable} (resp. \emph{regular}) if for every consistent initial function $\vphi$,
+	the IVP \eqref{delay-descriptor}, \eqref{initial condition} has a solution (resp. has a unique solution).
+\end{definition}
+%
+
+Introducing sequences of matrix-valued and vector-valued functions $f_j$, $u_j$, $x_j$ for each $j\in \N$, on the time interval $[0,\tau]$ via
+\begin{align*}
+	f_j(t) &= f(t+(j-1)\tau), \   u_j(t) = u(t+(j-1)\tau), \\
+	x_j(t) &= x(t+(j-1)\tau), \ x_0(t) := \vphi(t-\tau),
+\end{align*} 
+we can rewrite the IVP \eqref{delay-descriptor}-\eqref{initial condition} as a sequence of non-delayed descriptor systems
+%
+\begin{equation}\label{j-th DAE}
+	E \dot{x}_j(t) = A x_j(t) + A_d x_{j-1}(t) + B u_j(t), 
+\end{equation}
+%
+for all $t\in (0,\tau)$ and for all $j=1,2,...,n_f$. We notice, that for each $j$, the initial condition $x_j(0)$ is given due to the continuity of the solution $x(t)$ at the point $(j-1)\tau$, i.e.,
+\begin{equation}\label{continuity condition}
+	x_j(0) = x_{j-1}(\tau) \ .
+\end{equation}
+In particular, $x_1(0) = \phi(0)$ and the function $x_0$ is given.
+Inherited from the theory of delay-different equations (\cite{HalL93}), we recall the concept of \emph{non-advancedness} as follow.
+
+\begin{definition}
+A regular delay-descriptor system \eqref{delay-descriptor} is called \emph{non-advanced} if for any consistent and continuous initial function $\vphi$, there exists a piecewise differentiable solution 
+$x(t)$ to the IVP \eqref{delay-descriptor}, \eqref{initial condition}.
+\end{definition} 
+
+Obviously, the non-advancedness of system \eqref{delay-descriptor} is equivalent to the fact that
+the function $x_{j}$ is at least as smooth as $x_{j-1}$ for all $j\in \N$. In deed, most of systems that we have encountered in applications are non-advanced, \cite{AscP95,ShaG06,Ha15}.
+%
+\begin{definition}\label{regularity} Consider the DDAE \eqref{delay-descriptor}. The matrix triple $(E,A,B)$ is called \emph{regular} if the (two variable) \emph{characteristic polynomial} $\mathfrak{P}(\lb,\om):=\det(\lb E - A - \om B)$ is not identically zero. 
+If, in addition, $B=0$ we say that the matrix pair $(E,A)$ (or the pencil $\lb E-A$) is regular.  
+The sets $\si(E,A,B):= \{\lb \in \C \ | \ \det(\lb E -A-e^{-\lb \tau}B) = 0\}$ and $\rho(E,A,B)=\C\setminus \si(E,A,B)$ are called the \emph{spectrum} and the \emph{resolvent set} of \eqref{delay-descriptor}, respectively. 
+\end{definition}
+%
+Provided that the pair $(E,A)$ is regular, we can transform them to the Kronecker-Weierstra\ss canonical form (see e.g. \cite{Dai89,KunM06}). That is, there exist regular matrices $W$, $T\in \R^{n,n}$ such that
+%
+\begin{equation}\label{KW form}
+(E,A) = \left( W \m{I & 0 \\ 0 & N }T , \  W \m{ J & 0 \\ 0 & I}T \right) \ ,
+\end{equation}
+%
+where $N$ is a nilpotent matrix of nilpotency index $\nu$. We also say that the pair $(E,A)$ has a \emph{differentiation index} $\nu$, i.e., $ind(E,A) = \nu$.
+
+\begin{remark}
+Two concepts non-advancedness and differentiation index are independent. In details, a non-advanced system can have arbitrarily high index, for example the system below. 
+\end{remark}
+Let $E$ have index $\tnu$, i.e., $ind(E,I_n)=\tnu$, the Drazin inverse $E^D$ of E is uniquely defined by the properties
+%
+\begin{equation}
+E^DE = E E^D, \ E^D E E^D = E^D ,\ E^D E^{\tnu+1} = E^{\tnu} .
+\end{equation}
+%
+\vskip -1pt
+%
+\begin{lemma}\label{lem1}\cite{KunM06} Let (E,A) be a regular matrix pair. Then the following assertions hold true. \\
+i) For any $\lb \in \rho(E,A)$, two matrices $\hE:=(\lb E-A)^{-1}E$ and $\hA:=(\lb E-A)^{-1}A$, then commute. \\
+ii) Furthermore, we also have the following commutative identities
+%
+\[ \hE \hA^D = \hA^D \hE, \ \hE^D \hA = \hA \hE^D, \ \hE^D \hA^D = \hA^D \hE^D \ . 
+\]
+%
+\end{lemma}
+We notice that the matrix products $\hE^D \hE$, $\hE^D \hA$, $\hE\hA^D$, $\hE^D \hB$, $\hA^D \hB$ do not depend on the choice of $\lb$ (see e.g. \cite{Dai89}). Furthermore, they can be numerically computed by transforming the pair $(E,A)$ to their Weierstrass canonical form (see e.g. \cite{Ger05,Vir08}).
+
+\subsection{Explicit solution representation}
+
+For any $\lb$ as in Lemma \ref{lem1}, let us denote $\hA_d :=(\lb E-A)^{-1} A_d $ and $\hB:=(\lb E-A)^{-1}B$. Making use of the Drazin inverse, in the following theorem we present the explicit solution representation of system \eqref{delay-descriptor}.
+
+\begin{theorem}
+alsdlfasldflasdlfas
+\end{theorem}
+
+Shuffle algorithm to derive the strangeness-free form of non-advanced systems
+
+Corollary, solution of non-advanced systems
+
+Remark: In fact, most of singular systems that we have seen is of non-advanced type, see e.g. \cite{AscP95,Ha15,HaM16}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Comparison principal} \label{sec2b}
+
+\begin{theorem}\label{solution comparison}
+Same equation but different initial conditions.
+\end{theorem}
+
+\begin{theorem}
+Time-dependent delay will affect neither the positivity nor the stability of system \eqref{delay-descriptor}.
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Characterizations of positive delay-descriptor system} \label{sec3}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Stability of positive delay-descriptor system} \label{sec4}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion}\label{sec6}
+In this paper, we have discussed the positivity of strangeness-free descriptor systems in continuous time. Beside that, the characterization of positive delay-descriptor systems has been treated as well. The theoretical results are obtained mainly via an algebraic approach and a projection approach. The projection approach investigates the positivity of a given descriptor system by the positivity of an inherent ODE obtained by projecting the given system onto a subspace. On the other hand, the algebraic approach derives an underlying ODE without changing the state, input and output. Then, studying these hidden ODEs is the key point. The main difficulty here is that the derivative of the input $u$ may occur in the new system. Despite their disadvantages, these methods can provide both necessary conditions and sufficient conditions. Beside these theoretical methods, the behaviour approach, which leads to some feasible conditions, is also implemented.
+
+%========================================================================================
+\vskip 0.2cm
+\textbf{Acknowledgment} The author would like to thank the anonymous referee for his suggestions to improve this paper.
+%=========================================================================================
+
+\bibliographystyle{abbrv}
+\bibliography{Phi_July_2020}
+
+%============================================================================
+\appendix
+\section*{Appendix}
+
+\end{document}

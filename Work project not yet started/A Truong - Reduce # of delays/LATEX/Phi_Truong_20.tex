@@ -1,0 +1,206 @@
+%===============================================================================
+% Reducing # of delays and their effects to DDAEs
+% Template for IFAC meeting papers
+% Copyright (c) 2007-2008 International Federation of Automatic Control
+%===============================================================================
+\documentclass[preprint,10pt]{elsarticle}
+
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{algcompatible}
+
+\usepackage{lineno}
+\linenumbers
+
+\usepackage{graphicx}
+\usepackage{amssymb,amsmath,bm,mathrsfs}
+\usepackage{amsthm}
+\usepackage{mathabx}
+\usepackage{array}
+
+\usepackage{lipsum}
+
+\usepackage[final]{hyperref} %$#
+
+%\hypersetup{
+%	colorlinks=true,
+%	linkcolor=blue,
+%	filecolor=magenta,      
+%	urlcolor=red,
+%}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{example}[thm]{Example}
+\newtheorem{assumption}[thm]{Assumption}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{definition}[thm]{Definition}
+\newtheorem{corollary}[thm]{Corollary}
+\newtheorem{proposition}[thm]{Proposition}
+\newproof{pf}{Proof}
+\numberwithin{thm}{section}
+
+\journal{Journal of Computational and Applied Mathematics}
+
+%\include{command}
+
+%\usepackage{comment}
+%\usepackage{appendix}
+
+%\usepackage[notcite]{showkeys}
+%\usepackage{color}
+%\usepackage{showlabels}
+%\renewcommand{\showlabelfont}{\small\slshape\color{red}}
+
+%\usepackage{hyperref} % Makes blue box in PDF
+%===============================================================================
+\begin{document}
+	
+\begin{frontmatter}
+
+%\title{Reducing the numbers of delays and their affection to the numerical solution to coupled-DDAEs \thanksref{We would like to thank our wives for their understanding} } 
+
+\title{Reducing the numbers of delays in a network of 
+	% and their affection to the numerical solution to 
+	coupled DDAEs} 
+
+\author[add1]{Ha Phi\corref{cor1}\fnref{fn1}}
+\ead{haphi.hus@vnu.edu.vn}
+
+\author[add2]{Nguyen Duy Truong}%\fnref{fn2}}
+\ead{}
+
+\address[add1]{Faculty of Mathematics, Mechanics, and Informatics, Vietnam National University, 334, Nguyen Trai, Thanh Xuan, Hanoi, Vietnam.}
+
+\address[add2]{Faculty of Mathematics, Mechanics, and Informatics, Vietnam National University, 334, Nguyen Trai, Thanh Xuan, Hanoi, Vietnam.}
+
+\cortext[cor1]{Corresponding author}
+%\fntext[fn1]{The first author would like to thank the Vietnam Institute for Advanced Study in Mathematics (VIASM) for their kind hospitality during his research visit.}
+%\fntext[fn2]{The second author was supported the National Foundation for Science and Technology Development (NAFOSTED) under the project number 101.01-2017.302. He also would like to thank the Vietnam Institute for Advanced Study in Mathematics (VIASM) for their kind hospitality during his research visit.}
+
+
+\begin{abstract}                % Abstract of not more than 250 words.
+In this paper note we examine a newly proposed method, namely \emph{"componentwise timeshift transformation" (CTT)}, which aims to reduce the number of delays in a network (\cite{LucPK15,WagS17,WagUS18}) for networks whose the node behaviors are described by Delay Differential Algebraic Equations (DDAEs). We study the effectiveness as well as drawbacks of this approach to the numerical solution procedure to the corresponding initial value problems.
+We also discuss the index of the network of coupled DAEs, and illustrate the effectiveness of a method by applying it to a network of mechanical systems.
+%Such networks can arise while a feedback controllers is applied to a multi-physical systems described by coupled subsystems, and each subsystem is described by a DAE. The time-delays are resulted from the fact that a controller requires some time to measure the state and to compute the feedback before being applied. 
+\end{abstract}
+
+\begin{keyword}
+Singular system  \sep Delay \sep Differential-Algebraic Equations \sep  Strangeness-index \sep Index reduction \sep Regularization.
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+\MSC 15A23\sep 39A05\sep 39A06\sep 93C05
+\end{keyword}
+
+\end{frontmatter}
+%===============================================================================
+
+\section{Introduction}
+
+We will show here that under certain assumptions, it is possible to reduce the number of time delays
+without altering the index nor the global dynamics of the network.
+
+The main reason for a hybrid numerical-experimental setup is the fact that in some applications the description of the model in terms of differential equations is difficult due to its complex
+nature or uncertainty [58]. Since testing of a complete prototype may be prohibitively
+expensive, is it desirable to incorporate the benefits of actual testing with the benefits of
+numerical simulation. This is accomplished by subdividing the system under investigation
+into smaller subsystems, which are typically referred to as substructures; see Figure 1.1
+for an illustration. Alternatively, a bottom-up approach is facilitated by modern modeling languages such as Modellica (https://www.modelica.org) or Matlab/Simulink
+(https://www.mathworks.org). These frameworks compose the complete model by linking small components from a large library together. Such an automated modeling concept
+typically results in a combination of differential and algebraic equations, thus making the
+complete model a differential-algebraic equation (DAE).
+
+Having decomposed the system into smaller substructures, the numerical-experimental
+paradigm is to test only a specific substructure experimentally, while the remainder of the
+system is simulated numerically. To ensure dynamical interaction in real-time, the experiment and the numerically simulation have to happen simultaneously with a possibility to
+interact through a well-defined interface. In real-time dynamic substructuring or hardwarein-the-loop testing [11] the interface, called transfer system, is typically provided by a set of
+hydraulic actuators and a set of sensors. Since the dynamic characteristic of any actuator
+includes a response delay [33,57], the resulting system is a DDAE. Note that further delays
+might be present, which arise, for instance, from data acquisition, computation, or digital
+signal processing. In many applications, these delays are small compared to the actuator
+delay and may thus be neglected in the modeling process; for more details, we refer to [40]
+and the references therein. The model equations for the hybrid numerical-experimental
+approach are discussed in Section 2, yielding the coupled DDAE (2.12). The approach
+is exemplified by a coupled pendulum-mass-spring-damper system (cf. Figure 2.1) taken
+from [40].
+
+%============================================================================================================
+\section{Reducing the number of delays in a network of coupled DDAE systems}
+%============================================================================================================
+\lipsum
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=8.4cm]{coupling}    % The printed column width is 8.4 cm.
+		\caption{Decomposition of a physical system into substructures} 
+		\label{fig:coupling}
+	\end{center}
+\end{figure}
+
+
+%============================================================================================================
+\section{On the index of a network of coupled DDAE systems}
+%============================================================================================================
+
+\lipsum
+
+
+%============================================================================================================
+\section{Appliation to a network of mechanical systems and numerical simulation}
+%============================================================================================================
+
+\lipsum
+
+\begin{figure}
+	\begin{center}
+		\includegraphics[width=8.4cm]{mechanic_coupling}    % The printed column width is 8.4 cm.
+		\caption{Real-time dynamic substructuring for a coupled pendulum-mass-spring-damper
+			system} 
+		\label{fig:mechanic_coupling}
+	\end{center}
+\end{figure}
+
+
+
+
+%============================================================================================================
+\section{Conclusion}
+%============================================================================================================
+
+A conclusion section is not required. Although a conclusion may review
+the main points of the paper, do not replicate the abstract as the
+conclusion. A conclusion might elaborate on the importance of the work
+or suggest applications and extensions.
+
+
+\vspace{0.5cm}
+\noindent
+{\bf Acknowledgment} 
+We would like to thank an anonymous referee, whose comments are very helpful to us in the preparation of this research. The first author also would like to thank Jan Philipp Pade for introducing him to the topic and fruitful discussions.
+%The authors would like to thank the anonymous referee for very helpful comments and suggestions that led to improvements of this paper. 
+
+\bibliographystyle{abbrv}
+\bibliography{phi_truong_20}             % bib file to produce the bibliography
+                                                     % with bibtex (preferred)
+\end{document}
+\endinput
+                                                     
+\appendix
+
+\section{Procedure for Paper Submission}
+
+Use one space after periods and colons. Hyphenate complex modifiers:
+``zero-field-cooled magnetization''. Avoid dangling participles, such
+as, ``Using (1), the potential was calculated'' (it is not clear who or
+what used (1)). Write instead: ``The potential was calculated by using
+(1)'', or ``Using (1), we calculated the potential''.
+
+A parenthetical statement at the end of a sentence is punctuated
+outside of the closing parenthesis (like this). (A parenthetical
+sentence is punctuated within the parentheses.) Avoid contractions;
+for example, write ``do not'' instead of ``don' t''. The serial comma
+is preferred: ``A, B, and C'' instead of ``A, B and C''.
+
+
+

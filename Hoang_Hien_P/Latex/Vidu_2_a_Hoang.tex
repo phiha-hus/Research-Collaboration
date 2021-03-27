@@ -1,0 +1,382 @@
+%!TEX TS-program = pdflatex
+\documentclass{phiha-review}
+\usepackage{amsmath,amssymb,amsthm}
+
+\usepackage[sort&compress]{natbib}
+
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+\usepackage{graphicx}
+
+\usepackage[a4paper, total={6.4in, 9in}]{geometry}
+\usepackage{lipsum}
+
+\RequirePackage{fix-cm} % arbitrary font scaling
+\DeclareMathSizes{10}{10}{7}{3}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+%%% Useful abbreviations %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\cal{\mathcal}
+\def \ud{\underline }
+\def\id{{\indent }}
+\def\f{\frac}
+\def\non{{\noindent}}
+\def\leq{\leqslant} 
+\def\rar{\rightarrow}
+\def\Rar{\Rightarrow}
+\def\ti{\times}
+\def\r{\hro{R}}
+\def\e{\cal{E}}
+\def\de{\delta}
+\def\ep{\varepsilon}
+\def\Ep{\epsilon}
+\def\De{\Delta}
+\def\ift{\infty}
+\def\hro{\mathbb}
+\def\ho{\mathcal}
+\def\E{\mathcal{E}}
+\def\A{\mathcal{A}}
+\def\N{\mathbb{N}}
+\def\vk{\vskip 0.2cm}
+\def\con{\subset}
+\def\Con{\subseteq}
+\def\td{\Leftrightarrow}
+\def\df{\frac}
+\def\to{\mapsto}
+\def\om{\omega}
+\def\a{\alpha}
+\def\hA{\hat{A}}
+\def\tA{\tilde{A}}
+\def\dA{\delta A}
+\def\lb{\lambda}
+\def\to{\mapsto}
+\def\a{\alpha}
+\def\b{\beta}
+\def\ga{\gamma}
+\def\Ga{\Gamma}
+\def\Si{\Sigma}
+\def\dA{\delta A}
+\def\lb{\lambda}
+\def\Lb{\Lambda}
+\def\tE{\tilde{E}} 
+\def\tA{\tilde{A}} 
+\def\tB{\tilde{B}}
+\def\tM{\tilde{M}}  
+\def\tb{\bar{t}}
+\def\ub{\bar{u}} 
+\def\taub{\bar{\tau}} 
+\def\hE{\hat{E}}
+\def\hB{\hat{B}}
+\def\hP{\hat{P}}
+\def\hQ{\hat{Q}}
+\def\DD{\mathbb{D}}
+\def\tf{\tilde{f}}
+\def\tx{\tilde{x}}
+\def\I{\mathbb{I}}
+\def\A{\cal{A}}
+\def\B{\cal{B}}
+\def\C{\cal{C}}
+\def\D{\cal{D}}
+\def\F{\cal{F}}
+\def\R{\cal{R}}
+\def\K{\cal{K}}
+\def\M{\cal{M}}
+\def\P{\cal{P}}
+\def\Q{\cal{Q}}
+\def\NN{\cal{N}}
+\def\vco{\vartheta}
+\def\tPhi{\tilde{\Phi}}
+
+\newcommand{\m}[1]{
+	\begin{bmatrix}
+		#1 
+	\end{bmatrix}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% {Author}{Email}{Date}
+\footer{Dr. Phi Ha}{haphi@hus.edu.vn}{\today}
+% {Paper Title}
+\header{Example 2: triggering}
+
+\begin{document}
+
+% \lipsum
+
+\section{Chemical reaction}
+
+\begin{example}
+In this example we consider the system arising from the modeling of chemical reactions (\cite{Pan88}) where 
+an isomerization reaction takes place and the heat generated is removed from the system through an external cooling circuit. The system takes the following form 
+%
+\begin{equation}\label{eq1}
+\m{1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0} \m{ \dot{C} \\ \dot{T} \\ \dot{R} }
+= \m{ k_1(C_0 - C) - R \\ k_1(T_0 - T ) + k_2 R - k_3(T - T_c) \\ R - k_3 \ exp(\dfrac{-k_4}{T}) C } 
+\end{equation}
+%
+Here $C_0$ and $T_0$ are the initial feed reactant concentration and feed temperature; $C$ and $T$ are the corresponding quantities in the product. $R$ is the reaction rate per unit volume. $T_c$ is the temperature of the cooling medium, which can be varied. $k_1$, $k_2$, $k_3$ and $k_4$ are constants. \ 
+%
+In order to have a physical meaning, all variables and control input of this descriptor system could not take negative values, and hence, this system is positive.
+
+\emph{
+We notice, that this system has differentiation index one if $C_0$, $T_0$ and $T_c$ are given. 
+Nevertheless, in fact we can use all of them as control variables. In order to have a physical meaning, all the variable and control input of this descriptor system could not take negative values, and hence, this system is positive. The linearization of system \eqref{eq1} (indeed, of the last equation at the desired temperature $T_d$) reads
+%
+\begin{equation}\label{eq2}
+\m{1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0} \m{ \dot{C} \\ \dot{T} \\ \dot{R} }
+= 
+\m{-k_1 & 0 & -1 \\ 0 & -k_1-k_3 & k_2 \\ 0 & exp(\dfrac{-k_4}{T_d}) \  \dfrac{k_4}{T_d^2} & 1} \m{ {C} \\ {T} \\ {R} }
++ \m{k_1 & 0 & 0 \\ 0 & k_1 & k_3 \\ 0 & 0 & 0}  \m{ {C}_0 \\ {T}_0 \\ T_c }
++ \m{ 0 \\ 0 \\ - exp(\dfrac{-k_4}{T_d}) \  \dfrac{k_4}{T_d} } 
+\end{equation}
+%
+}
+
+We further notice, that in many application, the model is isothermal, i.e., the temperature $T$ remains constant. Besides that, in these situation, the cooling temperature $T_c$ may vary very slowly in time, and hence  we obtain a linear differential-algebraic equation
+
+%
+\begin{equation}\label{eq3}
+\m{1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0} \m{ \dot{C} \\ \dot{T}_c \\ \dot{R} }
+= 
+\m{k_1 & 0 & 1 \\ 0 & k_3 & k_2 \\ k_3exp(\dfrac{-k_4}{T}) & 0 & -1} \m{ {C} \\ {T}_c \\ {R} }
++ \m{- k_1 C_0 \\ k_1(T_0 - T ) - k_3 T \\ 0 } \ .
+\end{equation}
+%
+This is an index 1 DAEs with the input $u = \m{C_0 \\ T_0}$. 
+\end{example}
+
+%%====================================================================================================
+\newpage 
+
+\section{Reactor with fast and slow reaction}
+
+In \cite{Dao15,KumD97,KumD98} the authors discuss an isothermal, first-order reactions occur in series $A \rightleftharpoons B$, $B \rightarrow C$,
+with the net forward rates of reactions $R_1$ and $R_2$ , respectively.
+Here, a reactant A is fed at a volumetric flow rate $F_0$ and concentration $C_{A_0}$, the product is withdrawn at a flow rate $F$.
+In this model, the reversible reaction $A \rightleftharpoons B$ is much faster than the irreversible one, and is thus essentially at equilibrium. 
+Consequently, the following model of the process is derived:
+%
+\begin{equation}\label{eq5}
+\m{1 & \vline &   &	 &	 &	& \\ \hline 
+	& \vline & 1 &	 &	 &	& \\
+	& \vline &   & 1 &	 &	& \\
+	& \vline &   &   & 1 &	& \\
+	& \vline &   &   &   & 0 & \\
+	& \vline &   &   &   &	 & 0
+} 
+\! \m{ \dot{V} \\ \dot{C}_A \\ \dot{C}_B \\ \dot{C}_C \\ \dot{R}_1 \\ \dot{R}_2 }
+\! = \!
+\m{	0   & \vline &	   				&	    &		&		& \\ \hline \\[-.42cm]
+	& \vline &-F_0/V 	& 0 	& 0 	& -1 	& 0 \\
+	& \vline & 0 				&-F_0/V 	& 0 	& 1 	& -1 \\
+	& \vline & 0 				& 0 	   &-F_0/V 	& 0 	& 1 \\
+	& \vline & 1                & -1/k_{eq} & 0 & 0 & 0 \\
+	& \vline & 0                & -k_2				 & 0 & 0 & 1 \\
+}
+\! \m{ V  \\  C_A  \\ C_B  \\ C_C  \\  R_1  \\  R_2 }
+\! + \! \m{F_0 - F \\ \hline \\[-.42cm] C_{A_0} \frac{F_0}{V}  \\ 0 \\ 0 \\ 0 \\ 0 } \! ,
+\end{equation}
+%
+where $V$ is the liquid holdup in the reactor, and $C_A$, $C_B$, $C_C$ are the molar concentrations of the corresponding components, $k_{eq} > 0 $ is an equilibrium constant. \
+At first look, this system is nonlinear. However, we can integrate $V$ first to obtain an explicit formula of $V$, i.e. $V(t) = V(0) \int_{0}^{t}(F_0(s)-F(s))ds$.
+The remaining part of \eqref{eq5} gives us exactly a linear DAE model with the differential variables $x = \m{C_A & C_B & C_C}^T$, the algebraic variables $z = \m{R_1 & R_2}^T$, and the input function $C_{A_0}$. We notice that this DAE has a differentiation index two. \\ 
+
+Now we subtract  $\dfrac{1}{k_{eq}}$ times the third block row equation of \eqref{eq5}  from the second row equation to obtain
+%
+\begin{equation}\label{eq8}
+\dot{C}_A - \dfrac{1}{k_{eq}}\dot{C}_B = - \dfrac{F_0}{V} C_A + \dfrac{F_0}{V k_{eq}} C_B - (1+\dfrac{1}{k_{eq}}) R_1 +\dfrac{1}{k_{eq}} R_2 \ . 
+\end{equation}
+% 
+We perform on step of index reduction by differentiating the fourth row equation of \eqref{eq5} and insert it into \eqref{eq8}, and hence, obtain the resulting system below
+%
+\begin{equation}\label{eq9}
+\m{   0 &	&	&	& \\
+	    & 1 &	&	& \\
+	    &   & 1 &	& \\
+	    &   &   & 0 & \\
+	    &   &   &	 & 0
+} 
+\! \m{ \dot{C}_A \\ \dot{C}_B \\ \dot{C}_C \\ \dot{R}_1 \\ \dot{R}_2 }
+\! = \!
+\m{	-F_0/V 	& F_0/(V \ k_{eq}) 	& 0 	& -1-1/k_{eq} 	& 1/k_{eq} \\
+	  0 				&-F_0/V 	& 0 	& 1 	& -1 \\
+	  0 				& 0 	   &-F_0/V 	& 0 	& 1 \\
+	  1                & -1/k_{eq} & 0 & 0 & 0 \\
+	  0                & -k_2				 & 0 & 0 & 1 \\
+}
+\! \m{ C_A  \\ C_B  \\ C_C  \\  R_1  \\  R_2 }
+\! + \! \m{ C_{A_0} F_0/V  \\ 0 \\ 0 \\ 0 \\ 0 } \! ,
+\end{equation}
+%
+Permuting the first equation to the last row, we obtain the system
+%
+\begin{equation}\label{eq10}
+\m{ 1 &	  &	  & 	& \\
+	  & 1 &	  & 	&  \\
+	  &   & 0 & 	&  \\
+	  &   &	  &  0  &   \\
+      &	  &	  &     & 0 \\
+} 
+\! \m{ \dot{C}_B \\ \dot{C}_C \\ \dot{R}_1 \\ \dot{R}_2 \\ \dot{C}_A}
+\! = \!
+\m{	-F_0/V 		 &  0 		& 1 			& -1 		& 0		\\
+	 0 	   		 & -F_0/V 	& 0 			& 1 		& 0		\\
+	-1/k_{eq} 	 & 0 		& 0 			& 0  		& 1		\\
+	-k_2		 & 0 		& 0 			& 1 		& 0		\\
+F_0/(V \ k_{eq}) & 0 		& -1-1/k_{eq} 	& 1/k_{eq} 	& -F_0/V 
+}
+\! \m{ C_B  \\ C_C  \\  R_1  \\  R_2 \\ C_A }
+\! + \! \m{ 0 \\ 0 \\ 0 \\ 0 \\ C_{A_0} F_0/V} \! ,
+\end{equation}
+%
+which can be directly seen that it is of index 1.
+
+Often in many chemical reactors, e.g. chemical vapor deposition (CVD), catalytic crackers and combustion, multiple reactions occur simultaneously, of which some are much faster than the others. The above example illustrates that in such processes, the assumption of reaction equilibrium for fast reversible reactions, and similarly the assumption of complete conversion for fast irreversible reactions, naturally leads to high index DAE models. \\
+
+\begin{remark}
+i) We need K for the simulation. Input $C_{A_0}$ is my choice, but we can also consider $F_0$ and $F$ as input functions. \\
+ii) We need to assume that V is a constant in the simulation? i.e. $F_0 = F$ for simplicity. But then the input is also a constant.  \\
+Sol: Assume $F_0(t) = F(t)$ for all $t$, consider input function $u(t) = F_0(t)/V$
+\end{remark}
+
+%%====================================================================================================  
+\newpage 
+
+\section{Compartmental systems}
+
+An important class of positive systems are compartmental systems which are large-scale systems composed of a finite number of subsystems, called {\it compartments}, interacting by exchanging material. They are effectively used in various applications to describe natural and artificial networks of reservoirs such as electric power supply, flood control, or water supply. Models of the same type are used in biology, medicine, and ecology to describe systems containing chemical reactors, or heat exchangers \cite{And83}, \cite{BenF02}, \cite{FarR00}, \cite{Jac72}, \cite{Jac93}.
+
+We consider a compartmental system which contains $n$ compartments. Figure \ref{dia3} (\cite{Jac72}) represents the possible flows in one typical compartment.
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[height=60mm]{Diagram3}
+		\caption{Local scale - the $i^{th}$-compartment}
+		\label{dia3}
+	\end{center}
+\end{figure}
+The arrows represents flows into and out of the compartment. The real-valued function $\chi_i(t)$ represents the amount of resource in the $i^{th}$-compartment at time $t$. The external inflow, which feeds the whole system, is represented by $u(t)$; the outflow to the environment, and therefore, out of the system by $\F_{0i}$; the transfer from the $i^{th}$-compartment to the $j^{th}$-compartment by $\F_{ij}$. The function $\B_{i}(t) \leq 1$ is the inflow coefficient of the $i^{th}$-compartment which shows how the external inflow $u(t)$ feeds the compartment $i^{th}$. The model has a physical meaning only if all the functions $\chi_i(t)$, $u(t)$,  $\F_{ij}$, $\F_{0i}$, $\B_{i}(t)$ are non-negative.
+
+In order to make the system simpler, we assume that there is no loss of resources in any of the compartments. Note that, in general, the real-valued functions $\F_{0i}$, $\F_{ij}$ are nonlinear and depend on $\chi_1$, $\dots$, $\chi_{n}$, $t$. Let us assume here that they are linear functions of the form
+\begin{equation*}
+\F_{ij}(\chi,t) = f_{ij}(t)\chi_j(t), \quad i=0,...,n,\quad j=1,...,n,
+\end{equation*}
+where $\chi(t):=[\chi_1(t) \dots \chi_n(t)]^H$.
+
+Due to the instantaneous mass balance equations for each compartment \cite{And83}, \cite{Jac72}, we have
+\begin{equation}\label{eq0.7}
+\dot{\chi}_i(t) = - \left( f_{0i}(t)+ \sum_{j=1,\mbox{ }j\not=i}^{n}f_{ji}(t) \right)\chi_i(t) + \sum_{j=1,\mbox{ }j\not=i}^{n}f_{ij}(t)\chi_j(t) + \B_i(t)u(t), \mbox{ } i=1,...,n. 
+\end{equation}
+
+Setting
+\begin{align*}
+a_{ij}(t)&:= f_{ij}(t) \mbox{ for all } j\not=i, \mbox{ } j,i=1,...,n,\\
+a_{ii}(t)&:=-f_{0i}(t) - \sum_{j=1,\mbox{ }j\not=i}^{n}f_{ji}(t), \mbox{ }i=1,...,n,\\
+\A(t)&:=[a_{ij}(t)] \in C(\r_+,\r^{n,n}),\\
+\B(t)&:= [\B_1(t) \dots \B_n(t)]^H \in C(\r_+,\r^{n}),\\
+\C(t)&:= [f_{01}(t) \dots f_{0n}(t)] \in C(\r_+,\r^{1,n}),
+\end{align*}
+then we can rewrite \eqref{eq0.7} in the form of a standard system
+%
+\begin{equation}\label{eq0.5}
+\dot{\chi}(t) = \A(t)\chi(t) + \B(t)u(t).
+\end{equation}
+%
+Furthermore, due to the mass conservation law, we also have 
+
+
+The overall output is
+\begin{equation}\label{eq0.8}
+y(t) = \C(t)\chi(t).
+\end{equation}
+
+Since $\sum_{j=1}^{n} a_{ji} = -f_{0i}(t) \leq 0$ for all $t$, the compartmental system \eqref{eq0.5}-\eqref{eq0.8} has the following properties (which are often used as a definition of compartmental systems \cite{BenF02}, \cite{FarR00}, \cite{Jac93})
+\begin{align}\label{eq0.8b}
+\B(t) &\geq 0, \mbox{ } \C(t)\geq 0, \notag \\
+\A(t) &= [a_{ij}(t)] \in C(\r_+,\r^{n,n}), \\ 
+a_{ij}(t) &\geq 0 \mbox{ for all } i\not= j, \mbox{ } t \geq 0, \notag \\
+\sum_{j=1}^{n} a_{ji}(t) &\leq 0 \mbox{ for all } i=1,...,n, \mbox{ } t \geq 0. \notag
+\end{align}
+Note that due to the physical meaning of the model, compartmental systems are single input-single output (SISO). Nevertheless, it is well-known that corresponding multi input - multi output (MIMO) systems are also positive.  
+
+%%=========================================================================================================================
+\newpage
+\section{Kinetics of Lead in the Body}
+%%=========================================================================================================================
+
+Motivated from \cite[Sec. 4]{And83}, in this example we consider a compartmental model for the kinetics of lead in the human
+body. It has been shown that a high concentrations of lead in the environment, for example in long time direct contact with car exhaust, may have very bad effect (even cancer) on human health.
+Let us recall the model of lead distribution in the human body by a continuous deterministic 3-compartment system in the following figure.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale = 0.7]{lead_in_body}
+	\caption{Kinetics of Lead in the Body, \cite{And83}}
+	\label{fig:drugkinetic}
+\end{figure}
+
+Lead enters the body via food and liquid intake as well as by inhalation. From the digestive tract and the lungs there is a large uptake of lead by the red blood cells and to a lesser extent by the plasma. From the blood, lead is fairly rapidly distributed to the tissues (first to the liver and kidney, and later with different time lags to other parts of the body). More slowly, uptake of lead by the
+bones occurs. This physiology motivates the model of Figure 4.1. Compartments 2 and 3 exchange lead with compartment 1 by diffusion. 
+In case of  low concentrations of lead, for simplicity, we may assume, that the diffusion process is linear. Let t > 0 be the time variable, $q_i(t)$, $i = 1$, $2$, $3$, be the amount of lead in compartment $i$, and $I_{\ell}(t)$ be the input rate into compartment 1. Then, by standard arguments, the mass instantaneous balance equations for the transfer of lead between the bodily compartments are 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale = 0.6]{lead_screenshot001}
+	\caption{}
+	\label{fig:leadscreenshot001}
+\end{figure}
+
+The input rate $I_l$ in the first equation of (4.1) requires further comment. This rate consists of two components--one from the lungs and one from the digestive tract. Let a be the constant rate of intake of lead into the lungs from the environment. Only a portion p ($0 < p < 1$) of this input a is actually absorbed into the blood, so that the constant input rate of lead into compartment 1 from the lungs is
+pa. Let 8 be the constant input rate of lead into the digestive tract via food and water intake. (Also there is some lead intake to the digestive tract from saliva, gastric secretion, and bile, but we do not consider that here.) Of this input 8, only a fraction r8 will be absorbed through the digestive tract to the blood ($0 < r < 1$). Thus input rate $I_{\ell}$ in (4.1) is the constant $I_{\ell} = p \alpha + l \beta$.
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale = 0.6]{lead_screenshot002}
+	\caption{}
+	\label{fig:leadscreenshot002}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale = 0.8]{lead_screenshot003}
+	\caption{}
+	\label{fig:leadscreenshot003}
+\end{figure}
+
+As we shall discuss in considerable detail later, one of the important problems in biological models of this type is the identification of the model and the accompanying parameter estimation. That is, we need to determine the parameters of model (4.2), and also ask whether or not they can be uniquely determined. This is done through a standard tracer experiment carried out on a particular human subject.
+Before the start of the experiment, the person's body is assumed to be in steady state with respect to lead, defined by $q_{iss} = 0$, $i = 1, 2, 3$, for all $t$. A set of corresponding values qlss' q2ss' q3ss is determined beforehand. Then for a prescribed number of days (the unit of time), part of the dietary lead for the subject is replaced by a small amount of a stable lead isotope, e.g., 204pb (the tracer).
+This isotope provides an observable transient in the body that can be measured over time. From the measurements gathered, estimates of the parameters in model (4.2) can then be made. This procedure is fully discussed in Section 7 and demonstrated in Section 8.
+
+%
+\begin{equation}\label{sys1}
+\m{1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0} \m{ \dot{q}_1 \\ \dot{q}_2 \\ \dot{R}}
+=  \m{-a_{11} & a_{12} & 0 \\ a_{21} & -a_{22} & 0 \\ a_{31} & a_{32} & -1 } \m{ {q}_1 \\ {q}_2 \\ {R}} + \m{I_{\ell}(t) \\ 0 \\ 0}
+\end{equation}
+%
+
+Exposure to even low levels of lead can cause damage over time, especially in children. The greatest risk is to brain development, where irreversible damage can occur. Higher levels can damage the kidneys and nervous system in both children and adults. Very high lead levels may cause seizures, unconsciousness and death. Therefore, it is reasonable to make sure that the the all the amount of lead entered the body is not contained somewhere else, except the organ mentioned above. This leads to the (mass preserving) equation
+%
+\[
+I_{\ell}(t) = q_1(t) + q_2(t) + q_3(t) + f_{02}(t) q_2(t)
+\]
+%
+In summary, we have the system
+%
+\begin{equation}\label{eq4}
+\m{1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0} \m{ \dot{q}_1 \\ \dot{q}_2 \\ \dot{R}}
+=  \m{-a_{11} & a_{12} & 0 \\ a_{21} & -a_{22} & 0 \\ a_{31} & a_{32} & -1 } 
+   \m{ q_1 \\ q_2 \\ {R} } + \m{I_{\ell}(t) \\ 0 \\ 0}
+\end{equation}
+%
+
+%======================================================================================================================
+
+\bibliographystyle{dinat}
+\bibliography{phi}
+
+\end{document}

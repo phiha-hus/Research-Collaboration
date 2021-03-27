@@ -1,0 +1,1 @@
+For large DAEs, one can combine half explicit method with Monte-Carlo method for solving an inherent ODEs

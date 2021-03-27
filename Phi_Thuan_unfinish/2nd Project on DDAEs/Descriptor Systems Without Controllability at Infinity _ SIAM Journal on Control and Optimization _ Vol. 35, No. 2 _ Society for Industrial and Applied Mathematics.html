@@ -1,0 +1,2331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0075)https://epubs.siam.org/doi/abs/10.1137/S0363012994269818?journalCode=sjcodc -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    
+
+
+
+
+
+
+
+
+
+
+
+<title>
+    
+           Descriptor Systems Without Controllability at Infinity | SIAM Journal on Control and Optimization | Vol. 35, No. 2 | Society for Industrial and Applied Mathematics
+        
+</title>
+    
+    <meta name="robots" content="noarchive">
+<meta name="pb-robots-disabled">
+
+
+
+
+
+
+
+
+<link rel="schema.DC" href="http://purl.org/DC/elements/1.0/"><meta name="citation_journal_title" content="SIAM Journal on Control and Optimization"><meta name="dc.Title" content="Descriptor Systems Without Controllability at Infinity"><meta name="dc.Creator" content="Ralph  Byers"><meta name="dc.Creator" content="Ton  Geerts"><meta name="dc.Creator" content="Volker  Mehrmann"><meta name="dc.Subject" content="93B11; 93B52; 93B05; 93B27; 93B40; descriptor system; controllability; numerical methods; impulse"><meta name="dc.Description" content="This paper concerns the structure that can be achieved by feedback in descriptor systems that lack controllability at infinity. Staircase and double staircase condensed forms obtained through a seq..."><meta name="Description" content="This paper concerns the structure that can be achieved by feedback in descriptor systems that lack controllability at infinity. Staircase and double staircase condensed forms obtained through a seq..."><meta name="dc.Publisher" content="Society for Industrial and Applied Mathematics"><meta name="dc.Date" scheme="WTN8601" content="2006-07-26"><meta name="dc.Type" content="research-article"><meta name="dc.Format" content="text/HTML"><meta name="dc.Identifier" scheme="docid" content="SJCODC000035000002000462000001"><meta name="dc.Identifier" scheme="aipkey" content="1.2443551"><meta name="dc.Identifier" scheme="coden" content="SJCODC"><meta name="dc.Identifier" scheme="an" content="26981"><meta name="dc.Identifier" scheme="original-pdf" content="462_1.pdf"><meta name="dc.Identifier" scheme="doi" content="10.1137/S0363012994269818"><meta name="dc.Source" content="http://dx.doi.org/10.1137/S0363012994269818"><meta name="dc.Language" content="en"><meta name="dc.Coverage" content="world"><meta name="dc.Rights" content="Copyright © 1997 Society for Industrial and Applied Mathematics"><meta name="keywords" content="93B11,93B52,93B05,93B27,93B40,descriptor system,controllability,numerical methods,impulse">
+        
+        
+
+        
+            <link rel="meta" type="application/atom+xml" href="https://doi.org/10.1137%2FS0363012994269818">
+            <link rel="meta" type="application/rdf+json" href="https://doi.org/10.1137%2FS0363012994269818">
+            <link rel="meta" type="application/unixref+xml" href="https://doi.org/10.1137%2FS0363012994269818">
+        
+    
+<meta name="MSSmartTagsPreventParsing" content="true">
+
+<link rel="meta" type="application/rdf+xml" href="https://doi.org/10.1137%2FS0363012994269818">
+<link rel="meta" type="application/json" href="https://doi.org/10.1137%2FS0363012994269818">
+<link rel="meta" type="application/unixref+xml" href="https://doi.org/10.1137%2FS0363012994269818">
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+    
+        
+            <script src="./Descriptor Systems Without Controllability at Infinity _ SIAM Journal on Control and Optimization _ Vol. 35, No. 2 _ Society for Industrial and Applied Mathematics_files/config" type="text/javascript" async=""></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script type="text/javascript">
+                (function (i, s, o, g, r, a, m) {
+                    i['GoogleAnalyticsObject'] = r;
+                    i[r] = i[r] || function () {
+                        (i[r].q = i[r].q || []).push(arguments)
+                    }, i[r].l = 1 * new Date();
+                    a = s.createElement(o), m = s.getElementsByTagName(o)[0];
+                    a.async = 1;
+                    a.src = g;
+                    m.parentNode.insertBefore(a, m)
+                })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+                ga('create', 'UA-788880-18'
+                    
+                    
+                    , 'auto'
+                    
+                    , {
+                        'allowLinker': true}
+                    );
+                
+                ga('require', 'linker');
+                
+                
+                ga('linker:autoLink', ['m3challenge.siam.org, bookstore.siam.org, www.siam.org, sinews.siam.org ,meetings.siam.org']);
+                
+                
+                
+                
+                ga('send', 'pageview');
+            </script>
+            
+                <script async="" src="https://epubs.siam.org/templates/jsp/js/googleAnalyticsPlugin.js"></script>
+            
+        
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <link rel="stylesheet" type="text/css" href="./Descriptor Systems Without Controllability at Infinity _ SIAM Journal on Control and Optimization _ Vol. 35, No. 2 _ Society for Industrial and Applied Mathematics_files/re.css">
+    <link rel="stylesheet" type="text/css" href="./Descriptor Systems Without Controllability at Infinity _ SIAM Journal on Control and Optimization _ Vol. 35, No. 2 _ Society for Industrial and Applied Mathematics_files/ne.css">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="./Descriptor Systems Without Controllability at Infinity _ SIAM Journal on Control and Optimization _ Vol. 35, No. 2 _ Society for Industrial and Applied Mathematics_files/co.css">
+
+    <script type="text/javascript" src="https://epubs.siam.org/jsJawr/gzip_N1725035074/bundles/core.js"></script>
+
+
+    
+
+    
+
+
+
+
+
+    <link rel="SHORTCUT ICON" href="https://epubs.siam.org/templates/jsp/_style2/_pagebuilder/_c3/_siam/favicon.ico">
+    
+    <script type="text/javascript">
+        var curvyCornersVerbose = false;
+    </script>
+    <!--[if lt IE 9]><script src="/templates/jsp/js/jqueryCurvyCorners.js"></script><![endif]-->
+    
+
+
+
+
+
+
+
+
+    <script src="./Descriptor Systems Without Controllability at Infinity _ SIAM Journal on Control and Optimization _ Vol. 35, No. 2 _ Society for Industrial and Applied Mathematics_files/f.txt" async=""></script>
+
+    <!--[if IE]><link rel="stylesheet" type="text/css" href="/templates/jsp/_style2/_pagebuilder/ie.css" /><![endif]-->
+
+    
+
+
+
+
+
+    
+
+</head>
+<body class="page-config-32 layout-left-sidebar hasJS" id="abs"><audio class="audio-for-speech" src=""></audio><div class="translate-tooltip-mtz hidden">
+                    <div class="header">
+                        <div class="header-controls">
+                            <span class="sound-translate"></span>
+                            <span class="settings"></span>
+                        </div>
+                        <div class="translate-icons">
+                            <img class="from" src="https://epubs.siam.org/doi/abs/10.1137/S0363012994269818?journalCode=sjcodc">
+                            <img class="arrow" src="chrome-extension://hiidjliailpkjeigakikbfedlfijngih/images/right-arrow.png">
+                            <img class="to" src="https://epubs.siam.org/doi/abs/10.1137/S0363012994269818?journalCode=sjcodc">
+                        </div>
+                    </div>
+                    <div class="translated-text">
+                        <div class="words"></div>
+                        <div class="sentences"></div>
+                    </div>
+                </div><span class="translate-button-mtz hidden" style="top: 936.26416015625px;left: 466.8892059326172px;"></span>
+<script>document.body.className+=" hasJS"</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div id="container">
+    <div id="header">
+        <!-- placeholder id=null, description=Header - Mobile Button -->
+<!-- placeholder id=null, description=Maintenance Message --><hr>
+
+<style>
+p {
+    background-color: #FFFFFF;
+}
+
+</style>
+
+<p align="center" style="color:red" font="" size="9"><strong><a href="https://epubs.siam.org/action/clickThrough?id=101112&amp;url=http%3A%2F%2Fepubs.siam.org%2Fpage%2FEpidemiologyCollection&amp;loc=%2Fdoi%2Fabs%2F10.1137%2FS0363012994269818%3FjournalCode%3Dsjcodc&amp;pubId=40022042&amp;placeholderId=1024&amp;productId=1008" target="_blank"><u>SIAM Epidemiology Collection</u></a></strong><br> 
+In response to the outbreak of the novel coronavirus SARS-CoV-2 and the associated disease COVID-19, SIAM has made the  following collection freely available. We hope this content on epidemiology,  disease modeling, pandemics and vaccines will help in the rapid fight against  this global problem. Click on title above or <a href="https://epubs.siam.org/action/clickThrough?id=101112&amp;url=http%3A%2F%2Fepubs.siam.org%2Fpage%2FEpidemiologyCollection&amp;loc=%2Fdoi%2Fabs%2F10.1137%2FS0363012994269818%3FjournalCode%3Dsjcodc&amp;pubId=40022042&amp;placeholderId=1024&amp;productId=1008" target="_blank">here</a> to access this collection.</p>
+
+
+<hr>
+
+    <div class="welcome stackContents">
+        <div id="topHeaderBar">
+            <div class="searchBar">
+                <div class="quicksearch">
+                    
+                    
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+    
+
+    
+    
+
+    
+
+
+
+    
+
+
+    
+
+    
+        
+    
+
+
+
+
+
+    
+
+    
+
+
+
+    
+
+
+    
+
+    
+        
+    
+
+
+
+
+
+    
+
+    
+
+
+
+    
+
+
+    
+
+    
+        
+    
+
+
+
+
+
+    
+
+    
+
+
+
+    
+
+
+    
+
+    
+        
+    
+
+
+
+
+
+
+    
+    
+
+    
+    
+
+
+
+
+    
+
+
+
+    
+
+
+
+
+<div id="quickSearchTabs" class="quickSearch quickSearchTabs tabsContainer js__tabsContainer">
+    <ul class="quickSearchTabslist js__tabsList tabsList">
+        
+            <li class="selected">
+                <a href="https://epubs.siam.org/doi/abs/10.1137/S0363012994269818?journalCode=sjcodc#search">Keyword</a>
+            </li>
+        
+            <li>
+                <a href="https://epubs.siam.org/doi/abs/10.1137/S0363012994269818?journalCode=sjcodc#citation">Citation</a>
+            </li>
+        
+            <li>
+                <a href="https://epubs.siam.org/doi/abs/10.1137/S0363012994269818?journalCode=sjcodc#doi">DOI/ISSN</a>
+            </li>
+        
+            <li>
+                <a href="https://epubs.siam.org/action/doSearch">Advanced Search</a>
+            </li>
+        
+    </ul>
+
+    <div class="tabContent js__tabContent">
+        
+            
+                <div id="search">
+                        <form action="https://epubs.siam.org/action/doSearch" method="get"><div class="w-g paddedgrid">
+        <div class="w-u-7-12">
+            <div class="inner">
+                <input id="searchQuery" class="fill" type="text" name="AllField" value="" size="15" placeholder="">
+            </div>
+        </div>
+        
+
+        <div class="w-u-1-4">
+            <div class="inner">
+                <select id="quickSearchSelect" name="publication" class="fill">
+
+                    
+                        <option value="">
+                            All Content
+                        </option>
+                    
+                        <option value="40000050">
+                            All Journals
+                        </option>
+                    
+                        <option value="40000051">
+                            All Books
+                        </option>
+                    
+                        <option value="40112010">
+                            All Proceedings
+                        </option>
+                    
+                        <option value="40000035">
+                            This Journal
+                        </option>
+                    
+                </select>
+
+            </div>
+        </div>
+        <div class="w-u-1-6">
+            <div class="inner">
+                <input class="fill" type="submit" value="" alt="">
+            </div>
+        </div>
+    </div></form>
+                </div>
+            
+        
+            
+                <div id="citation" style="display: none;">
+                        <form action="https://epubs.siam.org/action/quickLink" id="citationSearchForm" method="GET"><div class="w-g paddedgrid">
+        <div class="w-u-1-2">
+            <div class="inner">
+                <input type="text" name="quickLinkJournal" placeholder="Journal" class="filterJournals fill publicationAutocomplete" autocomplete="off">
+            </div>
+        </div>
+        <div class="w-u-1-9 w-u">
+            <div class="inner">
+                <input type="text" name="quickLinkVolume" placeholder="Volume" class="fill" autocomplete="off">
+                <input type="hidden" name="quickLink" value=" ">
+            </div>
+        </div>
+        <div class="w-u-1-9 w-u">
+            <div class="inner">
+                <input type="text" name="quickLinkIssue" placeholder="Issue" class="fill" autocomplete="off">
+            </div>
+        </div>
+        <div class="w-u-1-9 w-u">
+            <div class="inner">
+                <input type="text" name="quickLinkPage" placeholder="Page" class="fill" autocomplete="off">
+            </div>
+        </div>
+        <div class="w-u-1-6">
+            <div class="inner">
+                <input type="submit" alt="" value="" class="fill">
+            </div>
+        </div>
+    </div></form>
+                </div>
+            
+        
+            
+                <div id="doi" style="display: none;">
+                        <form action="https://epubs.siam.org/action/doSearch" method="get"><div class="w-g paddedgrid">
+        <div class="w-u-5-6">
+            <div class="inner">
+                <input id="pubidspan" class="fill" type="text" name="PubIdSpan" value="" size="15" placeholder="DOI/ISSN/ISBN">
+            </div>
+        </div>
+        <div class="w-u-1-6">
+            <div class="inner">
+                <input class="fill" type="submit" value="" alt="">
+            </div>
+        </div>
+    </div></form>
+                </div>
+            
+        
+            
+                <div id="doi">
+                        
+                </div>
+            
+        
+    </div>
+</div>
+
+
+
+                </div>
+
+            </div>
+            <div id="bannerImage"></div>
+            <div class="loginIdentity">
+                
+                
+
+
+                
+
+
+
+
+    
+
+
+    
+
+
+<ul id="userMenu">
+    
+
+
+    
+    
+        
+
+
+
+
+
+    
+
+    
+        
+    
+
+    
+    
+
+
+    
+            
+            <li>
+                <a href="https://epubs.siam.org/action/showLogin?uri=%2Fdoi%2Fabs%2F10.1137%2FS0363012994269818%3FjournalCode%3Dsjcodc">
+                    <img src="./Descriptor Systems Without Controllability at Infinity _ SIAM Journal on Control and Optimization _ Vol. 35, No. 2 _ Society for Industrial and Applied Mathematics_files/en.png">
+                    Sign in
+                </a>
+            </li>
+        
+    
+        <li>
+            <a href="https://epubs.siam.org/help">
+                <img src="./Descriptor Systems Without Controllability at Infinity _ SIAM Journal on Control and Optimization _ Vol. 35, No. 2 _ Society for Industrial and Applied Mathematics_files/he.png">
+                Help
+            </a>
+        </li>
+    
+
+    <li>
+        <a href="https://epubs.siam.org/action/showCart">
+            <img src="https://epubs.siam.org/templates/jsp/_style2/_pagebuilder/_c3/_siam/images/entitlements-cart.png">
+            View Cart
+        </a>
+    </li>
+
+
+
+</ul>
+
+
+
+            </div>
+
+            <div class="stacked">
+                
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+    
+
+
+
+    <ul class="mainMenu dropDownNav linkList menu">
+        
+            <li class="home">
+                <a href="https://epubs.siam.org/">Home</a>
+                
+            </li>
+        
+            <li class="journals">
+                <a href="https://epubs.siam.org/journals">Journals</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="locus">
+                <a href="https://epubs.siam.org/page/locus">Locus</a>
+                
+            </li>
+        
+            <li class="mmsubtitem">
+                <a href="https://epubs.siam.org/journal/mmsubt">Multiscale Modeling &amp; Simulation</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="b-mms">
+                <a href="https://epubs.siam.org/toc/mmsubt/current">Browse MMS</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="siagaItem">
+                <a href="https://epubs.siam.org/journal/siaga">SIAM J. on Applied Algebra and Geometry</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="b-siaga">
+                <a href="https://epubs.siam.org/toc/sjaabq/current">Browse SIAGA</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="sjadayitem">
+                <a href="https://epubs.siam.org/journal/sjaday">SIAM J. on Applied Dynamical Systems</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="b-siads">
+                <a href="https://epubs.siam.org/toc/sjaday/current">Browse SIADS</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="smjmapitem">
+                <a href="https://epubs.siam.org/journal/smjmap">SIAM J. on Applied Mathematics</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="b-siap">
+                <a href="https://epubs.siam.org/toc/smjmap/current">Browse SIAP</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="smjcatItem">
+                <a href="https://epubs.siam.org/journal/smjcat">SIAM J. on Computing</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="b-sicomp">
+                <a href="https://epubs.siam.org/toc/smjcat/current">Browse SICOMP</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="sjcodcItem">
+                <a href="https://epubs.siam.org/journal/sjcodc">SIAM J. on Control and Optimization</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="b-sicon">
+                <a href="https://epubs.siam.org/toc/sjcodc/current">Browse SICON</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="sjdmecItem">
+                <a href="https://epubs.siam.org/journal/sjdmec">SIAM J. on Discrete Mathematics</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="b-sidma">
+                <a href="https://epubs.siam.org/toc/sjdmec/current">Browse SIDMA</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="sjfmbItem">
+                <a href="https://epubs.siam.org/journal/sjfmbj">SIAM J. on Financial Mathematics</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="b-sifin">
+                <a href="https://epubs.siam.org/toc/sjfmbj/current">Browse SIFIN</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="sjisbiItem">
+                <a href="https://epubs.siam.org/journal/sjisbi">SIAM J. on Imaging Sciences</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="b-siims">
+                <a href="https://epubs.siam.org/toc/sjisbi/current">Browse SIIMS</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="sjmaahItem">
+                <a href="https://epubs.siam.org/journal/sjmaah">SIAM J. on Mathematical Analysis</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="b-sima">
+                <a href="https://epubs.siam.org/toc/sjmaah/current">Browse SIMA</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="sjmdaqItem">
+                <a href="https://epubs.siam.org/journal/sjmdaq">SIAM J. on Mathematics of Data Science</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="b-simods">
+                <a href="https://epubs.siam.org/toc/sjmdaq/1/1">Browse SIMODS</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="sjmaelItem">
+                <a href="https://epubs.siam.org/journal/sjmael">SIAM J. on Matrix Analysis and Applications</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="b-simax">
+                <a href="https://epubs.siam.org/toc/sjmael/current">Browse SIMAX</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="sjnaamItem">
+                <a href="https://epubs.siam.org/journal/sjnaam">SIAM J. on Numerical Analysis</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="b-sinum">
+                <a href="https://epubs.siam.org/toc/sjnaam/current">Browse SINUM</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="sjope8Item">
+                <a href="https://epubs.siam.org/journal/sjope8">SIAM J. on Optimization</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="b-siopt">
+                <a href="https://epubs.siam.org/toc/sjope8/current">Browse SIOPT</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="sjoce3Item">
+                <a href="https://epubs.siam.org/journal/sjoce3">SIAM J. on Scientific Computing</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="b-sisc">
+                <a href="https://epubs.siam.org/toc/sijcd4/current">Browse SISC</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="sjuqa3item">
+                <a href="https://epubs.siam.org/journal/sjuqa3">SIAM/ASA J. on Uncertainty Quantification</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="b-sjuqa3">
+                <a href="https://epubs.siam.org/toc/sjuqa3/current">Browse JUQ</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="sireadItem">
+                <a href="https://epubs.siam.org/journal/siread">SIAM Review</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="b-sirev">
+                <a href="https://epubs.siam.org/toc/siread/current">Browse SIREV</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="tprbauItem">
+                <a href="https://epubs.siam.org/journal/tprbau">Theory of Probability &amp; Its Applications</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="b-tvp">
+                <a href="https://epubs.siam.org/toc/tprbau/current">Browse TVP</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="faqItem">
+                <a href="https://epubs.siam.org/page/journalFAQ">FAQ</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="ebooks">
+                <a href="https://epubs.siam.org/ebooks">E-books</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="browse_by_topic">
+                <a href="https://epubs.siam.org/action/showPublications?pubType=book">Browse e-books</a>
+                
+            </li>
+        
+            <li class="seriesDescription">
+                <a href="https://epubs.siam.org/page/books/series/index">Series Descriptions</a>
+                
+            </li>
+        
+            <li class="bookProgram">
+                <a href="https://epubs.siam.org/page/books/program">Book Program</a>
+                
+            </li>
+        
+            <li class="marc">
+                <a href="https://epubs.siam.org/page/books/ebooks">MARC Records</a>
+                
+            </li>
+        
+            <li class="books-faq">
+                <a href="https://epubs.siam.org/page/books/ebooks_faq">FAQ</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="proceedings">
+                <a href="https://epubs.siam.org/action/showPublications?pubType=proceedings&amp;category=40112010&amp;expand=40112010">Proceedings</a>
+                
+            </li>
+        
+            <li class="forAuthors">
+                <a href="https://epubs.siam.org/doi/abs/10.1137/S0363012994269818?journalCode=sjcodc#">For Authors</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="journalAuthor">
+                <a href="http://peerreview.siam.org/" target="new">Journal Author Submissions</a>
+                
+            </li>
+        
+            <li class="bookAuthor">
+                <a href="http://www.siam.org/books/program/whypublish.php">Book Author Submissions</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="subscriptionInfo">
+                <a href="https://epubs.siam.org/doi/abs/10.1137/S0363012994269818?journalCode=sjcodc#">Subscriptions</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="jSubscription">
+                <a href="http://www.siam.org/journals/subscribe.php" target="new">Journal Subscription</a>
+                
+            </li>
+        
+            <li class="jPricing">
+                <a href="http://www.siam.org/journals/prices.php" target="new">Journal Pricing</a>
+                
+            </li>
+        
+            <li class="jAgreement">
+                <a href="http://www.siam.org/journals/ojsa.php" target="new">Journal Subscription Agreement</a>
+                
+            </li>
+        
+            <li class="ebSubscription">
+                <a href="https://epubs.siam.org/page/books/ebooks">E-book Subscription</a>
+                
+            </li>
+        
+            <li class="ebPurchase">
+                <a href="https://epubs.siam.org/page/books/ebooks">E-book Purchase</a>
+                
+            </li>
+        
+            <li class="ebAgreemenet">
+                <a href="https://epubs.siam.org/userimages/ContentEditor/1334357225028/E-book%20license%20agreement_2011.pdf" target="new">E-book Licensing Agreement</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="interactive">
+                <a href="https://epubs.siam.org/doi/abs/10.1137/S0363012994269818?journalCode=sjcodc#">Interactive Features</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="tocAlerts">
+                <a href="https://epubs.siam.org/action/showPreferences?menuTab=Alerts">Journal / E-book / Proceedings TOC Alerts</a>
+                
+            </li>
+        
+            <li class="facebook">
+                <a href="http://www.facebook.com/SocietyforIndustrialandAppliedMath">Facebook</a>
+                
+            </li>
+        
+            <li class="twitter">
+                <a href="http://twitter.com/TheSIAMNews">Twitter</a>
+                
+            </li>
+        
+            <li class="youTube">
+                <a href="http://www.youtube.com/user/SIAMConnects" target="new">YouTube</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+            <li class="journalCitations">
+                <a href="http://www.siam.org/journals/citation.php" target="new">Journal Citations</a>
+                
+            </li>
+        
+            <li class="contact">
+                <a href="https://epubs.siam.org/page/contact_us">Contact Us</a>
+                
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+    <ul class="submenu menu">
+        
+            <li class="feedback">
+                <a href="https://epubs.siam.org/feedback/show">Feedback</a>
+                
+            </li>
+        
+            <li class="website">
+                <a href="http://www.siam.org/" target="new">SIAM Website</a>
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </li>
+        
+    </ul>
+
+
+                
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+<div class="banner"></div>
+    </div>
+    <div id="content">
+        <div class="contentWithAd">
+            <div class="mainCont">
+        <div id="page-builder-layout">
+            <div class="inner">
+                
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="dropzone ui-corner-all " id="dropzone-Top">
+    
+    
+        
+            
+
+
+
+    
+
+
+
+    
+
+
+
+
+<div id="widget-6857" class="widget type-render-breadcrumbs ui-helper-clearfix">
+    
+    <div class="view">
+        
+        <div class="view-inner">
+            
+                    <!-- Service: showAbstract -->
+
+
+    
+    
+        
+    
+
+
+        
+        
+            
+        
+        
+        
+        
+            
+        
+        
+
+
+    
+
+
+
+
+
+<div>
+    <ul class="linkList breadcrumbs">
+        
+            <li>
+                <a href="https://epubs.siam.org/">Home</a>
+                
+                    <span class="breadcrumbsAfter"> &gt; </span> 
+                
+            </li>
+        
+            <li>
+                <a href="https://epubs.siam.org/loi/sjcodc">SIAM Journal on Control and Optimization</a>
+                
+                    <span class="breadcrumbsAfter"> &gt; </span> 
+                
+            </li>
+        
+            <li>
+                <a href="https://epubs.siam.org/toc/sjcodc/35/2">Volume 35, Issue 2</a>
+                
+                    <span class="breadcrumbsAfter"> &gt; </span> 
+                
+            </li>
+        
+            <li class="lastbread">
+                10.1137/S0363012994269818
+                
+            </li>
+        
+    </ul>
+</div>
+                
+        </div>
+    </div>
+</div>
+
+        
+    
+        
+            
+
+
+
+    
+
+
+
+    
+
+
+
+
+<div id="widget-6858" class="widget type-SponsorshipBanner ui-helper-clearfix">
+    
+    <div class="view">
+        
+        <div class="view-inner">
+            
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+</div>
+
+            </div>
+            
+
+
+    
+
+
+
+
+
+    
+
+    
+                
+
+    
+
+
+
+    
+
+
+    
+
+    
+
+
+
+
+
+                
+
+    
+
+
+
+    
+
+
+    
+
+    
+
+
+
+
+            
+
+    
+
+    
+
+
+    
+
+
+
+
+<div class="w-g ">
+    
+        
+        <div class="w-u w-u-1-4 leftColumn">
+            
+                    <div class="inner">
+                        <div class="dropzone ui-corner-all " id="dropzone-Left-Sidebar">
+    
+    
+        
+            
+
+
+
+    
+
+
+
+    
+
+
+
+
+<div id="widget-6849" class="widget type-publication-side-bar ui-helper-clearfix">
+    
+    <div class="view">
+        
+        <div class="view-inner">
+            
+                    <div class="panel">
+    <div class="box collapsible open">
+
+        <div class="header publicationSideBar">
+            <h3>Article Tools</h3>
+        </div>
+        <div class="box-inner">
+            <div>
+                
+                        <a href="https://epubs.siam.org/personalize/addFavoritePublication?doi=10.1137%2FS0363012994269818">Add to my favorites</a>
+                    
+            </div>
+            
+            
+
+            
+                <div><a href="https://epubs.siam.org/action/showCitFormats?doi=10.1137%2FS0363012994269818">Download Citations</a></div>
+                <div><a href="https://epubs.siam.org/action/addCitationAlert?doi=10.1137%2FS0363012994269818">Track Citations</a></div>
+            
+            
+        </div>
+        <div class="footer"></div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<div class="panel">
+    <div class="box collapsible open">
+
+        <div class="header publicationSideBar">
+            <h3>Recommend &amp; Share</h3>
+        </div>
+        <div class="box-inner">
+            
+
+<div>
+    
+    <a href="https://epubs.siam.org/action/recommendation?doi=10.1137%2Fsjcodc">Recommend to Library</a>
+</div>
+            <div>
+                <a href="https://epubs.siam.org/action/showMailPage?doi=10.1137%2FS0363012994269818&amp;href=%2Fdoi%2Fabs%2F10.1137%2FS0363012994269818%3FjournalCode%3Dsjcodc&amp;title=Descriptor+Systems+Without+Controllability+at+Infinity">
+                    
+                    
+                    
+                    Email to a friend
+                </a>
+            </div>
+            <div class="social">
+                
+                <img src="./Descriptor Systems Without Controllability at Infinity _ SIAM Journal on Control and Optimization _ Vol. 35, No. 2 _ Society for Industrial and Applied Mathematics_files/ic.png" align="left" border="0">&nbsp;<a title="Add to Facebook" href="http://www.facebook.com/sharer.php?u=http%3A%2F%2Fepubs.siam.org%2Fdoi%2Fabs%2F10.1137%2FS0363012994269818&amp;t=Descriptor+Systems+Without+Controllability+at+Infinity" target="_blank">Facebook</a>
+            </div>
+            <div class="social">
+                
+                <img src="https://epubs.siam.org/templates/jsp/images/icon-twitter.png" align="left" border="0">&nbsp;<a title="Share on Twitter" target="_blank" href="http://twitter.com/home?status=http%3A%2F%2Fepubs.siam.org%2Fdoi%2Fabs%2F10.1137%2FS0363012994269818&amp;title=Descriptor+Systems+Without+Controllability+at+Infinity">Twitter</a>
+            </div>
+            <div class="social">
+                
+                <img src="https://epubs.siam.org/templates/jsp/images/icon-CiteULike.png" align="left" border="0">&nbsp;<a title="Add to CiteULike" href="http://www.citeulike.org/posturl?url=http%3A%2F%2Fepubs.siam.org%2Fdoi%2Fabs%2F10.1137%2FS0363012994269818&amp;title=Descriptor+Systems+Without+Controllability+at+Infinity" target="_blank">CiteULike</a>
+            </div>
+            <div class="social">
+                
+                <img src="https://epubs.siam.org/templates/jsp/images/icon-newsvine.png" align="left" border="0">&nbsp;<a title="Add to Newsvine" href="http://www.newsvine.com/_wine/save?url=http%3A%2F%2Fepubs.siam.org%2Fdoi%2Fabs%2F10.1137%2FS0363012994269818&amp;title=Descriptor+Systems+Without+Controllability+at+Infinity" target="_blank">Newsvine</a>
+            </div>
+            <div class="social">
+                
+                <img src="https://epubs.siam.org/templates/jsp/images/icon-digg.png" align="left" border="0">&nbsp;<a title="Digg This" href="http://digg.com/submit?phase=2&amp;url=http%3A%2F%2Fepubs.siam.org%2Fdoi%2Fabs%2F10.1137%2FS0363012994269818" target="_blank">Digg This</a>
+            </div>
+            <div class="social">
+                
+                <img src="https://epubs.siam.org/templates/jsp/images/icon-delicious.png" align="left" border="0">&nbsp;<a title="Add to Delicious" href="http://del.icio.us/post?url=http%3A%2F%2Fepubs.siam.org%2Fdoi%2Fabs%2F10.1137%2FS0363012994269818&amp;title=Descriptor+Systems+Without+Controllability+at+Infinity" target="_blank">Delicious</a>
+            </div>
+        </div>
+        <div class="footer"></div>
+    </div>
+</div>
+    
+
+
+    
+    
+
+
+
+
+
+
+
+
+<div class="panel">
+    <div class="box collapsible open">
+        <div class="header publicationSideBar">
+            <h3>Notify Me!</h3>
+        </div>
+        <div class="box-inner">
+            <div>
+                
+                        <a href="https://epubs.siam.org/action/doUpdateAlertSettings?action=addJournal&amp;referrer=%2Fdoi%2Fabs%2F10.1137%2FS0363012994269818%3FjournalCode%3Dsjcodc&amp;journalCode=sjcodc">
+                            E-mail Alerts
+                        </a>
+                    
+            </div>
+            <div>
+                
+                        <a href="https://epubs.siam.org/action/showFeed?type=etoc&amp;feed=rss&amp;jc=sjcodc">
+                            RSS Feeds
+                        </a>
+                    
+            </div>
+        </div>
+        <div class="footer"></div>
+    </div>
+</div>
+                
+        </div>
+    </div>
+</div>
+
+        
+    
+        
+            
+
+
+
+    
+
+
+
+    
+
+
+
+
+<div id="widget-6850" class="widget type-ad-placeholder ui-helper-clearfix">
+    
+    <div class="view">
+        
+        <div class="view-inner">
+            
+                    <!-- placeholder id=null, description=Book Left 1 -->
+                
+        </div>
+    </div>
+</div>
+
+        
+    
+        
+            
+
+
+
+    
+
+
+
+    
+
+
+
+
+<div id="widget-6851" class="widget type-recentlHistory ui-helper-clearfix">
+    
+    <div class="view">
+        
+        <div class="view-inner">
+            
+        </div>
+    </div>
+</div>
+
+        
+    
+        
+            
+
+
+
+    
+
+
+
+    
+
+
+
+
+<div id="widget-6852" class="widget type-ad-placeholder ui-helper-clearfix">
+    
+    <div class="view">
+        
+        <div class="view-inner">
+            
+                    <!-- placeholder id=null, description=Book Left 2 -->
+                
+        </div>
+    </div>
+</div>
+
+        
+    
+        
+            
+
+
+
+    
+
+
+
+    
+
+
+
+
+<div id="widget-6853" class="widget type-ad-placeholder ui-helper-clearfix">
+    
+    <div class="view">
+        
+        <div class="view-inner">
+            
+                    <!-- placeholder id=null, description=Book Left 3 -->
+                
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+</div>
+                    </div>
+                
+        </div>
+    
+        
+        <div class="w-u w-u-3-4 maincolumn">
+            
+                    <div class="inner">
+                        <div class="dropzone ui-corner-all " id="dropzone-Middle-Content">
+    
+    
+        
+            
+
+
+
+    
+
+
+
+    
+
+
+
+
+<div id="widget-6854" class="widget type-publication-meta ui-helper-clearfix">
+    
+    <div class="view">
+        
+        <div class="view-inner">
+            
+                    <div id="publicationTitle" class="gradient">
+    
+            <h1>SIAM Journal on Control and Optimization</h1>
+        
+</div>
+<br>
+                
+        </div>
+    </div>
+</div>
+
+        
+    
+        
+            
+
+
+
+    
+
+
+
+    
+
+
+
+
+<div id="widget-6855" class="widget type-publication-tools ui-helper-clearfix">
+    
+    <div class="view">
+        
+        <div class="view-inner">
+            
+                    <div class="panel panel_100p" id="articleToolsPanel">
+    <div class="box">
+        
+        
+                <div> 
+            
+                <div class="box-inner">
+                    
+            
+
+
+
+<div id="articleToolsNav" class="stackContents">
+    
+    
+
+    
+    
+        <div id="articleToolsPrev" class="stacked">
+            
+            &lt;
+                <a href="https://epubs.siam.org/doi/abs/10.1137/S0363012993248918" class="articleToolsNav">Previous Article</a>
+        </div>
+    
+    
+    
+        <div id="articleToolsNext" class="stackedReverse">
+            
+                <a href="https://epubs.siam.org/doi/abs/10.1137/S0363012995281869" class="articleToolsNav">Next Article</a>
+            &gt;
+        </div>
+    
+    <div class="groupInfo">
+        
+                
+
+
+
+
+
+
+
+       Volume 35, Issue 2
+    
+
+            
+    </div>
+</div>
+        
+        
+        
+        
+            
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+For more Information, see the Bug 63359 - RT#39180: Display access icon on article pages .
+
+@override the articleAccessIcon.jsp to do something on the access Icon.
+-->
+
+
+<div class="contFormats">
+    <ul class="linkList blockLinks separators centered" id="articleToolList">
+        
+        
+            <li class="articleToolLi showAbstract current">
+                
+
+                Abstract
+            </li>
+        
+
+        
+        
+            <li class="articleToolLi showEnhancedAbstract">
+                <a href="https://epubs.siam.org/doi/ref/10.1137/S0363012994269818">References</a>
+            </li>
+        
+
+        
+        
+        
+            <li class="articleToolLi showPDF">
+                
+                        <a href="https://epubs.siam.org/doi/pdf/10.1137/S0363012994269818" target="_blank">
+                            PDF
+                        </a>
+                    
+            </li>
+        
+        
+
+        
+        
+
+        
+            <li>
+                <a href="https://epubs.siam.org/doi/abs/10.1137/S0363012994269818#citedBySection">Cited By</a>
+            </li>
+        
+
+        
+
+        
+
+        
+
+        
+    </ul>
+</div>
+
+
+
+        
+                    
+                </div>
+            </div>  
+            <div class="footer"></div>
+        </div>
+    </div>
+                
+        </div>
+    </div>
+</div>
+
+        
+    
+        
+            
+
+
+
+    
+
+
+
+    
+
+
+
+
+<div id="widget-6856" class="widget type-publication-content ui-helper-clearfix">
+    
+    <div class="view">
+        
+        <div class="view-inner">
+            
+                    <script type="text/javascript">
+<!-- // hide it from old browsers
+
+var anyDbId = -1;
+var sideParts = {
+    citation: "<div><a href=\"javascript:newWindow('{$linkoutUrl}')\">{$display}<\/a><\/div>",
+    citingIsi: "<div>Search for citing articles in:<br/>&nbsp;<a href=\"javascript:newWindow('/servlet/linkout?suffix=s0&dbid=128&doi={$doi}&url={$urlEnc}')\">ISI Web of Science<\/a> ({$citNum} or more)<\/a><\/div>",
+    citingCrossref: "<div><a href=\"{$url}\">Citing articles in Crossref<\/a><\/div>",
+    quicksearch: "<option value=\"{$value}\">{$display}<\/option>",
+    related: "<div><a href=\"javascript:newWindow('{$linkoutUrl}')\">{$display}<\/a><\/div>"
+};
+
+function genSide(part, dbid, linkoutUrl, display, doi, url, citNum, value) {
+    if (dbid != anyDbId && (562949953421311 & dbid) == 0) return;
+    var content = sideParts[part];
+    if (linkoutUrl) { content = content.replace(/{\$linkoutUrl}/g, linkoutUrl); }
+    if (display) { content = content.replace(/{\$display}/g, display); }
+    if (doi) { content = content.replace(/{\$doi}/g, doi); }
+    if (url) {
+        content = content.replace(/{\$url}/g, url);
+        content = content.replace(/{\$urlEnc}/g, encodeURIComponent(encodeURIComponent(url)));
+    }
+    if (citNum) { content = content.replace(/{\$citNum}/g, citNum); }
+    if (value) { content = content.replace(/{\$value}/g, value); }
+    document.write(content);
+}
+
+function hasSfxLinks() {
+	return false;
+}
+
+
+function genSfxLinks(id, url, doi) { }
+
+var sfxRefDisplay = {
+64:"ADS",
+32:"CAS",
+8192:"CIS",
+256:"CSA",
+16:"Crossref",
+128:"ISI",
+4096:"JSTOR",
+8:"Medline",
+1099511627776: "Ichushi",
+17592186044416: "Medical Online",
+8796093022208: "J-Stage",
+2199023255552: "Medical Finder",
+4398046511104: "Pier Online"
+};
+
+window.onload=disableRefLinkWrite ;
+
+function genRefLink(dbid, id, key, textOfLink) {
+    if (562949953421311 & dbid != 0) {
+        if (typeof textOfLink === "undefined") {
+            if (sfxRefDisplay[dbid].substring(0,1) == "[") {
+                textOfLink = sfxRefDisplay[dbid];
+            } else {
+                textOfLink = "["+sfxRefDisplay[dbid]+"]";
+            }
+            // ToDo: move '[' and ']' to sfxRefDisplay (UPDATE: finish changing sfxRefDisplays and remove this branch)
+        }
+        else{ textOfLink = unescape(textOfLink)};
+
+        if(document.disableRefLinkWrite == null){
+            document.write("<a class='ref' href=\"javascript:popRefLink("+dbid+",'"+id+"','"+key+"')\">"+textOfLink+"<\/a>");
+        }
+    }
+}
+
+function disableRefLinkWrite () {
+    document.disableRefLinkWrite = true;
+}
+
+function popRefLink(dbid, id, key) {
+    var redirect = "/servlet/linkout?suffix=" + id + "&dbid=" + dbid + "&doi=10.1137%2FS0363012994269818&key=" + key;
+    return newWindow(redirect);
+}
+function popRefFull(rid, citart, ptype, area) {
+    return popRefImplFull(rid, citart, ptype, area, 600, 500);
+}
+function popRefImplFull(rid, citart, ptype, area, width, height) {
+    var doi = "10.1137%2FS0363012994269818";
+    if (! ptype) { ptype = ""; }
+    var pt = rid.charAt(0) + "S0363012994269818" + ptype;
+    return popupFull(rid, doi, pt, area, width, height);
+}
+function popRef(rid, citart, ptype, area) {
+    return popRefImpl(rid, citart, ptype, area, 600, 500);
+}
+function popRef2(rid, citart, ptype, area) {
+    return popRefImpl(rid, citart, ptype, area, 400, 100);
+}
+function popRefImpl(rid, citart, ptype, area, width, height) {
+    var doi = "10.1137%2FS0363012994269818";
+    if (! citart) { citart = "citart1"; }
+    if (! ptype) { ptype = ""; }
+    var pt = rid.charAt(0) + "S0363012994269818" + ptype;
+    return popupRef(citart, rid, doi, pt, area, width, height);
+}
+
+
+
+function genCitingCrossref() {
+}
+
+var citLinkDisplay = {
+    
+    0:"SYSTEM",
+4:"SYSTEM",
+20:"SYSTEM",
+64:"ADS",
+32:"CAS",
+8192:"CIS",
+256:"CSA",
+16:"Crossref",
+128:"ISI",
+4096:"JSTOR",
+8:"MEDLINE"
+};
+var feeBasedMask = 4480;
+
+function genCitLink(dbid, suffix, key) {
+    if (dbid != anyDbId && (feeBasedMask & dbid) != 0 && (562949953421311 & dbid) == 0) return;
+
+    var param = "/servlet/linkout?suffix=" + suffix + "&dbid=" + dbid + "&doi=10.1137%2FS0363012994269818&key=" + key;
+    var display = citLinkDisplay[dbid];
+    var img = "/templates/jsp/_style2/_pagebuilder/_c3/_siam/images/" + display + "_btn.gif";
+
+
+
+    document.write("<a class='ref' href='javascript:newWindow(\"" + param + "\")'>");
+    document.write("<" + "img src='"+img+"' width='85' height='20' align='BOTTOM' alt='"+display+" Abstract' border='0'/>");
+    document.write("<\/a>");
+}
+// stop hiding -->
+</script>
+
+<script type="text/javascript" src="https://epubs.siam.org/swfobject.js"></script>
+<script type="text/javascript">
+function addFlashMovie(id, flv) {
+    var flashvars = {file: flv ,type: 'flv'};
+    var params = {allowfullscreen :true};
+    var attributes = {};
+    swfobject.embedSWF('/flvplayer.swf', id, "352", "288", "7.0.0", false, flashvars, params, attributes);
+}
+
+function addFlashMovie(id, flv, image) {
+    var flashvars = {file: flv ,type: 'flv', image: image};
+    var params = {allowfullscreen :true};
+    var attributes = {};
+    swfobject.embedSWF('/flvplayer.swf', id, "352", "288", "7.0.0", false, flashvars, params, attributes);
+}
+</script>
+
+
+
+
+
+
+
+
+
+<div class="no-box publicationContentDiv" itemscope="" itemtype="http://schema.org/ScholarlyArticle">
+    
+        
+                
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="articleMeta">
+    
+    
+
+    
+
+    
+            
+            
+                    
+                
+
+              
+            
+                    <span itemprop="source" itemscope="" itemtype="http://schema.org/CreativeWork/Serial"><span itemprop="name"><i>SIAM J. Control Optim.</i></span></span>, <span itemprop="volume">35</span>(<span itemprop="issue">2</span>), 462–479.
+                
+            
+            (18 pages)
+            
+        
+</div>
+
+
+
+
+            
+    
+
+
+    <div id="articleContent"><p class="fulltext"></p><!-- abstract content --><div class="hlFld-Abstract"><div class="landSubjectHeading"></div><h1 class="arttitle"><div class="hlFld-Title">Descriptor Systems Without Controllability at Infinity</div></h1><div id="pubHisDataDiv"><div id="publicationDataPanel" class="panel"><div class="box"><div class="header"><h3>Related Databases</h3></div><div class="box-inner"><h3 class="keywords">Web of Science</h3> You must be logged in with an active subscription to view this.</div></div></div><div id="historyPanel" class="panel"><div class="box"><div class="header"><h3>Article Data</h3></div><div class="box-inner"><div><h3 class="keywords">History</h3><div>Published online: 26 July 2006</div></div><div class="hlFld-KeywordText"><div><h3 class="keywords">Keywords</h3><span><a href="https://epubs.siam.org/keyword/Descriptor+System">descriptor system</a>, </span><span><a href="https://epubs.siam.org/keyword/Controllability">controllability</a>, </span><span><a href="https://epubs.siam.org/keyword/Numerical+Methods">numerical methods</a>, </span><span><a href="https://epubs.siam.org/keyword/Impulse">impulse</a></span></div><div><h3 class="keywords">AMS Subject Headings</h3><span><a href="https://epubs.siam.org/keyword/93B11">93B11</a>, </span><span><a href="https://epubs.siam.org/keyword/93B52">93B52</a>, </span><span><a href="https://epubs.siam.org/keyword/93B05">93B05</a>, </span><span><a href="https://epubs.siam.org/keyword/93B27">93B27</a>, </span><span><a href="https://epubs.siam.org/keyword/93B40">93B40</a></span></div></div></div></div></div><div id="publicationDataPanel" class="panel"><div class="box"><div class="header"><h3>Publication Data</h3></div><div class="box-inner"><div>ISSN (print): <issn pub-type="ppub">0363-0129</issn></div><div>ISSN (online): 1095-7138</div><div class="publishers"><span id="publishersHeader">Publisher: </span><a href="http://www.siam.org/">Society for Industrial and Applied Mathematics</a></div><div class="pubCoden"><span>CODEN: </span>sjcodc</div></div></div></div></div><div class="hlFld-ContribAuthor"><div class="artAuthors"><strong><a href="https://epubs.siam.org/author/Byers%2C+Ralph">Ralph  Byers</a></strong>, <strong><a href="https://epubs.siam.org/author/Geerts%2C+Ton">Ton  Geerts</a></strong>, and <strong><a href="https://epubs.siam.org/author/Mehrmann%2C+Volker">Volker  Mehrmann</a></strong></div></div><div class="permaLinkSectionDoi"><a href="https://doi.org/10.1137/S0363012994269818">https://doi.org/10.1137/S0363012994269818</a></div><p class="fulltext"></p><div class="abstractSection"><div class="abstractSection"> <p>This paper concerns the structure that can be achieved by feedback in descriptor systems that lack controllability at infinity. Staircase and double staircase condensed forms obtained through a sequence of orthogonal state transformations display when and how feedback can be used to achieve minimal index. Furthermore, they reveal that the modes that are uncontrollable at infinity have a fixed minimal index that cannot be reduced by feedback. However, this fixed higher index part of the control system is constrained to be zero in an appropriate coordinate system, provided the initial conditions are consistent. The remainder is a reduced order system that is controllable at infinity that can be made to have index one by feedback.</p></div></div><div id="copyRightsDiv">Copyright © 1997 Society for Industrial and Applied Mathematics</div></div><!-- /abstract content --><div class="premalink">Permalink: <a class="ref" href="https://doi.org/10.1137/S0363012994269818" target="_blank" title="Opens new window">https://doi.org/10.1137/S0363012994269818</a></div><!-- fulltext content --><div class="hlFld-Fulltext"><div class="citedBySection"><a name="citedBySection"></a><h2>Cited by</h2><div class="citedByEntry"> (2019) Schur method for robust pole assignment of descriptor systems via proportional plus derivative state feedback. <i><span class="NLM_source">International Journal of Control</span></i> <b>92</b>:10, 2312-2323. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1080/00207179.2018.1436773" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry"> (2019) On linear-quadratic optimal control of implicit difference equations. <i><span class="NLM_source">IMA Journal of Mathematical Control and Information</span></i> <b>36</b>:3, 779-833. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1093/imamci/dny007" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry"> (2018) Spectral Characterizations of Solvability and Stability for Delay Differential-Algebraic Equations. <i><span class="NLM_source">Acta Mathematica Vietnamica</span></i> <b>43</b>:4, 715-735. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1007/s40306-018-0279-7" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry"> (2018) Regularization and index reduction for linear differential–algebraic systems. <i><span class="NLM_source">Computational and Applied Mathematics</span></i> <b>37</b>:4, 4587-4598. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1007/s40314-018-0589-3" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry">2017. Observability of Linear Differential-Algebraic Systems: A Survey. Surveys in Differential-Algebraic Equations IV, 161-219. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1007/978-3-319-46618-7_4" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry"> (2017) Index reduction for rectangular descriptor systems via feedbacks. <i><span class="NLM_source">Cogent Engineering</span></i> <b>4</b>:1. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1080/23311916.2017.1319786" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry"> (2016) On Complete and Strong Controllability for Rectangular Descriptor Systems. <i><span class="NLM_source">Circuits, Systems, and Signal Processing</span></i> <b>35</b>:4, 1395-1406. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1007/s00034-015-0111-8" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry"> (2016) On Controllability and Normalizability for Linear Descriptor Systems. <i><span class="NLM_source">Journal of Control, Automation and Electrical Systems</span></i> <b>27</b>:1, 19-28. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1007/s40313-015-0218-y" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry"> (2015) Regularization of linear time-invariant differential–algebraic systems. <i><span class="NLM_source">Systems &amp; Control Letters</span></i> <b>78</b>, 40-46. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1016/j.sysconle.2015.01.013" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry">2015. Regularization of Descriptor Systems. Numerical Algebra, Matrix Theory, Differential-Algebraic Equations and Control Theory, 415-433. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1007/978-3-319-15260-8_15" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry">2015. Numerical Linear Algebra Methods for Linear Differential-Algebraic Equations. Surveys in Differential-Algebraic Equations III, 117-175. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1007/978-3-319-22428-2_3" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry"> (2014) Feedback strategies for discrete-time linear-quadratic two-player descriptor games. <i><span class="NLM_source">Linear Algebra and its Applications</span></i> <b>440</b>, 1-23. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1016/j.laa.2013.10.050" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry"> (2011) Disturbance Impulse Controllability in Descriptor System. <i><span class="NLM_source">IEEE Transactions on Automatic Control</span></i> <b>56</b>:4, 946-951. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1109/TAC.2011.2105315" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry"> (2010) Embedding singular linear system with initial condition into distribution space. <i><span class="NLM_source">Journal of the Franklin Institute</span></i> <b>347</b>:2, 533-544. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1016/j.jfranklin.2009.11.008" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry"> (2008) Optimal control for unstructured nonlinear differential-algebraic equations of arbitrary index. <i><span class="NLM_source">Mathematics of Control, Signals, and Systems</span></i> <b>20</b>:3, 227-269. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1007/s00498-008-0032-1" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry"> (2008) Ralph Byers 1955–2007. <i><span class="NLM_source">Linear Algebra and its Applications</span></i> <b>428</b>:11-12, 2410-2414. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1016/j.laa.2008.01.004" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry"><strong><span class="hlFld-ContribAuthor"><a class="entryAuthor" href="https://epubs.siam.org/action/doSearch?displaySummary=true&amp;ContribRaw=Losse%2C+Philip">Philip  Losse</a></span></strong> and <strong><span class="hlFld-ContribAuthor"><a class="entryAuthor" href="https://epubs.siam.org/action/doSearch?displaySummary=true&amp;ContribRaw=Mehrmann%2C+Volker">Volker  Mehrmann</a></span></strong>.  (2008) Controllability and Observability of Second Order Descriptor Systems. <i><span class="NLM_source">SIAM Journal on Control and Optimization</span></i> <b>47</b>:3, 1351-1379. <span class="CbLinks"><a class="ref nowrap " href="https://epubs.siam.org/doi/abs/10.1137/060673977">Abstract</a> | <a class="ref nowrap pdf" target="_blank" title="Opens new window" href="https://epubs.siam.org/doi/pdf/10.1137/060673977">PDF (256 KB)</a>&nbsp;<!-- ${cadmus-articleworks: 10.1137%2F060673977 class='ref' } --><!-- ${xml_link: 10.1137%2F060673977} --></span></div><div class="citedByEntry"> (2007) Stability analysis and model order reduction of coupled systems. <i><span class="NLM_source">Mathematical and Computer Modelling of Dynamical Systems</span></i> <b>13</b>:5, 413-436. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1080/13873950701189071" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry"><strong><span class="hlFld-ContribAuthor"><a class="entryAuthor" href="https://epubs.siam.org/action/doSearch?displaySummary=true&amp;ContribRaw=Bora%2C+Shreemayee">Shreemayee  Bora</a></span></strong> and <strong><span class="hlFld-ContribAuthor"><a class="entryAuthor" href="https://epubs.siam.org/action/doSearch?displaySummary=true&amp;ContribRaw=Mehrmann%2C+Volker">Volker  Mehrmann</a></span></strong>.  (2006) Linear Perturbation Theory for Structured Matrix Pencils Arising in Control Theory. <i><span class="NLM_source">SIAM Journal on Matrix Analysis and Applications</span></i> <b>28</b>:1, 148-169. <span class="CbLinks"><a class="ref nowrap " href="https://epubs.siam.org/doi/abs/10.1137/040609355">Abstract</a> | <a class="ref nowrap pdf" target="_blank" title="Opens new window" href="https://epubs.siam.org/doi/pdf/10.1137/040609355">PDF (223 KB)</a>&nbsp;<!-- ${cadmus-articleworks: 10.1137%2F040609355 class='ref' } --><!-- ${xml_link: 10.1137%2F040609355} --></span></div><div class="citedByEntry"><strong><span class="hlFld-ContribAuthor"><a class="entryAuthor" href="https://epubs.siam.org/action/doSearch?displaySummary=true&amp;ContribRaw=Chu%2C+Delin">Delin   Chu</a></span></strong> and <strong><span class="hlFld-ContribAuthor"><a class="entryAuthor" href="https://epubs.siam.org/action/doSearch?displaySummary=true&amp;ContribRaw=Hung%2C+Y+S">Y. S.   Hung</a></span></strong>.  (2006) A Matrix Pencil Approach to the Row by Row Decoupling Problem for Descriptor Systems. <i><span class="NLM_source">SIAM Journal on Matrix Analysis and Applications</span></i> <b>28</b>:3, 682-702. <span class="CbLinks"><a class="ref nowrap " href="https://epubs.siam.org/doi/abs/10.1137/S089547980343905X">Abstract</a> | <a class="ref nowrap pdf" target="_blank" title="Opens new window" href="https://epubs.siam.org/doi/pdf/10.1137/S089547980343905X">PDF (203 KB)</a>&nbsp;<!-- ${cadmus-articleworks: 10.1137%2FS089547980343905X class='ref' } --><!-- ${xml_link: 10.1137%2FS089547980343905X} --></span></div><div class="citedByEntry"><strong><span class="hlFld-ContribAuthor"><a class="entryAuthor" href="https://epubs.siam.org/action/doSearch?displaySummary=true&amp;ContribRaw=Kuo%2C+Yuen-Cheng">Yuen-Cheng  Kuo</a></span></strong>, <strong><span class="hlFld-ContribAuthor"><a class="entryAuthor" href="https://epubs.siam.org/action/doSearch?displaySummary=true&amp;ContribRaw=Lin%2C+Wen-Wei">Wen-Wei  Lin</a></span></strong>, and <strong><span class="hlFld-ContribAuthor"><a class="entryAuthor" href="https://epubs.siam.org/action/doSearch?displaySummary=true&amp;ContribRaw=Xu%2C+Shu-Fang">Shu-Fang  Xu</a></span></strong>.  (2004) Regularization of Linear Discrete-Time Periodic Descriptor Systems by Derivative and Proportional State Feedback. <i><span class="NLM_source">SIAM Journal on Matrix Analysis and Applications</span></i> <b>25</b>:4, 1046-1073. <span class="CbLinks"><a class="ref nowrap " href="https://epubs.siam.org/doi/abs/10.1137/S0895479802412632">Abstract</a> | <a class="ref nowrap pdf" target="_blank" title="Opens new window" href="https://epubs.siam.org/doi/pdf/10.1137/S0895479802412632">PDF (263 KB)</a>&nbsp;<!-- ${cadmus-articleworks: 10.1137%2FS0895479802412632 class='ref' } --><!-- ${xml_link: 10.1137%2FS0895479802412632} --></span></div><div class="citedByEntry"><strong><span class="hlFld-ContribAuthor"><a class="entryAuthor" href="https://epubs.siam.org/action/doSearch?displaySummary=true&amp;ContribRaw=Chu%2C+Delin">Delin  Chu</a></span></strong> and <strong><span class="hlFld-ContribAuthor"><a class="entryAuthor" href="https://epubs.siam.org/action/doSearch?displaySummary=true&amp;ContribRaw=Mehrmann%2C+Volker">Volker  Mehrmann</a></span></strong>.  (2000) Disturbance Decoupling for Descriptor Systems by State Feedback. <i><span class="NLM_source">SIAM Journal on Control and Optimization</span></i> <b>38</b>:6, 1830-1858. <span class="CbLinks"><a class="ref nowrap " href="https://epubs.siam.org/doi/abs/10.1137/S0363012900331891">Abstract</a> | <a class="ref nowrap pdf" target="_blank" title="Opens new window" href="https://epubs.siam.org/doi/pdf/10.1137/S0363012900331891">PDF (242 KB)</a>&nbsp;<!-- ${cadmus-articleworks: 10.1137%2FS0363012900331891 class='ref' } --><!-- ${xml_link: 10.1137%2FS0363012900331891} --></span></div><div class="citedByEntry"> (1999) Disturbance decoupled observer design for descriptor systems. <i><span class="NLM_source">Systems &amp; Control Letters</span></i> <b>38</b>:1, 37-48. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1016/S0167-6911(99)00045-6" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry"> (1999) Necessary and sufficient conditions for the output feedback regularization of descriptor systems. <i><span class="NLM_source">IEEE Transactions on Automatic Control</span></i> <b>44</b>:2, 405-412. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1109/9.746277" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry">1999. Numerical Methods for Linear Quadratic and H ∞ Control Problems. Dynamical Systems, Control, Coding, Computer Vision, 203-222. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1007/978-3-0348-8970-4_10" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry"> (1998) Where is the nearest non-regular pencil?. <i><span class="NLM_source">Linear Algebra and its Applications</span></i> <b>285</b>:1-3, 81-105. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1016/S0024-3795(98)10122-2" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div><div class="citedByEntry"><strong><span class="hlFld-ContribAuthor"><a class="entryAuthor" href="https://epubs.siam.org/action/doSearch?displaySummary=true&amp;ContribRaw=Byers%2C+Ralph">Ralph  Byers</a></span></strong>, <strong><span class="hlFld-ContribAuthor"><a class="entryAuthor" href="https://epubs.siam.org/action/doSearch?displaySummary=true&amp;ContribRaw=Kunkel%2C+Peter">Peter  Kunkel</a></span></strong>, and <strong><span class="hlFld-ContribAuthor"><a class="entryAuthor" href="https://epubs.siam.org/action/doSearch?displaySummary=true&amp;ContribRaw=Mehrmann%2C+Volker">Volker  Mehrmann</a></span></strong>.  (1997) Regularization of Linear Descriptor Systems with Variable Coefficients. <i><span class="NLM_source">SIAM Journal on Control and Optimization</span></i> <b>35</b>:1, 117-133. <span class="CbLinks"><a class="ref nowrap " href="https://epubs.siam.org/doi/abs/10.1137/S0363012994278936">Abstract</a> | <a class="ref nowrap pdf" target="_blank" title="Opens new window" href="https://epubs.siam.org/doi/pdf/10.1137/S0363012994278936">PDF (318 KB)</a>&nbsp;<!-- ${cadmus-articleworks: 10.1137%2FS0363012994278936 class='ref' } --><!-- ${xml_link: 10.1137%2FS0363012994278936} --></span></div><div class="citedByEntry">Control of a high index DAE system through a linear control law. <i>Proceedings of the 2002 American Control Conference (IEEE Cat. No.CH37301)</i>, 465-470. <span class="CbLinks"><!--noindex--><a class="ref" href="https://doi.org/10.1109/ACC.2002.1024849" target="_blank" title="Opens new window"> Crossref </a><!--/noindex--></span></div></div></div><!-- /fulltext content --></div>
+    
+    
+    <form name="frmAbs" action="https://epubs.siam.org/doi/abs/10.1137/S0363012994269818?journalCode=sjcodc" style="visibility:hidden;">
+        <input type="hidden" name="href" value="/doi/abs/10.1137/S0363012994269818?journalCode=sjcodc">
+        <input type="hidden" name="title" value="Descriptor Systems Without Controllability at Infinity)">
+        <input type="checkbox" name="doi" value="10.1137/S0363012994269818" checked="checked">
+    </form>
+</div>
+
+
+
+
+
+
+    <style type="text/css">
+        .pubCoden {
+            display:none;
+        }
+    </style>
+                
+        </div>
+    </div>
+</div>
+
+        
+    
+    
+</div>
+                    </div>
+                
+        </div>
+    
+</div>
+
+
+
+
+
+
+
+        </div>
+    </div>
+            <div class="mainAd">
+                <div><!-- placeholder id=null, description=Site Ad 1 --></div>
+                <div><!-- placeholder id=null, description=Site Ad 2 --></div>
+                <div><!-- placeholder id=null, description=Site Ad 3 --></div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        
+
+<div id="footer">
+<div class="copyright">																									<span class="fontSize2"> </span>																									<span class="fontSize1">																										<span class="fontSize2">© 2020 SIAM By using <i>SIAM Publications Online</i> you agree to abide by the <a style="text-decoration: underline;" href="https://epubs.siam.org/page/terms">Terms and Conditions of Use.</a>																											<span class="footerRight">																												<a href="http://www.siam.org/" target="_blank">																													<img alt="" src="./Descriptor Systems Without Controllability at Infinity _ SIAM Journal on Control and Optimization _ Vol. 35, No. 2 _ Society for Industrial and Applied Mathematics_files/si.png" border="0">																													</a>																												</span>																												<br>																													<i>Banner art adapted from a figure by Hinke M. Osinga and Bernd Krauskopf (University of Auckland, NZ).</i>																													<br>Powered by <a href="http://www.atypon.com/" target="_blank">Atypon® Literatum</a>																													</span>																												</span>																												<br>																												</div>
+    </div>
+</div>
+
+
+
+<script src="https://hermes-src.redlink.com/agent/hermes.js?userRHKey=mpan7nbDqX" type="text/javascript" async=""></script>
+
+
+
+
+</div><div id="lbdictex_find_popup" class="lbexpopup hidden" style="position: absolute; top: 0px; left: 0px;"><div class="lbexpopup_top"><h2 class="fl popup_title">&nbsp;</h2><ul><li><a class="close_main popup_close" href="https://epubs.siam.org/doi/abs/10.1137/S0363012994269818?journalCode=sjcodc#">&nbsp;</a></li></ul><div class="clr"></div></div><div class="popup_details"></div><div class="popup_powered">abc</div></div><div id="lbdictex_ask_mark" class="hidden" style="position: absolute; top: 887.628px; left: 455.389px;"><a class="lbdictex_ask_select" href="https://epubs.siam.org/doi/abs/10.1137/S0363012994269818?journalCode=sjcodc#">&nbsp;</a></div></body></html>

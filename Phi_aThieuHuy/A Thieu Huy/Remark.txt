@@ -1,0 +1,7 @@
+1. Chu y xem lam the nao de xay dung lien quan den nua nhom - xem lai bai cua Wim Michiels
+
+2.Dichotomy cuar underlying ODE khac cua DAE the nao, phai xem lai bai cua thay Linh
+
+3. Ve co ban ky thuat co the xem cua Duoc, a Huy truoc cho no de
+
+4. Bai cua a Huy va a Bang xem sau, khong nen voi vang qua

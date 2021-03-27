@@ -1,0 +1,126 @@
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{10}
+
+\bibitem{Abd16}
+Taha Abdelaziz, \emph{Eigenstructure assignment by displacement–acceleration
+  feedback for second-order systems}, Journal of Dynamic Systems, Measurement,
+  and Control \textbf{138(6)} (2016), 064502--064502--7.
+
+\bibitem{Abd19}
+Taha H.~S. Abdelaziz, \emph{Robust solution for second-order systems using
+  displacement--acceleration feedback}, Journal of Control, Automation and
+  Electrical Systems (2019).
+
+\bibitem{Abd15}
+Taha~H.S. Abdelaziz, \emph{Robust pole assignment using velocity–acceleration
+  feedback for second-order dynamical systems with singular mass matrix}, ISA
+  Transactions \textbf{57} (2015), 71 -- 84.
+
+\bibitem{Aga00}
+R.P. Agarwal, \emph{Difference equations and inequalities: Theory, methods, and
+  applications}, Chapman \& Hall/CRC Pure and Applied Mathematics, CRC Press,
+  2000.
+
+\bibitem{Bro70}
+R.~W. Brockett, \emph{Finite dimensional linear systems}, John Wiley and Sons,
+  New York, NY, 1970.
+
+\bibitem{Bru09}
+Tobias Bruell, \emph{Existence and uniqueness of solutions of linear variable
+  coefficient discrete-time descriptor systems}, Linear Algebra Appl.
+  \textbf{431} (2009), no.~1-2, 247--265.
+
+\bibitem{Dai89}
+L.~Dai, \emph{Singular control systems}, Springer-Verlag, Berlin, Germany,
+  1989.
+
+\bibitem{Ela13}
+S.N. Elaydi, \emph{An introduction to difference equations}, Undergraduate
+  Texts in Mathematics, Springer New York, 2013.
+
+\bibitem{Green12}
+M.~Green and D.J.N. Limebeer, \emph{Linear robust control}, Dover Books on
+  Electrical Engineering, Dover Publications, Incorporated, 2012.
+
+\bibitem{HaL19}
+Phi Ha and Vu~Hoang Linh, \emph{Solvability analysis of second order, discrete
+  time descriptor systems}, {\tt url: https://arxiv.org/abs/1802.01148}, 2019.
+
+\bibitem{HelA13}
+T.~{Helmy} and S.~{Abdelaziz}, \emph{Robust pole placement for second-order
+  linear systems using velocity-plus-acceleration feedback}, IET Control Theory
+  Applications \textbf{7} (2013), no.~14, 1843--1856.
+
+\bibitem{HugS80}
+P.~C. Hughes and R.~E. Skelton, \emph{{Controllability and Observability of
+  Linear Matrix-Second-Order Systems}}, Journal of Applied Mechanics
+  \textbf{47} (1980), no.~2, 415--420.
+
+\bibitem{Kel01}
+W.G. Kelley and A.C. Peterson, \emph{Difference equations: An introduction with
+  applications}, Harcourt/Academic Press, 2001.
+
+\bibitem{KunM06}
+P.~Kunkel and V.~Mehrmann, \emph{Differential-algebraic equations -- analysis
+  and numerical solution}, EMS Publishing House, Z{\"u}rich, Switzerland, 2006.
+
+\bibitem{LinNT16}
+V.~Linh, N.~Thanh~Nga, and D.~Thuan, \emph{Exponential stability and robust
+  stability for linear time-varying singular systems of second order difference
+  equations}, SIAM Journal on Matrix Analysis and Applications \textbf{39}
+  (2018), no.~1, 204--233.
+
+\bibitem{LosM08}
+P.~Losse and V.~Mehrmann, \emph{Controllability and observability of second
+  order descriptor systems}, {SIAM} J. Cont. Optim. \textbf{47(3)} (2008),
+  1351--1379.
+
+\bibitem{LosMPR08}
+P.~Losse, V.~Mehrmann, L.K. Poppe, and T.~Reis, \emph{The modified optimal
+  {${\mathcal H}_\infty$} control problem for descriptor systems}, {SIAM} J.
+  Cont. \textbf{47} (2008), 2795--2811.
+
+\bibitem{Lue77}
+D.~G. Luenberger, \emph{Dynamic equations in descriptor form}, {IEEE} Trans.
+  Automat. Control \textbf{AC-22} (1977), 312--321.
+
+\bibitem{MehS06}
+V.~Mehrmann and C.~Shi, \emph{Transformation of high order linear
+  differential-algebraic systems to first order}, Numer. Alg. \textbf{42}
+  (2006), 281--307.
+
+\bibitem{Son13}
+E.D. Sontag, \emph{Mathematical control theory: Deterministic finite
+  dimensional systems}, Texts in Applied Mathematics, Springer New York, 2013.
+
+\bibitem{VerLK81}
+G.~C. Verghese, B.~C. L\'{e}vy, and T.~Kailath, \emph{A generalized state space
+  for singular systems}, {IEEE} Trans. Automat. Control \textbf{AC-26} (1981),
+  811--831.
+
+\bibitem{Wun06}
+Lena Wunderlich, \emph{Numerical treatment of second order
+  differential-algebraic systems}, Proc. Appl. Math. and Mech. (GAMM 2006,
+  Berlin, March 27-31, 2006), vol. 6 (1), 2006, pp.~775--776.
+
+\bibitem{Wun08}
+\bysame, \emph{Analysis and numerical solution of structured and switched
+  differential-algebraic systems}, Dissertation, Institut f{\"u}r Mathematik,
+  TU Berlin, Berlin, Germany, 2008.
+
+\bibitem{YuZ16}
+Peizhao Yu and Guoshan Zhang, \emph{Eigenstructure assignment and impulse
+  elimination for singular second-order system via feedback control}, IET
+  Control Theory and Applications \textbf{10} (2016), 869--876(7).
+
+\bibitem{Zhou96}
+K.~Zhou, J.C. Doyle, and K.~Glover, \emph{Robust and optimal control},
+  Feher/Prentice Hall Digital and, Prentice Hall, 1996.
+
+\end{thebibliography}

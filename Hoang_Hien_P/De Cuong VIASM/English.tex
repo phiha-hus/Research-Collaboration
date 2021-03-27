@@ -1,0 +1,52 @@
+  \newpage 
+  
+  Differential-Algebraic Equations (DAEs), since the pioneering work of Gear \cite{Gea71a}, have been of interest in a tremendous amount of research, especially in the last two decades, due to their vital role in automatic modeling and the rapid advancement of modern computers, which makes it possible to solve very large problems numerically. 
+  The automatic modeling approach, making use of DAEs, is a convenient tool to model physical, industrial and engineering problems that involve constraints: for example, electrical circuits (taking into account the Kirchhoff's laws), or mechanical systems (accounting to the positions constraints of a moving mass on a surface), or chemical processes (involving mass or energy conservation laws). Based on DAEs, implemented software packages such as Modelica (Dymola) \cite{Dymola}, Matlab Simulink \cite{simulink}, or Spice \cite{TumB09}, have enabled the possibility to model and simulate very complex physical phenomena in a very simple manner. 
+  Recently, there has been an increasing amount of research, \cite{AscP95,Cam95c,ZhuP97,ZhuP98,CarR01,BakPT02,ShaG06,GugH07,CamL09,Mic11,HaMS14,TiaYK11}
+  devoted to DAEs with delays (or delay differential-algebraic equations, DDAEs), due to the indispensable role of the so-called \emph{intrinsic delays} 
+  in many physical/engineering applications, and also due to the utilization of different delay feedback control strategies in the control context.\\
+  
+
+In order to extend the classical spectral theories of DDEs and of DAEs to DDAEs, we first consider linear time invariant, homogeneous systems with a single delay of the following form 
+%
+\be\label{LTI-DDAE}
+E \dot{x}(t) = Ax(t) + B x(t-\tau),
+\ee
+%
+where the matrices $E$, $A$, $B$ are in $\C^{n,n}$, $0 < \tau \in \R$. The stability analysis of this DDAE, under the assumption that the matrix pair $(E,A)$ is regular and of differentiation index at most one, 
+are discussed in \cite{XuDSL02,Mic11,DuLMT13}. 
+By using the system reformulation proposed in \cite{Ha15}, Section 4.3, we expect to generalize these results for general DDAEs, where no assumption on the matrix pair $(E,A)$ is needed. 
+Furthermore, we will deal with the problem of finding an explicit expression for the eigenvalues of DDAEs with a single delay using the Lambert W function. This problem has only been considered for 
+DDEs but not yet for DDAEs. For retarded DDEs (without algebraic constraints), it has been shown in \cite{Jar07,Jar08} that using matrix function definitions, one can define a matrix version of the Lambert 
+W function, from which the explicit expression of the eigenvalues of DDEs is available. However, the system coefficients in the considered system must satisfy some property called 
+\emph{simultaneously triangularizable}, which includes the case where they commute. In \cite{Ha15}, Section 4.3, using linear-algebra-tools, the candidate analyzed the solvability 
+analysis of DDAEs whose the matrix coefficients are pairwise commutative. We plan to develop these results in order to obtain an explicit expression for the eigenvalues of DDAEs.\\[.1cm] 
+
+Since eigenvalues are not suitable for studying the stability analysis of systems with time variable coefficients, 
+another major part of the research project will be the spectral concepts and spectral computations for general linear time variable coefficient DDAEs
+%
+\be\label{LTV-DDAE}
+E(t) \dot{x}(t) = A(t) x(t) + B(t)  x(t-\tau).
+\ee
+%
+We plan to extend the concepts of Lyapunov, Bohl and Sacker-Sell spectra to DDAEs. However, as shown in \cite{DuLMT13}, it turns out that the classical approaches cannot be carried over 
+directly without an adequate regularization in prior. Moreover, one open theoretical question that is of particular interest is to show that the so defined spectra are independent of 
+the particular regularization procedure. These reasons make the computation of these spectra becomes a challenging problem. 
+We plan first to regularize the system \eqref{LTV-DDAE} by the proposed algorithms in \cite{HaM16,Ha15}, in order to decouple the system into the dynamical part and the algebraic part, where all 
+the constraints are explicitly available. Then, by restricting perturbations so that they do not destroy the regularity properties, we will extend the classical spectral theory for the 
+dynamical part.\\[.1cm] 
+
+Feedback control is the final goal that we would like to achieve in this project. 
+We plan to extend the well-known conditions \cite{BunBMN99,BunMN94,BunMN92}, based on rank criteria of the matrix coefficients, to verify whether the \emph{delay-descriptor} system
+%
+\be\label{LTI-Delay-Descriptor}
+\bsp{
+	E \dot{x}(t) &= Ax(t) + B x(t-\tau) + K u(t),\\
+	y(t)  &= Cx(t) + Du(t),
+}
+\ee
+%
+can be regularized by different types of feedbacks, namely state feedback ($u(t) = F_1 x(t)$), output feedback ($u(t) = F_2 y(t)$), derivative feedback ($u(t) = F_3 \dot{x}(t)$), 
+and delay feedback ($u(t) = F_4 x(t-\tau)$). Moreover, for the numerical stability and stabilization purposes, it is desired that the associated DAE of the closed loop control system is regular 
+and is of differentiation index at most one. Once these regularization criteria are available, we plan to investigate the pole location and stabilization problems for delay descriptor system 
+via the spectral based approach considered before.

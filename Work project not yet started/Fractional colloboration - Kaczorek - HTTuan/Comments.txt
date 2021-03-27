@@ -1,0 +1,10 @@
+About contractivity of  fractional DDE
+
+1. retarded type - very new results 2019. No convergence rate estimation.
+2. Neutral - maybe due to step-by-step estimation, so it is too difficult to give an estimation
+
+
+Why not contractivity of Fractional DAE :
+
+1. contractivity of DAEs see Thesis of Menrah, book by Lamour-Mars-Tischendorf.
+2. contractivity of Fractional ODEs, where?

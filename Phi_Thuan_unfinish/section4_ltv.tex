@@ -1,0 +1,198 @@
+%============================================================================
+\section{Index reduction and feedback regularization of (discrete time) descriptor systems}\label{Sec4}
+
+In this section we consider the index reduction procedure, which followed by feedback regularization for second order (discrete time) descriptor systems (i.e., SiDEs with input control) of the following form. 
+%
+\begin{equation}\label{eq4.1}
+A_{n} x(n+2) + B_{n} x(n+1) + C_{n} x(n) + D_{n} u(n)= 0,\ \mbox{ for all } n \geq n_0.
+\end{equation}
+%
+Here the matrix sequence $\{ D_{n} \}_{n\geq n_0}$ take values in $\C^{m,p}$ and $u(n) \in \C^{p}$ for all $n\geq n_0$. 
+The solvability analysis for second order descriptor systems, in particular index reduction procedures, have been rarely considered in literature. We refer the interested readers to \cite{LosM08,Wun08} for  continuous time descriptor systems.
+
+%Motivated by the left equivalence relation for SiDE, we extend it for the descriptor system \eqref{eq4.1}.
+
+\subsection{Causal concept}
+The solvability analyses of differential-algebraic equations and descriptor systems in both continuous and discrete-time cases share one important concept \emph{causality}. Even though they have different definitions, their meanings are closely related. We will discuss the relations between them in this subsection. 
+
+\subsection{Index reduction}
+As in Section \ref{Sec2}, we will rewrite \eqref{eq4.1} in the behavior form
+%
+\begin{equation}\label{eq4.2}
+\m{A_{n} & B_{n} & C_{n}} \ \m{x(n+2) \\ x(n+1) \\ x(n)} + D_n u(n) = 0, \mbox{ for all } n\geq n_0.
+\end{equation}
+%
+In the index reduction procedure of continuous time systems, one should avoid differentiating equations that involve an input function, due to the fact that it may not be differentiable. 
+Here, we will also keep this spirit, and hence, will not shift any equation that involve an input function, since it may destroy the causality of the considered system. In the following theorem, we give the condensed form for system \eqref{eq4.1}.
+
+\begin{theorem}\label{thm4.1} Consider the descriptor system \eqref{eq4.1}. Then, there exist two pointwise orthogonal matrix sequences $\{U_n\}_{n\geq n_0}$, $\{V_n\}_{n\geq n_0}$ such that the following identities hold.
+%
+\begin{align}\label{eq4.3}
+U_n 
+\m{A_{n} & B_{n} & C_{n}} &=
+\m{A_{n,1}  & B_{n,1}    & C_{n,1}     \\
+	   0    & B_{n,2}    & C_{n,2}     \\
+	   0    & 0          & C_{n,3}     \\  \hline
+   A_{n,4}  & B_{n,4}    & C_{n,4}     \\
+	   0    & B_{n,5}    & C_{n,5}     \\
+   	   0    & 0          & C_{n,6}     \\  \hline 
+	   0    & 0          & 0}, 
+\quad \pm{r_{2,n} \\ r_{1,n} \\ r_{0,n} \\ \vphi_{2,n} \\ \vphi_{1,n} \\ \vphi_{0,n} \\  v_n}  \notag \\ 
+U_n D_n V_n & =
+\m{ 0  & 0 			& D_{n,13}  & D_{n,14} \\
+	0  & 0 			& 0		    & D_{n,24} \\
+	0  & 0 			& 0		    & 0        \\	\hline 
+	0  &\Si_{n,2}   & D_{n,43}  & D_{n,44} \\
+	0  & 0      	& \Si_{n,1} & D_{n,55} \\ 
+	0  & 0     		& 0		    & \Si_{n,0}        \\ \hline
+	0  & 0     		& 0         & 0       	
+	}, 
+\quad \pm{r_{2,n} \\ r_{1,n} \\ r_{0,n} \\ \vphi_{2,n} \\ \vphi_{1,n} \\ \vphi_{0,n} \\  v_n} \quad 
+\mbox{ for all } n\geq n_0.
+\end{align}
+%	
+%\begin{align}
+%U_n \m{A_{n} & B_{n} & C_{n}} &=
+%\m{A_{n,1}  & B_{n,1}    & C_{n,1}     \\
+%	0    & B_{n,2}    & C_{n,2}     \\
+%	0    & 0          & C_{n,3}     \\  \hline
+%	0    & B_{n,4}    & C_{n,4}     \\
+%	0    & 0          & C_{n,5}     \\  \hline 
+%	0    & 0          & 0}, 
+%\quad \pm{r_{2,n} \\ r_{1,n} \\ r_{0,n} \\ \vphi_{1,n} \\ \vphi_{0,n} \\  v}  \notag \\ 
+%U_n D_n V_n & =
+%\m{ 0  			& D_{n,12}  & D_{n,13} \\
+%	0  			& 0		    & D_{n,23} \\
+%	0  			& 0		    & 0        \\	\hline 
+%	0        	& \Si_{n,1} & D_{n,43} \\ 
+%	0      		& 0		    & \Si_{n,0}        \\ \hline
+%	0      		& 0         & 0}, 
+%\quad \pm{r_{2,n} \\ r_{1,n} \\ r_{0,n} \\ \vphi_{1,n} \\ \vphi_{0,n} \\  v} \quad 
+%\mbox{ for all } n\geq n_0.
+%\end{align}
+%
+Here the matrices $\m{A_{n,1} \\ A_{n,4} }$, $\m{ B_{n,2} \\ B_{n,5} }$, $C_{n,3}$ are of full row rank.	The matrices $\Si_{n,2}$, $\Si_{n,1}$, $\Si_{n,0}$ are nonsingular and diagonal.
+\end{theorem}
+
+\begin{proof}
+Since the proof is quite lengthy and technical, we leave it to Appendix \ref{appendixA}.
+\end{proof}
+
+\begin{remark}
+The orthogonality of all matrices in the two sequences  $\{U_n\}_{n\geq n_0}$ and $\{V_n\}_{n\geq n_0}$ guarantees, that the condensed form \eqref{eq4.3} can be numerically stably computed. This is an important advantage, in comparison to the condensed form in Theorem 2.4, \cite{LosM08}. Furthermore, we refer the interested reader to Remark 2.7 in the same article.
+\end{remark}
+
+\begin{corollary}\label{coro4.0} Consider the descriptor system \eqref{eq4.1}. Then, there exist 
+two pointwise nonsingular matrix sequences $\{\tU_n\}_{n\geq n_0}$, $\{V_n\}_{n\geq n_0}$ such that the following identities hold.
+	%
+	\begin{align}\label{eq4.4}
+	\tU_n \m{A_{n} & B_{n} & C_{n}} &=
+	\m{A_{n,1}  & B_{n,1}    & C_{n,1}     \\
+		0    & B_{n,2}    & C_{n,2}     \\
+		0    & 0          & C_{n,3}     \\  \hline
+		A_{n,4}  & B_{n,4}    & C_{n,4}     \\
+		0    & B_{n,5}    & C_{n,5}     \\
+		0    & 0          & C_{n,6}     \\  \hline 
+		0    & 0          & 0}, 
+	\quad \pm{r_{2,n} \\ r_{1,n} \\ r_{0,n} \\ \vphi_{2,n} \\ \vphi_{1,n} \\ \vphi_{0,n} \\  v_n}  \notag \\ 
+	\tU_n D_n V_n & =
+	\m{ 0  & 0 			& 0			& 0		  \\
+		0  & 0 			& 0		    & 0		  \\
+		0  & 0 			& 0		    & 0        \\	\hline 
+		0  &\Si_{n,2}   & 0         & 0			 \\
+		0  & 0      	& \Si_{n,1} & 0			 \\ 
+		0  & 0     		& 0		    & \Si_{n,0}        \\ \hline
+		0  & 0     		& 0         & 0       	
+	}, 
+	\quad \pm{r_{2,n} \\ r_{1,n} \\ r_{0,n} \\ \vphi_{2,n} \\ \vphi_{1,n} \\ \vphi_{0,n} \\  v_n} \quad 
+	\mbox{ for all } n\geq n_0.
+	\end{align}
+	%	
+Here the matrices $\m{A_{n,1} \\ A_{n,4} }$, $\m{ B_{n,2} \\ B_{n,5} }$, $C_{n,3}$ are of full row rank.	The matrices $\Si_{n,2}$, $\Si_{n,1}$, $\Si_{n,0}$ are nonsingular and diagonal.
+\end{corollary}
+\begin{proof}
+The proof is straight forward by row elimination in the last two block columns of \eqref{eq4.3}.
+\end{proof}
+
+Since the first three block equations of \eqref{eq4.4} does not involve an input function $u$, we can apply Algorithm \ref{Alg1} to transform \eqref{eq4.1} to its strangeness-free formulation, as in the next corollary.
+
+\begin{corollary}\label{coro4.2}
+\end{corollary}
+
+
+\subsection{Feedback regularization}
+
+\begin{definition}\label{regularizable}
+	i) The descriptor system \eqref{eq4.1} is called \emph{regularizable by feedback of order at most two} if there exist three matrices $F^{(n)}_2$, $F^{(n)}_1$, $F^{(n)}_0$ in $\C^{m,d}$ such that with the input function 
+	%
+	\be\label{feedback} 
+	u(n) = F^{(n)}_2 x(n+2) + F^{(n)}_1 x(n+1) + F^{(n)}_0 x(n), \mbox{ for all } n\geq 0,
+	\ee
+	%
+	the closed-loop system
+	%
+	\be\label{close-loop}
+	(A_{n}+D_{n}F^{(n)}_2) x(n+2) + (B_{n}+D_{n}F^{(n)}_1) x(n+1) + (C_{n}+D_{n}F^{(n)}_0) x(n) = 0, 
+	\ee
+	%
+	for all $n \geq n_0$, is regular (see Definition \ref{Def strangeness-free}).\\
+	ii) In addition, if $F^{(n)}_2=0$ then \eqref{eq4.1} is called \emph{regularizable by feedback of order at most one}.\\
+	iii) Furthermore, if $F^{(n)}_2=F^{(n)}_1=0$ then \eqref{eq4.1} is called \emph{regularizable by state feedback}.\\  
+\end{definition}
+
+Based on the form \eqref{eq4.3}, we can address the regularizability of \eqref{eq4.1} in the following theorem.
+
+\begin{theorem}\label{thm4.3}
+Consider the descriptor system \eqref{eq4.1} and the condensed form \eqref{eq4.3}. Then, the following assertions hold true.
+\begin{enumerate}
+\item[i)] System \eqref{eq4.1} is regularizable by feedback of order at most two if and only if 
+\item[ii)] System \eqref{eq4.1} is regularizable by feedback of order at most one if and only if 
+\item[iii)] System \eqref{eq4.1} is regularizable by state feedback if and only if 
+\end{enumerate}
+\end{theorem}
+
+\begin{definition}\label{I-controllable}
+	i) The descriptor system \eqref{eq4.1} is called \emph{impulse controllable (or I-controllable) bysecond feedback} if there exist three matrices $F^{(n)}_2$, $F^{(n)}_1$, $F^{(n)}_0$ in $\C^{m,d}$ such that with the input function of the form \eqref{feedback} the closed-loop system \eqref{close-loop}
+	is regular and strangeness-free (see Definition \ref{Def strangeness-free}).\\
+	ii) In addition, if $F^{(n)}_2=0$ then \eqref{eq4.1} is called \emph{I-controllable by feedback of order at most one}.\\
+	iii) Furthermore, if $F^{(n)}_2=F^{(n)}_1=0$ then \eqref{eq4.1} is called \emph{I-controllable by state feedback}.\\  
+\end{definition}
+
+\begin{lemma}
+	The I-controllability is invariant under left equivalent transformations.
+\end{lemma}
+\begin{proof}
+	The proof is straight forward due to Definitions \ref{Def strangeness-free}
+\end{proof}
+
+
+\begin{corollary}\label{coro4.1}
+	Consider the descriptor system \eqref{eq4.1}. Then it is I-controllable by feedback of order at most two if and only if for each $n \geq n_0$ the following conditions are satisfied
+	\begin{enumerate}
+		\item[i)] The matrix $\m{A_{n,1} \\ B_{n,2} \\ C_{n,3} }$ is of full row rank. 
+		\item[ii)] There is not any redundant equation, i.e., $v_n=0$.
+		\item[iii)] The system is of square size, i.e., $d= \overset{2}{\underset{i=0}{\sum}} r_{i,n} + \vphi_{i,n}$.
+	\end{enumerate}
+\end{corollary}
+
+\begin{corollary}
+	Consider the descriptor system \eqref{eq4.1}. Then, it is
+	\begin{enumerate}
+		\item[i)] I-controllable by state feedback if and only if $v_n=0$ and 
+		\item[ii)] I-controllable by feedback of order at most one if and only if $v_n=0$
+		\item[iii)] I-controllable by state and first order feedback if and only if $v_n=0$
+	\end{enumerate}
+\end{corollary}
+
+In the following example we show, that the classical approach to reformulate \eqref{eq4.1} as a first order system may destroy its I-controllability. 
+
+\begin{example}\label{Exa4.2}
+Consider the second order descriptor system
+%\begin{equation}
+%\end{equation}
+\end{example}
+
+
+\appendix
+
+\section{Proof of Theorem \ref{thm4.1}}\label{appendixA}

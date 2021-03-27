@@ -1,0 +1,321 @@
+\section{Proof of Lemma \ref{lem2.10}}\label{App0}
+
+First we prove that any solution to \eqref{eq2.9} is also a solution to \eqref{eq2.11}. Notice that, due to Lemma \ref{lem2.8}, two systems \eqref{eq2.5} and \eqref{eq2.9} have identical solution set. Thus, we only need to prove that \eqref{eq2.9} and \eqref{eq2.11} are equivalent. \\
+\textbf{Necessity:} The main idea here is to apply elementary row transformations to system \eqref{eq2.9} to obtain \eqref{eq2.11}. 
+Notice that we use only two elementary block row operations: 
+%
+\begin{enumerate}
+\item[i)] scaling a block row equation with a nonsingular matrix,
+\item[ii)] add to one row a linear combinations of another rows.
+\end{enumerate}
+%
+Firstly, by scaling the first (resp., second) block row equation of \eqref{eq2.9} with an orthogonal matrix $\m{S^{(2)}_{n} \\ Z^{(2)}_{n}}$ (resp., $\m{S^{(1)}_{n} \\ Z^{(1)}_{n}}$), we obtain an equivalent system to \eqref{eq2.5}, as follows
+%
+\begin{equation}\label{eqA1}
+ \pm{ d_{2} \\ s_2 \\ \hline \\[-0.35cm] d_1 \\ s_1 \\ \hline \\[-0.35cm] r_0 \\ v \\ \hline \\[-0.35cm]  r_0 \\ r_1 \\ r_0 } \
+\m{
+	S^{(2)}_{n} A_{n,1} & S^{(2)}_{n} B_{n,1}    & S^{(2)}_{n} C_{n,1} 	\\
+	Z^{(2)}_{n} A_{n,1} & Z^{(2)}_{n} B_{n,1}    & Z^{(2)}_{n} C_{n,1}  \\ \hline \\[-0.35cm]
+	0 			& S^{(1)}_{n} B_{n,2}  	 & S^{(1)}_{n} C_{n,2}  \\
+	0 			& Z^{(1)}_{n} B_{n,2}    & Z^{(1)}_{n} C_{n,2} 	\\ \hline \\[-0.35cm]
+	0			& 0				 & C_{n,3}     \\
+	0 		    & 0              & 0 			\\	\hline 
+	0			& C_{n+1,3}					    & 0		     \\
+	B_{n+1,2}  	& C_{n+1,2}  			   		& 0	\\
+	C_{n+2,3}	& 0				 			    & 0     		
+} \m{x(n+2) \\ x(n+1) \\ x(n)} \!=\! 
+\m{ S^{(2)}_{n} f_1(n) \\ Z^{(2)}_{n} f_1(n) \\ \hline \\[-0.35cm] S^{(1)}_{n} f_2(n) \\ Z^{(1)}_{n} f_2(n) \\ \hline \\[-0.35cm] f_3(n) \\ f_4(n) \\ \hline f_3(n+1) \\  f_2(n+1) \\ f_3(n+2)		}.
+\end{equation}
+%		
+
+By adding the seventh row scaled with $Z^{(3)}_{n}$ to the fourth row of \eqref{eqA1} and making use of \eqref{eq2.10a} we obtain the first hidden constraint
+%
+\begin{equation*}
+Z^{(1)}_{n} C_{n,2} x(n) = Z^{(1)}_{n} f_2(n) + Z^{(3)}_{n} f_3(n+1),
+\end{equation*}
+%
+which is exactly the fourth row of \eqref{eq2.11}.
+
+We continue by adding the seventh row scaled with $Z^{(4)}_{n}$ and the eighth row scaled with $Z^{(5)}_{n}$ to the second row of \eqref{eqA1} and making use of \eqref{eq2.10b} to obtain
+%
+\begin{align*}
+&& \left( Z^{(2)}_{n} B_{n,1} + Z^{(4)}_{n} C_{n+1,2} \right) x(n+1) + Z^{(2)}_{n} C_{n,1} x(n) \notag \\ 
+&& = Z^{(2)}_{n} f_1(n) + Z^{(4)}_{n} f_2(n+1) + Z^{(5)}_{n} f_3(n+2).
+\end{align*}
+%
+This is exactly the second row of \eqref{eq2.11}. Therefore, any solution to \eqref{eq2.5} is also a solution to \eqref{eq2.11}. \\
+%
+\textbf{Sufficiency:} Let $x$ be an arbitrary solution to \eqref{eq2.11}. Thus, $x$ is also a solution to the shifted system
+%
+\begin{align}\label{eqA2}
+& \pm{ d_{2} \\ s_2 \\ \hline \\[-0.35cm] d_1 \\ s_1 \\ \hline \\[-0.35cm] r_0 \\ v \\ \hline \\[-0.35cm]  r_0 \\ r_0 } \ 
+\m{S^{(2)}_{n} A_{n,1} & S^{(2)}_{n} B_{n,1}      			   & S^{(2)}_{n} C_{n,1} 	\\
+	0			& Z^{(2)}_{n} B_{n,1} + Z^{(4)}_{n} C_{n+1,2}  & Z^{(2)}_{n} C_{n,1}  \\ \hline \\[-0.35cm]
+	0 			& S^{(1)}_{n} B_{n,2}  	   			   & S^{(1)}_{n} C_{n,2}  \\
+	0 			& 0                			   & Z^{(1)}_{n} C_{n,2} 	\\ \hline \\[-0.35cm]
+	0			& 0				 			   & C_{n,3}     \\
+	0 		    & 0              			   & 0 		\\	\hline 
+	0			& C_{n+1,3}					    & 0		     \\
+	C_{n+2,3}	& 0				 			    & 0     	
+} 
+\m{x(n+2) \\ x(n+1) \\ x(n)} \notag \\  
+&= \m{ S^{(2)}_{n} f_1(n) \\ Z^{(2)}_{n} f_1(n) + Z^{(4)}_{n} f_2(n+1) + Z^{(5)}_{n} f_3(n+2) \\ \hline \\[-0.35cm] S^{(1)}_{n} f_2(n) \\ Z^{(1)}_{n} f_2(n) + Z^{(3)}_{n} f_3(n+1) \\ \hline f_3(n) \\  f_4(n) 
+	\\ \hline f_3(n+1) \\  f_3(n+2)	}, \ \mbox{ for all } n\geq n_0.
+\end{align}
+%
+Since elementary matrix row operations are reversible, we can reverse the transformations performed in the necessity part. Consequently, we see that any solution to \eqref{eqA2} is also a solution to \eqref{eqA1}, and hence, this completes the proof.
+%By adding the seventh row scaled with $-Z^{(3)}_{n}$ to the fourth row of \eqref{eqA2} and making use of \eqref{eq2.10a} we get
+%%
+%\[
+%\pm{ d_{2} \\ s_2 \\ \hline \\[-0.35cm] d_1 \\ s_1 \\ \hline \\[-0.35cm] r_0 \\ v \\ \hline \\[-0.35cm]  r_0 \\ r_0 } \ 
+%\m{S^{(2)}_{n} A_{n,1} & S^{(2)}_{n} B_{n,1}      			   & S^{(2)}_{n} C_{n,1} 	\\
+%	0			& Z^{(2)}_{n} B_{n,1} + Z^{(4)}_{n} C_{n+1,2}  & Z^{(2)}_{n} C_{n,1}  \\ \hline \\[-0.35cm]
+%	0 			& S^{(1)}_{n} B_{n,2}  	   			   & S^{(1)}_{n} C_{n,2}  \\
+%	0 			& Z^{(1)}_{n} B_{n,2}     			   & Z^{(1)}_{n} C_{n,2} 	\\ \hline \\[-0.35cm]
+%	0			& 0				 			   & C_{n,3}     \\
+%	0 		    & 0              			   & 0 		\\	\hline 
+%	0			& C_{n+1,3}					    & 0		     \\
+%	C_{n+2,3}	& 0				 			    & 0     	
+%} 
+%\m{x(n+2) \\ x(n+1) \\ x(n)} =  
+%\]
+%%
+%\begin{equation}\label{eqA3}
+%= \m{ S^{(2)}_{n} f_1(n) \\ Z^{(2)}_{n} f_1(n) + Z^{(4)}_{n} f_2(n+1) + Z^{(5)}_{n} f_3(n+2) \\ \hline \\[-0.35cm] S^{(1)}_{n} f_2(n) \\ Z^{(1)}_{n} f_2(n) \\ \hline f_3(n) \\  f_4(n) 
+%	\\ \hline f_3(n+1) \\  f_3(n+2)	}, \ \mbox{ for all } n\geq n_0.
+%\end{equation}
+%%
+%Since the matrix $\m{S^{(1)}_{n} \\ Z^{(1)}_{n}}$ is orthogonal, from the third and fourth block row equations of \eqref{eqA3} we have
+%%
+%\[
+%B_{n,2} x(n+1)  + C_{n,2} x(n) = f_2(n) \ .
+%\]
+%%
+%Shift-forward this equation and also include this into \eqref{eqA3}, we obtain the system
+%%
+%\[
+%\pm{ d_{2} \\ s_2 \\ \hline \\[-0.35cm] r_1 \\ \hline \\[-0.35cm] r_0 \\ v \\ \hline \\[-0.35cm]  r_0 \\ r_0 \\ r_1} \ 
+%\m{S^{(2)}_{n} A_{n,1} & S^{(2)}_{n} B_{n,1}      			   & S^{(2)}_{n} C_{n,1} 	\\
+%	0			& Z^{(2)}_{n} B_{n,1} + Z^{(4)}_{n} C_{n+1,2}  & Z^{(2)}_{n} C_{n,1}  \\ \hline \\[-0.35cm]
+%	0 			& B_{n,2}     			   					   & C_{n,2} 	\\ \hline \\[-0.35cm]
+%	0			& 0				 			   				   & C_{n,3}     \\
+%	0 		    & 0              			    & 0 		\\	\hline 
+%	0			& C_{n+1,3}					    & 0		     \\
+%	C_{n+2,3}	& 0				 			    & 0   		 \\  	
+%	B_{n+1,2}  	& C_{n+1,2}  			   		& 0			\\
+%} 
+%\m{x(n+2) \\ x(n+1) \\ x(n)} =  
+%\]
+%%
+%\begin{equation}\label{eqA4}
+%= \m{ S^{(2)}_{n} f_1(n) \\ Z^{(2)}_{n} f_1(n) + Z^{(4)}_{n} f_2(n+1) + Z^{(5)}_{n} f_3(n+2) \\ \hline \\[-0.35cm] f_2(n) \\ \hline f_3(n) \\  f_4(n) \\ \hline f_3(n+1) \\  f_3(n+2) \\  f_2(n+1) }, \ \mbox{ for all } n\geq n_0.
+%\end{equation}
+%% 
+%Since elementary matrix row operations are reversible, we see that any solution to \eqref{eqA2} is also a solution to \eqref{eqA1}, and hence, this completes the proof.
+
+%\section{Proof of Theorem \ref{thm2}}\label{App1}
+%Within this proof, we only transform system \eqref{eq2.9} using two elementary block row operations: 1st) scaling a block row equation with a nonsingular matrix, and 2nd) add to one row a linear combinations of another rows. Furthermore, we always keep three last block row equations unchanged. Since the proof is quite technical, we will split it in several steps.\\
+%A) In this step we will remove the hidden redundancy in the first block row of system \eqref{eq2.9}.
+%By scaling the first block equation of \eqref{eq2.9} with $\m{S^{(2)}_{n} \\ Z^{(2)}_{n}}$, we obtain
+%%
+%\begin{equation}\label{eqA1}
+%\pm{ d_{2} \\ s_2 \\ \hline  \\[-0.35cm] r_1 \\ r_0 \\ v \\ \hline r_0 \\ r_1 \\ r_0 } \quad 
+%\m{	S^{(2)}_{n} A_{n,1} & S^{(2)}_{n} B_{n,1}    & S^{(2)}_{n} C_{n,1} 	\\
+%	Z^{(2)}_{n} A_{n,1} & Z^{(2)}_{n} B_{n,1}    & Z^{(2)}_{n} C_{n,1}  \\ \hline \\[-0.35cm] 
+%	0 			&  B_{n,2}  	 &  C_{n,2}  \\
+%	0			& 0				 & C_{n,3}     \\
+%	0 		    & 0              & 0    \\ \hline \\[-0.35cm]
+%	0			& C_{n+1,3}	 	 & 0     \\
+%	B_{n+1,2}  	& C_{n+1,2}  	 & 0	\\
+%	C_{n+2,3}	& 0				 & 0   } 
+%\m{x(n+2) \\ x(n+1) \\ x(n)} \!=\! 
+%\m{ S^{(2)}_{n} f_1(n) \\ Z^{(2)}_{n} f_1(n) \\ \hline  \\[-0.35cm] f_2(n) \\ f_3(n) \\ f_4(n) \\ \hline f_3(n+1) \\ f_2(n+1) \\  f_3(n+2) }.  
+%\end{equation}
+%%
+%Add both $Z^{(4)}_{n}$ times the seventh row and $Z^{(5)}_{n}$ times the eighth row to the second row, and make use of \eqref{eq2.10b}, we obtain
+%%
+%\bens
+%&& \left( Z^{(2)}_{n} B_{n,1} + Z^{(4)}_{n} C_{n+1,2} \right) x(n+1) + Z^{(2)}_{n} C_{n,1} x(n) \\ 
+%&& =  Z^{(2)}_{n} f_1(n) + Z^{(4)}_{n} f_2(n+1) + Z^{(5)}_{n} f_3(n+2)  \ .
+%\eens
+%%
+%Using the notation in \eqref{eq2.11}, we rewrite our obtained system as follows.
+%%
+%\be\label{eqA2}
+%\pm{ d_{2} \\ s_2 \\ \hline  \\[-0.35cm] r_1 \\ r_0 \\ v \\ \hline r_0 \\ r_1 \\ r_0 } \quad
+%\m{S^{(2)}_{n} A_{n,1}  & S^{(2)}_{n} B_{n,1}      					   & S^{(2)}_{n} C_{n,1} 	\\
+%	0					& K_{n,1} 									   & H_{n,1}  \\ \hline \\[-0.35cm]
+%	0 					& B_{n,2}			  	   					   &  C_{n,2}  \\
+%	0					& 0				 			   				   & C_{n,3}     \\
+%	0 				    & 0              			   				   & 0 	\\ \hline \\[-0.35cm]
+%	0					& C_{n+1,3}	 	 							   & 0     \\
+%	B_{n+1,2}  			& C_{n+1,2} 								   & 0	\\
+%	C_{n+2,3}			& 0				 							   & 0     } 
+%\m{x(n+2) \\ x(n+1) \\ x(n)}
+%=
+%\m{ S^{(2)}_{n} f_1(n) \\ \gamma(n+2) \\ \hline  \\[-0.35cm] f_2(n) \\ f_3(n) \\ f_4(n) \\ \hline f_3(n+1) \\ f_2(n+1) \\  f_3(n+2) },
+%\ee  
+%%
+%for all $n\geq n_0$. Here $r_2 = d_2+s_2$. \\ 
+%B) In this step we will remove the hidden redundancy in the second and third block row of system \eqref{eqA2}. Apply Lemma \ref{lem1.2} to the matrix pair $(K_{n,1}, C_{n+1,3})$ we can find an unitary matrix $\m{S^{(6)}_{n} \\ Z^{(6)}_{n}} \in \r^{s_2,s_2}$ and $Z^{(7)}_{n}$ such that the pair $(S^{(6)}_{n}, C_{n+1,3})$ has no hidden redundancy and 
+%%
+%\be\label{eqA3}
+%Z^{(6)}_{n} K_{n,1} + Z^{(7)}_{n} C_{n+1,3} = 0 \ .
+%\ee
+%%
+%By scaling the second (resp. third) block equations of \eqref{eqA2} with $\m{S^{(1)}_{n} \\ Z^{(1)}_{n}}$ (resp. $\m{S^{(6)}_{n} \\ Z^{(3)}_{6}}$), we have
+%%
+%\be\label{eqA4}
+%\pm{ d_{2} \\ s_{21} \\ s_{20} \\ \hline  \\[-0.35cm] d_1 \\ s_1 \\ \hline  \\[-0.35cm] r_0 \\ v \\ \hline r_0 \\ r_1 \\ r_0 } \quad 
+%\m{S^{(2)}_{n} A_{n,1}  & S^{(2)}_{n} B_{n,1}    & S^{(2)}_{n} C_{n,1} 	\\
+%	0					& S^{(6)}_{n} K_{n,1} 	 & S^{(6)}_{n} H_{n,1}  \\ 
+%	0					& Z^{(6)}_{n} K_{n,1} 	 & Z^{(6)}_{n} H_{n,1} \\ \hline \\[-0.35cm]
+%	0 					& S^{(1)}_{n} B_{n,2}  	 & S^{(1)}_{n} C_{n,2}  \\
+%	0 					& Z^{(1)}_{n} B_{n,2}    & Z^{(1)}_{n} C_{n,2} 	\\ \hline \\[-0.35cm]
+%	0					& 0				 		 & C_{n,3}     \\
+%	0 				    & 0              		 & 0 	\\ \hline \\[-0.35cm]
+%	0					& C_{n\!+\!1,3}	 	 	 & 0     \\
+%	B_{n\!+\!1,2}  		& C_{n\!+\!1,2} 		 & 0	\\
+%	C_{n\!+\!2,3}		& 0				 		 & 0     } 
+%\m{x(n\!+\!2) \\ x(n\!+\!1) \\ x(n)}
+%\!=\!
+%\m{ S^{(2)}_{n} f_1(n) \\ S^{(6)}_{n} \gamma(n\!+\!2) \\ Z^{(6)}_{n} \gamma(n\!+\!2) \\ \hline  \\[-0.35cm] S^{(1)}_{n} f_2(n) \\ Z^{(1)}_{n} f_2(n) \\ \hline  \\[-0.35cm] f_3(n) \\ f_4(n) \\ \hline f_3(n\!+\!1) \\ f_2(n\!+\!1) \\  f_3(n\!+\!2) }, 
+%\ee  
+%%
+%where $s_2=s_{21}+s_{20}$. Then, we add the eight block row equation of \eqref{eqA4} scaled with $Z^{(7)}_{n}$ to the third block row equation, and make use of \eqref{eqA3} to have
+%%
+%\be\label{eqA5}
+%Z^{(6)}_{n} H_{n,1} x(n) = Z^{(6)}_{n} \gamma(n\!+\!2) + Z^{(7)}_{n} f_3(n\!+\!1) \ .
+%\ee
+%%
+%Similarly, we add the eight block row equation of \eqref{eqA4} scaled with $Z^{(3)}_{n}$ to the fifth block row equation, and make use of \eqref{eq2.10a} to have
+%%
+%\be\label{eq2.17}
+%Z^{(1)}_{n} C_{n,2} x(n) = Z^{(1)}_{n} f_2(n) + Z^{(3)}_{n} f_3(n\!+\!1) \ .
+%\ee
+%%
+%Therefore, we obtain the system 
+%%
+%\be\label{eqA7}
+%\pm{ d_{2} \\ s_{21} \\ s_{20} \\ \hline  \\[-0.35cm] d_1 \\ s_1 \\ \hline  \\[-0.35cm] r_0 \\ v \\ \hline r_0 \\ r_1 \\ r_0 } \
+%\m{S^{(2)}_{n} A_{n,1}  & S^{(2)}_{n} B_{n,1}    & S^{(2)}_{n} C_{n,1} 	\\
+%	0					& S^{(6)}_{n} K_{n,1} 	 & S^{(6)}_{n} H_{n,1}  \\ 
+%	0					& 0					 	 & Z^{(6)}_{n} H_{n,1} \\ \hline \\[-0.35cm]
+%	0 					& S^{(1)}_{n} B_{n,2}  	 & S^{(1)}_{n} C_{n,2}  \\
+%	0 					& 0 					 & Z^{(1)}_{n} C_{n,2} 	\\ \hline \\[-0.35cm]
+%	0					& 0				 		 & C_{n,3}     \\
+%	0 				    & 0              		 & 0 	\\ \hline \\[-0.35cm]
+%	0					& C_{n\!+\!1,3}	 	 	 & 0     \\
+%	B_{n\!+\!1,2}  		& C_{n\!+\!1,2} 		 & 0	\\
+%	C_{n\!+\!2,3}		& 0				 		 & 0     } 
+%\m{x(n\!+\!2) \\ x(n\!+\!1) \\ x(n)}
+%\!=\!
+%\m{ S^{(2)}_{n} f_1(n) \\ S^{(6)}_{n} \gamma(n\!+\!2) \\ Z^{(6)}_{n} \gamma(n\!+\!2) \!+\! Z^{(7)}_{n} f_3(n\!+\!1) \\ \hline  \\[-0.35cm] S^{(1)}_{n} f_2(n) \\ Z^{(1)}_{n} f_2(n) \!+\! Z^{(3)}_{n} f_3(n\!+\!1) \\ \hline  \\[-0.35cm] f_3(n) \\ f_4(n) \\ \hline f_3(n\!+\!1) \\ f_2(n\!+\!1) \\  f_3(n\!+\!2) }.
+%\ee  
+%%
+%Throw out the last three block row equations of this system, we obtain 
+%%
+%\begin{equation}\label{eqA8}
+%\pm{ d_{2} \\ s_{21} \\ s_{20} \\ \hline  \\[-0.35cm] d_1 \\ s_1 \\ \hline  \\[-0.35cm] r_0 \\ v } \
+%\m{S^{(2)}_{n} A_{n,1}  & S^{(2)}_{n} B_{n,1}    & S^{(2)}_{n} C_{n,1} 	\\
+%	0					& S^{(6)}_{n} K_{n,1} 	 & S^{(6)}_{n} H_{n,1}  \\ 
+%	0					& 0					 	 & Z^{(6)}_{n} H_{n,1} \\ \hline \\[-0.35cm]
+%	0 					& S^{(1)}_{n} B_{n,2}  	 & S^{(1)}_{n} C_{n,2}  \\
+%	0 					& 0 					 & Z^{(1)}_{n} C_{n,2} 	\\ \hline \\[-0.35cm]
+%	0					& 0				 		 & C_{n,3}     \\
+%	0 				    & 0              		 & 0 } 
+%\m{x(n\!+\!2) \\ x(n\!+\!1) \\ x(n)}
+%\!=\!
+%\m{ S^{(2)}_{n} f_1(n) \\ S^{(6)}_{n} \gamma(n\!+\!2) \\ Z^{(6)}_{n} \gamma(n\!+\!2) \!+\! Z^{(7)}_{n} f_3(n\!+\!1) \\ \hline  \\[-0.35cm] S^{(1)}_{n} f_2(n) \\ Z^{(1)}_{n} f_2(n) \!+\! Z^{(3)}_{n} f_3(n\!+\!1)
+%\\ \hline  \\[-0.35cm] f_3(n) \\ f_4(n) } \ ,
+%\end{equation}
+%%
+%for all $n\geq n_0$, which is exactly the desired system \eqref{eq2.13}. Thus, any solution to \eqref{eq1.1} is also a solution to \eqref{eqA8}. \\
+%C) Now we need to prove that two systems \eqref{eqA8} and \eqref{eq2.9} have the same solution set. 
+%Since all elementary block row operations are reversible, in fact, it is sufficient to prove that any solution to \eqref{eqA8} is also a solution to \eqref{eqA7}.
+%
+%Since \eqref{eqA8} holds for all $n\geq n_0$, it has the same solution set to the shifted system
+%%
+%\be\label{eqA9}
+%\pm{ d_{2} \\ s_{21} \\ s_{20} \\ \hline  \\[-0.35cm] d_1 \\ s_1 \\ \hline  \\[-0.35cm] r_0 \\ v \\ \hline r_0 \\ r_0 } \
+%\m{S^{(2)}_{n} A_{n,1}  & S^{(2)}_{n} B_{n,1}    & S^{(2)}_{n} C_{n,1} 	\\
+%	0					& S^{(6)}_{n} K_{n,1} 	 & S^{(6)}_{n} H_{n,1}  \\ 
+%	0					& 0					 	 & Z^{(6)}_{n} H_{n,1} \\ \hline \\[-0.35cm]
+%	0 					& S^{(1)}_{n} B_{n,2}  	 & S^{(1)}_{n} C_{n,2}  \\
+%	0 					& 0 					 & Z^{(1)}_{n} C_{n,2} 	\\ \hline \\[-0.35cm]
+%	0					& 0				 		 & C_{n,3}     \\
+%	0 				    & 0              		 & 0 	\\ \hline \\[-0.35cm]
+%	0					& C_{n\!+\!1,3}	 	 	 & 0     \\
+%	C_{n\!+\!2,3}		& 0				 		 & 0     } 
+%\m{x(n\!+\!2) \\ x(n\!+\!1) \\ x(n)}
+%\!=\!
+%\m{ S^{(2)}_{n} f_1(n) 														\\ 
+%	S^{(6)}_{n} \gamma(n\!+\!2) 											\\ 
+%	Z^{(6)}_{n} \gamma(n\!+\!2) \!+\! Z^{(7)}_{n} f_3(n\!+\!1) 				\\ \hline  \\[-0.35cm]
+%	S^{(1)}_{n} f_2(n) 														\\ 
+%	Z^{(1)}_{n} f_2(n) \!+\! Z^{(3)}_{n} f_3(n\!+\!1) 						\\ \hline  \\[-0.35cm] 
+%	f_3(n) 																	\\ 
+%	f_4(n) 																	\\ \hline 
+%	f_3(n\!+\!1)															 \\ 													 
+%	f_3(n\!+\!2) }.
+%\ee  
+%%
+%Subtract the eighth row scaled with $Z^{(3)}_{n}$ to the fifth row, and make use of \eqref{eq2.10a}, we have that 
+%%
+%\[
+%Z^{(1)}_{n} B_{n,2} x(n+1) + Z^{(1)}_{n} C_{n,2} x(n) = Z^{(1)}_{n} f_2(n),
+%\]
+%%
+%and hence, \eqref{eqA9} becomes
+%%
+%\be\label{eqA10}
+%\pm{ d_{2} \\ s_{21} \\ s_{20} \\ \hline  \\[-0.35cm] d_1 \\ s_1 \\ \hline  \\[-0.35cm] r_0 \\ v \\ \hline r_0 \\ r_0 } \
+%\m{S^{(2)}_{n} A_{n,1}  & S^{(2)}_{n} B_{n,1}    & S^{(2)}_{n} C_{n,1} 	\\
+%	0					& S^{(6)}_{n} K_{n,1} 	 & S^{(6)}_{n} H_{n,1}  \\ 
+%	0					& 0					 	 & Z^{(6)}_{n} H_{n,1} \\ \hline \\[-0.35cm]
+%	0 					& S^{(1)}_{n} B_{n,2}  	 & S^{(1)}_{n} C_{n,2}  \\
+%	0 					& Z^{(1)}_{n} B_{n,2} 	 & Z^{(1)}_{n} C_{n,2} 	\\ \hline \\[-0.35cm]
+%	0					& 0				 		 & C_{n,3}     \\
+%	0 				    & 0              		 & 0 	\\ \hline \\[-0.35cm]
+%	0					& C_{n\!+\!1,3}	 	 	 & 0     \\
+%	C_{n\!+\!2,3}		& 0				 		 & 0     } 
+%\m{x(n\!+\!2) \\ x(n\!+\!1) \\ x(n)}
+%\!=\!
+%\m{ S^{(2)}_{n} f_1(n) 														\\ 
+%	S^{(6)}_{n} \gamma(n\!+\!2) 											\\ 
+%	Z^{(6)}_{n} \gamma(n\!+\!2) \!+\! Z^{(7)}_{n} f_3(n\!+\!1) 				\\ \hline  \\[-0.35cm]
+%	S^{(1)}_{n} f_2(n) 														\\ 
+%	Z^{(1)}_{n} f_2(n)														\\ \hline  \\[-0.35cm] 
+%	f_3(n) 																	\\ 
+%	f_4(n) 																	\\ \hline 
+%	f_3(n\!+\!1)															 \\ 													 
+%	f_3(n\!+\!2) 
+%}.
+%\ee
+%%
+%Since $\m{S^{(1)}_{n} \\ Z^{(1)}_{n}}$ is unitary, we can compress the fourth and fifth block row equations of \eqref{eqA10} to achieve
+%%
+%\[
+%\pm{ d_{2} \\ s_{21} \\ s_{20} \\ \hline  \\[-0.35cm] r_1 \\ \hline  \\[-0.35cm] r_0 \\ v \\ \hline r_0 \\ r_0 } \
+%\m{S^{(2)}_{n} A_{n,1}  & S^{(2)}_{n} B_{n,1}    & S^{(2)}_{n} C_{n,1} 	\\
+%	0					& S^{(6)}_{n} K_{n,1} 	 & S^{(6)}_{n} H_{n,1}  \\ 
+%	0					& 0					 	 & Z^{(6)}_{n} H_{n,1} \\ \hline \\[-0.35cm]
+%	0 					& B_{n,2}  	 			 & C_{n,2} 	\\ \hline \\[-0.35cm]
+%	0					& 0				 		 & C_{n,3}     \\
+%	0 				    & 0              		 & 0 	\\ \hline \\[-0.35cm]
+%	0					& C_{n\!+\!1,3}	 	 	 & 0     \\
+%	C_{n\!+\!2,3}		& 0				 		 & 0     } 
+%\m{x(n\!+\!2) \\ x(n\!+\!1) \\ x(n)}
+%\!=\!
+%\m{ S^{(2)}_{n} f_1(n) 														\\ 
+%	S^{(6)}_{n} \gamma(n\!+\!2) 											\\ 
+%	Z^{(6)}_{n} \gamma(n\!+\!2) \!+\! Z^{(7)}_{n} f_3(n\!+\!1) 				\\ \hline  \\[-0.35cm]
+%	f_2(n) 																	\\ 	 \hline  \\[-0.35cm] 
+%	f_3(n) 																	\\ 
+%	f_4(n) 																	\\ \hline 
+%	f_3(n\!+\!1)															 \\ 													 
+%	f_3(n\!+\!2) 
+%}.
+%\]
+%%
+%Finally, by shifting the fourth block row equation, we then have exactly the system \eqref{eqA7}, and this completes the proof.

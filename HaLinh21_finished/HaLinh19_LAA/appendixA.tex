@@ -1,0 +1,111 @@
+\appendix
+
+\section{Index reduction steps do not preserve left equivalence}
+
+\begin{remark}\label{rem1} Let us denote by $span(B)$ (resp. $span(C)$) the vector space spanned by the rows of $B$ (resp. $C$).  
+	Then, the geometrical meaning of $S$ and $Z_1$ is that the rows of $Z_1B$ is a basis of $span(B) \cap span(C)$, while $SB$ is a basis of the complement space $\left(span(B) \cap span(C) \right)^C$ in $span(B)$.
+\end{remark}
+
+\begin{lemma}\label{lem1.4}
+	Given three matrices of appropriate sizes $U$, $V$, $W$ such that $U = VW$. Then the following claims hold true.
+	\begin{enumerate}
+		\item[i)] If both $U$ and $W$ have full row rank then $V$ is invertible. 
+		\item[ii)] If $U=0$, $W$ has full row rank then $V = 0$.
+	\end{enumerate}
+\end{lemma}
+\begin{proof}
+	The proof can be easily obtained using SVD of $W$ and $U$, see e.g. \cite{GolV96}.
+\end{proof}
+
+Furthermore, in analogy to Theorem 6, \cite{Bru09} and Theorem 3.14, \cite{KunM06}, we can prove that the left equivalence property is preserved under this process.
+
+\begin{proposition}\label{pro2.1}
+Under Assumption \ref{Ass1}, the strongly equivalent relation $\lsim$ is preserved under the first order index reduction step.
+\end{proposition}
+\begin{proof}
+The proof is rather lengthy and will be given in Appendix A.
+\end{proof}
+
+In order to prove that the strongly equivalent relation $\lsim$ is preserved under the first order index reduction step, we consider two (strongly) equivalent behavior matrices $M_n = \m{A_{n} & B_{n} & C_{n}}$ and $\tM_n =\m{\tA_{n} & \tB_{n} & \tC_{n}}$. 
+In order to perform the first order index reduction step, first we need to bring both matrices $M_n$, $\tM_n$ to the block upper triangular form 
+\eqref{block-upper-M}.
+%
+\begin{equation}
+M_n \lsim
+\m{A_{n,1} & B_{n,1}    & C_{n,1}     \\
+	0      & B_{n,2}    & C_{n,2}     \\
+	0	   & 0          & C_{n,3} \\  
+	0      & 0          & 0}, 
+\ \mbox{  and  } \
+\tM_n \lsim
+\m{\tA_{n,1} & \tB_{n,1}    & \tC_{n,1} \\
+	
+	0	     & \tB_{n,2}    & \tC_{n,2}     \\
+	0	     &    0         & \tC_{n,3}    \\  
+	0        & 0            & 0}, 
+\end{equation}
+%
+Let us assume that the first order index reduction step is well-performed for $M_n$ (resp. $\tM_n$) using three matrices $S$, $Z_1$, $Z_2$ (reps., $\tS$, $\tZ_1$, $\tZ_2$). Thus, one need to prove that
+%
+\begin{equation}\label{eq A1}
+\m{ A_{n,1} & B_{n,1}     & C_{n,1}  \\ \hline
+	0	& SB_{n,2}    & SC_{n,2}     \\
+	0	&     0       & Z_1 C_{n,2} \\ \hline 
+	0	&     0       & C_{n,3} \\  
+	0   &     0       & 0 } 
+\lsim 
+\m{    \tA_{n,1} & \tB_{n,1}     & \tC_{n,1}       \\ \hline \\[-0.3cm]
+	0	 & \tS\tB_{n,2}  & \tS\tC_{n,2}    \\
+	0    &     0         & \tZ_1 \tC_{n,2} \\ \hline \\[-0.3cm]
+	0	 &     0         & \tC_{n,3}       \\  
+	0    & 0             & 0 }. 
+\end{equation}
+%
+Here we should notice that the matrices $A_{n,1}$, $B_{n,2}$, $C_{n,3}$, $\tA_{n,1}$, $\tB_{n,2}$, $\tC_{n,3}$ on the main diagonal have full row rank.\\ 
+Since $M_n \lsim \tM_n$ there exist a nonsingular matrix $P$ such that $P M_n = \tM_n$. Partitioning P correspondingly, we obtain the following matrix equation
+%
+\begin{equation}
+\m{ P_1 & P_2 & P_3 & P_4 \\
+	P_5 & P_6 & P_7 & P_8 \\
+	P_9 & P_{10} & P_{11} & P_{12} \\
+	P_{13} & P_{14} & P_{15} & P_{16}
+}
+\m{A_{n,1} & B_{n,1}    & C_{n,1}     \\
+	0       & B_{n,2}    & C_{n,2}     \\
+	0	    & 0          & C_{n,3} \\  
+	0       & 0          & 0}
+= 
+\m{\tA_{n,1} & \tB_{n,1}    & \tC_{n,1} \\	
+	0	     & \tB_{n,2}    & \tC_{n,2}     \\
+	0	     &    0         & \tC_{n,3}    \\  
+	0        & 0            & 0}.
+\end{equation}
+%
+Now let us look at the zero block matrices of the right hand side, for example the block at position $(2,1)$. Thus, $P_5 A_{n,1} = 0$ then due to Lemma 
+\ref{lem1.4} ii) we see that $P_5=0$. Analoguously, we can consecutively prove that all the matrices $P_9$, $P_{13}$, $P_{10}$, $P_{14}$, $P_{15}$ are zero matrices of appropriate sizes. In other words, $P$ is block upper triangular. Consequently, the other equations reads
+%
+\begin{alignat}{2}
+\label{eqA2a} P_1 A_{n,1} &= \tA_{n,1}, \\ 
+\label{eqA2b} P_6 B_{n,2} &= \tB_{n,2}, \\ 
+\label{eqA2c} P_{11} C_{n,3} &= \tC_{n,3}, \\ 
+\label{eqA2d} P_1 B_{n,1} + P_2 B_{n,2} &= \tB_{n,1}, \\
+\label{eqA2e} P_1 C_{n,1} + P_2 C_{n,2} + P_{3} C_{n,3} &= \tC_{n,1}, \\ 
+\label{eqA2f} P_6 C_{n,2} + P_{7} C_{n,3} &= \tC_{n,3}.
+\end{alignat}
+%
+From Lemma \ref{lem1.4} i), it follows that the matrices $P_1$, $P_6$, $P_{11}$ are invertible. Therefore, we obtain the following identities
+%
+\begin{equation}\label{eqA3}
+span(\tB_{n,2}) = span(B_{n,2}), \quad span(\tC_{n,3}) = span(C_{n,3}).
+\end{equation}
+%
+Due to Remark \ref{rem1}, rows of $Z_1 B_{n,2}$ (resp. $\tZ_1 \tB_{n,2}$) is one basis of $span(B_{n,2}) \cap span(C_{n,3})$ (resp. $span(\tB_{n,2}) \cap span(\tC_{n,3})$). Thus, \eqref{eqA3} follows that both $Z_1 B_{n,2}$ and $\tZ_1 \tB_{n,2}$ are bases of the same vector space, and hence, there exists a nonsingular matrix $X_1$ such that 
+%
+\[ \tZ_1 \tB_{n,2} = X_1 \  Z_1 B_{n,2}. \]
+%
+This equality, together with \eqref{eqA2b}, gives us
+%
+\[ \tZ_1 P_6 B_{n,2} = X_1 Z_1 B_{n,2},\]
+%
+and hence, due to Lemma \ref{lem1.4} ii), it follows that $\tZ_1 P_6 = X_1 Z_1$.
+

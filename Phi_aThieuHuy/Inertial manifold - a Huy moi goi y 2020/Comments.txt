@@ -1,0 +1,13 @@
+Gửi Phi sách và Báo,
+Phi đọc sách của Chuesov, Chapter 3 (đó là Lyapunov-Perron methods) và sách của Temam, chapter VIII (là Graph Transform method) và bài báo của anh (Lyapunov-Perron method với điều kiện \varphi-Lipschitz).
+
+Bào báo chung DAE thì anh sẽ chỉnh qua một tý nữa rồi gửi đi.
+
+Chúc năm mới tốt lành nhiều niềm vui!
+
+a Huy
+
+---------------------------------------------------------------------
+
+
+Approximate Inertial Manifolds for Second Order in Time Equations .   Chapter 3 of Chuesov p.200

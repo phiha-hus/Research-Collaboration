@@ -1,0 +1,165 @@
+\documentclass[11pt,reqno, a4paper]{report}
+\usepackage{amsmath,amsxtra,amssymb,latexsym, amscd,amsthm}
+\usepackage[mathscr]{eucal}
+\usepackage{graphicx}
+\usepackage{cases}
+%\input setbmp
+%\usepackage{vnfonts}
+\usepackage[utf8]{vietnam}
+\usepackage{multicol,color}
+
+\vfuzz2pt 
+
+
+
+\numberwithin{equation}{section}
+\newcommand{\1}{\boldsymbol{1}}
+\textwidth 16 truecm
+\setlength{\evensidemargin} {-0.04cm}  %Lề phải 2.54cm-0.04cm=2.5cm
+\setlength{\oddsidemargin}{0.46cm}     %Lề trái 2.54cm+0.46cm=3cm
+\setlength{\textheight}{25.7cm}
+\setlength{\topmargin}{-1.2cm}          %Lề trên 2.54cm-0.04cm=2.5cm
+%vsize=21.1 truecm
+%\setlength{\parindent}{0.8cm}
+
+%\parskip 1pt
+
+ \font\inh=cmr10 \font\cto=cmr10
+\font\tit=cmbx12 \font\tmd=cmbx10 \font\ab=cmti9 \font\cn=cmr9
+\def\ker{\text{Ker}}
+\def\bar{\overline}
+\def\ind{\text{Ind}}
+\def\a.s{\text{\;a.s.\;}}
+\def\supp{\text{supp\;}}
+\def\TT{\mathbb T}
+\def\NN{\mathbb N}
+\def\ZZ{\mathbb Z}
+\def\RR{\mathbb R}
+\def\UT{{\mathscr U\mathbb T}}
+%\pagestyle{headings}
+
+\begin{document}
+\fontsize{13pt}{18pt}\selectfont 
+ \pagestyle{empty}
+
+\centerline{\Large{\textbf{THUYẾT MINH ĐỀ CƯƠNG NGHIÊN CỨU}}}\
+
+
+ \medskip
+
+  \noindent  {\bf 1. Tên đề tài nghiên cứu}: 
+{\it Một số bài toán định tính trong lý thuyết điều khiển các hệ động lực lai và chuyển mạch chịu nhiễu tham số và không chắc chắn}\\
+(Some qualitative problems in control theory of hybrid and switched dynamical systems under parameter perturbations and uncertainties)\\
+
+  \noindent Chủ nhiệm: GS.TSKH Nguyễn Khoa Sơn\\
+
+  \noindent {\bf 2. Mục tiêu: }
+Nghiên cứu một số bài toán mới về ổn định, ổn định hóa và  quan sát  trong các hệ động lực lai và  chuyển mạch mô tả bởi các phương trình vi phân, sai phân và vi phân đại số chịu nhiễu tham số và không chắc chắn.\\
+
+  \noindent {\bf 3. Nội dung nghiên cứu:} Trong vài thập kỷ gần đây các nhà toán học trong lĩnh vực tối ưu và điều khiển đã dành sự quan tâm đặc biệt và ngày càng lớn đến các hệ động lực lai nói chung và các hệ chuyển mạch nói riêng. Một cách khái quát, đây là lớp hệ mà động lực của chúng trên các khoảng thời gian khác nhau có thể mô tả bởi các mô hình toán học khác nhau (khác về tham số hoặc thậm chí khác cả về cấu trúc).  Hệ động lực chuyển mạch là lớp con của các hệ lai, có thể mô tả bởi phương trình
+$$
+\dot x (t) = f_{\sigma(t)}(x, u), x\in \RR^n, t\geq 0, \sigma \in \mathcal{N},
+$$
+trong đó $\mathcal{F}:=\{f_i(x,u): i\in \underline N \}, \underline N:= \{1,2, \ldots, N\}, $ là một tập hữu hạn các trường vectơ liên tục Lipschitz theo hai biến $x,u$ và  $\mathcal{N}$ là tập các hàm hằng từng khúc, liên tục phải $\sigma : [0,+\infty ) \rightarrow \underline N $,  thường được gọi là các {\it tín hiệu chuyển mạch}. Như vậy, với mỗi tín hiệu chuyển mạch $\sigma$, với các điểm gián đoạn $0<t_1<t_2< ...$,  động lực của hệ thống trên mỗi thời đoạn $[t_k, t_{k+1}) , k=1,2, ...$ được mô tả bởi phương trình vi phân $\dot x = f_{\sigma(t_{k})}(x,u)$.  Rất nhiều bài toán và mô hình hệ thống trong thực tế (ví dụ bài toán điều khiển ô tô, máy bay, điều khiển các hệ thống điện, ...) dẫn đến các mô hình hệ động lực lai hoặc hệ chuyển mạch. Ngoài ý nghĩa ứng dụng, các hệ động lực lai và chuyển mạch cũng đặt ra các nội dung nghiên cứu lý thuyết rất thú vị, đòi hỏi sử dụng các công cụ mạnh của các lĩnh vực toán học khác nhau: lý thuyết phương trình vi phân có vế phải gián đoạn, bao hàm thức vi phân, giải tích hàm, giải tích lồi, đại số Lie, lý thuyết Lyapunov, bất đẳng thức ma trận tuyến tính LMI v.v. Cũng như trong lý thuyết điều khiển cổ điển, các bài toán định tính đối với các hệ lai và hệ chuyển mạch được nghiên cứu nhiều nhất là bài toán ổn định và ổn định hóa, bài toán điều khiển được và quan sát được và các bài toán thiết kế quan sát, điều khiển liên quan,  trong đó tập trung chủ yếu cho trường hợp hệ chuyển mạch tuyến tính, tức là hệ có dạng 
+$$
+\dot x (t) = A_{\sigma(t)}(x(t)) +B_{\sigma(t)}u, \ x\in \RR^n,  u\in \RR^m, t\geq 0, \sigma \in \mathcal{N},
+$$
+trong đó $ A_{\sigma(t)} \in \{A_1,A_2,\ldots, A_N\}:= \mathcal{A}\subset \RR^{n\times n}$ và $B_{\sigma(t)} \in \{B_1,B_2,\ldots, B_N\}:= \mathcal{B}\subset \RR^{n\times m}$.  Đã có hàng nghìn bài báo và sách chuyên khảo được công bố trong hai ba chục năm gần đây về các hướng nghiên cứu này (xem các tài liệu tổng quan  của Shorten R. et al. và các chuyên khảo của Liberzon và  Sun trong phần Tài liệu trích dẫn).  
+Bên cạnh đó, các bài toán tối ưu và điều khiển chứa tham số chịu nhiễu và không xác định cũng được quan tâm nghiên cứu mạnh trong toán học ứng dụng hiện đại. Một mặt các bài toán này có ý nghĩa lý thuyết vì đòi hỏi phải ứng dụng và phát triển các lý thuyết và công cụ toán học mới và sâu sắc trong một số lĩnh vực như giải tích không trơn,  giải tích đa trị, giải tích phổ các toán tử, thuật toán số giải các phương trình và giải các bài toán tối ưu,v.v. Một mặt khác, hầu hết các bài toán này đều có xuất xứ từ thực tiễn và các kết quả nghiên cứu về chúng được áp dụng trực tiếp để nghiên cứu và giải quyết các vấn đề thực tế. Lý do là để nghiên cứu các vấn đề thực tế bằng công cụ toán học, bước đi tất yếu là phải xây dựng các mô hình toán để mô tả các ràng buộc (chẳng hạn như sử dụng các phương trình vi phân hoặc sai phân, các phương trình/bất phương trình đại số để mô tả đối tượng và giải bài toán điều khiển và tối ưu). Tuy nhiên, mọi mô hình toán học chỉ mô tả xấp xỉ, gần đúng đối tượng, do đó cần phải giải quyết các bài toán tối ưu và điều khiển dưới giả  thiết một số tham số trong bài toán chịu nhiễu. Trong vài chục năm gần đây, các nội dung tính toán trong các bài toán chịu nhiễu được quan tâm đặc biệt, trong đó việc tính các cận như bán kính ổn định, bán kính điều khiển được trong các hệ động lực, thiết kế các bộ quan sát trong điều kiện bất định ... là các chủ đề thời sự. Các thành viên của nhóm nghiên cứu cũng đã có nhiều kết quả công bố trong nhiều năm qua về các bài toán này (xem Danh mục các công trình công bố 5 năm gần đây của nhóm).  Câu hỏi nảy sinh tự nhiên là: làm sao để mở rộng các kết quả này ra trường hợp các hệ chuyển mạch đã nói đến trong phần trên. \\
+
+
+
+\noindent Mục tiêu chính của đề tài “Một số bài toán định tính trong lý thuyết điều khiển các hệ động lực lai và chuyển mạch chịu nhiễu và không chắc chắn" là  nghiên cứu một số bài toán mới trong lý thuyết ổn định vững và điều khiển được vững của các hệ  chuyển mạch tuyến tính được mô tả bởi các phương trình vi phân, sai phân và phương trình tuyến tính suy biến, nhằm nhận được các kết quả định tính và xây dựng các thuật toán số để tính toán và áp dụng vào các hệ cụ thể. Trong đó sẽ tập trung vào một số bài toán cụ thể sau đây:
+
+\noindent{\bf 3.1.} Nghiên cứu bài toán ổn định vững cho hệ chuyển mạch tuyến tính, khi các hệ con $\dot x = A_i x $ chịu nhiễu cấu trúc afine, ví dụ 
+$$
+A_i \rightarrow A_i+ D_i\Delta_i E_i,  i=1,2, \ldots N.
+$$
+Mục tiêu là nhận được công thức tính bán kính ổn định hoặc tính các cận đánh giá bán kính ổn định của hệ chuyển mạch tuyến tính cho các trường hợp:  tín hiệu chuyển mạch bất kỳ, tín hiệu chuyển mạch tuần hoàn, tín hiệu chuyển mạch có thời gian dừng (dwell-time)  lớn hơn một giá trị cho trước ($t_k-t_{k-1} \geq T_{min}, \forall k$), các hệ chuyển mạch tuyến tính dương, các hệ chuyển mạch có trễ, các hệ chuyển mạch trên thang thời gian, hệ chuyển mạch đạo hàm phân thứ và hệ chuyển mạch tuyến tính suy biến (dạng $E_{\sigma}\dot x = A_{\sigma}x$).\\
+\noindent {\bf 3.2.} Nghiên cứu các bài toán tương tự như trên cho tính điều khiển được vững của hệ chuyển mạch tuyến tính khi các hệ điều khiển con $\dot x = A_i x +B_i u, i\in \underline N$  chịu nhiễu cấu trúc afine, ví dụ
+
+$$
+[A_i,B_i]  \rightarrow  [A_i,B_i] + D_i\Delta_i E_i, \i=1,2, \ldots N.
+$$
+Bài toán này có thể  được xem xét cho các loại hệ chuyển mạch khác nhau như trên và có thể nghiên cứu cho trường hợp có ràng buộc trên biến điều khiển dạng $u\in \Omega_i, i\in \underline N$, dựa trên kết quả của Son-Thuan, đăng trong SICON 2016. \\
+\noindent {\bf 3.3. }Nghiên cứu bài toán đánh giá trạng thái và thiết kế các bộ quan sát  đối với hệ tuyến tính  chịu nhiễu dạng
+%\begin{equation*}
+\begin{align*}
+\dot x (t) &= Ax(t) +B u(t) +\omega (t), x\in \RR^n,  u\in \RR^m, t\geq 0,\\
+y(t)&= Cx(t) +\gamma(t), t\geq 0
+\end{align*}
+với các giả thiết khác nhau về đầu vào, đầu ra và nhiễu $\omega, \gamma$  (xem công trình liên quan   ). Mục tiêu chính là đề xuất phương pháp mới nhằm thiết kế được các khoảng quan sát trạng thái với cấu trúc mới bảo đảm tính ổn định tiệm cận đều của bộ quan sát và giảm nhẹ tính bảo thủ của các điều kiện tồn tại khoảng quan sát hàm sẵn có; Áp dụng kết quả về thiết kế các khoảng quan sát hàm trạng thái cho lớp hệ chuyển mạch tuyến tính dạng
+\begin{align*}
+\dot x (t)& = A_{\sigma (t)}x(t) +B_{\sigma (t)} u(t) +\omega (t), x\in \RR^n,  u\in \RR^m, t\geq 0,\\
+ y(t)&= C_{\sigma}x(t)  + \gamma (t), t\geq 0,\\
+ \sigma &\in \mathcal{N},
+\end{align*}
+và cho các lớp hệ chuyển mạch tổng quát khác như: hệ suy biến, hệ có trễ, hệ ghép nối kích thước lớn, ...(xem các nghiên cứu liên quan ([4]-[7]). \\
+\noindent {\bf 3.4. } Nghiên cứu một số bài toán liên quan khác như:  Bài toán về tính ổn định và tính bị chặn của nghiệm đối với một số lớp hệ phương trình vi phân bậc phân số và hệ phương trình vi phân và sai phân phụ thuộc thời gian như hệ phương trình dạng trung hòa và phương trình vi phân có yếu tố ngẫu nhiên; Bài toán trò chơi vi phân đuổi bắt với  người chơi có khả năng sử dụng các hàm chuyển mạch để thay đổi các modes chuyển động của mình: nghiên cứu sự tồn tại nghiệm và  tối ưu thời gian bắt kịp;  Một số bài toán định tính của hệ động lực trên thang thời gian: số mũ đặc trưng, tính điều khiển được, v.v.\\
+
+\newpage 
+
+\noindent {\bf 4. Kế hoạch triển khai và những hoạt động chính: }
+Đề tài dự kiến thực hiện trong thời gian 4 tháng, trong khoảng thời gian từ tháng 05/2020 đến 11/2020, với sự tài trợ của VIASM, với kế hoạch hoạt động chính là:\\
+-  Nghiên cứu theo nhóm tại VIASM.\\
+-  Tổ chức 1 hội thảo, dự kiến tiêu đề “Control and stability of swiched systems under parameter perturbations” có sự tham gia của một số chuyên gia quốc tế.\\
+- Hợp tác với các nhóm nghiên cứu khác trong nước ở trường ĐHKH Tự nhiên, Viện Toán học, Trường ĐH Quốc tế...\\
+
+\noindent {\bf 5.  Dự kiến kết quả:}  Hoàn thành 3-5 bài báo theo chủ đề nghiên cứu, gửi đăng tạp chí  quốc tế, hoặc VJM, Acta Math Viet.\\
+
+\noindent {\bf 6. Tài liệu tham khảo}
+
+\noindent 1.	Liberzon, D.:  Switching in Systems and Control (Birkhauser, Boston, 2003).\\
+2.	Shorten, R., Wirth F., Mason, F., Wulff  K., and King, C.:  Stability criteria for switched and hybrid systems,  SIAM Review, 2007, \textbf{47}, pp.~ 545--592. \\
+3.	Sun, Z. and  Ge, S.S.: Stability theory of switched dynamical systems (Springer-Verlag, London, 2011).\\
+4.	Efimov, D., Perruquetti, W., and Richard, J.P.: Interval estimation for uncertain systems with time-varying delay, International Journal of Control, vol. 86, pp. 1777-1787, 2013\\
+5. Zheng, G., Efimov, D., and Perruquetti, W.: Design of interval observer for a class of uncertain unobservable nonlinear systems, Automatica, Vol.63, pp. 167-174, 2016.\\
+6. 	Zheng, G., Efimov, D., Bejarano, F.J., and Perruquetti, W:  Interval observer for a class of uncertain nonlinear singular system, Automatica, Vol.71, pp. 159-168, 2016.\\
+7. 	Johnson, S.C.: Observability and observer design for switched linear systems, PhD Thesis, Purdue University, 2016\\
+8. Ethabet, H.,  Raïssi, T.,  Amairi, M.,  Combastel, C., and  Aoun, M.: Interval observer design for continuous-time switched systems under known switching and unknown inputs, 2018, DOI: 10.1080/00207179.2018.1490820.\\
+9.	 Meyer, L.,  Ichalal, D., and  Vigneron, V.: Observers for switching discrete-time linear systems with Unknown Inputs and unknown switching sequence,  2018 Annual American Control Conference (ACC), June 27–29, 2018. Wisconsin Center, Milwaukee, USA\\
+10. Gómez-Gutiérrez, D., Čelikovsky, S., Ramírez-Treviño, A., and Castillo-Toledo, B.: On the observer design problem for continuous-time switched linear systems with unknown switchings, J. Franklin Inst., 2015, 352, 1595-1612\\
+\vskip0.2cm
+\noindent {\bf 7. Danh mục bài báo của các thành viên nhóm nghiên cứu liên quan đến chủ đề} (5 năm gần đây):\\
+1. Nguyen Khoa Son and Do Duc Thuan (2018), “Structured distance to non-surjectivity of convex processes and its applications to robust controllability under structured perturbations”, IET Control Theory and Applications, vol. 12, pp. 263-272. \\
+2. Vu Hoang Linh, Ngo Thi Thanh Nga and Do Duc Thuan (2018), “Exponential stability and robust stability for linear time-varying singular systems of second-order difference equations”, SIAM Journal on Matrix Analysis and Applications, vol. 39, pp. 204-233. \\
+3. Do Duc Thuan and Nguyen Thi Hong (2018), “Controllability radii of linear neutral systems under structured perturbations”, International Journal of Control, vol. 91, pp. 145-155. \\
+4. Nguyen Khoa Son and Do Duc Thuan (2016), “Controllability radii of linear systems with constrained controls under structured perturbations”, SIAM Journal on Control and Optimization, vol. 54, pp. 2820-2843. \\
+5. Nguyen Thu Ha, Nguyen Huu Du and Do Duc Thuan (2016), “On data dependence of stability      domains, exponential stability and stability radii for implicit dynamic systems”, Mathematics of Control, Signals and Systems, vol. 28:13, pp. 1-28.  \\
+6. Do Duc Thuan, Nguyen Huu Du and Nguyen Chi Liem (2016), “Stabilizability and robust  stabilizability of implicit dynamic equations with constant coefficients on time scales”, IMA Journal of Mathematical Control and Information, vol. 33, pp. 121-136.\\
+7. Nguyen Khoa Son, Do Duc Thuan and Nguyen Thi Hong (2015), “Radius of approximate controllability of linear retarded systems under structured perturbations”, Systems and  Control Letters, vol. 84 , pp. 13-20.\\
+8. Volker Mehrmann and  Do Duc Thuan (2015), “Stability analysis of implicit difference equations under restricted perturbations”, SIAM Journal on Matrix Analysis and Applications, vol. 36, pp. 178-202.\\
+9. Nguyen Huu Du, Vu Hoang Linh, Volker Mehrmann and Do Duc Thuan (2013),  “Stability and robust stability of linear time-invariant delay differential-algebraic equations”, SIAM Journal on Matrix Analysis and Applications, vol. 34, pp. 1631-1654.\\
+10. Dinh Cong Huong (2018), “A fresh approach to the design of observers for time-delay systems”, Transactions of the Institute of Measurement and Control, 40(2) 477-503. \\
+11. Dinh Cong Huong and Mai VietThuan (2018), “Design of unknown input reduced-order observers for a class of nonlinear fractional-order time-delay systems”, International Journal of Adaptive Control and Signal Processing, 32(3) 412-423. \\
+12. Dinh Cong Huong and Mai VietThuan (2017), “State transformations of time-varying delay systems and their applications to state observer design”, Discrete and Continuous Dynamical Systems - Series S (DCDS-S), 10(3) 413-444. \\
+13.	Hieu Trinh, Dinh Cong Huong, Le Van Hien and Saeid Nahavandi (2017), “Design of reduced-order positive linear functional observers for positive time-delay systems”, IEEE Transactions on Circuits and Systems II: Express Briefs, 64 (5), 555-559.\\
+14.	Dinh Cong Huong and Hieu Trinh (2016), “New state transformations of time-delay systems with multiple delays and their applications to state observer design”, Journal of the Franklin Institute, 353 (14) 3487-3523. \\
+15.	Dinh Cong Huong and Hieu Trinh (2015), “Method for computing state transformations of time-delay systems”, IET Control Theory and Applications, 9(16), 2405-2413.\\
+16.	Dinh Cong Huong, Hieu Trinh, Hieu Manh Tran and Tyron Fernando (2014), “Approach to fault detection of time-delay systems using functional observers”, Electronics Letters, 50(16), 1132-1134.\\
+17.	Dinh Cong Huong, “Interval observers for linear functions of state vectors  of linear fractional-order systems with delayed input and delayed output”, (2018), International Journal of Adaptive Control and Signal Processing, DOI: 10.1002/acs.2963. \\
+18.	Dinh Cong Huong, “Design of functional interval observers for non-linear fractional-order systems, (2018), Asian Journal of Control, DOI: 10.1002/asjc.1984. \\
+19.	Dinh Cong Huong and Mai Viet Thuan, “On reduced-order linear functional interval observers for nonlinear uncertain time-delay systems with external unknown disturbances”, (2018), Circuits, Systems, and Signal Processing,  doi.org/10.1007/s00034-018-0951-0. \\
+20.	Hieu Trinh, Dinh Cong Huong and Saeid Nahavandi,  “Observers design for positive fractional-order interconnected time-delay Systems”, (2018), Transactions of the Institute of Measurement and Control, Doi: 10.1177/0142331218757864. \\
+21.	Hieu Trinh and Dinh Cong Huong (2018), “A new method for designing distributed reduced-order functional observers of interconnected time-delay systems”, Journal of the Franklin Institute 355, pp. 1411-1451, 2018. \\
+22.	Viktor Filimonovich Chistyakov and Ta Duy Phuong, “On Qualitative Properties of Differential-Algebraic Equations”, Mat. Zametki, 96 (2014), 596–608 (Mi mz9367) English version: Mathematical Notes, 2014, 96:4, 563–574.\\
+23.	Pham Huu Anh Ngoc, Thai Bao Tran and Cao Thanh Tinh (2018), “On stability of nonlinear neutral functional differential equations”, ESAIM: Control, Optimisation and Calculus of Variations, Vol. 24, No. 1, 89-104 , 2018. \\
+24.	Pham Huu Anh Ngoc, Thai Bao Tran, Cao Thanh Tinh and Nguyen Dinh Huy (2018), “Novel criteria for exponential stability of linear non-autonomous functional differential equations”, Journal of Systems Science and Complexity, onlinefirst, 1-17. \\
+25.	Cao Thanh Tinh (2018), “On exponential stability of linear non-autonomous functional differential equations with infinite delay”, IEEE Transactions on Automatic Control, submitted, 1-12.\\
+26.	Pham Huu Anh Ngoc and Cao Thanh Tinh (2016), “Explicit criteria for exponential stability of time-varying systems with infinite delay”, Mathematics of Control, Signals, and Systems, Vol. 28, 1-30.\\
+27.	Pham Huu Anh Ngoc and Cao Thanh Tinh (2014), “New criteria for exponential stability of linear time-varying differential systems with delay”, Taiwaneses Journal of Mathematics, Vol. 18, No. 6, 1759-1774.\\
+28.	Pham Huu Anh Ngoc and Le Trung Hieu (2013), “New criteria for  exponential stability of nonlinear difference systems with time-varying delay”, International Journal of Control, 86 (9), 1646-1651.  \\
+29.	Pham Huu Anh Ngoc and Le Trung Hieu (2015), “On exponential stability of nonlinear Volterra difference equations in phase spaces”, Mathematische Nachrichten, 288 (4), 443-451. \\
+30.	Le Trung Hieu (2016), “New criteria for global exponential stability of linear time-varying Volterra difference equations”, Mathematica Slovaca, 66 (6), 1345-1354.  \\
+31.	Pham Huu Anh Ngoc, Hieu Trinh, Le Trung Hieu and Nguyen Dinh Huy (2018), “On contraction of nonlinear difference equations with time-varying delays”, Mathematische Nachrichten. https://doi.org/10.1002/mana.201700167 \\ 
+
+ \hspace*{8cm}  \emph{Hà Nội, ngày 24 tháng 12 năm 2018}
+
+\hspace*{9cm}                                                                                    \textbf{Chủ nhiệm đề tài}\\
+\\
+\\
+
+
+\hspace*{8.0cm}                                                                               \textbf{GS. TSKH. Nguyễn  Khoa Sơn}\\
+\end{document}
+

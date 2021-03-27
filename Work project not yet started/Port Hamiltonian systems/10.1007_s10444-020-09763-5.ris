@@ -1,0 +1,17 @@
+TY  - JOUR
+AU  - Aliyev, Nicat
+AU  - Mehrmann, Volker
+AU  - Mengi, Emre
+PY  - 2020
+DA  - 2020/02/06
+TI  - Approximation of stability radii for large-scale dissipative Hamiltonian systems
+JO  - Advances in Computational Mathematics
+SP  - 6
+VL  - 46
+IS  - 1
+AB  - A linear time-invariant dissipative Hamiltonian (DH) system ẋ=(J−R)Qx$\dot x = (J-R)Q x$, with a skew-Hermitian J, a Hermitian positive semidefinite R, and a Hermitian positive definite Q, is always Lyapunov stable and under further weak conditions even asymptotically stable. By exploiting the characterizations from Mehl et al. (SIAM J. Matrix Anal. Appl. 37(4), 1625–1654, 2016), we focus on the estimation of two stability radii for large-scale DH systems, one with respect to non-Hermitian perturbations of R in the form R + BΔCH for given matrices B, C, and another with respect to Hermitian perturbations in the form R + BΔBH,Δ = ΔH. We propose subspace frameworks for both stability radii that converge at a superlinear rate in theory. The one for the non-Hermitian stability radius benefits from the DH structure-preserving model order reduction techniques, whereas for the Hermitian stability radius we derive subspaces yielding a Hermite interpolation property between the full and projected problems. With the proposed frameworks, we are able to estimate the two stability radii accurately and efficiently for large-scale systems which include a finite-element model of an industrial disk brake.
+SN  - 1572-9044
+UR  - https://doi.org/10.1007/s10444-020-09763-5
+DO  - 10.1007/s10444-020-09763-5
+ID  - Aliyev2020
+ER  - 

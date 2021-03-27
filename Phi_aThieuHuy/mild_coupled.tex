@@ -1,0 +1,40 @@
+To study the existence of a stable manifold, instead of the DAE \eqref{eq1}, we consider the coupled system \eqref{eq4.1a}-\eqref{eq4.1b} and the mild coupled-system which reads
+%
+\begin{equation}\label{mild equation}
+\m{y_1(t) \\ y_2(t)} = \hY(t,s) \m{y_1(s) \\ y_2(s)} + \ \int_{s}^{t} \hY(t,\tau) \m{\hf_1(\tau,y_1(\tau),y_2(\tau)) \\ 0} d\tau  \ + \m{0 \\ \hf_2(t,y_1(t),y_2(t))},
+\end{equation}
+for all $t\geq s \geq 0$.
+%
+Let  $(\hY(t,s))_{t\geq s\geq 0}$ has an exponential dichotomy with the corresponding projection matrices $\{\Py(t)\}_{t\geq 0}$  and the dichotomy constants $N,\nu>0$. Then, we can define the Green's function on the half-line as follows
+\begin{equation}\label{4.2}
+	G(t,\tau):=
+	\begin{cases}
+		\hY(t,\tau) P(\tau), \ \mbox{ for all } \ t\geq \tau\geq 0,\\
+		-\hY(t,\tau)[I-P(\tau)], \ \mbox{ for all } \ 0\leq t < \tau.
+	\end{cases}
+\end{equation}
+Thus, we have
+%
+\begin{equation}\label{4.3}
+	\|G(t,\tau)\|\leq Ne^{-\nu |t-\tau|}\hskip 1 cm \mbox{for all  } t\not=\tau\geq 0.
+\end{equation}
+%
+
+In the following lemma, we give the form of bounded solution to system \eqref{mild equation}
+%
+\begin{lemma}\label{lm4.3}
+	Let the evolution family  $(\hY(t,s))_{t\geq s\geq 0}$ has an exponential dichotomy with the corresponding projection matrices $\{\Py(t)\}_{t\geq 0}$  and the dichotomy constants $N,\nu>0$. Assume that Assumptions \ref{Ass4.1}, \ref{Ass4.2} hold true. Let $y(t)$ be any solution to \eqref{mild equation} such that $ess \sup_{t\geq t_0} \|y(t)\| \leq \rho$ for fixed $t_0 \geq 0$. Then, for  $t\geq t_0 \geq 0$, we can rewrite $y(t)$  in the form
+	\begin{equation}\label{4.4}
+		\m{y_1(t) \\ y_2(t)} = Y(t,t_0) v_0 + \int_{t_0}^{\infty} G(t,\tau) \m{\hf_1(\tau,y_1(\tau),y_2(\tau)) \\ 0} d\tau + \m{0 \\ \hf_2(t,y_1(t),y_2(t))},
+	\end{equation}
+	for some  $v_0\in \im \Py(t_0)$, where  $G(t,\tau)$  is the Green's function defined by equality  $\eqref{4.2}$.
+\end{lemma}
+\begin{proof}
+First observe that due to Assumption \ref{Ass4.1} and the definition of $\hf_2$, we have
+%
+\[
+\n{ \hf_2(t,x) - \hf_2(t,\tx) } \leq L \|x-\tx \| =  L \|y-\ty \| \leq L \|y_1-\ty_1\| + L \|y_2-\ty_2\|.
+\]
+% 
+Put $z_1(t) := \int_{t_0}^{\infty} G(t,\tau) \m{\hf_1(\tau,y_1(\tau),y_2(\tau)) \\ 0} d\tau + \m{0 \\ \hf_2(t,y_1(t),y_2(t))}$, we see that
+\end{proof}

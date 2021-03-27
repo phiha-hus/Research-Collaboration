@@ -1,0 +1,78 @@
+DAEs are nowadays pervasive in nonlinear circuit
+analysis and design, specially because of their appearance in nodal analysis
+methods used to set up network equations in circuit simulation programs
+[85, 87, 112–116, 194, 253, 292, 293]. The reader is referred to Chapters
+5 and 6 for extensive discussions of the role of DAEs in circuit modeling.
+
+[85] D. Est´evez-Schwarz, A step-by-step approach to compute a consistent initialization for the MNA, Internat. J. Circuit Theory Appl. 30 (2002) 1-16.
+[87] D. Est´evez-Schwarz and C. Tischendorf, Structural analysis of electric circuits and consequences for MNA, Internat. J. Circuit Theory Appl. 28
+(2000) 131-162.
+[112] M. G¨unther and U. Feldmann, The DAE-index in electric circuit simulation,
+Math. Comp. Simul. 39 (1995) 573-582.
+[113] M. G¨unther and U. Feldmann, CAD-based electric-circuit modeling in industry. I: Mathematical structure and index of network equations, Surv.
+Math. Ind. 8 (1999) 97-129.
+[114] M. G¨unther and U. Feldmann, CAD-based electric-circuit modeling in industry. II: Impact of circuit configurations and parameters, Surv. Math.
+Ind. 8 (1999) 131-157.
+[115] M. G¨unther and P. Rentrop, The differential-algebraic index concept in
+electric circuit simulation, Z. Angew. Math. Mech. 76 S. 1 (1996) 91-94.
+[116] M. G¨unther and P. Rentrop, Numerical simulation of electrical circuits,
+Mitt. Ges. Angew. Math. Mech 23 (2000) 51-77.
+[194] R. M¨arz, D. Est´evez-Schwarz, U. Feldmann, S. Sturtzel and C. Tischendorf,
+Finding beneficial DAE structures in circuit simulation, in W. J¨ager et al.
+(eds.), Mathematics - Key Technology for the Future, Springer, pp. 413-428,
+2003.
+[253] R. Riaza and J. Torres-Ram´ırez, Nonlinear circuit modeling via nodal
+methods, Internat. J. Circuit Theory Appl. 33 (2005) 281-305.
+[292] C. Tischendorf, Topological index calculation of DAEs in circuit simulation,
+Surv. Math. Ind. 8 (1999) 187-199.
+[293] C. Tischendorf, Coupled systems of differential algebraic and partial differential equations in circuit and device simulation. Modeling and numerical analysis, Habilitationsschrift, Inst. Math., Humboldt University, Berlin,
+2003.
+
+
+Regarding periodic DAEs and periodic
+solutions, several results concerning Floquet theory for DAEs can be
+found in [158, 159]; related aspects involving the analysis of nonlinear oscillations
+in semistate models of electrical circuits are addressed in [74].
+
+[74] A. Demir, Floquet theory and non-linear perturbation analysis for oscillators with differential-algebraic equations, Internat. J. Circuit Theory Appl.
+28 (2000) 163-185.
+[158] R. Lamour, R. M¨arz and R. Winkler, How Floquet theory applies to index
+1 differential algebraic equations, J. Math. Anal. Appl. 217 (1998) 372-394.
+[159] R. Lamour, R. M¨arz and R. Winkler, Stability of periodic solutions of
+index-2 differential algebraic equations, J. Math. Anal. Appl. 279 (2003)
+475-494.
+
+
+Qualitative features of nonlinear electrical circuits are often addressed via
+state models; see [60, 64, 65, 88, 103–105, 128, 201, 204, 286, 287] and
+references therein. Many results involving equilibria were established via
+state space formulations in the 1970s; a compilation of these results can be
+found in the survey paper [60]. As it happens in index analyses, qualitative
+properties of equilibria can be assessed in terms of the topology of the
+circuit and the electrical features of the devices. Topological aspects were
+already emphasized in [60, 64, 65].
+
+
+
+[60] L. O. Chua, Dynamic nonlinear networks: state-of-the-art, IEEE Trans.
+Circ. Sys. 27 (1980) 1059-1087.
+[64] L. O. Chua and D. N. Green, A qualitative analysis of the behavior of dynamic nonlinear networks: Stability of autonomous networks, IEEE Trans.
+Circ. Sys. 23 (1976) 355-379.
+[65] L. O. Chua and D. N. Green, Graph-theoretic properties of dynamic nonlinear networks, IEEE Trans. Circ. Sys. 23 (1976) 292-312.
+[88] M. Foss´eprez, Non-Linear Circuits: Qualitative Analysis of Non-Linear,
+Non-Reciprocal Circuits, John Wiley & Sons, 1992.
+[103] M. M. Green and A. N. Willson Jr, How to identify unstable dc operating
+points, IEEE Trans. Circ. Sys. I 39 (1992) 820-832.
+[105] M. M. Green and A. N. Willson Jr, An algorithm for identifying unstable
+operating points using SPICE, IEEE Trans. Comput. Aid. Des. Cir. Sys.
+14 (1995) 360-370.
+[128] M. Hasler and J. Neirynck, Nonlinear Circuits, Artech House, 1986.
+[201] T. Matsumoto, L. O. Chua and A. Makino, On the implications of
+capacitor-only cutsets and inductor-only loops in nonlinear networks, IEEE
+Trans. Circ. Sys. 26 (1979) 828-845.
+[204] A. I. Mees and L. O. Chua, The Hopf bifurcation theorem and its applications to nonlinear oscillations in circuits and systems, IEEE Trans. Circ.
+Sys. 26 (1979) 235-254.
+[286] M. Tadeusiewicz, A method for identification of asymptotically stable equilibrium points of a certain class of dynamic circuits, IEEE Trans. Circ. Sys.
+I 46 (1999) 1101-1109.
+[287] M. Tadeusiewicz, Global and local stability of circuits containing MOS
+transistors, IEEE Trans. Circ. Sys. I 48 (2001) 957-966.

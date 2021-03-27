@@ -1,0 +1,45 @@
+%============================================================================
+\subsection{Impulse controllability via acceleration feedback}\label{Sec3.3}
+
+For second order systems, one can consider different types of feedback (acceleration/velocity/displacement) separately, or mimic them together. In the pioneering work \cite{LosM08}, Loose and Mehrmann considered three types: position, velocity, position-velocity feedback; while recently Abdelaziz (\cite{Abd16}) considered displacement-accerleration feedback, and Zhu and Zhang (\cite{YuZ16}) considered the most general form \eqref{feedback}. In this section, we will not limit ourself to velocity/displacement feedback as in previous section, but study also the effectiveness of acceleration feedback.
+
+In order to in-cooperate accerleration feedback into the system \eqref{descriptor 2nd order discrete}, clearly we will need another condensed form, instead of using \eqref{condensed form 1}. This condensed form is given in the following theorem.
+
+\begin{theorem}\label{thm4.1} Consider the descriptor system \eqref{descriptor 2nd order discrete}. Then, there exist two orthogonal matrices $U$, $V$ such that the following identities hold.
+	%
+	\be\label{eq4.3}
+	U \m{M & D & K} \!=\!
+	\m{\tM_{1}  & \tD_{1}    & \tK_{1}     \\
+		0    & \tD_{2}    & \tK_{2}     \\
+		0    & 0          & \tK_{3}     \\  \hline \\[-.35cm]
+		\tM_{4}  & \tD_{4}    & \tK_{4}     \\
+		0    & \tD_{5}    & \tK_{5}     \\
+		0    & 0          & \tK_{6}     \\  \hline 
+		0    & 0          & 0}, 
+	\
+	U B V \!=\!
+	\m{ 0  & 0 			& \tB_{13}  & \tB_{14} \\
+		0  & 0 			& 0		    & \tB_{24} \\
+		0  & 0 			& 0		    & 0        \\	\hline \\[-.35cm]
+		0  &\tilde{\Si}_{2}   & \tB_{43}  & \tB_{44} \\
+		0  & 0      	& \tilde{\Si}_{1} & \tB_{54} \\ 
+		0  & 0     		& 0		    & \tilde{\Si}_{0}        \\ \hline
+		0  & 0     		& 0         & 0       	
+	}, \quad \pm{r_{2} \\ r_{1} \\ r_{0} \\ \vphi_{2} \\ \vphi_{1} \\ \vphi_{0} \\  v}
+	\ee
+	where sizes of the block rows are $r_{2},\ r_{1},\ r_{0},\ \vphi_{2},\ \vphi_{1},\ \vphi_{0},\  v$, the matrices $\sm{\tM_{1} \\ \tM_{4} }$, $\sm{ \tD_{2} \\ \tD_{5} }$, $\tK_{3}$ are of full row rank, and the matrices $\tilde{\Si}_{2}$, $\tilde{\Si}_{1}$, $\tilde{\Si}_{0}$ are nonsingular and diagonal.
+\end{theorem}
+\begin{proof}
+The proof can be obtained directly by using Lemma \ref{lem2.1}. The detailed proof will be left to the readers as a simple exercise.
+\end{proof}
+
+\begin{corollary}\label{coro3}
+Consider the desscriptor system \eqref{descriptor 2nd order discrete} and let two orthogonal matrices $U$, $V$ be such that \eqref{condensed form 1} holds. Then, the following assertions hold true.
+%
+\begin{enumerate}
+	\item[i)] System \eqref{descriptor 2nd order discrete} is I-controllable via displacement feedback if and only if in \eqref{condensed form 1}, we have $v=0$ and the matrix $\m{M^T_1 & M^T_4 & D^T_2 & D^T_5 & K^T_3}^T$ is of full row rank. 
+	\item[ii)] System \eqref{descriptor 2nd order discrete} is I-controllable via displacement-velocity feedback if and only if in \eqref{condensed form 1}, $v=0$ and the matrix $\m{M^T_1 & M^T_4 & D^T_2 & K^T_3}^T$ is of full row rank. 
+	\item[iii)] System \eqref{descriptor 2nd order discrete} is I-controllable via d-v-a feedback if and only if $v=0$ and the matrix $\m{M^T_1 & D^T_2 & K^T_3}^T$ is of full row rank. 
+\end{enumerate}
+%
+\end{corollary}

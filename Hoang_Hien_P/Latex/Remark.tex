@@ -1,0 +1,139 @@
+%!TEX TS-program = pdflatex
+\documentclass{phiha-review}
+\usepackage{amsmath,amssymb,amsthm}
+
+\usepackage[sort&compress]{natbib}
+
+\usepackage[utf8]{inputenc}
+\usepackage[vietnamese]{babel}
+\usepackage{graphicx}
+
+\usepackage[a4paper, total={6.4in, 9in}]{geometry}
+\usepackage{lipsum}
+
+\RequirePackage{fix-cm} % arbitrary font scaling
+\DeclareMathSizes{10}{10}{7}{3}
+
+
+\newtheorem{theorem}{Theorem}[section]
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+%%% Useful abbreviations %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\cal{\mathcal}
+\def \ud{\underline }
+\def\id{{\indent }}
+\def\f{\frac}
+\def\non{{\noindent}}
+\def\leq{\leqslant} 
+\def\rar{\rightarrow}
+\def\Rar{\Rightarrow}
+\def\ti{\times}
+\def\r{\hro{R}}
+\def\e{\cal{E}}
+\def\de{\delta}
+\def\ep{\varepsilon}
+\def\Ep{\epsilon}
+\def\De{\Delta}
+\def\ift{\infty}
+\def\hro{\mathbb}
+\def\ho{\mathcal}
+\def\E{\mathcal{E}}
+\def\A{\mathcal{A}}
+\def\N{\mathbb{N}}
+\def\vk{\vskip 0.2cm}
+\def\con{\subset}
+\def\Con{\subseteq}
+\def\td{\Leftrightarrow}
+\def\df{\frac}
+\def\to{\mapsto}
+\def\om{\omega}
+\def\a{\alpha}
+\def\hA{\hat{A}}
+\def\tA{\tilde{A}}
+\def\dA{\delta A}
+\def\lb{\lambda}
+\def\to{\mapsto}
+\def\a{\alpha}
+\def\b{\beta}
+\def\ga{\gamma}
+\def\Ga{\Gamma}
+\def\Si{\Sigma}
+\def\dA{\delta A}
+\def\lb{\lambda}
+\def\Lb{\Lambda}
+\def\tE{\tilde{E}} 
+\def\tA{\tilde{A}} 
+\def\tB{\tilde{B}}
+\def\tM{\tilde{M}}  
+\def\tb{\bar{t}}
+\def\ub{\bar{u}} 
+\def\taub{\bar{\tau}} 
+\def\hE{\hat{E}}
+\def\hB{\hat{B}}
+\def\hP{\hat{P}}
+\def\hQ{\hat{Q}}
+\def\DD{\mathbb{D}}
+\def\tf{\tilde{f}}
+\def\tx{\tilde{x}}
+\def\I{\mathbb{I}}
+\def\A{\cal{A}}
+\def\B{\cal{B}}
+\def\C{\cal{C}}
+\def\D{\cal{D}}
+\def\F{\cal{F}}
+\def\R{\cal{R}}
+\def\K{\cal{K}}
+\def\M{\cal{M}}
+\def\P{\cal{P}}
+\def\Q{\cal{Q}}
+\def\NN{\cal{N}}
+\def\vco{\vartheta}
+\def\tPhi{\tilde{\Phi}}
+
+\newcommand{\m}[1]{
+	\begin{bmatrix}
+		#1 
+	\end{bmatrix}
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% {Author}{Email}{Date}
+\footer{Dr. Phi Ha}{haphi@hus.edu.vn}{\today}
+% {Paper Title}
+\header{Example 2: triggering}
+
+\begin{document}
+
+% \lipsum
+
+\begin{remark}
+We notice that the presented theory above could not be trivially extended for high-index descriptor systems. To illustrate difficulties that could be arisen due to the high-index, we consider a system in Hessenberg form
+%
+\begin{equation}\label{eq6}
+\begin{split}
+\dot{x}_1(t) &= A_1 x_1 + A_2 x_2 + B_1 u, \\
+0 &= A_3 x_1 + B_2 u, 
+\end{split}
+\end{equation}
+%
+where $A_3 A_2$ is nonsingular. This assumption implies that the DAE \eqref{eq6} has index two. Applying triggered feedback law $u(t) = u(t_k) = K x(t_k)$ for all $t \in [t_k,t_{k+1})$, we express the evolution of the closed-loop system on this interval by
+the resulting system
+%
+\begin{equation}\label{eq7}
+\begin{split}
+\dot{x}_1(t) &= (A_1 + B_1 K_1) x_1 + (A_2 + B_1 K_2) x_2 + B_1 K_1 e_1(t)+ B_1 K_2 e_2(t), \\
+0 &= (A_3 + B_2 K_1) x_1 + B_2 K_2 x_2 +  B_2  K_1 e_1(t)+  B_2  K_2 e_2(t). 
+\end{split}
+\end{equation}
+%
+We want to find a matrix K, and a event-triggered condition which generate triggering times $\{t_k\}_{k\in \N}$ such that system \eqref{eq7} 
+is positive and stable. Furthermore, from the computational viewpoint, we also want to achieve a closed loop system of index 1.
+Due to Lemma 2.6, we know that system \eqref{eq7} is positive if and only if $B_2 K_2$ is Hurwitz and $BK = \m{B_1 K_1 &  B_1 K_2 \\ B_2  K_1 & B_2  K_2} \succeq 0$. Furthermore, \eqref{eq7} is of index 1 if and only if $B_2 K_2$ is nonsingular. These conditions will strictly restrict the domain of applicable systems. 
+Otherwise, one need to study positivity of index 2 system. This, however, is an open problem and will be discussed in upcoming research.
+\end{remark}
+
+
+\end{document}

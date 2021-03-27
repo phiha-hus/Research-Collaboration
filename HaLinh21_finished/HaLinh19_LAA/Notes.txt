@@ -1,0 +1,6 @@
+New def of shift index - suggested by Prof Linh
+
+Definition 3 Suppose that the descriptor system (1.1) satisfies Assumption 5.
+The minimum number \ell such that by using elementary matrix's row operations,
+a strangeness-free descriptor system of the form (3.5) can be extracted from (4.1) (the inflated system of order 2 \ell)
+is called the shift-index of (1.1), and be denoted by \nu.

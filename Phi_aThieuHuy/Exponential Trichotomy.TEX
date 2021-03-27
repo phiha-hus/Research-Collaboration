@@ -1,0 +1,848 @@
+\documentclass[12pt,reqno]{amsart}
+\usepackage{amsmath,amssymb,amsfonts,amsthm}
+
+
+\textwidth=16.5cm
+\textheight=23cm
+\oddsidemargin=0cm
+\evensidemargin=0cm
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{xca}[theorem]{Exercise}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\renewcommand{\labelenumi}{\roman{enumi})}
+\numberwithin{equation}{section}
+
+%font\name=cmr8
+\begin{document}
+\def\cal{\mathcal}
+%\pagestyle{plain}
+\def \ud{\underline }
+\def\id{{\indent }}
+\def\f{\frac}
+\def\non{{\noindent}}
+ \def\le{\leqslant} 
+ \def\leq{\leqslant} 
+\def\rar{\rightarrow}
+\def\Rar{\Rightarrow}
+\def\ti{\times}
+\def\si{\sigma}
+\def\Ga{\Gamma}
+\def\ga{\gamma}
+\def\ld{{\lambda}}
+\def\Si{\Psi}
+\def\f{\mathbf F}
+\def\r{\hro{R}}
+\def\e{\cal{E}}
+\def\B{\cal B}
+\def\bb{\mathfrak{B}}
+\def\v{\mathbf V}
+\def\w{\mathbf W}
+\def\G{\cal G}
+\def\a{\alpha}
+\def\b{\beta}
+\def\p{\varphi}
+\def\ro{\rho}
+\def\P{\varPhi}
+\def\de{\delta}
+\def\ep{\varepsilon}
+\def\Ep{\epsilon}
+\def\De{\Delta}
+\def\sm{\sigma}
+\def\lb{\lambda}
+\def\Lb{\Lambda}
+\def\om{\omega}
+\def\Om{\Omega}
+\def\ift{\infty}
+\def\tet{\theta}
+\def\Tet{\Theta}
+\def\hro{\mathbb}
+\def\ho{\mathcal}
+\def\E{\mathcal{E}}
+\def\n{\mathbb{N}}
+\def\A{A\si({B})}
+\def\AT {A\si(T_{0\tet})}
+\def\dam{\textbf{X} }
+\def\dM{\textbf{M} }
+\def\vk{\vskip 0.2cm}
+\def\con{\subset}
+\def\Con{\subseteq}
+\def\td{\Leftrightarrow}
+\def\df{\frac}
+\def\to{\mapsto}
+%\thispagestyle{empty}
+\def\l{\mathcal{L}}
+\def\C+{C_+([t_0,\infty))}
+\def\Ton{\underset{k=0}{\overset{n-1}{\sum}}}
+\def\ton{\underset{k=0}{\overset{\infty}{\sum}}}
+\def\tong{\underset{k=1}{\overset{\infty}{\sum}}}
+\def\To{\underset{k=1}{\overset{n}{\sum}}}
+\def\Tr{\underset{k=n+2}{\overset{\infty}{\sum}}}
+
+
+
+\title[EXPONENTIAL TRICHOTOMY AND CENTER-STABLE MANIFOLD]{EXPONENTIAL TRICHOTOMY AND CENTER-STABLE MANIFOLD FOR SEMILINEAR EVOLUTION EQUATION ON THE HALF-LINE}
+
+
+\author[N.T. Huy]{Nguyen Thieu Huy}
+\address{Nguyen Thieu Huy, Department of Applied Mathematics and Informatics,
+Ha Noi University of Technology,
+Khoa Toan-Tin ung dung, Dai hoc Bach khoa Ha Noi,
+1 Dai Co Viet, Hanoi, Vietnam}
+\email{huynguyen@mail.hut.edu.vn}
+
+
+\author[H. Phi]{Ha Phi}
+\address{Ha Phi,  Department of Mathematics, Hanoi University of Education,
+Khoa Toan-Tin, Dai Hoc Su Pham Ha Noi,
+136 Xuan Thuy St., Hanoi, Vietnam}
+\email{hpdhsp@yahoo.com}
+
+
+\begin{abstract} 
+In this paper we investigate the exixtence and attractivity of a center-stable manifold when the linear part of a given semilinear evolution equation has an exponential trichotomy on the half-line and the nonlinear forcing term satisfies the  $\p$-Lipschitz condition.Our main method is based on the "Lyapunov-Perron method" and the admissibility of function spaces. It allows us to extends related results known for evolution equation on the whole line.
+%\break \hskip 2cm
+ \end{abstract}
+\keywords{Exponential trichotomy, semilinear evolution equation, integral equation, admissibility of function spaces, stable manifold, center-stable manifold.}
+\maketitle
+
+
+%\baselineskip= .6cm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \section{INTRODUCTION AND PRELIMINARIES} \label{section 1}
+Consider the semilinear evolution equation on the half-line in the form
+\begin{equation}\label{pt1}
+\df{dx}{dt}=A(t)x+f(t,x(t)),\hskip 1cm t\in [0,+\ift),x\in \dam,
+\end{equation}
+where $A(t)$ is a (possibly unbounded) linear operator acting in a Banach space \dam and $f(.,.):\hro{R}\ti\dam \rar \dam$ is a nonliner operator.\\
+When the exponential dichotomy (trichotomy) of the linear part in the equation $(\ref{pt1})$ is characterized on  $\hro{R_+}$  or  $\hro{R}$,  it is natural to study the condition for the existence of some invariant manifolds (e.g., stable, unstable, center, center-stable, center-unstable). In the case whole line, for more information, we refer the readers to [1, 2, 7, 8, 9, 16, 19, 26] and references therein.\\
+This paper contains our first attempt to establish the center-stable manifold when the linear part of equation $\eqref{pt1}$ has an exponential trichotomy on the half-line. Our method is based on the "Lyapunov-Perron method" and the admissibility of function spaces. To our best knowledge, we refer the readers to [4, 8, 10, 11, 14, 22] and references therein. This setting is particularly appropriate in infinite dimensional case since in this case the evolution family associated with the linear part of equation $\eqref{pt1}$ can not be extended to the whole line in order to the property of having an exponential trichotomy is still preserved. Let us outline the structure of this paper. In the first section we recall some basis concepts which will be used later. In the section 2, we consider the admissibility of function spaces and some properties of them. It will play an important role in our strategy. The next section contains our first main result in the case the evolution has an exponential dichotomy. Finally, in the last section we give our main result in general case and some illustrations. We now recall some notions.\\ 
+\begin{definition}\label{def1}
+A family of operators  $\{U(t,s)\}_{t\geq s\geq 0}$\quad  acting on a Banach space \dam  is a (strongly continuous, exponential bounded) evolution family if
+\begin{enumerate}
+\item[(i)]   $U(t,t)=Id$ and $U(t,r)U(r,s)=U(t,s)$  for  all  $t\geq r\geq s\geq 0$, 
+\item[(ii)] The map $(t,s)\mapsto U(t,s)x$ is continuous for every $x\in\dam$,
+\item[(iii)]  $\|U(t,s)x\|\leq Ke^{c(t-s)}\|x\|$  for  all   $t\geq s\geq 0$
+       and  $x\in\dam$,  for some constants  $K,c.$
+\end{enumerate}
+\end{definition}
+\vskip 0.2cm
+The notion of an evolution family aries naturally from the theory of evolution  equation which are well-posed. Meanwhile, if the abstract Cauchy problem
+\begin{eqnarray*}\label{pt2}
+\df{du(t)}{dt}=A(t)u(t),\hskip 1cm t\geq s\geq 0,\\
+u(s)=x_s \in \dam,
+\end{eqnarray*}
+is well-posed, there exists an evolution family  $\textbf{U}=(U(t,s))_{t\geq s\geq 0}$  such that the solution of $\eqref{pt2}$  is given by  $u(t)=U(t,s)u(s).$
+ For more details on the notion and some problems focus on properties and applications of evolution family we refer the readers to Pazy \cite {Paz}. For a given evolution family, we have a concept of an exponential trichotomy on the half-line.\\
+\begin{definition}\label{def2}
+A given evolution family $(U(t,s))_{t\geq s\geq 0}$ is said to have an   exponential trichotomy  on the half-line if there are three families of projections  $(P_j(t))_{t\geq 0}, j=1, 2, 3,$  positive constants  $N,\a,\b$  with  $\a<\b$  such that the following conditions are satisfied:
+\begin{enumerate}
+\item[(i)]  $\sup \|P_j(t)\|<\ift, j=1, 2, 3,$\\
+\item[(ii)] $P_1(t)+P_2(t)+P_3(t)=Id$, for all  $t\in \hro{R_+}, P_j(t)P_i(t)=0$, for all  $j\not= i,$\\
+\item[(iii)] $P_j(t)U(t,s)=U(t,s)P_j(s)$,  for all  $t\geq s\geq 0, j=1, 2, 3,$\\
+\item[(iv)] $U(t,s)_{|Im P_j(s)}$  are homeomorphism from  $Im P_j(s)$  to $Im P_j(t)$,  for all  $t\geq s\geq 0, j=2, 3$, respectively, and we denote the inverse  of $U(s,t)_{\mid Im P_2(t)},$ 
+\item[(v)] The following estimates holds:\\
+\begin{eqnarray*}
+\|U(t,s)P_1(s)x\|&\leq Ne^{-\b(t-s)}\|P_1(s)x\|,\\
+\|U(s,t)_\mid P_2(t)x\|&\leq Ne^{-\b(t-s)}\|P_2(t)x\|,\\
+\|U(t,s)P_3(s)x\|&\leq Ne^{\a(t-s)}\|P_3(s)x\|,\\
+\mbox{for all}  &t\geq s\geq 0, x\in \dam.
+\end{eqnarray*}
+\end{enumerate}
+\end{definition}
+The evolution family is said to have an  exponential dichotomy if the family of projections  $P_3(t)$  is trivial, i.e., $P_3(t)=0$,  for all  $t\geq 0.$
+%\baselineskip= .6cm
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \section{Function Spaces and Admissibility} \label{section 2}
+
+We recall some notions of function spaces and admissibility. 
+We refer the readers to Massera and Sch\"affer \cite[Chapt. 2]{MaSc} for wide
+classes of function spaces that play a fundamental role throughout the study of
+differential equations in the case of bounded coefficients $A(t)$ (see also
+R\"abiger and Schnaubelt \cite[\S 1]{RaSc} for some classes of admissible Banach function spaces of functions defined on the whole line $\hro{R}$).
+
+\medskip
+Denote by $\B$ the Borel algebra and by $\lambda$ the Lebesgue measure on $\hro{R}_+$.
+As already known, the set of  real-valued Borel-measurable functions 
+on $\hro{R}_+$ (modulo 
+$\lambda-$nullfunctions) that are integrable on every compact subinterval
+$J\subset\hro{R}_+$ becomes, with the topology of convergence in the mean on every 
+such $J$, a locally convex topological vector space, which we denote by
+$L_{1, loc}(\hro{R}_+)$. A set of seminorms defining the topology of 
+$L_{1, loc}(\hro{R}_+)$ is given by 
+$p_n(f):=\int_{J_n}|f(t)|dt,\ n\in \n,$ where 
+$\{J_n\}_{n\in \n}=\{[n,n+1]\}_{n\in \n}$ is a countable set 
+of abutting compact intervals whose union is $\hro{R}_+$. With this set of seminorms
+one can see (see \cite[Chapt. 2, \S 20]{MaSc}) that  $L_{1, loc}(\hro{R}_+)$
+is a Fr\'echet space.
+
+Let $V$ be a normed space (with norm $\|\cdot\|_V$) and $W$ be a locally convex Hausdorff topological
+vector space. Then, we say that $V$ is {\it stronger than} $W$ 
+if $V\subseteq W$ and the indentity map from $V$ into $W$ is continuous.
+The latter condition is
+equivalent to the fact that for each continuous seminorm
+$\pi$ of $W$ there exists a number $\beta_\pi> 0$ such that
+$\pi(x)\le \beta_\pi\|x\|_V\hbox{ for all } x\in V$. 
+We write $V\hookrightarrow W$ to indicate that $V$ is stronger than $W$. 
+If, in particular, $W$ is also a normed space (with norm $\|\cdot\|_W$) then the
+relation  $V\hookrightarrow W$ is equivalent to the fact that
+$V\subseteq W$ and there is a number $\alpha>0$ such that 
+$\|x\|_W\le \alpha\|x\|_V\hbox{ for all } x\in V$  (see \cite[Chapt. 2]{MaSc}
+for detailed discussions on this matter).
+ 
+We can now define Banach function spaces as follows.
+\begin{definition}\label{defE}
+A vector space $E$ of real-valued Borel-measurable functions on $\hro{R}_+$ (modulo 
+$\lambda-$nullfunctions) is called 
+{\it a Banach function space} (over  $(\hro{R}_+,\b,\lambda)$ if 
+\begin{enumerate}
+\item[1)] $E$ is Banach lattice with respect to a norm $\|\cdot\|_{E}$, i.e.,
+$(E,\|\cdot\|_{E})$ is a Banach space, and if   $\varphi\in E$ and 
+$\psi$ is a real-valued Borel-measurable function such that
+$|\psi(\cdot)|\le |\varphi(\cdot)| \ \lambda -$a.e., 
+ then $\psi\in E$ and $\|\psi\|_E\le \|\varphi\|_E$,
+\item[2)] the characteristic functions $\chi_A$ belong to $E$ for all $A\in \B$
+of finite measure, and $\sup_{t\ge 0}\|\chi_{[t,t+1]}\|_E<\infty$ and 
+$\inf_{t\ge 0}\|\chi_{[t,t+1]}\|_E>0$,
+\item[3)] $E\hookrightarrow L_{1, loc}(\hro{R}_+)$. 
+%each $\varphi\in E$ is locally integrable (in other word, $E\subset 
+%L_{1, loc}(\r_+)$), i.e.
+%$\int_A|\varphi|d\lambda<\infty$ for all $A\in \B$
+%of finite measure. 
+\end{enumerate}
+\end{definition}
+
+For a Banach function space $E$ we remark that the condition 
+(3) in the above definition means that for each compact interval $J\subset \hro{R}_+$
+there exists a number $\beta_J\ge 0$ such that
+$\int_{J}|f(t)|dt\le\beta_J\|f\|_E$ for all $f\in E$.
+
+We state the following trivial lemma which will be frequently used 
+  in our strategy.
+ \begin{lemma}\label{tri}
+ Let $E$ be a Banach function space. Let $\varphi$ and $\psi$
+ be real-valued, measurable functions on $\hro{R}_+$ such that they coincide with each other
+ outside a compact interval and they are essentially bounded  
+ (in particular, continuous) on this compact
+ interval. Then  $\varphi\in E$ if and only if $\psi\in E$.
+ \end{lemma}
+
+ We then define  Banach spaces of vector-valued functions corresponding to Banach function spaces as follows.
+ \begin{definition}\label{defehoa}
+Let $E$ be a Banach function space and $X$ be a Banach space endowed with 
+the norm $\|\cdot\|$. We set
+$$\e:=\e(\r_+,X):=\{f:\r_+\to X: f\hbox{ is strongly measurable and }\|f(\cdot)\|\in E\}$$
+(modullo $\lambda-$nullfunctions) endowed with the norm
+$$\|f\|_\e:=\|\|f(\cdot)\|\|_E.$$
+One can easily see that $\e$ is a Banach space. We call it {\it the Banach space
+corresponding to the Banach function space $E$.} 
+\end{definition}
+We now introduce the notion of admissibility in the following definition. 
+\begin{definition}\label{defE1}
+ The Banach function space $E$ is called admissible if it satisfies 
+ \begin{enumerate}
+  \item there is a constant $M\ge 1$ such that
+for every compact interval $ [a,b]\in \r_+$ we have
+\begin{equation}\label{embed}
+\int_a^b|\varphi(t)|dt\le 
+\frac{M(b-a)}{\|\chi_{[a,b]}\|_E}\|\varphi\|_E\hbox{ for all }
+\varphi\in E,
+\end{equation}
+  \item for $\varphi\in E$ the function $\Lambda_1\varphi$ defined by
+  $\Lambda_1\varphi(t):=
+ \int_t^{t+1}\varphi(\tau)d\tau$ belongs to $E$.
+ \item $E$ is $T^+_\tau$-invariant and $T^-_\tau$-invariant , where $T^+_\tau$ 
+ and $T^-_\tau$ are defined, for  $\tau\in \r_+$, by
+ \begin{equation}
+ \begin{split}
+ T^+_\tau\varphi(t)&:=\begin{cases} \varphi(t-\tau) &\hbox{ for } t\ge \tau\ge 0\cr
+ 0&\hbox{ for } 0\le t\le\tau,
+ \end{cases}\cr
+ T^-_\tau\varphi(t)&:=\varphi(t+\tau)\hbox{ for } t\ge  0.
+ \end{split}\end{equation}
+  Moreover, there are constants $N_1$, $N_2$
+  such that $\|T^+_\tau\|_E\le N_1,\;
+  \|T^-_\tau\|_E\le N_2$
+   for all
+  $\tau\in \r_+$.
+ \end{enumerate}
+ \end{definition}
+ \begin{example}{\rm Besides the spaces
+$L_p(\r_+),\ 1\le p\le \infty$, and the space   
+$${\mathbf M}(\r_+):=\{f\in L_{1, loc}(\r_+):
+\sup_{t\ge 0}\int_t^{t+1}|f(\tau)|d\tau<\infty\}$$ endowed with 
+the norm $\|f\|_{\mathbf M}:=\sup_{t\ge 0}\int_t^{t+1}|f(\tau)|d\tau$,
+many other function spaces occuring in interpolation theory, e.g. the Lorentz spaces
+ $ L_{p,q},\ 1<p<\infty,\ 1\le q<\infty$ (see \cite[Thm. 3 and p. 284]{Ca},
+ \cite[1.18.6, 1.19.3]{Tr}) and, more general, the class of rearrangement invariant
+ function spaces over $(\r_+,\b,\lambda)$ (see \cite[2.a]{LiTi}) are admissible.
+}\end{example}
+\begin{remark}\label{2.4}{\rm
+If $E$ is an admissible Banach function space then
+$E\hookrightarrow {\mathbf M}(\r_+)$. Indeed, put
+$\beta:=\inf_{t\ge 0}\|\chi_{[t,t+1]}\|_E>0$ (by definition \ref{defE} (2)).
+Then, from definition \ref{defE1} (i) we
+derive 
+\begin{equation}\label{InM}
+\int_t^{t+1}|\varphi(\tau)|d\tau\le 
+\frac{M}{\beta}\|\varphi\|_E\hbox{ for all }t\ge 0
+\hbox{ and }
+\varphi\in E.
+\end{equation}
+Therefore, if $\varphi\in E$ then $\varphi\in {\mathbf M}(\r_+)$ and 
+ $\|\varphi\|_{\mathbf M}\le \frac{M}{\beta}\|\varphi\|_E$. We thus obtain
+ $E\hookrightarrow \mathbf M(\r_+)$.}
+ \end{remark}
+ 
+ We now collect some properties of 
+ %One of interesting properties of
+   admissible Banach function spaces in the following proposition (see \cite[Proposition 2.6]{Hu3}  and originally in \cite[23.V.(1)]{MaSc}).
+   % is that they contain 
+ %convolution of exponential functions with functions in Banach function spaces
+ %themself.
+ \begin{proposition}\label{tolstui}
+  Let $E$ be an admissible Banach function space. Then the
+  following assertions hold.
+   \begin{enumerate} 
+   \item[(a)]
+ Let $\varphi\in L_{1,loc}(\r_+)$ such that $\varphi\ge 0$ and
+ $\Lambda_1\varphi\in E$, where, $\Lambda_1$ is defined as in definition
+ \ref{defE1} (ii). For   $\sigma>0$ we define functions $\Lambda'_\sigma\varphi$ and 
+ $\Lambda''_\sigma\varphi$ by
+  \begin{equation*}\begin{split}
+ \Lambda'_\sigma\varphi (t)&:=\int_0^te^{-\sigma(t-s)}\varphi(s)ds,\cr
+ \Lambda''_\sigma\varphi (t)&:=\int_t^\infty e^{-\sigma(s-t)}\varphi(s)ds.
+ \end{split}
+ \end{equation*}
+ Then,
+  $\Lambda'_\sigma\varphi$ and $\Lambda''_\sigma\varphi$ 
+  belong to $E$. In particular, if $\sup_{t\ge
+  0}\int_t^{t+1}\varphi(\tau)d\tau<\infty$ (this will be satisfied 
+   if $ \varphi\in E$ (see remark \ref{2.4}))
+  then  $\Lambda'_\sigma\varphi $ and $\Lambda''_\sigma\varphi$ are bounded.
+Moreover, denoted by $\|\cdot\|_\infty$ for $ess\sup$-norm, we have
+\begin{equation}\label{cail}
+\|\Lambda'_\sigma\varphi\|_\infty\le
+ \frac{N_1}{1-e^{-\sigma}}\|\Lambda_1T^+_1\varphi\|_\infty\hbox{\quad and\quad }
+ \|\Lambda''_\sigma\varphi\|_\infty\le
+ \frac{N_2}{1-e^{-\sigma}}\|\Lambda_1\varphi\|_\infty
+\end{equation}  
+for operator $T^+_1$ and constants $N_1$, $N_2$  defined as in definition \ref{defE1}.
+ \item[(b)] $E$ contains exponentially decaying functions
+  $\psi(t)=e^{-\alpha t}$ for $t\ge 0$ and any fixed constant $\alpha>0$.
+ \item[(c)] $E$ does not contain exponentially growing
+ functions $f(t):=e^{bt}$ for $t\ge 0$ and any fixed constant $ b>0$.
+\end{enumerate}
+ \end{proposition}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \section{The case of Exponential Dichotomy} \label{section3}
+This section is a preparatory step for our general result in the next section. Throughout this section we assume that the evolution family  $(U(t,s))_{t\geq s\geq 0}$ has an exponential dichotomy on $\hro{R_+}$. To obtain the stable manifold we need the following property of the nonlinear term $f$ as be shown in the notion below. \\
+\begin{definition}\label{def3.1}
+Let $E$ be an admissible Banach function space and $\p$ be a positive function belongs to $E$. A function $f:\hro{R_+}\ti \dam\rar\dam $  is said to be  $\p$-Lipschitz if $f$  stisfies\\
+\begin{enumerate}
+\item[(i)]$\|f(t,0)\|=0$\hskip 1cm  for a.e.  $t\in\hro{R_+}$,\\
+\item[(ii)]$\|f(t,x_1)-f(t,x_2)\|\leq \p(t)\|x_1-x_2\|$\hskip 1cm for a.e. $t\in\hro{R_+}$, for all  $x_1, x_2\in \dam.$
+\end{enumerate}
+\end{definition}
+We now give the definition of a stable manifold for the solutions of the integral equation
+\begin{equation}\label{pt3.1}
+x(t)=U(t,s)x(s)+\int_s^tU(t,\xi)f(\xi,x(\xi))d\xi,\hskip 0.5cm \mbox{for a.e.}\hskip 0.5cm t\geq s\geq 0.
+\end{equation}
+\begin{definition}\label{def3.2}
+A set $\dM\con \hro{R_+}\ti\dam$  is said to be an invariant stable manifold for the solutions of equation $\eqref{pt3.1}$  if for every $t\in\hro{R_+}$  the phase spaces $\dam$ splits into a direct sum  $\dam=\dam_0(t)\oplus \dam_1(t)$  such that
+\begin{equation*}
+\inf_{t\in\hro{R_+}}Sn(\dam_0(t),\dam_1(t)):=\inf_{t\in\hro{R_+}}\inf_{x_i\in\dam_i(t),\|x_i\|=1
+, i=0,1}\|x_0+x_1\|>0,
+\end{equation*}
+ and if there exists a family of Lipschitz continuous mappings
+\begin{equation*}
+g_t:\dam_0(t)\rar\dam_1(t), \hskip 1cm t\in\hro{R_+},
+\end{equation*}
+with the Lipschitz constants independent of  $t$ such that
+\begin{enumerate}
+ \item[(i)]$\dM=\{(t,x + g_t(x))\in\hro{R_+}\ti(\dam_0(t)\oplus\dam_1(t))\mid x\in\dam_0(t)\}$, and we denote by $\dM_t:=\{ x+g_t(x)\mid (t,x+g_t(x))\in \dM$,
+\item[(ii)]$\dM_t$  is homeomorphic to $\dam_0(t)$  for all $t\geq 0$,
+\item[(iii)] to each $x_0\in\dM_{t_0}$  there corresponds one and only one solution  $x(t)$  of equation $\eqref{pt3.1}$  satisfying the conditions  $x(t_0)=x_0$  and  $ess\sup_{t\geq t_0}\|x(t)\|<\ift$,
+\item[(iv)]$\dM$  is invariant under the equation $\eqref{pt3.1}$ in the sense that, if $x(.)$ is a solution of equation $\eqref{pt3.1}$, and $ess\sup_{t\geq t_0}\|x(t)\|<\ift$, then $x(s)\in \dM_s$
+  for all  $s\geq t_0.$
+\end{enumerate}
+\end{definition}
+{\bf Notes.}  if we identify $\dam_0(t)\oplus\dam_1(t)$  with  $\dam_0(t)\ti\dam_1(t)$  then we can write $\dM_t=graph(g_t)$.\\ 
+Let  $(U(t,s))_{t\geq s\geq 0}$ has an exponential dichotomy with the corresponding projection $P(t),t\geq 0$  and the dichotomy constants $N,\nu>0$. Then, we can define the Green's function on the half-line as follows
+\begin{equation}\label{3.2}
+G(t,\tau):=
+\begin{cases}
+P(t)U(t,\tau)\hskip 1 cm \mbox{for}\hskip 0.5 cm t\geq \tau\geq 0,\\
+-U(t,\tau)[I-P(\tau)]\hskip 1 cm \mbox{for}\hskip 0.5 cm  0\leq t< \tau.
+\end{cases}
+\end{equation}
+Thus, we have
+\begin{equation}\label{3.3}
+\|G(t,\tau)\|\leq Ne^{-\nu |t-\tau|}\hskip 1 cm \mbox{for all  } t\not=\tau\geq 0.
+\end{equation}
+ Next we recall some related results which is taken from \cite{Hu4}. Among them, the Theorem \eqref{3.6} will be useful in the next section.
+\begin{lemma}\label{lm3.3}
+Let the evolution family  $(U(t,s))_{t\geq s\geq 0}$ has an exponential dichotomy with the corresponding projection $P(t),t\geq 0$  and the dichotomy constants $N,\nu>0$. Suppose that  $\p$  is the positive function which belongs to $E$. Let  $f:\hro{R_+}\ti \dam\rar\dam $  be  $\p$-Lipschitz. Then, for  $t\geq t_0$, we can rewritten $x(t)$  in the form
+\begin{equation}\label{3.4}
+x(t)=U(t,t_0)v_0+\int_{t_0}^{\ift}G(t,\tau)f(\tau,x(\tau))d\tau
+\end{equation}
+for some  $v_0\in\dam_0(t)=P(t_0)\dam$, where  $G(t,\tau)$  is the Green's function defined by equality  $\eqref{3.2}$.
+\end{lemma}
+\begin{remark}\label{rm3.4}
+By computing directly, we can see that the converse of lemma  $\eqref{lm3.3}$ is also true. It means, all solutions of equation  $\eqref{3.4}$  satisfied the equation  $\eqref{pt3.1}$  for  $t\geq t_0.$  
+\end{remark}
+\begin{lemma}\label{lm3.5}
+Let the evolution family $(U(t,s))_{t\geq s\geq 0}$ has an exponential dichotomy with the corresponding projection $P(t),t\geq 0$  and the dichotomy constants $N,\nu>0$. Suppose that  $\p$  is the positive function which belongs to $E$. Let  $f:\hro{R_+}\ti \dam\rar\dam $  be  $\p$-Lipschitz satisfying $k<1$, where       $k$  defined by  $\eqref{k}$. Then, there corresponds to each  $v_0\in\dam_0(t_0)$  one and only one solution  $x(t)$ of the equation  $\eqref{pt3.1}$  on $[t_0,\ift)$  satisfying the condition  $P(t_0)x(t_0)=v_0$  and  $ess\sup_{t\geq t_0}\|u(t)\|<\ift$.
+\end{lemma}
+\vskip 0.5cm
+\begin{theorem}\label{3.6}
+Let the evolution family $(U(t,s))_{t\geq s\geq 0}$ has an exponential dichotomy with the corresponding projection $P(t),t\geq 0$  and the dichotomy constants $N,\nu>0$. Suppose that  $f:\hro{R_+}\ti \dam\rar\dam $  be  $\p$-Lipschitz,
+  where $\p$  is the positive function which belongs to $E$  satisfying 
+\begin{equation}\label{k}
+\df{(N_1\|\Lambda_1T_1^+\p\|_{\ift}+\|\Lambda_1\p\|_{\ift})}{1-e^{-\nu}}<\df{1}{N+1}.
+\end{equation}  
+Then, there exists an invariant stable manifold for the solutions of equation $\eqref{pt3.1}$. For later use we put  $k=\df{(N_1\|\Lambda_1T_1^+\p\|_{\ift}+\|\Lambda_1\p\|_{\ift})}{1-e^{-\nu}}.$
+\end{theorem} 
+%\baselineskip= .6cm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \section{The case of Exponential Trichotomy} \label{section 4}
+\vskip 0.5cm
+In this part, we will give an analogue to such a development of Theorem $\eqref{3.6}$  in the case that the evolution family  $(U(t,s))_{t\geq s\geq 0}$ has an exponential trichotomy on $\hro{R_+}$ and the nonlinear forcing term $f$ is $\p$-Lipschitz. It's the content of the next theorem. Lastly, we illustrate our results by some examples.\\
+\begin{theorem}\label{4.1}
+Let the evolution family $(U(t,s))_{t\geq s\geq 0}$ has an exponential trichotomy  with the corresponding constants  $K, \a, \b$  and projections $(P_j(t))_t\geq 0, j=1, 2, 3$, given in Definition  $\eqref{def2}$.  Suppose that  $f:\hro{R_+}\ti \dam\rar\dam $  be  $\p$-Lipschitz, with $\p$  is the positive function which belongs to $E$  satisfying $k<\df{1}{N+1}$, where $k$ is defined by  $\eqref{k}$. Then, for each fixed $\de>\a$, there exists a center-stable manifold $\dM=\{(t,\dM_t)\mid t\in\hro{R}_+\con \hro{R}_+\ti\dam $  for the solutions of equation $\eqref{pt3.1}$   that is represented by a family of Lipschitz continuous mapping  $g=(g_t)_{t\geq 0}, g_t:Im(P_1(t)+P_3(t))\rar ImP_2(t)$, with $Lip(g_t)\leq k<1$, such that  $\dM_t:=graph(g_t)$ has the following properties
+\begin{enumerate}
+\item[(i)] To each  $x_0\in \dM_{t_0}$  there corresponds one and only one solution $u(t)$ of equation $\eqref{pt3.1}$  on $[t_0,\ift)$  and it satisfies
+ $u(t_0)=x_0$  and  $ess\sup_{t\geq t_0}\|e^{-\ga t}u(t)\|<\ift$, where  $\ga:=\df{\de_{\a}+\a}{2}$.\\
+\item[(ii)] $\dM_t$ is homeomorphism to  $\dam_1(t)\oplus \dam_3(t) \mbox{  for all  } t\geq 0,$\\
+\item[(iii)] $\dM$  is invariant under the equation  $\eqref{pt3.1}$ in the sense that, if $u(t)$ is the solution of equation $\eqref{pt3.1}$ satisfying $u(t_0)=x_0\in \dM_{t_0}$  and  $ess\sup_{t\geq t_0}\|e^{-\ga t}u(t)\|<\ift$, then $u(s)\in \dM_s\mbox{for all  } s\geq t_0$.
+\end{enumerate}
+\end{theorem} 
+\begin{proof}
+Set $P(t):=P_1(t)+P_3(t)$  and  $Q(t):=P_2(t)=I-P(t)$. For each fixed $\de>\a$  we consider the following "change of variables"
+\begin{equation*}
+\tilde{U}(t,s)x:=e^{-\ga (t-s)}U(t,s)x \mbox{  for all  } t\geq s\geq 0,x\in\dam,
+\end{equation*}
+where  $\ga:=\df{\de+\a}{2}$.\\
+It is easy to check that $(\tilde{U}(t,s))_{t\geq s\geq 0}$ is an evolution family on $\dam$.
+We claim that  $(\tilde{U}(t,s))_{t\geq s\geq 0}$  has an exponential dichotomy with the projection $P(t)$ and $Q(t)$  on the half-line. Infact, it suffices to verify the estimates as in Definition$\ref{def2}$.\\
+By the definition of exponential trichotomy we have
+\begin{equation*}
+\|\tilde{U}(s,t)Q(t)x\|\leq Ne^{-(\b+\gamma)(t-s)}\|Q(t)x\| \mbox{  for all  } t\geq s\geq 0,x\in\dam.
+\end{equation*}
+On the other hand,
+\begin{eqnarray*}
+\|\tilde{U}(t,s)P(s)x\|&=&e^{-\ga(t-s)}\|U(t,s)[P_1(t)+P_3(t)]x\|\\
+&\leq&e^{-\ga(t-s)}\{\|U(t,s)P_1(t)\|+\|U(t,s)P_3(t)x\| \\
+  &\leq&e^{-\ga(t-s)}\{e^{-\b(t-s)}\|P_1(t)\|+ e^{-\a(t-s)}\|P_3(t)x\|,
+\end{eqnarray*}
+for all $t\geq s\geq 0,x\in\dam$.\\
+Note that $P_j(s)x=P_j(s)P(s)x, j=1, 3$, and $q:=\sup_{t\geq 0}\{\|P_j(t)\|, j=1, 2, 3 \}<\ift$,
+we finally get the following estimate
+\begin{equation*}
+\|\tilde{U}(t,s)P(s)x\|\leq 2Nq e^{-\df{(\de-\a)}{2}(t-s)}\|P(s)x\|\mbox{  for all  }t\geq s\geq 0,x\in\dam.
+\end{equation*}
+Therefore, $(\tilde{U}(t,s))_{t\geq s\geq 0}$  has an exponential dichotomy with the projection $P(t)$  and the dichotomy constants  $N':=\max\{N, 2Nq \}$, $\nu:=\df{(\de-\a)}{2}>0$.
+\\
+Put  $h(t):=e^{-\ga t}x(t)$, and define the mapping $F$ as follows
+\begin{eqnarray*}
+F&:&\hro{R_+}\ti\dam\rar\dam\\
+ F(t,x)&=&e^{-\ga t}f(t,e^{\ga t}x)\mbox{  for all  } t\geq 0,x\in\dam.
+\end{eqnarray*} 
+We can easily verify that the operator $F$ is also be $\p$-Lipschitz.
+Thus, we can rewritten the equation$\eqref{pt3.1}$ in the new form
+\begin{equation}\label{pt}
+h(t)=\tilde{U}(t,s)h(s)+\int_s^t\tilde{U}(t,\xi)F(\xi,h(\xi))d\xi,\hskip 0.5cm \mbox{for a.e.}\hskip 0.5cm t\geq s\geq 0.
+\end{equation}
+Hence, applying Theorem$\eqref{3.6}$, we see that if
+\begin{equation*} 
+k=\df{(N_1\|\lb_1T_1^+\p\|_{\ift}+\|\lb_1\p\|_{\ift})}{1-e^{-\nu}}<\df{1}{1+N}
+\end{equation*}
+then there exist an invariant stable manifold $\dM$ for the solutions of equation$\eqref{pt}$.\\
+Since $x(t)=e^{\ga t}h(t)$ we can verify easily three properties of $\dM$ which is stated in (i), (ii), and (iii). Thus, $\dM$ is a center-stable manifold for the solutions of equation$\eqref{pt3.1}$.
+This complete our proof.\\
+\end{proof}
+%\baselineskip= .6cm
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+ \section{The attractivity of the integral manifolds} \label{section5}
+\vskip 0.5cm
+  In this part we shall consider the attractivity of the integral manifolds.\\
+ It is easy to see that if $x(t)$ be an abitrary solution of the integral equation \eqref{pt3.1}
+ then  \hskip 2cm$\underset{t \rightarrow \infty}{lim} \| x(t) \|=+ \infty  \Leftrightarrow x(t)\not \in M(t),\forall t\geq 0.$\\
+  Thus, we only need to consider  two orbit which lied on the stable manifold. Now, we recall the "cone inequality" which  taken from \cite{DalKre}, chap II, section 9.
+\begin{definition}
+  The closed subset  $R$ in the Banach space ${ B }$ is called a cone if it satisfies the following conditions
+\begin{enumerate}
+\item[a)] $x_0\in R\rightarrow \lambda x_0\in R $ with $\lambda \geq 0;$
+\item[b)] $x_1,x_2\in R\rightarrow x_1+x_2\in R; $
+\item[c)] $\pm x_0\in R\rightarrow x_0=0.$
+\end{enumerate} 
+\end{definition}
+ Cosider a given cone $R$ in the Banach space ${ B }$; we write $x\leq y$  to indicate that $y-x\in R.$\\
+This cone is called invariant in the action of the linear operator $A$ if $AR\subset R$, i.e. $x\leq y\rightarrow Ax\leq Ay.$
+\vk
+\begin{proposition}
+ For a given cone $R$ which is invariant in the action of the linear operator  $A\in \l(B,B)$ with the spectral radius  $r_A<1.$ If the vector $x\in \l(B,B)$ satisfies the inequality\\
+  \centerline{$x\leq Ax+f\quad (Ax+f\leq x) $}\\
+thus, it also satisfies $x\leq y\quad (y\leq x);$ where $y$ be the solution of the equation:
+   $y=Ay+f.$
+\end{proposition}
+%%%%%%%%%%%%%%%%%%%
+Apply the cone inequality we have the theorem.
+\begin{theorem}\label{4.2}
+ Two abitrary orbits which is lied in the stable manifold is exponentially attract to each other when $t\rightarrow \infty $, i.e.,  if  $x(\cdot)$ and $y(\cdot)$ be two solutions which lied in the stable manifold then we have:
+ $$\| x(t)-y(t)\| \leq Ce^{-\mu(t-t_0)}, $$
+where $C, \mu $ be the positive constants independent of  $x(\cdot)$ and $y(\cdot).$
+\end{theorem}
+\begin{proof}
+ By the lemma \eqref{lm3.3} we then have:
+    $$x(t)=U(t,t_0)P(t_0)x(t_0)+\int_{t_0}^{\infty }G(t,\tau)f(\tau,x(\tau))d\tau, $$
+    $$y(t)=U(t,t_0)P(t_0)y(t_0)+\int_{t_0}^{\infty }G(t,\tau)f(\tau,y(\tau))d\tau.  $$
+  Thus \\
+$\|x(t)-y(t)\| \leq \|U(t,t_0)P(t_0)[x(t_0)-y(t_0)]\|+\int_{t_0}^{\infty }\|G(t,\tau)\| \|f(\tau,x(\tau))-f(\tau,y(\tau))\|d\tau.  $\\
+ By the property of exponential dichotomy we then obtain that  \\
+$\|x(t)-y(t)\| \leq Ne^{-\nu(t-t_0)}\| P(t_0)[x(t_0)-y(t_0)] \|+\int_{t_0}^{\infty }Ne^{-\nu \mid t-\tau \mid}\varphi(\tau)\|x(\tau)-y(\tau) \| d\tau. $\\
+  Put $z(t):=x(t)-y(t),\forall t\geq 0$ then\\
+ $\|z(t)\| \leq Ne^{-\nu(t-t_0)}\| P(t_0)x(t_0) \|+\int_{t_0}^{\infty }Ne^{-\nu \mid t-\tau \mid}\varphi(\tau)\|z(\tau) \| d\tau. $\\
+  Consider the transform  $g(t):=\|z(t)\| e^{\mu(t-t_0)},0<\mu <\nu ; $ then $g(t)$ satisfies the inequality\\
+ $g(t)e^{-\mu(t-t_0)}\leq Ne^{-\nu(t-t_0)}.Hg(t_0)+\int_{t_0}^{\infty }Ne^{-\nu \mid t-\tau \mid}\varphi(\tau)g(\tau)e^{-\mu(\tau-t)} d\tau $,\\
+  where $H=\underset{t\geq 0}{sup}\|P(t)\|<\infty $.\\
+ By the cone inequality with the cone be $\C+ $ we have $g(t)\leq \psi(t),$ where  $\psi(t)$ be the unique solution of the following integral equation:\\
+$\psi(t)=NHg(t_0)e^{-(\nu-\mu)(t-t_0)}+\int_{t_0}^{\ift}Ne^{-\nu \mid t-\tau \mid +\mu(t-\tau)}\varphi(\tau)\psi(\tau)d\tau. $
+\begin{eqnarray*}
+  \mbox{Consider the following operator } A:\quad \C+& \rightarrow & \C+ \mbox{ defined by:}\\ 
+                                     \psi(\cdot) &\mapsto & (A\psi)(t)=\int_{t_0}^{\ift}Ne^{-\nu \mid t-\tau \mid +\mu(t-\tau)}\varphi(\tau)\psi(\tau)d\tau.
+\end{eqnarray*}
+It is obiviously that $A$ is the linear operator with the norm
+  $$\|A \| = \underset{t\geq t_0}{sup}\int_{t_0}^{\ift}Ne^{-\nu \mid t-\tau \mid +\mu(t-\tau)}\varphi(\tau)d\tau .$$
+Set $n=[t-t_0].$\\  We then have\\
+$  \int_{t_0}^{\ift}Ne^{-\nu \mid t-\tau \mid +\mu(t-\tau)}\varphi(\tau)d\tau$ \\
+$=\tong\int_{t_0+k-1}^{t_0+k}e^{-\nu \mid t-\tau \mid +\mu(t-\tau)}\varphi(\tau)d\tau $ \\
+ $\leq  \tong \underset{\tau \in [t_0+(k-1);t_0+k]}{max}e^{-\nu \mid t-\tau \mid +\mu(t-\tau)}\varphi(\tau)d\tau.\int_{t_0+k-1}^{t_0+k}\varphi(\tau)d\tau $ \\
+   $\leq  \underset{t\geq 0}{sup} \int_{t}^{t+1}\varphi(\tau)d\tau .\big \{ \To e^{-(\nu -\mu)(n-k)}+1+\Tr e^{-(\nu +\mu)(k-n-2)} \big \}.$
+\vskip 0.5cm
+  Put  $$q:=\underset{t\geq 0}{sup} \int_{t}^{t+1}\varphi(\tau)d\tau ;C(\mu,\nu):=1+\df{1}{1-e^{-\nu +\mu}}+\df{1}{1-e^{-\nu -\mu}}<\ift,$$ then  $$\| A \| \leq NqC(\mu,\nu). $$
+  We note that  \centerline{$\psi(t)=NHg(t_0)e^{-(\nu -\mu)(t-t_0)}+(A\psi)(t).$}\\
+  Thus, if  $NqC(\mu,\nu)<1 \Leftrightarrow q<\df {1}{NC(\mu,\nu)} $ then the equaiton above has the unique solution $\psi(t)$ in $\C+$,  it means that $C:=\underset{t\geq t_0}{ess\sup}\psi(t)<\infty.$\\
+  Thus, $g(t)\leq \psi(t)\leq C\quad \forall t\geq t_0$,  or
+ $$\| z(t) \| \leq Ce^{-\mu(t-t_0)},\forall t\geq t_0 .$$
+\end{proof}
+\vk
+By the changing variables which is used in the theorem  $\eqref{4.1}$, we have the following corollary.
+\begin{corollary}
+  For any abitrary solutions  $x(\cdot)$ and $y(\cdot)$ which lied in the center-stable manifold we have the folloing estimate:
+ $$\| x(t)-y(t)\| \leq Ce^{\a(t-t_0)}, $$
+where $C$ be the positive constant independent of $x(\cdot)$ and $y(\cdot)$, $\a$ be the trichotomy constant in the definition \eqref{def2}.
+\end{corollary}
+\vk\vk
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{example}\label{ex1}
+Consider the evolution equation
+\begin{equation*}
+\df{dx(t)}{dt}=Ax(t)+f(t,x),
+\end{equation*}
+where A is an infinitesimal generator of a $C_0$-compact semigroup  $(T^t)_{t\geq 0}$. We define the evolution family  $U(t,s):=T(t-s)\mbox{  for all  } t\geq s\geq 0$. We now claim that it has an exponential trichotomy with an appropriate choice of projection. By the compactness of the operator $T(t_0)$, its spectrum split into three disjoint compact set  $\sm_1,  \sm_2,  \sm_3$, where  $\sm_1\con \{|z|<1\}, \sm_2\con \{|z|>1\}, \sm_3\con \{|z|=1\}$. Evidently, $\sm_2, \sm_3$  consist of finitely many point. Hence, we can choose the contour $\ga$ inside the unit disk of complex plane which enclose the origin and  $\sm_1$. Next, we choose $P_1(t)$  be the Riesz projection
+$$P_1(t):=P_1:=\df{1}{2\pi i}\int_{\ga}(\ld I-T(t_0))^{-1}d\ld.$$
+Obviously, there are positive constants $M, \de$  such that  $\|P_1TP_1\|\leq Me^{-\de t}$, $\mbox{  for all  } t\geq 0$. Furthermore, let $Q:=I-P_1$  and consider the strongly continuous semigoup $(T_Q(t))_{t\geq 0}$  on the finite-dimensional space  $ImQ$, where $T_Q(t):=QT(t)Q$. Since $\sm_2\cup\sm_3=\sm (T_Q(t_0))$,  $(T_Q(t_0))$ can be extended to a group in $ImQ$. As well-known in the theory of ordinary differential equation, in $ImQ$ there are projections $P_2, P_3$ and the positive constants $K, \a, \b$ such that $\a$ can be chosen as small as required, may be let $\a<\b$, and the following estimates hold:
+\begin{equation*}
+P_2+P_3=Q,\hskip 1 cm P_2P_3=0,
+\end{equation*}
+\begin{equation*}
+\|P_2T_Q(-t)P_2\|\leq Ke^{-\b t},\mbox{  for all  } t>0,\end{equation*}
+\begin{equation*}
+\|P_3T_QP_3\|\leq Ke^{\a |t|},\mbox{  for all  } t\in\hro{R_+}.
+\end{equation*}
+Summing up the above discussions, we conclude that the evolution family  $(U(t,s))_{t\geq s\geq 0}$  has an exponential trichotomy with projections  $P_j,\hskip 0.2cm j=1, 2, 3$, and positive constants $N,\a,\b'$, where
+\begin{equation*}
+    \b':=min\{ ln \sup_{\ld\in\sm_1}|\ld|,\b \},
+\end{equation*}
+\begin{equation*}
+N:=\max\{K,M\}.
+\end{equation*}
+Thus, if $f$ is $\p$-Lipschitz for some positive function $\p$  belong to $L_{\ift}(\hro{R_+},\dam )$ (it means that  $\sup_{t\geq 0}\int_t^{t+1}\p(\tau)d\tau$ is small enough), then the integral equation 
+\begin{equation*}
+x(t)=U(t,s)x(s)+\int_s^tU(t,\xi)f(\xi,x(\xi))d\xi,\mbox{  for all  }t\geq s\geq 0,
+\end{equation*}
+has a center-stable manifold. 
+\end{example}
+\begin{example}\label{ex2}
+For  $n\in\hro{N^*}$,  consider the equation
+\begin{equation}\label{ptvd2}
+w_t(x,t)=w_{xx}(x,t)+ n^2w(x,t)-be^{-ct}sin(w(x,t)),\hskip 0.5cm 0\leq x\leq \pi,\hskip 0.2cm t\geq 0,
+\end{equation}
+\begin{equation*}
+w(0,t)=w(\pi,t)=0,\hskip 0.5cm t\geq 0,
+\end{equation*}
+with  the positive constant  $c$.
+We define $\dam:=L_2[0,\pi]$, and let $A_T:\dam\rar\dam$  be defined by  $A_T(y)=\mbox{\"{y}}+ n^2y$ , with
+\begin{equation*}
+D(A_T)=\{y\in\dam:y\mbox{  and  }\mbox{\"{y}}\mbox{  are absolutely continuous },\mbox{ \"{y}}\in\dam,y(0)=y(\pi)=0\}.
+\end{equation*}
+Thus, $A_T$  is the infinitesimal generator of a semigroup $(T(t))_{t\geq 0}$.\\
+Since $\sigma(A_T)=\{ -1+n^2,-4+n^2,...,0,-(1+n)^2+n^2,... \} $, applying the Spectral mapping theorem we get
+$$\sigma(T(t))=e^{t\sigma(A_T)}=\{ e^{-1+n^2},e^{-4+n^2},...,e^{-(n-1)^2+n^2}\}\cup\{1\}\cup\{e^{-(1+n)^2+n^2}, e^{-(2+n)^2+n^2}... \}.$$
+It means that  $T(t)$ is compact for all $t>0$ (for precisely, we refer the readers to [18], [25]). Ones can see easily that the nonlinear forcing term is $\p$-Lipschitz with $\p:=be^{-ct}\in L_p$. Applying Example$\eqref{ex1}$ we obtain that if $\underset{t\geq 0}{\sup}\int_t^{t+1}be^{-c\tau}d\tau=\df{b}{c}$ is sufficient small then there exists the center-stable manifold for solutions of equation$\eqref{ptvd2}$.
+\end{example}
+%%%%%%%%%%%%%%%%%
+\begin{example}\label{ex2}
+For  $n\in\hro{N^*}$,  consider the equation
+\begin{equation}\label{ptvd2}
+w_t(x,t)=a(t) [w_{xx}(x,t)+ n^2w(x,t)] - be^{-ct}sin(w(x,t)),\hskip 0.5cm 0\leq x\leq \pi,\hskip 0.2cm t\geq 0,
+\end{equation}
+\begin{equation*}
+w(0,t)=w(\pi,t)=0,\hskip 0.5cm t\geq 0,
+\end{equation*}
+with  the positive constant  $c$, the function $a(\cdot)\in\l_{1,loc}(\hro R_+)$ and satisfies the condition $\ga_1\geq a(t)\geq \ga_0>0\mbox{  for a.e.  } t\geq 0$.\\
+We define $\dam:=L_2[0,\pi]$, and let $A_T:\dam\rar\dam$  be defined by  $A_T(y)=\mbox{\"{y}}+ n^2y$ , with
+\begin{equation*}
+D(A_T)=\{y\in\dam:y\mbox{  and  }\mbox{\"{y}}\mbox{  are absolutely continuous },\mbox{ \"{y}}\in\dam,y(0)=y(\pi)=0\}.
+\end{equation*}
+Thus, $A_T$  generates the evolution family  $(U(t,s))_{t\geq s\geq 0}$ which is defined by the formular:
+$$U(t,s)=e^{(\int_s^ta(\tau)d\tau)A_T}$$
+Using the above argument we have that the compact semigroup $(T(t))_{t\geq 0}$ has an expoential trichotomy with the projections $P_k (k=1, 2, 3)$, and the trichotomy constants $N,\a,\b$ where $\a$ is as small as require. It means that
+\begin{enumerate}
+\item[(i)]   $\|T(t)_{\mid_{P_1\dam}} \| \leq Ne^{-\b t}$
+\item[(ii)]  $\|T(t)_{\mid_{P_2\dam}} \|\geq Ne^{\b t}$
+\item[(iii)] $\|T(t)_{\mid_{P_3\dam}}\| \leq Ne^{\a t}$
+\end{enumerate}
+for all $t\geq 0$.\\
+From this, it is easy to check that the evolution family $(U(t,s))_{t\geq s\geq 0}$ has an exponential trichotomy with the trichotomy projection $P_k (k=1, 2, 3)$ and the trichotomy constants 
+ $N, \b\ga_0, \a\ga_1$ by the following estimates.
+\begin{eqnarray*}
+\|U(t,s)\|\mid _{P_1\dam} \| &=&\|T(\int_s^t a(\tau)d\tau)_{\mid _{P_1\dam}}\| \leq Ne^{-\b \gamma_0(t-s)},\\
+\|U(t,s)\|\mid _{P_2\dam} \| &=&\|T(\int_s^t a(\tau)d\tau)_{\mid _{P_2\dam}}\| \geq Ne^{-\b \gamma_0(t-s)},\\
+\|U(t,s)\|\mid _{P_3\dam} \| &=&\|T(\int_s^t a(\tau)d\tau)_{\mid _{P_3\dam}}\| \leq Ne^{\a \gamma_1(t-s)}.
+\end{eqnarray*}
+Applying Example$\eqref{ex2}$ we obtain that  if $\df{b}{c}$ is sufficient small then there exists the center-stable manifold for solutions of equation$\eqref{ptvd2}$.
+\end{example}
+%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%
+ \section{The existence of the integral manifolds on the real line} 
+\vskip 0.5cm
+In this part we shall give the existence of the stable and unstable manifold in the case real line. Consider the well-posed evolution on the real line
+\begin{equation}\label{6.1}
+ \df{dx}{dt}=A(t)x+f(t,x), \quad t\in \r, x\in \dam,
+\end{equation}
+where $A(t)$ in general case is unbounded operator in $\dam$, and the non linear term 
+$f(\cdot,\cdot):\r\ti \dam \rar \dam$ satisfies the $\p$-Lipschitz condition in which $\p$ belongs to the admissible function space $\bf{E}$, i.e.
+\begin{enumerate}
+ \item[(i)] $f(t,0)=0$ for all $t\in \r$
+ \item[(ii)] $\|f(t,x)-f(t,y)\|\leq \p(t)\|x-y\|$  for a.e $t\in\r,\quad x,y\in\dam$.
+\end{enumerate}
+We now give the definition of a unstable(stable) manifold for the solutions of the integral equation
+\begin{equation}\label{6.2}
+x(t)=U(t,s)x(s)+\int_s^tU(t,\xi)f(\xi,x(\xi))d\xi,\hskip 0.5cm \mbox{for a.e.}\hskip 0.5cm t\geq s.
+\end{equation}
+\begin{definition}\label{6.3}
+A set $\dM\con \r\ti\dam$  is said to be an unstable(stable) manifold for the solutions of equation $\eqref{6.2}$  if for every $t\in\r$  the phase spaces $\dam$ splits into a direct sum  $\dam=\dam_0(t)\oplus \dam_1(t)$  such that
+\begin{equation*}
+\inf_{t\in\r}Sn(\dam_0(t),\dam_1(t)):=\inf_{t\in\r}\inf_{x_i\in\dam_i(t),\|x_i\|=1,i=0,1}
+\|x_0+x_1\|>0,
+\end{equation*}
+ and if there exists a family of Lipschitz continuous mappings
+\begin{equation*}
+g_t:\dam_0(t)\rar\dam_1(t), \hskip 1cm t\in\r,
+\end{equation*}
+with the Lipschitz constants independent of  $t$ such that
+\begin{enumerate}
+ \item[(i)]$\dM=\{(t,x + g_t(x))\in\r\ti(\dam_0(t)\oplus\dam_1(t))\mid x\in\dam_0(t) \}$, and we denote by $\dM_t:=\{ x+g_t(x)\mid (t,x+g_t(x))\in \dM \}$,
+\item[(ii)]$\dM_t$  is homeomorphic to $\dam_0(t)$  for all $t\in\r$,
+\item[(iii)] to each $x_0\in\dM_{t_0}$  there corresponds one and only one solution  $x(t)$  of equation $\eqref{6.2}$  satisfying the conditions  $x(t_0)=x_0$  and  $\underset{t\leq t_0}{ess\sup}\|x(t)\|<\ift \quad (\underset{t\geq t_0}{ess\sup}\|x(t)\|<\ift, respectively)$,
+\item[(iv)]$\dM$  is invariant under the equation $\eqref{6.2}$ in the sense that, if $x(\cdot)$ is a solution of equation $\eqref{6.2}$, and $\underset{t\leq t_0}{ess\sup}\|x(t)\|<\ift \quad (\underset{t\geq t_0}{ess\sup}\|x(t)\|<\ift, respectively)$, then $x(t)\in \dM_t$ for all  $t\in\r.$ 
+\end{enumerate}
+\end{definition}
+By the well-posed of the equation \eqref{6.1} there exist the evolution family $(U(t,s))_{t\geq s\geq 0}$ which has an exponential dichotomy with the corresponding projection $P(t),t\geq 0$  and the dichotomy constants $N,\nu>0$. Then, we can define the Green's function as follows
+\begin{equation*}\label{6.4}
+G(t,\tau):=
+\begin{cases}
+P(t)U(t,\tau)\hskip 1 cm \mbox{for}\hskip 0.5 cm t\geq \tau,\\
+-U(t,\tau)[I-P(\tau)]\hskip 1 cm \mbox{for}\hskip 0.5 cm  t< \tau.
+\end{cases}
+\end{equation*}
+Thus, we have
+\begin{equation*}
+\|G(t,\tau)\|\leq Ne^{-\nu |t-\tau|} \mbox{ for all  } t\not=\tau.
+\end{equation*}
+In the following lemma we give the different form of the bounded solution of the equation
+ \eqref{6.2} on the half-line $(-\ift,t_0]$. We denote $\|\cdot\|$ be the sup-norm on the half-line $(-\ift,t_0]$.
+\begin{lemma}\label{6.5}
+Let the evolution family  $(U(t,s))_{t\geq s}$ has an exponential dichotomy with the corresponding projection $P(t)$  and the dichotomy constants $N,\nu>0$. Suppose that  $\p$  is the positive function which belongs to $E$. Let  $f:\r\ti \dam\rar\dam $  be  $\p$-Lipschitz. Then, we can rewritten $x(t)$  in the form
+\begin{equation}\label{6.5.1}
+x(t)=U_{\mid(t,t_0)}v_1+\int^{t_0}_{-\ift}G(t,\tau)f(\tau,x(\tau))d\tau,\mbox{ for all } t\leq t_0
+\end{equation}
+for some  $v_1\in\dam_1(t)=Q(t_0)\dam$, where  $G(t,\tau)$  is the Green's function defined above. 
+\end{lemma}
+\begin{proof}
+Let $$y(t):=\int^{t_0}_{-\ift}G(t,\tau)f(\tau,x(\tau))d\tau,\mbox{ for all } t\leq t_0.$$
+Then, the function $y(\cdot)$ is well-defined. Indeed,
+\begin{eqnarray*}
+\|y(t)\|&\leq& \int^{t_0}_{-\ift}Ne^{-\nu |t-\tau|} \|f(\tau,x(\tau))\|d\tau\\
+         &\leq& N\|x(\cdot)\|_{\ift} \Big[ \int^{t}_{-\ift}e^{-\nu (t-\tau)} \|\p(\tau)\| d\tau+
+\int^{t_0}_{t}e^{\nu (t-\tau)} \|\p(\tau)\| d\tau \Big]\\
+ &\leq& N\|x(\cdot)\|_{\ift} \Big[ \df{\|\Lb_1 \p\|_{\ift}+\|\Lb_1T_1^+\p\|_{\ift}}{1-e^{-\nu}}\Big]<\ift.
+\end{eqnarray*}
+Next by compute directly we verify that $y(\cdot)$ satisfies the integral equation
+\begin{equation*}
+y(t_0)=U(t_0,t)y(t)+\int_t^{t_0}U(t_0,\tau)f(\tau,x(\tau))d\tau.
+\end{equation*}
+Indeed,
+\begin{eqnarray*}
+&y(t_0)=U(t_0,t)y(t)+\int_t^{t_0}U(t_0,\tau)f(\tau,x(\tau))d\tau\\
+\td&\int^{t_0}_{-\ift}G(t_0,\tau)f(\tau,x(\tau))d\tau=U(t_0,t)\int^{t_0}_{-\ift}G(t,\tau)f(\tau,x(\tau))d\tau+\int_t^{t_0}U(t_0,\tau)f(\tau,x(\tau))d\tau\\
+\td& \int^{t_0}_{-\ift}U(t_0,\tau)P(\tau)f(\tau,x(\tau))d\tau=U(t_0,t)\int^{t}_{-\ift}U(t,\tau)P(\tau)f(\tau,x(\tau))d\tau-\\ 
+ -&U(t_0,t)\int^{t_0}_{t}U(t,\tau)_{\mid}Q(\tau)f(\tau,x(\tau))d\tau +\int_t^{t_0}U(t_0,\tau)f(\tau,x(\tau))d\tau\\
+\td&\int^{t_0}_{-\ift}U(t_0,\tau)P(\tau)f(\tau,x(\tau))d\tau=\int^{t}_{-\ift}U(t_0,\tau)P(\tau)f(\tau,x(\tau))d\tau-\\
+-&\int^{t_0}_{t}U(t_0,t)U(t,\tau)_{\mid}Q(\tau)f(\tau,x(\tau))d\tau +\int_t^{t_0}U(t_0,\tau)f(\tau,x(\tau))d\tau
+\end{eqnarray*}
+Note that for all $t\leq \tau\leq t_o$ we have $U(t_0,t)U_{\mid}(t,\tau)=U(t_0,\tau)$.\\
+Thus, we have
+$$y(t_0)=U(t_0,t)y(t)+\int_t^{t_0}U(t_0,\tau)f(\tau,x(\tau))d\tau.$$
+On the other hand,
+$$x(t_0)=U(t_0,t)x(t)+\int_t^{t_0}U(t_0,\tau)f(\tau,x(\tau))d\tau.$$
+Then $x(t_0)-y(t_0)=U(t_0,t)[x(t)-y(t)]$. We need to prove that $x(t_0)-y(t_0) \in Q(t_0)\dam$.\\
+Acting the operator $P(t_0)$ to the expression $x(t_0)-y(t_0)=U(t_0,t)[x(t)-y(t)]$, we have\\
+$\|P(t_0)[x(t_0)-y(t_0)]\|=\|U(t_0,t)P(t)[x(t)-y(t)]\|\leq Ne^{-\nu (t_0-t)}\|P(t)\|.\|x(t)-y(t)\|$\\
+Because $\underset{t}{\sup}\|P(t)\|<\ift$ and $\|x(t)-y(t)\|<\|x(\cdot)\|_{\ift}+\|y(\cdot)\|_{\ift}<\ift$,\break 
+let $t$ tends to $-\ift$ we have $\|P(t_0)[x(t_0)-y(t_0)]\|=\underset{t\rar -\ift}{\lim}\|U(t_0,t)P(t)[x(t)-y(t)]\|=0$.\\
+It means that, $v_1:=x(t_0)-y(t_0)\in Q(t_0)\dam$, then we finish the proof. 
+\end{proof}
+\begin{remark}\label{6.6}
+By computing directly, we can see that the converse of lemma  $\eqref{6.5}$ is also true. It means, all solutions of equation  $\eqref{6.5.1}$  satisfied the equation  $\eqref{6.2}$  for  $t\leq t_0.$  
+\end{remark}
+\begin{lemma}\label{lm6.5}
+Let the evolution family $(U(t,s))_{t\geq s}$ has an exponential dichotomy with the corresponding projection $P(t)$  and the dichotomy constants $N,\nu>0$. Suppose that  $\p$  is the positive function which belongs to $E$. Let  $f:\r\ti \dam\rar\dam $  be  $\p$-Lipschitz satisfying $k<1$, where $k$  defined by  
+\begin{equation}\label{k}
+k=\df{N}{1-e^{-\nu}}.\big[ \|\Lb_1 \p\|_{\ift}+\|\Lb_1T_1^+\p\|_{\ift}\big].
+\end{equation} 
+Then, there corresponds to each  $v_1\in\dam_1(t_0)$  one and only one solution  $x(t)$ of the equation  $\eqref{6.2}$  on $\r$  satisfying the condition  $Q(t_0)x(t_0)=v_1$  and  $ess\sup_{t\leq t_0}\|u(t)\|<\ift$.
+\end{lemma}
+\begin{proof}
+For each $t_0\in \r, v_1\in\dam_1(t_0)$ we consider the operator
+\begin{eqnarray*}
+T&:& L_{\ift}((-\ift,t_0], \dam)\rar L_{\ift}((-\ift,t_0], \dam)\\
+x\mapsto (Tx)(t)&:&=U_{\mid}(t,t_0)v_1+\int^{t_0}_{-\ift}G(t,\tau)f(\tau,x(\tau))d\tau,\mbox{ for all } t\leq t_0.
+\end{eqnarray*}
+It is easy to prove that
+$$\|T(x)-T(y)\|\leq \df{N\|x(\cdot)-y(\cdot)\|_{\ift}}{1-e^{-\nu}}.\big[ \|\Lb_1 \p\|_{\ift}+\|\Lb_1T_1^+\p\|_{\ift}\big].$$
+Thus, $T$ is the contraction if $k<1$. By the Banach contraction mapping theorem we complete the proof.\\
+\end{proof}
+\vskip 0.2cm
+From the following lemmas, we have the theorem about the existence of the unstable manifold.
+\begin{theorem}\label{3.6}
+Let the evolution family $(U(t,s))_{t\geq s}$ has an exponential dichotomy with the corresponding projection $P(t)$  and the dichotomy constants $N,\nu>0$. Suppose that  $f:\r\ti \dam\rar\dam $  be  $\p$-Lipschitz,
+  where $\p$  is the positive function which belongs to $E$  satisfying 
+ $k<1$, where $k$ defined by \eqref{k}. Then, there exists an unstable manifold for the solutions of equation $\eqref{6.2}$.Moreover, it has the following properties
+\begin{enumerate}
+\item[(i)] For any two solution $x_1(\cdot)$ and $x_2(\cdot)$ which lied in the unstable manifold then we have:
+ $$\| x_1(t)-x_2(t)\| \leq Ce^{\mu(t-t_0)},\mbox{ for all } t\leq t_0, $$
+where $C, \mu $ be the positive constants independent of  $x_1(\cdot)$ and $x_2(\cdot).$
+\item[(ii)] It attracts all orbits of solution of the integral equation \eqref{6.2},  i.e, for any solution $y(\cdot)$ of \eqref{6.2} we have
+$$\underset{t\rar\ift}\lim d(y(t),\dM_t)=0.$$ 
+\end{enumerate}
+\end{theorem} 
+\begin{proof}
+By the same argue which is used in \eqref{section3} and \eqref{section5} we easy have the following assertions:
+\begin{enumerate}
+\item[(1)] The formular of $g_t,t\in\r$ is 
+$$\dam_1(t)\ni v_1\to g_t(v_1)=\int_{-\ift}^t G(t,\tau)f(\tau,x(\tau))d\tau,$$
+ where $x(\cdot)$ be the unique solution bounded on the half-line $(-\ift,t]$ which is defined in the lemma \eqref{lm6.5}.\\
+\item[(2)] For any two solution $x_1(\cdot)$ and $x_2(\cdot)$ which lied in the unstable manifold then we have:
+ $$\| x_1(t)-x_2(t)\| \leq Ce^{\mu(t-t_0)},\mbox{ for all } t\leq t_0, $$
+where $C, \mu $ be the positive constants independent of  $x_1(\cdot)$ and $x_2(\cdot).$\\
+\end{enumerate}
+Thus, we only need to prove (ii). Consider any abitrary solution $y(\cdot)$ of the integral equation \eqref{6.2}, we fixed t and let $v_1=Q(t)y(t)$, we may assume that $z(\cdot)$ be the unique solution bounded on the half-line $(-\ift,t]$ which is defined in the lemma \eqref{lm6.5}. Without loss of generality suppose that $t\geq 0$. Then, for all $t\geq s$ we have
+\begin{eqnarray*}
+ d(y(t),\dM_t)&\leq& \|y(t)-z(t)\|\leq \|y(t)-v_1(t)-g_t(v_1)\|=\|P(t)y(t)-P(t)z(t)\|\\
+&\leq&\|P(t)U(t,s)[y(s)-z(s)]\|+\|P(t)\int_s^tU(t,\tau)f(\tau,x(\tau))d\tau\|\\
+&\leq&Ne^{-\nu(t-s)}\|y(s)-z(s)\|+\int_s^t Ne^{-\nu (t-\tau)}\p(\tau)\|x(\tau)-y(\tau)\|d\tau
+\end{eqnarray*}
+Applying "cone inequality" in the Banach space $C(-\ift,\ift)$ with the cone $C_+(-\ift,0]$ (the function space of all positive continuous function on the real line, bounded on the half-line $(-\ift,0]$) we obtain that\\
+\centerline{$\|y(t)-z(t)\|\leq \psi(t)$},
+where $\psi(t)$ be the solution of the operator equation
+$$\psi(t)=Ne^{-\nu(t-s)}\psi(s)+\int_s^t Ne^{-\nu (t-\tau)}\p(\tau)\psi(\tau)d\tau$$
+for all $t\in\r$.\\
+Thus by the same way used in \eqref{4.2} we have that $\psi(t)\rar 0$ as $t\rar\ift$, it completes the proof. 
+\end{proof}
+%\baselineskip= .6cm
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%
+\bibliographystyle{amsplain}
+\begin{thebibliography}{99}
+\bibitem{AulMin}
+ B. Aulbach, N.V. Minh, { Nonlinear semigroups and the existence and 
+ stability of semilinear nonautonomous evolution equations}, {\it 
+Abstract
+ Appl. Anal.} {\bf 1} (1996), 351-380.
+%%%%%%%
+ \bibitem{bajo} P. Bates, C. Jones, {\it Invariant manifolds for semilinear partial differential equations}, Dyn. Rep. {\bf 2} (1989) 1-38.
+\bibitem{Ca} A.P. Calderon, {\it Spaces between $L^1$ and  $L^\infty$ and the theorem
+of Marcinkiewicz}, Studia Math. {\bf 26} (1996), 273-299.
+\bibitem{chi} C.Chincone, "Ordinary differential equation", Springer-Verlag (1999)
+\bibitem{DalKre} Ju. L. Daleckii, M. G. Krein, {  ''Stability of Solutions of Differential
+Equations in Banach Spaces"}. Transl. Amer. Math. Soc.  Provindence RI, {1974.}
+\bibitem{Nag} 
+K.J. Engel, R. Nagel, "One-parameter Semigroups for Linear Evolution Equations", 
+Graduate Text Math. {\bf 194}, Springer-Verlag, Berlin-Heidelberg, 2000. 
+\bibitem{hal} J. Hale, L.T. Magalh\~aes, W.M. Oliva, ``Dynamics in Infinite Dimensions", Appl. Math. Sci. {\bf
+47}, Springer-Verlag 2002.
+\bibitem{Hen} D. Henry: {\it "Geometric Theory of Semilinear Parabolic 
+Equations",} Lecture Notes in Mathematics, No.~840, Springer, 
+Berlin-Heidelberg-New York 1981.
+\bibitem{HPM} N. Hirsch, C. Pugh, M. Shub, "Invariant Manifolds", Lect. Notes in Math., vol 183, Springer, New York, 1977.
+\bibitem{Hu3} Nguyen Thieu Huy, {\it Exponential dichotomy of evolution
+equations and admissibility of function spaces on a half-line}, { J. Funct. Anal.} {\bf 235} (2006), 330-354.
+%%%%%%%%%%%%%%%
+\bibitem{Hu4} Nguyen Thieu Huy, {\it Stable manifold for evolution
+equations and admissibility of function spaces on a half-line}, { J. Diff. Equa.}, preprint.  
+%%%%%%%%%%%%%%%%%%
+\bibitem{LiTi} J. Lindenstrauss, L. Tzafriri, {''Classical Banach Spaces II, Function
+Spaces"}, Springer-Verlag, Berlin, 1979.
+\bibitem{Ma} Martin, {" Nonlinear Operators and Differential Equations in Banach Spaces",}  Wiley Interscience, New York, 1976.
+\bibitem{MaSc} Massera J.J, Sch\" affer J.J, { ''Linear Differential Equations and
+Function Spaces''}. Academic Press, New York 1966.
+{J.  Math. Anal. Appl.} {\bf 261} (2001), 28-44. 
+\bibitem{MRS} N.V. Minh,  F. R\"abiger,  R. Schnaubelt, {\it 
+Exponential stability,
+exponential expansiveness and exponential dichotomy of evolution equations on the
+half line}, { Integr. Eq. and Oper. Theory,} {\bf 32}(1998), 332-353.
+\bibitem{MiWu} N.V. Minh, J. Wu, {\it Invariant manifolds of partial functional differential equations}, J. Diff. Eq. {\bf 198} (2004) 381-421. 
+\bibitem{NaN}R. Nagel, G. Nickel, {\it Well-posedness for non-autonomous abtract Cauchy problems}.
+Prog. Nonl. Diff. Eq. Appl. {\bf 50} (2002), 279-293.
+\bibitem{Nic} G. Nickel, {\it On Evolution Semigroups and Wellposedness of non-autonomous Cauchy Problems}.
+{ PhD Thesis, T\" ubingen, 1996.}
+\bibitem{Nit}Nitecki, An Introduction to The Orbit Structure of Diffeomorphisms, MIT Press, Cambridge, MA, 1971.
+\bibitem{Paz} A. Pazy, { ''Semigroup of Linear Operators and Application to Partial
+Differential Equations"}. Springer-Verlag, Berlin, 1983.
+\bibitem{Per} O. Perron, {\it Die Stabilit\"atsfrage bei Differentialgleichungen}. 
+{ Math. Z.} {\bf 32} (1930), 703-728.
+\bibitem{RaSc} F. R\"abiger and R. Schaubelt, {\it The spectral mapping theorem for evolution
+semigroups on spaces of vector-valued functions},
+Semigroup Forum {\bf 48} (1996), 225-239.
+\bibitem{Sch} R. Schnaubelt, {\it Exponential Bounds and Hyperbolicity of Evolution Families}.
+{ PhD Thesis, T\" ubingen, 1996.}
+\bibitem{Sch3} R. Schnaubelt, {\it Exponential dichotomy of non-autonomous evolution equations},
+Habil-\break itationsschrift, T\"ubingen, 1999.
+\bibitem{Sch1} R. Schnaubelt, {\it Asymptotically autonomous parabolic evolution equations}.
+{ J. Evol. Equ.} {\bf 1} (2001), 19-37.
+\bibitem{SY} G.R. Sell, Y. You: {\it  "Dynamics of Evolutionary Equations",} Appl. Math. Sci. {\bf 143}, Springer-Verlag 2002.
+\bibitem{Tr} H. Tribel, ''Interpolation Theory, Function Spaces, Differential
+Operators", North-Holland, Amsterdam, New York, Oxford, 1978.
+\end{thebibliography}
+\end{document}
+%\date{}
+%\dedicatory{}
