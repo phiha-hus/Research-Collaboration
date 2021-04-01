@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2020.5.8)  28 MAR 2021 07:57
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2020.5.8)  31 MAR 2021 17:05
 entering extended mode
 **./NamPhi_21_positive_systems.tex
 (NamPhi_21_positive_systems.tex
@@ -334,6 +334,31 @@ Package grfext Info: Graphics extension search list:
 G,.JBIG2,.JB2,.eps]
 (grfext)             \AppendGraphicsExtensions on input line 456.
 ))
+(C:\Users\phiha\AppData\Roaming\MiKTeX\2.9\tex\latex\lineno\lineno.sty
+Package: lineno 2005/11/02 line numbers on paragraphs v4.41
+\linenopenalty=\count130
+\output=\toks30
+\linenoprevgraf=\count131
+\linenumbersep=\dimen129
+\linenumberwidth=\dimen130
+\c@linenumber=\count132
+\c@pagewiselinenumber=\count133
+\c@LN@truepage=\count134
+\c@internallinenumber=\count135
+\c@internallinenumbers=\count136
+\quotelinenumbersep=\dimen131
+\bframerule=\dimen132
+\bframesep=\dimen133
+\bframebox=\box31
+LaTeX Info: Redefining \\ on input line 3056.
+)
+(C:\Users\phiha\AppData\Roaming\MiKTeX\2.9\tex\latex\showlabels\showlabels.sty
+Package: showlabels 2015/12/08 v1.7
+
+Package: `showlabels' v1.7 <2015/12/08>
+with amsmath equation tags
+\SL@labelposition=\count137
+)
 :<+ command.tex
 \@input{command.aux}
 \openout2 = `command.aux'.
@@ -344,15 +369,15 @@ Package: mathtools 2020/03/24 v1.24 mathematical typesetting tools
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
 Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count130
-\calc@Bcount=\count131
-\calc@Adimen=\dimen129
-\calc@Bdimen=\dimen130
+\calc@Acount=\count138
+\calc@Bcount=\count139
+\calc@Adimen=\dimen134
+\calc@Bdimen=\dimen135
 \calc@Askip=\skip52
 \calc@Bskip=\skip53
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count132
+\calc@Ccount=\count140
 \calc@Cskip=\skip54
 )
 (C:\Users\phiha\AppData\Roaming\MiKTeX\2.9\tex\latex\mathtools\mhsetup.sty
@@ -362,53 +387,57 @@ LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
-\g_MT_multlinerow_int=\count133
-\l_MT_multwidth_dim=\dimen131
+\g_MT_multlinerow_int=\count141
+\l_MT_multwidth_dim=\dimen136
 \origjot=\skip55
-\l_MT_shortvdotswithinadjustabove_dim=\dimen132
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen133
-\l_MT_above_intertext_sep=\dimen134
-\l_MT_below_intertext_sep=\dimen135
-\l_MT_above_shortintertext_sep=\dimen136
-\l_MT_below_shortintertext_sep=\dimen137
-\xmathstrut@box=\box31
-\xmathstrut@dim=\dimen138
+\l_MT_shortvdotswithinadjustabove_dim=\dimen137
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen138
+\l_MT_above_intertext_sep=\dimen139
+\l_MT_below_intertext_sep=\dimen140
+\l_MT_above_shortintertext_sep=\dimen141
+\l_MT_below_shortintertext_sep=\dimen142
+\xmathstrut@box=\box32
+\xmathstrut@dim=\dimen143
 ))
 :<-
-(NamPhi_21_positive_systems.aux)
+(NamPhi_21_positive_systems.aux
+
+LaTeX Warning: Label `consistency' multiply defined.
+
+)
 \openout1 = `NamPhi_21_positive_systems.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 52.
-LaTeX Font Info:    ... okay on input line 52.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 57.
+LaTeX Font Info:    ... okay on input line 57.
 
 Unknown journal: specify \journalname{<name of your journal>} in preambel
 
-\AtBeginShipoutBox=\box32
-Package backref Info: ** backref set up for natbib ** on input line 52.
-Package hyperref Info: Link coloring OFF on input line 52.
+\AtBeginShipoutBox=\box33
+Package backref Info: ** backref set up for natbib ** on input line 57.
+Package hyperref Info: Link coloring OFF on input line 57.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
 ("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count134
+\c@section@level=\count142
 )
-LaTeX Info: Redefining \ref on input line 52.
-LaTeX Info: Redefining \pageref on input line 52.
-LaTeX Info: Redefining \nameref on input line 52.
+LaTeX Info: Redefining \ref on input line 57.
+LaTeX Info: Redefining \pageref on input line 57.
+LaTeX Info: Redefining \nameref on input line 57.
 
 (NamPhi_21_positive_systems.out) (NamPhi_21_positive_systems.out)
 \@outlinefile=\write3
@@ -417,36 +446,44 @@ LaTeX Info: Redefining \nameref on input line 52.
 
 (C:\Users\phiha\AppData\Roaming\MiKTeX\2.9\tex\context\base\mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count135
-\scratchdimen=\dimen139
-\scratchbox=\box33
-\nofMPsegments=\count136
-\nofMParguments=\count137
-\everyMPshowfont=\toks30
-\MPscratchCnt=\count138
-\MPscratchDim=\dimen140
-\MPnumerator=\count139
-\makeMPintoPDFobject=\count140
-\everyMPtoPDFconversion=\toks31
+\scratchcounter=\count143
+\scratchdimen=\dimen144
+\scratchbox=\box34
+\nofMPsegments=\count144
+\nofMParguments=\count145
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count146
+\MPscratchDim=\dimen145
+\MPnumerator=\count147
+\makeMPintoPDFobject=\count148
+\everyMPtoPDFconversion=\toks32
 )
 SVJour3 warning: Missing \journalname
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <13> not available
-(Font)              size <12> substituted on input line 82.
+(Font)              size <12> substituted on input line 87.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 82.
+LaTeX Font Info:    Try loading font information for U+msa on input line 87.
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 82.
+LaTeX Font Info:    Try loading font information for U+msb on input line 87.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (2.00163pt too wide) in paragraph at lines 84--87
+Overfull \hbox (2.00163pt too wide) in paragraph at lines 89--92
 [][]\OT1/cmr/m/n/10 This pa-per deals with the sta-bil-ity anal-y-sis of pos-i-
 tive delay-descrip-
  []
+
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 119
+.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 119.
+
+LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
+(Font)              using `OMS/cmsy/m/n' instead
+(Font)              for symbol `textbraceleft' on input line 119.
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -456,76 +493,110 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 {C:/Users/phiha/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 135--139
+Underfull \hbox (badness 10000) in paragraph at lines 143--147
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 140--141
+Underfull \hbox (badness 10000) in paragraph at lines 148--149
 
  []
 
 [2] [3]
-LaTeX Font Info:    Try loading font information for U+euf on input line 205.
+LaTeX Font Info:    Try loading font information for U+euf on input line 213.
  ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\ueuf.fd"
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
-) [4]
+)
+Overfull \hbox (5.19507pt too wide) in paragraph at lines 218--220
+\OT1/cmr/m/n/10 Kronecker-Weierstracanonical form (see e.g. [][]Dai[] [[]1989[
+]], [][]Kunkel and Mehrmann[]
+ []
+
+[4] [5] [6]
+Underfull \hbox (badness 10000) in paragraph at lines 353--356
+
+ []
+
+[7] [8]
 :<+ NamPhi_21_positive_systems.bbl
 (NamPhi_21_positive_systems.bbl (NamPhi_21_positive_systems.brf)
 \tf@brf=\write4
 \openout4 = `NamPhi_21_positive_systems.brf'.
 
- [5]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [6])
+Underfull \hbox (badness 1194) in paragraph at lines 81--81
+[][]\OT1/cmr/m/n/10 Emilia Frid-man.  Sta-bil-ity of lin-ear de-scrip-tor sys-t
+ems with de-lay: a
+ []
+
+
+Underfull \hbox (badness 2042) in paragraph at lines 81--81
+\OT1/cmr/m/n/10 Lyapunov-based ap-proach.  \OT1/cmr/m/it/10 J. Math. Anal. Appl
+.\OT1/cmr/m/n/10 , 273(1):24 -- 44,
+ []
+
+[9]
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+)
 :<-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 289.
-[7]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 289.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 449.
+[10]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 449.
  (NamPhi_21_positive_systems.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 289.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 289.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 449.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 449.
 Package rerunfilecheck Info: File `NamPhi_21_positive_systems.out' has not chan
 ged.
 (rerunfilecheck)             Checksum: F21EAF74B3F1D5228B7C2D207E602209;313.
 Package rerunfilecheck Info: File `NamPhi_21_positive_systems.brf' has not chan
 ged.
-(rerunfilecheck)             Checksum: 4001FBA90161380316E966242B8F3326;1349.
+(rerunfilecheck)             Checksum: 7E3E747CF2A7B383A41E7120AD025D15;1654.
 
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 289.
+
+LaTeX Font Warning: Some font shapes were not available, defaults substituted.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 449.
  ) 
 Here is how much of TeX's memory you used:
- 7740 strings out of 493312
- 110541 string characters out of 3138900
- 205690 words of memory out of 3000000
- 11130 multiletter control sequences out of 15000+200000
- 13327 words of font info for 51 fonts, out of 3000000 for 9000
+ 8085 strings out of 493312
+ 115567 string characters out of 3138900
+ 214792 words of memory out of 3000000
+ 11441 multiletter control sequences out of 15000+200000
+ 13963 words of font info for 54 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 32i,9n,28p,998b,496s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 32i,17n,32p,998b,494s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/P
 rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program F
 iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiK
 TeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/
 fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
-pe1/public/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
-c/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
-s/cm/cmr5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.
-pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Pr
-ogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Fi
-les/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/euler/eufm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/t
-ype1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type
-1/public/amsfonts/symbols/msbm10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/p
-ublic/amsfonts/symbols/msbm7.pfb>
-Output written on NamPhi_21_positive_systems.pdf (7 pages, 234241 bytes).
+pe1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/euler/eufm10.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on NamPhi_21_positive_systems.pdf (10 pages, 330862 bytes).
 PDF statistics:
- 278 PDF objects out of 1000 (max. 8388607)
- 57 named destinations out of 1000 (max. 500000)
+ 425 PDF objects out of 1000 (max. 8388607)
+ 78 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

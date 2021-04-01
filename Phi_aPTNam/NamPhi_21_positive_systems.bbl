@@ -1,127 +1,168 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{22}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem{AscP95}
+\bibitem[Ascher and Petzold(1995)]{AscP95}
 U.~M. Ascher and L.~R. Petzold.
 \newblock The numerical solution of delay-differential algebraic equations of
   retarded and neutral type.
-\newblock {\em {SIAM} J. Numer. Anal.}, 32:1635--1657, 1995.
+\newblock \emph{{SIAM} J. Numer. Anal.}, 32:\penalty0 1635--1657, 1995.
 
-\bibitem{BakPT02}
-C.~T.~H. Baker, C.~A.~H. Paul, and H.~Tian.
-\newblock Differential algebraic equations with after-effect.
-\newblock {\em J. Comput. Appl. Math.}, 140(1-2):63--80, Mar. 2002.
-
-\bibitem{Cam80}
+\bibitem[Campbell(1980)]{Cam80}
 S.~L. Campbell.
 \newblock Singular linear systems of differential equations with delays.
-\newblock {\em Appl. Anal.}, 2:129--136, 1980.
+\newblock \emph{Appl. Anal.}, 2:\penalty0 129--136, 1980.
 
-\bibitem{Cam95c}
+\bibitem[Hale and Lunel(1993)]{HalL93}
+J.K. Hale and S.M.V. Lunel.
+\newblock \emph{Introduction to Functional Differential Equations}.
+\newblock Springer, 1993.
+
+\bibitem[Shampine and Gahinet(2006)]{ShaG06}
+L.~F. Shampine and P.~Gahinet.
+\newblock Delay-differential-algebraic equations in control theory.
+\newblock \emph{Appl. Numer. Math.}, 56\penalty0 (3-4):\penalty0 574--588,
+  March 2006.
+\newblock ISSN 0168-9274.
+\newblock \doi{10.1016/j.apnum.2005.04.025}.
+\newblock URL \url{http://dx.doi.org/10.1016/j.apnum.2005.04.025}.
+
+\bibitem[Zhu and Petzold(1997)]{ZhuP97}
+Wenjie Zhu and Linda~R. Petzold.
+\newblock Asymptotic stability of linear delay differential-algebraic equations
+  and numerical methods.
+\newblock \emph{Appl. Numer. Math.}, 24:\penalty0 247 -- 264, 1997.
+\newblock \doi{http://dx.doi.org/10.1016/S0168-9274(97)00024-X}.
+
+\bibitem[Campbell(1995)]{Cam95c}
 S.~L. Campbell.
 \newblock Nonregular 2{D} descriptor delay systems.
-\newblock {\em IMA J. Math. Control Appl.}, 12:57--67, 1995.
+\newblock \emph{IMA J. Math. Control Appl.}, 12:\penalty0 57--67, 1995.
 
-\bibitem{CamL09}
+\bibitem[Du et~al.(2013)Du, Linh, Mehrmann, and Thuan]{DuLMT13}
+Nguyen~Huu Du, Vu~Hoang Linh, Volker Mehrmann, and Do~Duc Thuan.
+\newblock Stability and robust stability of linear time-invariant delay
+  differential-algebraic equations.
+\newblock \emph{{SIAM} J. Matr. Anal. Appl.}, 34\penalty0 (4):\penalty0
+  1631--1654, 2013.
+
+\bibitem[Ha and Mehrmann(2012)]{HaM12}
+Phi Ha and Volker Mehrmann.
+\newblock Analysis and reformulation of linear delay differential-algebraic
+  equations.
+\newblock \emph{Electr. J. Lin. Alg.}, 23:\penalty0 703--730, 2012.
+
+\bibitem[Ha and Mehrmann(2016)]{HaM16}
+Phi Ha and Volker Mehrmann.
+\newblock Analysis and numerical solution of linear delay
+  differential-algebraic equations.
+\newblock \emph{{BIT}}, 56:\penalty0 633 -- 657, 2016.
+
+\bibitem[Campbell and Linh(2009)]{CamL09}
 S.~L. Campbell and V.~H. Linh.
 \newblock Stability criteria for differential-algebraic equations with multiple
   delays and their numerical solutions.
-\newblock {\em Appl. Math Comput.}, 208(2):397 -- 415, 2009.
+\newblock \emph{Appl. Math Comput.}, 208\penalty0 (2):\penalty0 397 -- 415,
+  2009.
 
-\bibitem{Dai89}
-L.~Dai.
-\newblock {\em Singular Control Systems}.
-\newblock Springer-Verlag, Berlin, Germany, 1989.
-
-\bibitem{DuLMT13}
-N.~H. Du, V.~H. Linh, V.~Mehrmann, and D.~D. Thuan.
-\newblock Stability and robust stability of linear time-invariant delay
-  differential-algebraic equations.
-\newblock {\em {SIAM} J. Matr. Anal. Appl.}, 34(4):1631--1654, 2013.
-
-\bibitem{Vir08}
-Elena and Virnik.
-\newblock Stability analysis of positive descriptor systems.
-\newblock {\em Linear Algebra and its Applications}, 429(10):2640 -- 2659,
-  2008.
-\newblock Special Issue in honor of Richard S. Varga.
-
-\bibitem{Fri02}
-E.~Fridman.
+\bibitem[Fridman(2002)]{Fri02}
+Emilia Fridman.
 \newblock Stability of linear descriptor systems with delay: a {L}yapunov-based
   approach.
-\newblock {\em J. Math. Anal. Appl.}, 273(1):24 -- 44, 2002.
+\newblock \emph{J. Math. Anal. Appl.}, 273\penalty0 (1):\penalty0 24 -- 44,
+  2002.
+\newblock ISSN 0022-247X.
+\newblock \doi{http://dx.doi.org/10.1016/S0022-247X(02)00202-0}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0022247X02002020}.
 
-\bibitem{Ger05}
+\bibitem[Michiels(2011)]{Mic11}
+W.~Michiels.
+\newblock Spectrum-based stability analysis and stabilisation of systems
+  described by delay differential algebraic equations.
+\newblock \emph{IET Control Theory Appl.}, 5\penalty0 (16):\penalty0
+  1829--1842, 2011.
+\newblock ISSN 1751-8644.
+\newblock \doi{10.1049/iet-cta.2010.0752}.
+
+\bibitem[Tian et~al.(2014)Tian, Yu, and Kuang]{TiaYK11}
+H.~Tian, Q.~Yu, and J.~Kuang.
+\newblock Asymptotic stability of linear neutral delay differential-algebraic
+  equations and {R}unge--{K}utta methods.
+\newblock \emph{{SIAM} J. Numer. Anal.}, 52\penalty0 (1):\penalty0 68--82,
+  2014.
+\newblock \doi{10.1137/110847093}.
+\newblock URL \url{http://dx.doi.org/10.1137/110847093}.
+
+\bibitem[Linh and Thuan(2015)]{LinT15}
+Vu~Hoang Linh and Do~Duc Thuan.
+\newblock Spectrum-based robust stability analysis of linear delay
+  differential-algebraic equations.
+\newblock In \emph{Numerical Algebra, Matrix Theory, Differential-Algebraic
+  Equations and Control Theory, Festschrift in Honor of Volker Mehrmann},
+  chapter~19, pages 533--557. 2015.
+\newblock \doi{10.1007/978-3-319-15260-8_19}.
+\newblock URL \url{https://doi.org/10.1007/978-3-319-15260-8_19}.
+
+\bibitem[Baker et~al.(2002)Baker, Paul, and Tian]{BakPT02}
+C.~T.~H. Baker, C.~A.~H. Paul, and H.~Tian.
+\newblock Differential algebraic equations with after-effect.
+\newblock \emph{J. Comput. Appl. Math.}, 140\penalty0 (1-2):\penalty0 63--80,
+  March 2002.
+\newblock ISSN 0377-0427.
+\newblock \doi{10.1016/S0377-0427(01)00600-8}.
+\newblock URL \url{http://dx.doi.org/10.1016/S0377-0427(01)00600-8}.
+
+\bibitem[Guglielmi and Hairer(2008)]{GugH07}
+Nicola Guglielmi and Ernst Hairer.
+\newblock Computing breaking points in implicit delay differential equations.
+\newblock \emph{Adv. Comput. Math.}, 29:\penalty0 229--247, 2008.
+\newblock ISSN 1019-7168.
+
+\bibitem[Ha(2015)]{Ha15}
+Phi Ha.
+\newblock \emph{Analysis and numerical solutions of delay
+  differential-algebraic equations}.
+\newblock Dissertation, Institut f{\"u}r Mathematik, TU Berlin, Berlin,
+  Germany, 2015.
+
+\bibitem[Unger(2018)]{Ung18}
+Benjamin Unger.
+\newblock Discontinuity propagation in delay differential-algebraic equations.
+\newblock \emph{The Electronic Journal of Linear Algebra}, 34:\penalty0
+  582–601, Feb 2018.
+\newblock ISSN 1081-3810.
+
+\bibitem[Dai(1989)]{Dai89}
+L.~Dai.
+\newblock \emph{Singular Control Systems}.
+\newblock Springer-Verlag, Berlin, Germany, 1989.
+
+\bibitem[Kunkel and Mehrmann(2006)]{KunM06}
+P.~Kunkel and V.~Mehrmann.
+\newblock \emph{Differential-Algebraic Equations -- Analysis and Numerical
+  Solution}.
+\newblock EMS Publishing House, Z{\"u}rich, Switzerland, 2006.
+
+\bibitem[Gerdts(2005)]{Ger05}
 M.~Gerdts.
 \newblock Local minimum principle for optimal control problems subject to index
   two differential algebraic equations systems.
 \newblock Technical report, Fakult\"at f\"ur Mathematik, Universit\"at Hamburg,
   Hamburg, Germany, 2005.
 
-\bibitem{GugH07}
-N.~Guglielmi and E.~Hairer.
-\newblock Computing breaking points in implicit delay differential equations.
-\newblock {\em Adv. Comput. Math.}, 29:229--247, 2008.
-
-\bibitem{Ha15}
-P.~Ha.
-\newblock {\em Analysis and numerical solutions of delay differential-algebraic
-  equations}.
-\newblock Dissertation, Institut f{\"u}r Mathematik, TU Berlin, Berlin,
-  Germany, 2015.
-
-\bibitem{HaM12}
-P.~Ha and V.~Mehrmann.
-\newblock Analysis and reformulation of linear delay differential-algebraic
-  equations.
-\newblock {\em Electr. J. Lin. Alg.}, 23:703--730, 2012.
-
-\bibitem{HaM16}
-P.~Ha and V.~Mehrmann.
-\newblock Analysis and numerical solution of linear delay
-  differential-algebraic equations.
-\newblock {\em {BIT}}, 56:633 -- 657, 2016.
-
-\bibitem{HalL93}
-J.~Hale and S.~Lunel.
-\newblock {\em Introduction to Functional Differential Equations}.
-\newblock Springer, 1993.
-
-\bibitem{KunM06}
-P.~Kunkel and V.~Mehrmann.
-\newblock {\em Differential-Algebraic Equations -- Analysis and Numerical
-  Solution}.
-\newblock EMS Publishing House, Z{\"u}rich, Switzerland, 2006.
-
-\bibitem{LinT15}
-V.~H. Linh and D.~D. Thuan.
-\newblock Spectrum-based robust stability analysis of linear delay
-  differential-algebraic equations.
-\newblock In {\em Numerical Algebra, Matrix Theory, Differential-Algebraic
-  Equations and Control Theory, Festschrift in Honor of Volker Mehrmann},
-  chapter~19, pages 533--557, 2015.
-
-\bibitem{Mic11}
-W.~Michiels.
-\newblock Spectrum-based stability analysis and stabilisation of systems
-  described by delay differential algebraic equations.
-\newblock {\em IET Control Theory Appl.}, 5(16):1829--1842, 2011.
-
-\bibitem{ShaG06}
-L.~F. Shampine and P.~Gahinet.
-\newblock Delay-differential-algebraic equations in control theory.
-\newblock {\em Appl. Numer. Math.}, 56(3-4):574--588, Mar. 2006.
-
-\bibitem{TiaYK11}
-H.~Tian, Q.~Yu, and J.~Kuang.
-\newblock Asymptotic stability of linear neutral delay differential-algebraic
-  equations and {R}unge--{K}utta methods.
-\newblock {\em {SIAM} J. Numer. Anal.}, 52(1):68--82, 2014.
-
-\bibitem{ZhuP97}
-W.~Zhu and L.~R. Petzold.
-\newblock Asymptotic stability of linear delay differential-algebraic equations
-  and numerical methods.
-\newblock {\em Appl. Numer. Math.}, 24:247 -- 264, 1997.
+\bibitem[Virnik(2008)]{Vir08}
+Elena Virnik.
+\newblock Stability analysis of positive descriptor systems.
+\newblock \emph{Linear Algebra and its Applications}, 429\penalty0
+  (10):\penalty0 2640 -- 2659, 2008.
+\newblock ISSN 0024-3795.
+\newblock \doi{10.1016/j.laa.2008.03.002}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0024379508001250}.
+\newblock Special Issue in honor of Richard S. Varga.
 
 \end{thebibliography}

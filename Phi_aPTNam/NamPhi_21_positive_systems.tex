@@ -28,11 +28,16 @@
 \usepackage{amsthm}
 \usepackage{subeqnarray}
 \usepackage[backref=page]{hyperref}
-\usepackage[square, numbers, comma, sort&compress]{natbib}
+%\usepackage[square, numbers, comma, sort&compress]{natbib}
+\usepackage[authoryear]{natbib}
 \usepackage{graphicx}
 \usepackage[active]{srcltx}
 \usepackage{epstopdf} 
-%\usepackage{showlabels}
+
+\usepackage{lineno}
+\linenumbers
+
+\usepackage[right]{showlabels}
 %
 % \usepackage{mathptmx}      % use Times fonts if available on your TeX system
 %
@@ -103,7 +108,9 @@ $I$ ($I_n$)		&  the identity matrix (of size $n \times n$) \\
 $x^{(j)}$       &  the $j$-th derivative of a function $x$ \\
 $C^p([-\tau,0],\r^n)$ & the space of $p$-times continuously differentiable functions \\
 & from $[-\tau,0]$ to $\r^n$ (for $ 0 \leq p \leq \infty$) \\
-$\|\cdot\|_{\infty}$ & the norm of the Banach space $C^0([-\tau,0],\r^n)$. \\ \hline
+$\|\cdot\|_{\infty}$ & the norm of the Banach space $C^0([-\tau,0],\r^n)$. \\ 
+$\im_+ W$ & the space $\{W w_1 \mbox{ for all } w_1 \in \r_+^n \}$. \\ 
+\hline
 \end{tabular}
 
 %=========================================================================================
@@ -112,18 +119,19 @@ $\|\cdot\|_{\infty}$ & the norm of the Banach space $C^0([-\tau,0],\r^n)$. \\ \h
 \section{Introduction} \label{sec1}
 Our focus in the present paper is on the positivity and stability analysis of linear, constant coefficients {\it delay-descriptor systems} of the form
 %
-\begin{equation}\label{delay-descriptor}
-  E\dot{x}(t) = A x(t) + A_d x(t-\tau) + B u(t), \ \mbox{ for all } t\in [t_0,t_f),
-\end{equation}
+\begin{align}\label{delay-descriptor}
+  E\dot{x}(t) &= A x(t) + A_d x(t-\tau) + B u(t), \ \mbox{ for all } t\in [t_0,t_f), \\
+  y(t) &= C x(t), \notag 
+\end{align}
 %
-where $E$, $A$, $B\in \r^{\ell,n}$, $x:[t_0-\tau,t_f) \rar \r^n$, $f:[t_0,t_f)\to \r^{n}$, and $\tau>0$ is a constant delay. \
+where $E$, $A \in \r^{n,n}$, $B\in \r^{n,p}$, $C\in \r^{q,n}$, $x:[t_0-\tau,t_f) \rar \r^n$, $f:[t_0,t_f)\to \r^{n}$, and $\tau>0$ is a constant delay. \
 Together with \eqref{delay-descriptor}, we are also concern with the associated \emph{zero-input system}
 %
 \be\label{zero-input system}
 E\dot{x}(t) = A x(t) + A_d x(t-\tau), \ \mbox{ for all } t\in [t_0,t_f).
 \ee
 %
-Systems of the form \eqref{delay-descriptor} can be considered as a general combination of two important classes of dynamical systems, namely \emph{descriptor systems} (DAEs)
+Systems of the form \eqref{delay-descriptor} can be considered as a general combination of two important classes of dynamical systems, namely \emph{differential-algebraic equations (descriptor systems)} (DAEs)
 %
 \begin{equation}\label{eq1.2}
  E \dot{x}(t) = A x(t) + B u(t),
@@ -134,33 +142,33 @@ where the matrix $E$ is allowed to be singular ($\det E=0$), and \emph{delay-dif
  \dot{x}(t) = A x(t) + A_d x(t-\tau) + B u(t). 
 \end{equation}
 %
-delay-descriptor systems of the form \eqref{delay-descriptor} have been arisen in various applications, see \cite{AscP95,Cam80,HalL93,ShaG06,ZhuP97} and the references there in. 
-From the theoretical viewpoint, the study for such systems is much more complicated than that for standard DDEs or DAEs. The dynamics of DDAEs has been strongly enriched, and many interesting properties, which occur neither for DAEs nor for DDEs, have been observed for DDAEs \cite{Cam95c,DuLMT13,HaM12,HaM16}. Due to these reasons, recently more and more attention has been devoted to DDAEs, \cite{CamL09,Fri02,HaM12,HaM16,Mic11,ShaG06,TiaYK11,LinT15}. \\
+delay-descriptor systems of the form \eqref{delay-descriptor} have been arisen in various applications, see \citet{AscP95,Cam80,HalL93,ShaG06,ZhuP97} and the references there in. 
+From the theoretical viewpoint, the study for such systems is much more complicated than that for standard DDEs or DAEs. The dynamics of DDAEs has been strongly enriched, and many interesting properties, which occur neither for DAEs nor for DDEs, have been observed for DDAEs \citet{Cam95c,DuLMT13,HaM12,HaM16}. Due to these reasons, recently more and more attention has been devoted to DDAEs, \citet{CamL09,Fri02,HaM12,HaM16,Mic11,ShaG06,TiaYK11,LinT15}. \\
 
 [....] \\
 
-The short outline of this work is as follows. Firstly, in Section \ref{sec2}, we briefly recall the solvability analysis to system \eqref{delay-descriptor}, which is followed by an imporant result about solution comparison for system \eqref{zero-input system} (Theorem \ref{solution comparison}). 
+The short outline of this work is as follows. Firstly, in Section \ref{sec2}, we briefly recall the solvability analysis to system \eqref{delay-descriptor}, which is followed by an imporant result about solution comparison for system \eqref{zero-input system} (Theorem \ref{solution comparison 1}). 
 Based on the explicit solution representation in Section \ref{sec2}, we characterize the posivity of system \eqref{delay-descriptor} in Section \ref{sec3}. We establish there algebraic, numerically verifiable conditions in terms of the system matrix coefficients. To follow, in Section \ref{sec4} we discuss further about the zero-input system \eqref{zero-input system} under biconditional requirements: stability and positivity.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 2  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preliminaries} \label{sec2}
 
-In this section we discuss the solvability analysis, including the solution representation and the comparison principal for the corresponding IVP to the system \eqref{delay-descriptor}, which reads in details
+In this section we discuss the solvability analysis, including the solution representation and the comparison principal for the corresponding IVP to system \eqref{delay-descriptor}, which reads in details
 %
 \begin{align}
 \notag	E\dot{x}(t)    &= A x(t) + A_d x(t-\tau) + B u(t), \ \mbox{ for all } t\in [t_0,t_f),  \\
 	x|_{[t_0-\tau,t_0]} &= \vphi: [t_0-\tau,t_0] \rightarrow \r^{n}. \label{initial condition}
 \end{align}
 %
-Here, $\vphi$ is a prescribed initial trajectory, which is necessary to achieve uniqueness of solutions.
+Here, $\vphi$ is a prescribed initial trajectory (preshape function), which is necessary to achieve uniqueness of solutions.
 Without loss of generality, we assume that $t_0 = 0$ and $t_f = n_f \tau$, where $n_f \in \N$. 
 
-\subsection{Existence and uniqueness of the solutions}
+\subsection{Existence, uniqueness and explicit solution formula}
 
-It is well-known (e.g. \cite{DuLMT13}) that we may consider different solution concepts for system \eqref{delay-descriptor}.
+It is well-known (e.g. \citet{DuLMT13}) that we may consider different solution concepts for system \eqref{delay-descriptor}.
 The reason is, that $E(0)\dot{x}(0^+)$ which arises from the right hand side in \eqref{delay-descriptor} at $0$ may not be equal to $E(0)\dot{\vphi}(0^-)$.
 %
-Moreover, it has been observed in \cite{BakPT02,Cam80,GugH07} that a discontinuity of $\dot{x}$ at $t=0$ may propagate with time, and typically $\dot{x}$ is discontinuous at every point $j\tau, \ j\in\N_0$ or it may not even exist. To deal with this property of DDAEs, we use the following solution concept. % for \eqref{delay-descriptor}.
+Moreover, it has been observed in \citet{BakPT02,Cam80,GugH07} that a discontinuity of $\dot{x}$ at $t=0$ may propagate with time, and typically $\dot{x}$ is discontinuous at every point $j\tau, \ j\in\N_0$ or it may not even exist. To deal with this property of DDAEs, we use the following solution concept. % for \eqref{delay-descriptor}.
 %
 \begin{definition}\label{solution} Let us consider a fixed input function $u(t)$.\\
 i) A function $x:[-\tau,\infty)\rar\r^n$ is called a \emph{piecewise differentiable solution} of \eqref{delay-descriptor}, if $Ex$ is piecewise continuously differentiable, $x$ is continuous and satisfies \eqref{delay-descriptor} at every  $t\in [t_0,t_f) \setminus \underset{j\in \N_0}{\cup} \{j\tau\}$. \\
@@ -192,7 +200,7 @@ for all $t\in (0,\tau)$ and for all $j=1,2,...,n_f$. We notice, that for each $j
 	x_j(0) = x_{j-1}(\tau) \ .
 \end{equation}
 In particular, $x_1(0) = \phi(0)$ and the function $x_0$ is given.
-Inherited from the theory of delay-different equations (\cite{HalL93}), we recall the concept of \emph{non-advancedness} as follow.
+Inherited from the theory of delay-different equations (\citet{HalL93}), we recall the concept of \emph{non-advancedness} as follow.
 
 \begin{definition}
 A regular delay-descriptor system \eqref{delay-descriptor} is called \emph{non-advanced} if for any consistent and continuous initial function $\vphi$, there exists a piecewise differentiable solution 
@@ -200,25 +208,43 @@ $x(t)$ to the IVP \eqref{delay-descriptor}, \eqref{initial condition}.
 \end{definition} 
 
 Obviously, the non-advancedness of system \eqref{delay-descriptor} is equivalent to the fact that
-the function $x_{j}$ is at least as smooth as $x_{j-1}$ for all $j\in \N$. In deed, most of systems that we have encountered in applications are non-advanced, \cite{AscP95,ShaG06,Ha15}.
+the function $x_{j}$ is at least as smooth as $x_{j-1}$ for all $j\in \N$. In deed, most of systems that we have encountered in applications are non-advanced, \citet{AscP95,ShaG06,Ha15}. For more detailed discussions about the types of the DDAE \eqref{zero-input system}, we refer the readers to \cite{Ha15,HaM16,Ung18}.
 %
 \begin{definition}\label{regularity} Consider the DDAE \eqref{delay-descriptor}. The matrix triple $(E,A,B)$ is called \emph{regular} if the (two variable) \emph{characteristic polynomial} $\mathfrak{P}(\lb,\om):=\det(\lb E - A - \om B)$ is not identically zero. 
 If, in addition, $B=0$ we say that the matrix pair $(E,A)$ (or the pencil $\lb E-A$) is regular.  
 The sets $\si(E,A,B):= \{\lb \in \C \ | \ \det(\lb E -A-e^{-\lb \tau}B) = 0\}$ and $\rho(E,A,B)=\C\setminus \si(E,A,B)$ are called the \emph{spectrum} and the \emph{resolvent set} of \eqref{delay-descriptor}, respectively. 
 \end{definition}
 %
-Provided that the pair $(E,A)$ is regular, we can transform them to the Kronecker-Weierstra\ss canonical form (see e.g. \cite{Dai89,KunM06}). That is, there exist regular matrices $W$, $T\in \R^{n,n}$ such that
+Provided that the pair $(E,A)$ is regular, we can transform them to the Kronecker-Weierstra\ss canonical form (see e.g. \citet{Dai89,KunM06}). That is, there exist regular matrices $W$, $T\in \R^{n,n}$ such that
 %
 \begin{equation}\label{KW form}
 (E,A) = \left( W \m{I & 0 \\ 0 & N }T , \  W \m{ J & 0 \\ 0 & I}T \right) \ ,
 \end{equation}
 %
-where $N$ is a nilpotent matrix of nilpotency index $\nu$. We also say that the pair $(E,A)$ has a \emph{differentiation index} $\nu$, i.e., $ind(E,A) = \nu$.
+where $N$ is a nilpotent matrix of nilpotency index $\nu$. We also say that the pair $(E,A)$ has a \emph{differentiation index} $\nu$, i.e., $\ind(E,A) = \nu$.
 
 \begin{remark}
-Two concepts non-advancedness and differentiation index are independent. In details, a non-advanced system can have arbitrarily high index, for example the system below. 
+Two concepts non-advancedness and differentiation index are independent. In details, a non-advanced system can have arbitrarily high index, as can be seen in the following example. 
 \end{remark}
-Let $E$ have index $\tnu$, i.e., $ind(E,I_n)=\tnu$, the Drazin inverse $E^D$ of E is uniquely defined by the properties
+
+\begin{example}\label{example 1}
+Consider the following systems with the parameters $\ep_1$, $\ep_2$. 
+%
+\begin{equation}\label{eq11}
+\underbrace{
+	\m{0 & 1 &  & \\  & \ddots & \ddots & \\  &  & \ddots & 1 \\  &  &  & 0}
+}_{E}  \dot{x}(t) 
+= 
+\underbrace{
+	\m{ 1 & & & & \\ & \ddots & & & \\ & & & 1 & \\ & & & & 1}
+}_{A}  x(t) 
++ \m{ 0 & & & \ep_1 \\ & \ddots & &  \\ & & 0 &   \\  & & & \ep_2} x(t-h),  
+\end{equation}
+%
+It is well-known that in this example $\ind(E,A)=n$. Furthermore, depending on the value of $\ep_2$, the system will be advanced (if $\ep_2\not=0$) and be non-advanced (if $\ep_2\not=0$).
+\end{example}
+
+Let $E$ have index $\tnu$, i.e., $\ind(E,I_n)=\tnu$, the Drazin inverse $E^D$ of E is uniquely defined by the properties
 %
 \begin{equation}
 E^DE = E E^D, \ E^D E E^D = E^D ,\ E^D E^{\tnu+1} = E^{\tnu} .
@@ -226,37 +252,93 @@ E^DE = E E^D, \ E^D E E^D = E^D ,\ E^D E^{\tnu+1} = E^{\tnu} .
 %
 \vskip -1pt
 %
-\begin{lemma}\label{lem1}\cite{KunM06} Let (E,A) be a regular matrix pair. Then the following assertions hold true. \\
-i) For any $\lb \in \rho(E,A)$, two matrices $\hE:=(\lb E-A)^{-1}E$ and $\hA:=(\lb E-A)^{-1}A$, then commute. \\
-ii) Furthermore, we also have the following commutative identities
+\begin{lemma}\label{lem1}\citet{KunM06} Let (E,A) be a regular matrix pair. Then for any $\lb \in \rho(E,A)$, two following matrices commute.
+%
+\begin{equation}\label{eq20}
+\hE:=(\lb E-A)^{-1}E, \ \hA:=(\lb E-A)^{-1}A.
+\end{equation}
+%
+Furthermore, the following commutative identities hold true.
 %
 \[ \hE \hA^D = \hA^D \hE, \ \hE^D \hA = \hA \hE^D, \ \hE^D \hA^D = \hA^D \hE^D \ . 
 \]
 %
 \end{lemma}
-We notice that the matrix products $\hE^D \hE$, $\hE^D \hA$, $\hE\hA^D$, $\hE^D \hB$, $\hA^D \hB$ do not depend on the choice of $\lb$ (see e.g. \cite{Dai89}). Furthermore, they can be numerically computed by transforming the pair $(E,A)$ to their Weierstrass canonical form (see e.g. \cite{Ger05,Vir08}).
+We notice that the matrix products $\hE^D \hE$, $\hE^D \hA$, $\hE\hA^D$, $\hE^D \hB$, $\hA^D \hB$ do not depend on the choice of $\lb$ (see e.g. \citet{Dai89}). Furthermore, they can be numerically computed by transforming the pair $(E,A)$ to their Weierstrass canonical form \eqref{KW form} (see e.g. \citet{Ger05,Vir08}).
 
-\subsection{Explicit solution representation}
+For any $\lb \in \rho(E,A)$, we denote 
+%
+\begin{equation}\label{eq21}
+\hA_d :=(\lb E-A)^{-1} A_d, \  \hB:=(\lb E-A)^{-1}B \ .
+\end{equation}
+%
+Making use of the Drazin inverse, in the following theorem we present the explicit solution representation of system \eqref{delay-descriptor}.
 
-For any $\lb$ as in Lemma \ref{lem1}, let us denote $\hA_d :=(\lb E-A)^{-1} A_d $ and $\hB:=(\lb E-A)^{-1}B$. Making use of the Drazin inverse, in the following theorem we present the explicit solution representation of system \eqref{delay-descriptor}.
-
-\begin{theorem}
-alsdlfasldflasdlfas
+\begin{theorem}\label{sol. rep. DAE}
+Consider the delay-descriptor system \eqref{delay-descriptor}. Assume that 
+$(E, A)$ is a regular matrix pair with a differentiation index $ind(E, A) = \nu$. Let $\hE$, $\hA$, $\hA_d$, $\hB$ be defined as in \eqref{eq20}, \eqref{eq21}. Furthermore, assume that $u$ is sufficiently smooth. Then, every solution $x_j$ of the DAE \eqref{j-th DAE} has the form
+%
+\begin{align}\label{j-th solution}
+x_j(t) =& \  e^{\hE^D\hA t} \hE^D\hE v_j + 
+\int_{0}^{t} e^{\hE^D\hA (t-s)}  \hE^D \ \left( \hA_d x_{j-1}(s) + \hB u_j(s) \right) ds \notag \\
+&+ (\hE^D\hE - I) \ \sum_{i=0}^{\nu-1} (\hE^D\hA)^i \hA^D \left( \hA_d x^{(i)}_{j-1}(t) + \hB u^{(i)}_{j}(t) \right) ,
+\end{align}
+%
+for some vector $v_j \in \R^n$. 
 \end{theorem}
+\begin{proof}
+The proof is straightly followed from the explicit solution of DAEs, see \cite[Chap. 2]{KunM06}.
+\end{proof}
+%
+Making use of \eqref{continuity condition}, we directly obtain the following corollary.
+%
+\begin{corollary}
+The solution $x(t)$ of system \eqref{delay-descriptor} is continuous at the point $(j-1)\tau$ if and only if the following condition holds.
+%
+\[ (\hE^D\hE - I) \ x_{j-1}(\tau) = (\hE^D\hE - I) \ \sum_{i=0}^{\nu-1} (\hE^D\hA)^i \hA^D \left( \hA_d x^{(i)}_{j-1}(0) + \hB u^{(i)}_{j}(0) \right) \ .
+\]
+%
+In particular, for the preshape function $\varphi(t)$, we must require
+%
+\[ (\hE^D\hE - I) \ \left( \vphi(0) + \sum_{i=0}^{\nu-1} (\hE^D\hA)^i \hA^D \left( \hA_d \vphi^{(i)}(-\tau) + \hB u^{(i)}(0) \right) \right) = 0 \ .
+\]
+% 
+\end{corollary}
 
-Shuffle algorithm to derive the strangeness-free form of non-advanced systems
+Following from \eqref{j-th solution}, we directly obtain a simpler form in case of non-advanced system as follows.
 
-Corollary, solution of non-advanced systems
-
-Remark: In fact, most of singular systems that we have seen is of non-advanced type, see e.g. \cite{AscP95,Ha15,HaM16}
-
-
+\begin{corollary} Consider system \eqref{delay-descriptor} and assume that it is regular and non-advanced. Then, we have
+%
+\begin{align}\label{sol. formula non-advanced}
+x_j(t) =& \  e^{\hE^D\hA t} \hE^D\hE v_j + 
+\int_{0}^{t} e^{\hE^D\hA (t-s)}  \hE^D \left( \hA_d x_{j-1}(s) + \hB u_j(s) \right) ds \notag \\
+&+ (\hE^D\hE - I) \ \left( \hA^D \hA_d x_{j-1}(t) + \sum_{i=0}^{\nu-1}  (\hE^D\hA)^i  \hA^D \hB u^{(i)}_{j}(t) \right) ,
+\end{align}
+%
+Furthermore, the consistency condition at $t=0$ reads
+%
+\begin{equation}\label{consistency}
+(\hE^D\hE - I) \left( \vphi(0) + \hA^D \hA_d \vphi(-\tau) + \sum_{i=0}^{\nu-1} (\hE^D\hA)^i \hA^D \hB u^{(i)}(0) \right) = 0 \ .
+\end{equation}%
+\end{corollary}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Comparison principal} \label{sec2b}
 
-\begin{theorem}\label{solution comparison}
-Same equation but different initial conditions.
+\begin{lemma}\label{lem2.1}
+It suffices to prove that if $u_j(t) \leq \tu_j(t)$ and $x_{j-1}(t) \leq \tx_{j-1}(t)$ for all $t\in[0,\tau]$ then it follows that $x_{j}(t) \leq \tx_j(t)$ for all $t\in[0,\tau]$.
+\end{lemma}
+
+By simple induction, making use of Lemma \ref{lem2.1},we obtain the solution comparison for system \eqref{delay-descriptor}.
+
+\begin{theorem}\label{solution comparison 1}
+Consider system \eqref{delay-descriptor} and assume that it is positive. Let $x(t)$ (resp. $\tx(t)$) be a state function corresponds to a reference input $u(t)$ (resp. $\tu(t)$)
+and a preshape function $\vphi(t)$ (resp. $\tvphi(t)$). Furthermore, assume that the following conditions hold. \\
+i)  $\vphi(t) \leq \tvphi(t)$ for all $t \in [-\tau,0]$, \\
+ii) $u^{(i)}(t) \leq \tu^{(i)}(t)$ for all $t\geq 0$ and all $i\leq (\nu-1) \ \floor{t/\tau}$. 
+Then we have $x(t) \leq \tx(t)$ for all $t\geq 0$.
 \end{theorem}
+\begin{proof}
+\end{proof}
 
 \begin{theorem}
 Time-dependent delay will affect neither the positivity nor the stability of system \eqref{delay-descriptor}.
@@ -265,7 +347,84 @@ Time-dependent delay will affect neither the positivity nor the stability of sys
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Characterizations of positive delay-descriptor system} \label{sec3}
 
+Since most systems occur in application are non-advanced, in this section we focus on the chracterization for positivity of non-advanced delay descriptor systems. We, furthermore, notice that the non-advancedness is a necessary condition for the stability (in the Lyapunov sense) of any time-delayed system, see e.g. \cite{HalL93,DuLMT13}. 
 
+\begin{definition}
+Consider the delay-descriptor system \eqref{delay-descriptor} and assume that it is non-advanced, and that the pair $(E,A)$ is regular with $\ind(E,A)=\nu$. We call \eqref{delay-descriptor}  positive if for all $t\geq 0$ we have $x(t) \geq 0$ and $y(t)\geq 0$ for any input function $u$ and any consistent initial function $\vphi(t)$ that satisfy two following conditions. \\
+i)  $\vphi(t) \geq 0$ for all $t \in [-\tau,0]$, \\
+ii) $u^{(i)}(t) \geq 0$ for all $t\geq 0$ and all $i\leq (\nu-1) \ \floor{t/\tau}$. \\
+
+Let us denote 
+\[
+\Ka_{\nu}(\hE\hA^D,\hA^D\hB):=\m{\hA^D\hB,\hE\hA^D \ \hA^D\hB,\dots,(\hE\hA^D)^{\nu-1} \hA^D\hB} \ .
+\]
+
+\begin{lemma}(\cite{Vir08})  
+Consider the regular matrix pair $(E,A)$ and let $\hE$, $\hA$ be defined as in \eqref{eq20}. If for all $v \geq 0$ we have $e^{\hE^D\hA t} \hE^D\hE v\geq 0$ for all $t\geq 0$, then there exists $\a\geq 0$ such that $\hE^D\hA + \a \hE^D\hE \geq 0$.
+\end{lemma}
+
+Since our systems is linear, time invariant coefficients, it would be sufficient to study the positivity on the first time interval $[0,\tau]$. Making use of \eqref{sol. formula non-advanced}, and let $j=1$, we can split the solution $x_1 = x|_{[0,\tau]}$ as follows
+%
+\begin{align}\label{eq16}
+x_1(t) =& 
+\underbrace{
+e^{\hE^D\hA t} \hE^D\hE v_1 + 
+\int_{0}^{t} e^{\hE^D\hA (t-s)} \hE^D \hA_d x_0(s) + 
+(\hE^D\hE - I) \hA^D \hA_d x_0(t)
+}_{x_{zi}(t)}  \notag  \\
+ &+ \underbrace{
+ \int_{0}^{t} e^{\hE^D\hA (t-s)}  \hE^D \hB u_j(s) \!+\!
+ (\hE^D\hE - I) \sum_{i=0}^{\nu-1}  (\hE^D\hA)^i  \hA^D \hB u^{(i)}_{j}(t)}_{x_{zs}(t)} \ , 
+\end{align}
+%
+where $x_{zi}(t)$ (resp. $x_{zs}(t)$) is often called (in the theory of linear systems) the \emph{zero input} (resp. \emph{zero state}) solution.
+
+\begin{lemma}\label{zero input lemma}
+Consider the delay-descriptor system \eqref{delay-descriptor} and assume that it is non-advanced, and the pair $(E,A)$ is regular with index $\ind(E,A) = \nu$. 
+Let the input $u = 0$. Then, system \eqref{delay-descriptor} has a solution $x(t) \geq 0$ for all $t\geq 0$ and all consistent initial function $\vphi(t) \geq 0$ if and only if 
+the following conditions are satisfied. \\
+1) $\hE^D\hA + \a \hE^D\hE \geq 0$ for some $\a \geq 0$. \\
+2) $\hE^D\hA_d \geq 0$, $(\hE^D\hE - I) \hA^D\hA_d \geq 0$. 
+\end{lemma}
+
+\begin{lemma}\label{zero state lemma}
+	
+\end{lemma}
+
+
+\begin{theorem}\label{Thm positivity}
+Consider the delay-descriptor system \eqref{delay-descriptor} and assume that it is non-advanced, and the pair $(E,A)$ is regular with index $\ind(E,A) = \nu$. Furthermore, assume that \\
+i) $(\hE^D\hE - I) \ (\hE^D\hA)^i  \hA^D \hB \geq 0$ for $i=0,\dots,\nu-1$, \\
+ii) $\hE^D\hE \geq 0$. \\ 
+Then system \eqref{delay-descriptor} is positive if and only if the following conditions hold. \\
+1) $\hE^D\hA + \a \hE^D\hE \geq 0$ for some $\a \geq 0$. \\
+2) $\hE^D\hA_d \geq 0$, $(\hE^D\hE - I) \hA^D\hA_d \geq 0$, $\hE^D\hB \geq 0$, \\
+3) $C$ is non-negative on the subspace 
+%
+\begin{equation}\label{reachable subspace}
+{\cal X} : = \im_+ \left[ \hE^D\hE,\ (\hE^D\hE - I)\hA^D \hA_d, \ (\hE^D\hE - I) \ \Ka_{\nu}(\hE\hA^D,\hA^D\hB) \right] \ .
+\end{equation} 
+%
+\end{theorem}
+\begin{proof}
+$\Rightarrow$ We only need to prove part 3. \\
+$\Leftarrow$ Quite simple. 
+\end{proof}
+If we restrict ourself to the non-delayed case (i.e. $A_d=0$), the direct corollary of Theorem \ref{Thm positivity} is straightforward. We, moreover, notice that this corollary has 
+slightly improved the result \cite[Thm. 3.4]{Vir08}.
+
+\begin{corollary}\label{Thm positivity - DAE version}
+	Consider the descriptor system \eqref{eq1.2} and assume that the pair $(E,A)$ is regular with index $\ind(E,A) = \nu$. Furthermore, assume that \\
+	i) $(\hE^D\hE - I) \ (\hE^D\hA)^i  \hA^D \hB \geq 0$ for $i=0,\dots,\nu-1$, \\
+	ii) $\hE^D\hE \geq 0$. \\ 
+	Then system \eqref{eq1.2} is positive if and only if the following conditions hold. \\
+	1) $\hE^D\hA + \a \hE^D\hE \geq 0$ for some $\a \geq 0$. \\
+	2) $\hE^D\hB \geq 0$, \\
+	3) $C$ is non-negative on the subspace \ $\im_+ \!\left[ \hE^D\hE, (\hE^D\hE - I) \Ka_{\nu}(\hE\hA^D,\hA^D\hB) \right]$.
+\end{corollary}
+
+
+\end{definition}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Stability of positive delay-descriptor system} \label{sec4}
 
@@ -279,7 +438,8 @@ In this paper, we have discussed the positivity of strangeness-free descriptor s
 \textbf{Acknowledgment} The author would like to thank the anonymous referee for his suggestions to improve this paper.
 %=========================================================================================
 
-\bibliographystyle{abbrv}
+%\bibliographystyle{abbrv}
+\bibliographystyle{unsrtnat}
 \bibliography{Phi_July_2020}
 
 %============================================================================
