@@ -1,9 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.17)  11 APR 2021 11:17
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6500 64-bit) (preloaded format=pdflatex 2020.5.8)  11 APR 2021 16:26
 entering extended mode
 **./NamPhi_21_positive_systems.tex
 (NamPhi_21_positive_systems.tex
-LaTeX2e <2020-10-01> patch level 4
-L3 programming layer <2021-02-18> xparse <2020-03-03> (svjour3.cls
+LaTeX2e <2017-04-15>
+Babel <3.15> and hyphenation patterns for 75 language(s) loaded.
+(svjour3.cls
 Document Class: svjour3 2007/05/08 v3.2 
 LaTeX document class for Springer journals
 Class Springer-SVJour3 Info: extra/valid Springer sub-package (-> *.clo) 
@@ -25,412 +26,381 @@ LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 154.
 LaTeX Font Info:    Redeclaring math symbol \Phi on input line 155.
 LaTeX Font Info:    Redeclaring math symbol \Psi on input line 156.
 LaTeX Font Info:    Redeclaring math symbol \Omega on input line 157.
-\logodepth=\dimen138
-\headerboxheight=\dimen139
-\betweenumberspace=\dimen140
-\aftertext=\dimen141
-\headlineindent=\dimen142
-\c@inst=\count179
-\c@auth=\count180
-\instindent=\dimen143
-\authrun=\box47
-\authorrunning=\toks15
-\titrun=\box48
-\titlerunning=\toks16
-\combirun=\box49
-\c@lastpage=\count181
-\rubricwidth=\dimen144
-\c@section=\count182
-\c@subsection=\count183
-\c@subsubsection=\count184
-\c@paragraph=\count185
-\c@subparagraph=\count186
-\spthmsep=\dimen145
-\c@theorem=\count187
-\c@case=\count188
-\c@conjecture=\count189
-\c@corollary=\count190
-\c@definition=\count191
-\c@example=\count192
-\c@exercise=\count193
-\c@lemma=\count194
-\c@note=\count195
-\c@problem=\count196
-\c@property=\count197
-\c@proposition=\count198
-\c@question=\count199
-\c@solution=\count266
-\c@remark=\count267
-\c@figure=\count268
-\c@table=\count269
-\abovecaptionskip=\skip47
-\belowcaptionskip=\skip48
-\figcapgap=\dimen146
-\tabcapgap=\dimen147
-\figgap=\dimen148
-\bibindent=\dimen149
-\@tempcntc=\count270
-) (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
-Package: amsmath 2020/09/23 v2.17i AMS math features
-\@mathmargin=\skip49
+\logodepth=\dimen102
+\headerboxheight=\dimen103
+\betweenumberspace=\dimen104
+\aftertext=\dimen105
+\headlineindent=\dimen106
+\c@inst=\count79
+\c@auth=\count80
+\instindent=\dimen107
+\authrun=\box26
+\authorrunning=\toks14
+\titrun=\box27
+\titlerunning=\toks15
+\combirun=\box28
+\c@lastpage=\count81
+\rubricwidth=\dimen108
+\c@section=\count82
+\c@subsection=\count83
+\c@subsubsection=\count84
+\c@paragraph=\count85
+\c@subparagraph=\count86
+\spthmsep=\dimen109
+\c@theorem=\count87
+\c@case=\count88
+\c@conjecture=\count89
+\c@corollary=\count90
+\c@definition=\count91
+\c@example=\count92
+\c@exercise=\count93
+\c@lemma=\count94
+\c@note=\count95
+\c@problem=\count96
+\c@property=\count97
+\c@proposition=\count98
+\c@question=\count99
+\c@solution=\count100
+\c@remark=\count101
+\c@figure=\count102
+\c@table=\count103
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\figcapgap=\dimen110
+\tabcapgap=\dimen111
+\figgap=\dimen112
+\bibindent=\dimen113
+\@tempcntc=\count104
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsmath.sty"
+Package: amsmath 2017/09/02 v2.17a AMS math features
+\@mathmargin=\skip43
 
 For additional information on amsmath, use the `?' option.
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amstext.sty"
 Package: amstext 2000/06/29 v2.01 AMS text
 
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsgen.sty"
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks17
-\ex@=\dimen150
+\@emptytoks=\toks16
+\ex@=\dimen114
 ))
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsbsy.sty"
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen151
+\pmbraise@=\dimen115
 )
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsmath\amsopn.sty"
 Package: amsopn 2016/03/08 v2.02 operator names
 )
-\inf@bad=\count271
-LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count272
-\leftroot@=\count273
-LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count274
-\DOTSCASE@=\count275
-LaTeX Info: Redefining \ldots on input line 496.
-LaTeX Info: Redefining \dots on input line 499.
-LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box50
-\strutbox@=\box51
-\big@size=\dimen152
-LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
-LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count276
-\c@MaxMatrixCols=\count277
-\dotsspace@=\muskip16
-\c@parentequation=\count278
-\dspbrk@lvl=\count279
-\tag@help=\toks18
-\row@=\count280
-\column@=\count281
-\maxfields@=\count282
-\andhelp@=\toks19
-\eqnshift@=\dimen153
-\alignsep@=\dimen154
-\tagshift@=\dimen155
-\tagwidth@=\dimen156
-\totwidth@=\dimen157
-\lineht@=\dimen158
-\@envbody=\toks20
-\multlinegap=\skip50
-\multlinetaggap=\skip51
-\mathdisplay@stack=\toks21
-LaTeX Info: Redefining \[ on input line 2923.
-LaTeX Info: Redefining \] on input line 2924.
-)
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+\inf@bad=\count105
+LaTeX Info: Redefining \frac on input line 213.
+\uproot@=\count106
+\leftroot@=\count107
+LaTeX Info: Redefining \overline on input line 375.
+\classnum@=\count108
+\DOTSCASE@=\count109
+LaTeX Info: Redefining \ldots on input line 472.
+LaTeX Info: Redefining \dots on input line 475.
+LaTeX Info: Redefining \cdots on input line 596.
+\Mathstrutbox@=\box29
+\strutbox@=\box30
+\big@size=\dimen116
+LaTeX Font Info:    Redeclaring font encoding OML on input line 712.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 713.
+
+
+Package amsmath Warning: Unable to redefine math accent \vec.
+
+\macc@depth=\count110
+\c@MaxMatrixCols=\count111
+\dotsspace@=\muskip10
+\c@parentequation=\count112
+\dspbrk@lvl=\count113
+\tag@help=\toks17
+\row@=\count114
+\column@=\count115
+\maxfields@=\count116
+\andhelp@=\toks18
+\eqnshift@=\dimen117
+\alignsep@=\dimen118
+\tagshift@=\dimen119
+\tagwidth@=\dimen120
+\totwidth@=\dimen121
+\lineht@=\dimen122
+\@envbody=\toks19
+\multlinegap=\skip44
+\multlinetaggap=\skip45
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2817.
+LaTeX Info: Redefining \] on input line 2818.
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amssymb.sty"
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
 
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\amsfonts.sty"
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
-LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ))
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/amscls\amsthm.sty
-Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks22
-\thm@bodyfont=\toks23
-\thm@headfont=\toks24
-\thm@notefont=\toks25
-\thm@headpunct=\toks26
-\thm@preskip=\skip52
-\thm@postskip=\skip53
-\thm@headsep=\skip54
-\dth@everypar=\toks27
-LaTeX Info: Redefining \qed on input line 273.
+("C:\Program Files\MiKTeX 2.9\tex\latex\amscls\amsthm.sty"
+Package: amsthm 2015/03/04 v2.20.2
+\thm@style=\toks21
+\thm@bodyfont=\toks22
+\thm@headfont=\toks23
+\thm@notefont=\toks24
+\thm@headpunct=\toks25
+\thm@preskip=\skip46
+\thm@postskip=\skip47
+\thm@headsep=\skip48
+\dth@everypar=\toks26
+LaTeX Info: Redefining \qed on input line 264.
 )
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/subeqnarray\subeqnarray.
-sty
-Package: subeqnarray 2004/04/15 v2.1c subeqnarray package
-\c@subequation=\count283
-)
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
-Package: hyperref 2021-02-27 v7.00k Hypertext links for LaTeX
-
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
-Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-)
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
-Package: iftex 2020/03/06 v1.0d TeX engine tests
-)
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.
-sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.st
+(C:\Users\phiha\AppData\Roaming\MiKTeX\2.9\tex\latex\subeqnarray\subeqnarray.st
 y
-Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+Package: subeqnarray 2004/04/15 v2.1c subeqnarray package
+\c@subequation=\count117
+) ("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hyperref.sty"
+Package: hyperref 2017/03/14 v6.85a Hypertext links for LaTeX
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-hyperref.sty"
+Package: hobsub-hyperref 2016/05/16 v1.14 Bundle oberdiek, subset hyperref (HO)
+
+
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\hobsub-generic.sty"
+Package: hobsub-generic 2016/05/16 v1.14 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2016/05/16 v1.14 Construct package bundles (HO)
+Package: infwarerr 2016/05/16 v1.4 Providing info/warning/error messages (HO)
+Package: ltxcmds 2016/05/16 v1.23 LaTeX kernel commands for general use (HO)
+Package: ifluatex 2016/05/16 v1.4 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package: ifvtex 2016/05/16 v1.6 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2016/05/16 v1.2 Expandable calculations with integers (HO)
+Package: ifpdf 2017/03/15 v3.2 Provides the ifpdf switch
+Package: etexcmds 2016/05/16 v1.6 Avoid name clashes with e-TeX commands (HO)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+Package: kvsetkeys 2016/05/16 v1.17 Key value parser (HO)
+Package: kvdefinekeys 2016/05/16 v1.4 Define keys (HO)
+Package: pdftexcmds 2017/03/19 v0.25 Utility functions of pdfTeX for LuaTeX (HO
 )
+Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-) (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: pdfescape 2016/05/16 v1.14 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2016/05/16 v1.4 Expandable calculations on big integers (HO
+)
+Package: bitset 2016/05/16 v1.2 Handle bit-vector datatype (HO)
+Package: uniquecounter 2016/05/16 v1.3 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2016/05/16 v1.5 Let assignment for LaTeX macros (HO)
+Package: hopatch 2016/05/16 v1.3 Wrapper for package hooks (HO)
+Package: xcolor-patch 2016/05/16 xcolor patch
+Package: atveryend 2016/05/16 v1.9 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2016/06/09 v1.18 At begin shipout hook (HO)
+Package: refcount 2016/05/16 v3.5 Data extraction from label references (HO)
+Package: hycolor 2016/05/16 v1.8 Color options for hyperref/bookmark (HO)
+)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\keyval.sty"
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks28
+\KV@toks@=\toks27
 )
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/kvsetkeys\kvsetkeys.st
-y
-Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+("C:\Program Files\MiKTeX 2.9\tex\generic\ifxetex\ifxetex.sty"
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinek
-eys.sty
-Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\auxhook.sty"
+Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 )
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.st
-y
-Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-) (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
-Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\kvoptions.sty"
+Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro.
-sty
-Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-) (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
-Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+\@linkdim=\dimen123
+\Hy@linkcounter=\count118
+\Hy@pagecounter=\count119
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\pd1enc.def"
+File: pd1enc.def 2017/03/14 v6.85a Hyperref: PDFDocEncoding definition (HO)
 )
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
-Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+\Hy@SavedSpaceFactor=\count120
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\00miktex\hyperref.cfg"
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
 )
-\@linkdim=\dimen159
-\Hy@linkcounter=\count284
-\Hy@pagecounter=\count285
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
-File: pd1enc.def 2021-02-27 v7.00k Hyperref: PDFDocEncoding definition (HO)
-Now handling font encoding PD1 ...
-... no UTF-8 mapping file for font encoding PD1
-)
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref-langpa
-tches.def
-File: hyperref-langpatches.def 2021-02-27 v7.00k Hyperref: patches for babel la
-nguages
-)
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
-Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
-)
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.sty
-Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
-)
-\Hy@SavedSpaceFactor=\count286
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
-File: puenc.def 2021-02-27 v7.00k Hyperref: PDF Unicode definition (HO)
-Now handling font encoding PU ...
-... no UTF-8 mapping file for font encoding PU
-)
-Package hyperref Info: Hyper figures OFF on input line 4192.
-Package hyperref Info: Link nesting OFF on input line 4197.
-Package hyperref Info: Hyper index ON on input line 4200.
-Package hyperref Info: Plain pages OFF on input line 4207.
-Package hyperref Info: Backreferencing ON on input line 4210.
+Package hyperref Info: Hyper figures OFF on input line 4498.
+Package hyperref Info: Link nesting OFF on input line 4503.
+Package hyperref Info: Hyper index ON on input line 4506.
+Package hyperref Info: Plain pages OFF on input line 4513.
+Package hyperref Info: Backreferencing ON on input line 4516.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4445.
+Package hyperref Info: Bookmarks ON on input line 4751.
 
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\backref.sty
-Package: backref 2021/02/04 v1.41 Bibliographical back referencing
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\backref.sty"
+Package: backref 2016/05/21 v1.39 Bibliographical back referencing
 
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfile
-check.sty
-Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
-
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
-Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
-e
-with kernel methods
-)
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniqueco
-unter.sty
-Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
-
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.
-sty
-Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
-)
-))
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\rerunfilecheck.sty"
+Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-86.
+82.
 ))
-\c@Hy@tempcnt=\count287
- (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
-\Urlmuskip=\muskip17
+\c@Hy@tempcnt=\count121
+
+(C:\Users\phiha\AppData\Roaming\MiKTeX\2.9\tex\latex\url\url.sty
+\Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
-LaTeX Info: Redefining \url on input line 4804.
-\XeTeXLinkMargin=\dimen160
+LaTeX Info: Redefining \url on input line 5104.
+\XeTeXLinkMargin=\dimen124
+\Fld@menulength=\count122
+\Field@Width=\dimen125
+\Fld@charsize=\dimen126
+Package hyperref Info: Hyper figures OFF on input line 6358.
+Package hyperref Info: Link nesting OFF on input line 6363.
+Package hyperref Info: Hyper index ON on input line 6366.
+Package hyperref Info: backreferencing ON on input line 6371.
+Package hyperref Info: Link coloring OFF on input line 6378.
+Package hyperref Info: Link coloring with OCG OFF on input line 6383.
+Package hyperref Info: PDF/A mode OFF on input line 6388.
+LaTeX Info: Redefining \ref on input line 6428.
+LaTeX Info: Redefining \pageref on input line 6432.
+\Hy@abspage=\count123
+\c@Item=\count124
+\c@Hfootnote=\count125
+)
 
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
-Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
-)
-\Fld@menulength=\count288
-\Field@Width=\dimen161
-\Fld@charsize=\dimen162
-Package hyperref Info: Hyper figures OFF on input line 6075.
-Package hyperref Info: Link nesting OFF on input line 6080.
-Package hyperref Info: Hyper index ON on input line 6083.
-Package hyperref Info: backreferencing ON on input line 6088.
-Package hyperref Info: Link coloring OFF on input line 6095.
-Package hyperref Info: Link coloring with OCG OFF on input line 6100.
-Package hyperref Info: PDF/A mode OFF on input line 6105.
-LaTeX Info: Redefining \ref on input line 6145.
-LaTeX Info: Redefining \pageref on input line 6149.
+Package hyperref Message: Driver (autodetected): hpdftex.
 
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
-Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
-ge
-with kernel methods
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\hpdftex.def"
+File: hpdftex.def 2017/03/14 v6.85a Hyperref driver for pdfTeX
+\Fld@listcount=\count126
+\c@bookmark@seq@number=\count127
+\Hy@SectionHShift=\skip49
 )
-\Hy@abspage=\count289
-\c@Item=\count290
-\c@Hfootnote=\count291
-)
-Package hyperref Info: Driver (autodetected): hpdftex.
-
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
-File: hpdftex.def 2021-02-27 v7.00k Hyperref driver for pdfTeX
-\Fld@listcount=\count292
-\c@bookmark@seq@number=\count293
-\Hy@SectionHShift=\skip55
-)
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty
+(C:\Users\phiha\AppData\Roaming\MiKTeX\2.9\tex\latex\natbib\natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip56
-\bibsep=\skip57
+\bibhang=\skip50
+\bibsep=\skip51
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count294
+\c@NAT@ctr=\count128
 )
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
-Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphicx.sty"
+Package: graphicx 2017/06/01 v1.1a Enhanced LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
-Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\graphics.sty"
+Package: graphics 2017/06/25 v1.2c Standard LaTeX Graphics (DPC,SPQR)
 
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics\trig.sty"
 Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
 )
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cf
-g
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-cfg\graphics.cfg"
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 105.
+Package graphics Info: Driver file: pdftex.def on input line 99.
 
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
-File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+("C:\Program Files\MiKTeX 2.9\tex\latex\graphics-def\pdftex.def"
+File: pdftex.def 2017/06/24 v1.0g Graphics/color driver for pdftex
 ))
-\Gin@req@height=\dimen163
-\Gin@req@width=\dimen164
-) (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/srcltx\srcltx.sty
+\Gin@req@height=\dimen127
+\Gin@req@width=\dimen128
+)
+(C:\Users\phiha\AppData\Roaming\MiKTeX\2.9\tex\latex\srcltx\srcltx.sty
 Package: srcltx 2006/11/12 v1.6 Source specials for inverse search in DVI files
 
 
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+("C:\Program Files\MiKTeX 2.9\tex\latex\base\ifthen.sty"
 Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
 )
-\src@lastline=\count295
-\src@new@everypar=\toks29
-\src@new@output=\toks30
+\src@lastline=\count129
+\src@new@everypar=\toks28
+\src@new@output=\toks29
 )
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf.st
-y
-Package: epstopdf 2020-01-24 v2.11 Conversion with epstopdf on the fly (HO)
- (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/grfext\grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf.sty"
+Package: epstopdf 2016/05/15 v2.6 Conversion with epstopdf on the fly (HO)
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\epstopdf-base.sty"
+Package: epstopdf-base 2016/05/15 v2.6 Base part for package epstopdf
+
+("C:\Program Files\MiKTeX 2.9\tex\latex\oberdiek\grfext.sty"
+Package: grfext 2016/05/16 v1.2 Manage graphics extensions (HO)
 )
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-ba
-se.sty
-Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
+38.
 Package grfext Info: Graphics extension search list:
 (grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
+(grfext)             \AppendGraphicsExtensions on input line 456.
 ))
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/lineno\lineno.sty
+(C:\Users\phiha\AppData\Roaming\MiKTeX\2.9\tex\latex\lineno\lineno.sty
 Package: lineno 2005/11/02 line numbers on paragraphs v4.41
-\linenopenalty=\count296
-\output=\toks31
-\linenoprevgraf=\count297
-\linenumbersep=\dimen165
-\linenumberwidth=\dimen166
-\c@linenumber=\count298
-\c@pagewiselinenumber=\count299
-\c@LN@truepage=\count300
-\c@internallinenumber=\count301
-\c@internallinenumbers=\count302
-\quotelinenumbersep=\dimen167
-\bframerule=\dimen168
-\bframesep=\dimen169
-\bframebox=\box52
+\linenopenalty=\count130
+\output=\toks30
+\linenoprevgraf=\count131
+\linenumbersep=\dimen129
+\linenumberwidth=\dimen130
+\c@linenumber=\count132
+\c@pagewiselinenumber=\count133
+\c@LN@truepage=\count134
+\c@internallinenumber=\count135
+\c@internallinenumbers=\count136
+\quotelinenumbersep=\dimen131
+\bframerule=\dimen132
+\bframesep=\dimen133
+\bframebox=\box31
 LaTeX Info: Redefining \\ on input line 3056.
 )
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/showlabels\showlabels.st
-y
+(C:\Users\phiha\AppData\Roaming\MiKTeX\2.9\tex\latex\showlabels\showlabels.sty
 Package: showlabels 2015/12/08 v1.7
 
 Package: `showlabels' v1.7 <2015/12/08>
 with amsmath equation tags
-\SL@labelposition=\count303
+\SL@labelposition=\count137
 )
 :<+ command.tex
 \@input{command.aux}
 \openout2 = `command.aux'.
 
 (command.tex
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mathtools.sty
+(C:\Users\phiha\AppData\Roaming\MiKTeX\2.9\tex\latex\mathtools\mathtools.sty
 Package: mathtools 2020/03/24 v1.24 mathematical typesetting tools
 
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/latex-tools\calc.sty
-Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count304
-\calc@Bcount=\count305
-\calc@Adimen=\dimen170
-\calc@Bdimen=\dimen171
-\calc@Askip=\skip58
-\calc@Bskip=\skip59
+("C:\Program Files\MiKTeX 2.9\tex\latex\tools\calc.sty"
+Package: calc 2014/10/28 v4.3 Infix arithmetic (KKT,FJ)
+\calc@Acount=\count138
+\calc@Bcount=\count139
+\calc@Adimen=\dimen134
+\calc@Bdimen=\dimen135
+\calc@Askip=\skip52
+\calc@Bskip=\skip53
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count306
-\calc@Cskip=\skip60
+\calc@Ccount=\count140
+\calc@Cskip=\skip54
 )
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/mathtools\mhsetup.sty
+(C:\Users\phiha\AppData\Roaming\MiKTeX\2.9\tex\latex\mathtools\mhsetup.sty
 Package: mhsetup 2017/03/31 v1.3 programming setup (MH)
 )
 LaTeX Info: Thecontrolsequence`\('isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\)'isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 130.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
-\g_MT_multlinerow_int=\count307
-\l_MT_multwidth_dim=\dimen172
-\origjot=\skip61
-\l_MT_shortvdotswithinadjustabove_dim=\dimen173
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen174
-\l_MT_above_intertext_sep=\dimen175
-\l_MT_below_intertext_sep=\dimen176
-\l_MT_above_shortintertext_sep=\dimen177
-\l_MT_below_shortintertext_sep=\dimen178
-\xmathstrut@box=\box53
-\xmathstrut@dim=\dimen179
+\g_MT_multlinerow_int=\count141
+\l_MT_multwidth_dim=\dimen136
+\origjot=\skip55
+\l_MT_shortvdotswithinadjustabove_dim=\dimen137
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen138
+\l_MT_above_intertext_sep=\dimen139
+\l_MT_below_intertext_sep=\dimen140
+\l_MT_above_shortintertext_sep=\dimen141
+\l_MT_below_shortintertext_sep=\dimen142
+\xmathstrut@box=\box32
+\xmathstrut@dim=\dimen143
 ))
 :<-
-
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
-ex.def
-File: l3backend-pdftex.def 2021-03-02 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count308
-\l__pdf_internal_box=\box54
-) (NamPhi_21_positive_systems.aux
+(NamPhi_21_positive_systems.aux
 
 LaTeX Warning: Label `consistency' multiply defined.
 
@@ -439,13 +409,11 @@ LaTeX Warning: Label `consistency' multiply defined.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 57.
 LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
 LaTeX Font Info:    ... okay on input line 57.
 LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 57.
 LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 57.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 57.
 LaTeX Font Info:    ... okay on input line 57.
 LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 57.
 LaTeX Font Info:    ... okay on input line 57.
@@ -453,62 +421,55 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 57.
 LaTeX Font Info:    ... okay on input line 57.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 57.
 LaTeX Font Info:    ... okay on input line 57.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 57.
-LaTeX Font Info:    ... okay on input line 57.
 
 Unknown journal: specify \journalname{<name of your journal>} in preambel
 
+\AtBeginShipoutBox=\box33
+Package backref Info: ** backref set up for natbib ** on input line 57.
 Package hyperref Info: Link coloring OFF on input line 57.
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
-Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
+("C:\Program Files\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
+Package: nameref 2016/05/21 v2.44 Cross-referencing by name of section
 
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
-Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+("C:\Program Files\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
+Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitl
-estring.sty
-Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-)
-\c@section@level=\count309
+\c@section@level=\count142
 )
 LaTeX Info: Redefining \ref on input line 57.
 LaTeX Info: Redefining \pageref on input line 57.
 LaTeX Info: Redefining \nameref on input line 57.
- (NamPhi_21_positive_systems.out) (NamPhi_21_positive_systems.out)
+
+(NamPhi_21_positive_systems.out) (NamPhi_21_positive_systems.out)
 \@outlinefile=\write3
 \openout3 = `NamPhi_21_positive_systems.out'.
 
-Package backref Info: ** backref set up for natbib ** on input line 57.
 
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mki
-i
+(C:\Users\phiha\AppData\Roaming\MiKTeX\2.9\tex\context\base\mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count310
-\scratchdimen=\dimen180
-\scratchbox=\box55
-\nofMPsegments=\count311
-\nofMParguments=\count312
-\everyMPshowfont=\toks32
-\MPscratchCnt=\count313
-\MPscratchDim=\dimen181
-\MPnumerator=\count314
-\makeMPintoPDFobject=\count315
-\everyMPtoPDFconversion=\toks33
+\scratchcounter=\count143
+\scratchdimen=\dimen144
+\scratchbox=\box34
+\nofMPsegments=\count144
+\nofMParguments=\count145
+\everyMPshowfont=\toks31
+\MPscratchCnt=\count146
+\MPscratchDim=\dimen145
+\MPnumerator=\count147
+\makeMPintoPDFobject=\count148
+\everyMPtoPDFconversion=\toks32
 )
 SVJour3 warning: Missing \journalname
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/n' in size <13> not available
 (Font)              size <12> substituted on input line 87.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 87.
-
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+LaTeX Font Info:    Try loading font information for U+msa on input line 87.
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 87.
+LaTeX Font Info:    Try loading font information for U+msb on input line 87.
 
-
-(C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd"
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 Overfull \hbox (2.00163pt too wide) in paragraph at lines 89--92
@@ -516,8 +477,8 @@ Overfull \hbox (2.00163pt too wide) in paragraph at lines 89--92
 tive delay-descrip-
  []
 
-LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 
-119.
+LaTeX Font Info:    Try loading font information for OMS+cmtt on input line 119
+.
 LaTeX Font Info:    No file OMScmtt.fd. on input line 119.
 
 LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
@@ -531,8 +492,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 
-
-{C:/Users/DELL/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
+{C:/Users/phiha/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 Underfull \hbox (badness 10000) in paragraph at lines 143--147
 
  []
@@ -543,9 +503,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 148--149
  []
 
 [2] [3]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 213
-.
- (C:\Users\DELL\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\ueuf.fd
+LaTeX Font Info:    Try loading font information for U+euf on input line 213.
+ ("C:\Program Files\MiKTeX 2.9\tex\latex\amsfonts\ueuf.fd"
 File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 )
 Overfull \hbox (5.19507pt too wide) in paragraph at lines 218--220
@@ -571,13 +530,25 @@ Underfull \hbox (badness 2042) in paragraph at lines 81--81
 .\OT1/cmr/m/n/10 , 273(1):24 -- 44,
  []
 
-[9])
+[9]
+Missing character: There is no â in font cmr10!
+Missing character: There is no € in font cmr10!
+Missing character: There is no “ in font cmr10!
+)
 :<-
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 456.
+[10]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 456.
+ (NamPhi_21_positive_systems.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 456.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 456.
+Package rerunfilecheck Info: File `NamPhi_21_positive_systems.out' has not chan
+ged.
+(rerunfilecheck)             Checksum: F21EAF74B3F1D5228B7C2D207E602209;313.
+Package rerunfilecheck Info: File `NamPhi_21_positive_systems.brf' has not chan
+ged.
+(rerunfilecheck)             Checksum: CBE009F75E7DFA1FB79B1875D3EDB193;1661.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [10]
-[11] (NamPhi_21_positive_systems.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
@@ -588,49 +559,39 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: File `NamPhi_21_positive_systems.out' has not chan
-ged.
-(rerunfilecheck)             Checksum: C17437D25344BDB8FA33D6DACB75BD21;904.
-Package rerunfilecheck Info: File `NamPhi_21_positive_systems.brf' has not chan
-ged.
-(rerunfilecheck)             Checksum: 298B61A8A9BBC36C0CDB0DC4240E38B2;1622.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 456.
  ) 
 Here is how much of TeX's memory you used:
- 11134 strings out of 479334
- 161873 string characters out of 2857559
- 479087 words of memory out of 3000000
- 28327 multiletter control sequences out of 15000+200000
- 413753 words of font info for 67 fonts, out of 3000000 for 9000
+ 8091 strings out of 493312
+ 115648 string characters out of 3138900
+ 214909 words of memory out of 3000000
+ 11447 multiletter control sequences out of 15000+200000
+ 13491 words of font info for 52 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,17n,102p,998b,475s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
-mbsy10.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmbx10.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmbx12.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmex10.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX
-/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/DELL/AppData/Local/Program
-s/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Users/DELL/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi7.pfb><C:/Users/DELL/AppData
-/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/DELL/
-AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Users
-/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:
-/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.p
-fb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmss8.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmsy10.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/publ
-ic/amsfonts/cm/cmsy7.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmsy8.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/DELL/AppData/Local/Programs/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Users/DELL/AppData/Local/Pr
-ograms/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt8.pfb><C:/Users/DELL/AppData/L
-ocal/Programs/MiKTeX/fonts/type1/public/amsfonts/euler/eufm10.pfb><C:/Users/DEL
-L/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-<C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbol
-s/msbm10.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
-sfonts/symbols/msbm7.pfb>
-Output written on NamPhi_21_positive_systems.pdf (11 pages, 335512 bytes).
+ 32i,17n,32p,998b,464s stack positions out of 5000i,500n,10000p,200000b,50000s
+<C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program F
+iles/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiK
+TeX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX 2.9/
+fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX 2.9/fonts/ty
+pe1/public/amsfonts/cm/cmmi5.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/publi
+c/amsfonts/cm/cmmi7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfont
+s/cm/cmr10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5
+.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/P
+rogram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Fil
+es/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmss8.pfb><C:/Program Files/MiKTeX
+ 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files/MiKTeX 2.9/fon
+ts/type1/public/amsfonts/cm/cmsy7.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/
+public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/am
+sfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/c
+m/cmtt10.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt8.
+pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/euler/eufm10.pfb><
+C:/Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/
+Program Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Pro
+gram Files/MiKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
+Output written on NamPhi_21_positive_systems.pdf (10 pages, 332838 bytes).
 PDF statistics:
- 431 PDF objects out of 1000 (max. 8388607)
- 81 named destinations out of 1000 (max. 500000)
+ 425 PDF objects out of 1000 (max. 8388607)
+ 78 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

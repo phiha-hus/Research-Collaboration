@@ -1,54 +1,9 @@
-This is BibTeX, Version 0.99d
-Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: NamPhi_21_positive_systems.aux
-Reallocating 'name_of_file' (item size: 1) to 9 items.
+This is BibTeX, Version 0.99dThe top-level auxiliary file: NamPhi_21_positive_systems.aux
 The style file: unsrtnat.bst
-Reallocating 'name_of_file' (item size: 1) to 14 items.
 Database file #1: Phi_July_2020.bib
 I was expecting a `,' or a `}'---line 4614 of file Phi_July_2020.bib
  :   Journal                  = IEEE 
  :                                   Trans. Automat. Control,
 I'm skipping whatever remains of this entry
 Warning--empty publisher in LinT15
-You've used 23 entries,
-            2481 wiz_defined-function locations,
-            1063 strings with 13261 characters,
-and the built_in function-call counts, 8715 in all, are:
-= -- 825
-> -- 297
-< -- 22
-+ -- 128
-- -- 82
-* -- 646
-:= -- 1373
-add.period$ -- 94
-call.type$ -- 23
-change.case$ -- 44
-chr.to.int$ -- 23
-cite$ -- 24
-duplicate$ -- 442
-empty$ -- 837
-format.name$ -- 127
-if$ -- 1887
-int.to.chr$ -- 1
-int.to.str$ -- 24
-missing$ -- 24
-newline$ -- 147
-num.names$ -- 69
-pop$ -- 153
-preamble$ -- 1
-purify$ -- 23
-quote$ -- 0
-skip$ -- 262
-stack$ -- 0
-substring$ -- 497
-swap$ -- 59
-text.length$ -- 2
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 152
-warning$ -- 1
-while$ -- 71
-width$ -- 0
-write$ -- 355
 (There was 1 error message)

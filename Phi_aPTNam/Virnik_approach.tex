@@ -2,6 +2,14 @@
 	Consider the regular matrix pair $(E,A)$ and let $\hE$, $\hA$ be defined as in \eqref{eq20}. If for all $v \geq 0$ we have $e^{\hE^D\hA t} \hE^D\hE v\geq 0$ for all $t\geq 0$, then there exists $\a\geq 0$ such that $\hE^D\hA + \a \hE^D\hE \geq 0$.
 \end{lemma}
 
+\begin{lemma}\label{zero input lemma}
+	Consider the delay-descriptor system \eqref{delay-descriptor} and assume that it is non-advanced, and the pair $(E,A)$ is regular with index $\ind(E,A) = \nu$. 
+	Let the input $u = 0$. Then, system \eqref{delay-descriptor} has a solution $x(t) \geq 0$ for all $t\geq 0$ and all consistent initial function $\vphi(t) \geq 0$ if and only if 
+	the following conditions are satisfied. \\
+	1) $\hE^D\hA + \a \hE^D\hE \geq 0$ for some $\a \geq 0$. \\
+	2) $\hE^D\hA_d \geq 0$, $(\hE^D\hE - I) \hA^D\hA_d \geq 0$. 
+\end{lemma}
+
 
 \begin{theorem}\label{Thm positivity}
 	Consider the delay-descriptor system \eqref{delay-descriptor} and assume that it is non-advanced, and the pair $(E,A)$ is regular with index $\ind(E,A) = \nu$. Furthermore, assume that \\
