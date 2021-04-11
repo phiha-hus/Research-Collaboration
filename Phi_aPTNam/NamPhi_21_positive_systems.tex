@@ -352,18 +352,14 @@ Since most systems occur in application are non-advanced, in this section we foc
 \begin{definition}
 Consider the delay-descriptor system \eqref{delay-descriptor} and assume that it is non-advanced, and that the pair $(E,A)$ is regular with $\ind(E,A)=\nu$. We call \eqref{delay-descriptor}  positive if for all $t\geq 0$ we have $x(t) \geq 0$ and $y(t)\geq 0$ for any input function $u$ and any consistent initial function $\vphi(t)$ that satisfy two following conditions. \\
 i)  $\vphi(t) \geq 0$ for all $t \in [-\tau,0]$, \\
-ii) $u^{(i)}(t) \geq 0$ for all $t\geq 0$ and all $i\leq (\nu-1) \ \floor{t/\tau}$. \\
+ii) $u^{(i)}(t) \geq 0$ for all $t\geq 0$ and all $i\leq (\nu-1) \ \floor{t/\tau}$.
 \end{definition}
-
+%
 Let us denote 
 \[
 \Ka_{\nu}(\hE\hA^D,\hA^D\hB):=\m{\hA^D\hB,\hE\hA^D \ \hA^D\hB,\dots,(\hE\hA^D)^{\nu-1} \hA^D\hB} \ .
 \]
-
-\begin{lemma}(\cite{Vir08})  
-Consider the regular matrix pair $(E,A)$ and let $\hE$, $\hA$ be defined as in \eqref{eq20}. If for all $v \geq 0$ we have $e^{\hE^D\hA t} \hE^D\hE v\geq 0$ for all $t\geq 0$, then there exists $\a\geq 0$ such that $\hE^D\hA + \a \hE^D\hE \geq 0$.
-\end{lemma}
-
+%
 Since our systems is linear, time invariant coefficients, it would be sufficient to study the positivity on the first time interval $[0,\tau]$. Making use of \eqref{sol. formula non-advanced}, and let $j=1$, we can split the solution $x_1 = x|_{[0,\tau]}$ as follows
 %
 \begin{align}\label{eq16}
@@ -380,6 +376,23 @@ e^{\hE^D\hA t} \hE^D\hE v_1 +
 %
 where $x_{zi}(t)$ (resp. $x_{zs}(t)$) is often called (in the theory of linear systems) the \emph{zero input} (resp. \emph{zero state}) solution.
 
+\begin{lemma}\label{Castelan'93}
+	Let $F\in\r^{p,n}$ and $M\in\r^{n,n}$ and consider the linear
+	system $\dot{z}(t)=Mz(t)$. Then, the following implication holds true:
+	\[
+	[Fz(0) \geq 0] \Rightarrow [Fz(t) \geq 0 \forall t\geq 0]
+	\]
+	if and only if there exists a Metzler matrix $H$ such that $FM=HF$.	
+\end{lemma}
+
+\begin{proposition}\citet{RamN12}\label{Rami12}
+	The following statements are equivalent. \\
+	1) Our descriptor system is positive. \\
+	2) There exists a Metzler matrix $H$ s.t. $\bar{A} = H P$, where $\bar{A}:=\hE^D \hA$, $P:=\hE^D \hE$. \\
+	3) There exists a matrix $D$ such that $H:=\bar{A} + D \ (I-P)$ is Metzler.
+\end{proposition}
+
+
 \begin{lemma}\label{zero input lemma}
 Consider the delay-descriptor system \eqref{delay-descriptor} and assume that it is non-advanced, and the pair $(E,A)$ is regular with index $\ind(E,A) = \nu$. 
 Let the input $u = 0$. Then, system \eqref{delay-descriptor} has a solution $x(t) \geq 0$ for all $t\geq 0$ and all consistent initial function $\vphi(t) \geq 0$ if and only if 
@@ -389,28 +402,31 @@ the following conditions are satisfied. \\
 \end{lemma}
 
 \begin{lemma}\label{zero state lemma}
-	
+
 \end{lemma}
 
 
+
+
 \begin{theorem}\label{Thm positivity}
-Consider the delay-descriptor system \eqref{delay-descriptor} and assume that it is non-advanced, and the pair $(E,A)$ is regular with index $\ind(E,A) = \nu$. Furthermore, assume that \\
-i) $(\hE^D\hE - I) \ (\hE^D\hA)^i  \hA^D \hB \geq 0$ for $i=0,\dots,\nu-1$, \\
-ii) $\hE^D\hE \geq 0$. \\ 
-Then system \eqref{delay-descriptor} is positive if and only if the following conditions hold. \\
-1) $\hE^D\hA + \a \hE^D\hE \geq 0$ for some $\a \geq 0$. \\
-2) $\hE^D\hA_d \geq 0$, $(\hE^D\hE - I) \hA^D\hA_d \geq 0$, $\hE^D\hB \geq 0$, \\
+Consider the delay-descriptor system \eqref{delay-descriptor} and assume that it is non-advanced, and the pair $(E,A)$ is regular with index $\ind(E,A) = \nu$. Furthermore, assume that 
+ $(\hE^D\hE - I) \ (\hE^D\hA)^i  \hA^D \hB \geq 0$ for all $i=0,\dots,\nu-1$. \ Then, system \eqref{delay-descriptor} is positive if and only if the following conditions hold. \\
+1) $\hE^D\hA = H \ \hE^D\hE$ for some Metzler matrix $H$. \\
+2) $\hE^D\hA_d \geq 0$, \ $(\hE^D\hE - I) \hA^D\hA_d \geq 0$, \ $\hE^D\hB \geq 0$, \\
 3) $C$ is non-negative on the subspace 
 %
 \begin{equation}\label{reachable subspace}
-{\cal X} : = \im_+ \left[ \hE^D\hE,\ (\hE^D\hE - I)\hA^D \hA_d, \ (\hE^D\hE - I) \ \Ka_{\nu}(\hE\hA^D,\hA^D\hB) \right] \ .
+	 {\cal X} : = \im_+ \left[ \hE^D\hE,\ (\hE^D\hE - I)\hA^D \hA_d, \ (\hE^D\hE - I) \ \Ka_{\nu}(\hE\hA^D,\hA^D\hB) \right] \ .
 \end{equation} 
 %
 \end{theorem}
 \begin{proof}
-$\Rightarrow$ We only need to prove part 3. \\
-$\Leftarrow$ Quite simple. 
+	$\Rightarrow$ We only need to prove part 3. \\
+	$\Leftarrow$ Quite simple. 
 \end{proof}
+
+
+
 If we restrict ourself to the non-delayed case (i.e. $A_d=0$), the direct corollary of Theorem \ref{Thm positivity} is straightforward. We, moreover, notice that this corollary has 
 slightly improved the result \cite[Thm. 3.4]{Vir08}.
 

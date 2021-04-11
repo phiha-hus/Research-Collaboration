@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.17)  5 APR 2021 19:05
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.3.17)  11 APR 2021 11:17
 entering extended mode
 **./NamPhi_21_positive_systems.tex
 (NamPhi_21_positive_systems.tex
@@ -553,12 +553,7 @@ Overfull \hbox (5.19507pt too wide) in paragraph at lines 218--220
 ]], [][]Kunkel and Mehrmann[]
  []
 
-[4] [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 353--356
-
- []
-
-[7] [8]
+[4] [5] [6] [7] [8]
 :<+ NamPhi_21_positive_systems.bbl
 (NamPhi_21_positive_systems.bbl (NamPhi_21_positive_systems.brf)
 \tf@brf=\write4
@@ -578,7 +573,11 @@ Underfull \hbox (badness 2042) in paragraph at lines 81--81
 
 [9])
 :<-
-[10] (NamPhi_21_positive_systems.aux)
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10]
+[11] (NamPhi_21_positive_systems.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
@@ -594,16 +593,16 @@ ged.
 (rerunfilecheck)             Checksum: C17437D25344BDB8FA33D6DACB75BD21;904.
 Package rerunfilecheck Info: File `NamPhi_21_positive_systems.brf' has not chan
 ged.
-(rerunfilecheck)             Checksum: 8F7995DA02415D7BE4DD12D044004F6A;1615.
+(rerunfilecheck)             Checksum: 298B61A8A9BBC36C0CDB0DC4240E38B2;1622.
  ) 
 Here is how much of TeX's memory you used:
- 11122 strings out of 479334
- 161734 string characters out of 2857559
- 478895 words of memory out of 3000000
- 28318 multiletter control sequences out of 15000+200000
+ 11134 strings out of 479334
+ 161873 string characters out of 2857559
+ 479087 words of memory out of 3000000
+ 28327 multiletter control sequences out of 15000+200000
  413753 words of font info for 67 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,17n,102p,998b,530s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 98i,17n,102p,998b,475s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/c
 mbsy10.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsf
 onts/cm/cmbx10.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/pub
@@ -629,9 +628,9 @@ L/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
 <C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb><C:/Users/DELL/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/symbols/msbm7.pfb>
-Output written on NamPhi_21_positive_systems.pdf (10 pages, 331289 bytes).
+Output written on NamPhi_21_positive_systems.pdf (11 pages, 335512 bytes).
 PDF statistics:
- 425 PDF objects out of 1000 (max. 8388607)
- 78 named destinations out of 1000 (max. 500000)
+ 431 PDF objects out of 1000 (max. 8388607)
+ 81 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

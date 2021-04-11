@@ -1,0 +1,19 @@
+\begin{lemma}(\cite{Vir08})  
+	Consider the regular matrix pair $(E,A)$ and let $\hE$, $\hA$ be defined as in \eqref{eq20}. If for all $v \geq 0$ we have $e^{\hE^D\hA t} \hE^D\hE v\geq 0$ for all $t\geq 0$, then there exists $\a\geq 0$ such that $\hE^D\hA + \a \hE^D\hE \geq 0$.
+\end{lemma}
+
+
+\begin{theorem}\label{Thm positivity}
+	Consider the delay-descriptor system \eqref{delay-descriptor} and assume that it is non-advanced, and the pair $(E,A)$ is regular with index $\ind(E,A) = \nu$. Furthermore, assume that \\
+	i) $(\hE^D\hE - I) \ (\hE^D\hA)^i  \hA^D \hB \geq 0$ for $i=0,\dots,\nu-1$, \\
+	ii) $\hE^D\hE \geq 0$. \\ 
+	Then system \eqref{delay-descriptor} is positive if and only if the following conditions hold. \\
+	1) $\hE^D\hA + \a \hE^D\hE \geq 0$ for some $\a \geq 0$. \\
+	2) $\hE^D\hA_d \geq 0$, $(\hE^D\hE - I) \hA^D\hA_d \geq 0$, $\hE^D\hB \geq 0$, \\
+	3) $C$ is non-negative on the subspace 
+	%
+	\begin{equation}\label{reachable subspace}
+		{\cal X} : = \im_+ \left[ \hE^D\hE,\ (\hE^D\hE - I)\hA^D \hA_d, \ (\hE^D\hE - I) \ \Ka_{\nu}(\hE\hA^D,\hA^D\hB) \right] \ .
+	\end{equation} 
+	%
+\end{theorem}
