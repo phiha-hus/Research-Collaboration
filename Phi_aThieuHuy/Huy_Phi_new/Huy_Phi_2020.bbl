@@ -1,16 +1,22 @@
 \begin{thebibliography}{10}
 
 \bibitem{AltH18}
-Robert Altmann and J~Heiland.
+R.~Altmann and J.~Heiland.
 \newblock {\em Continuous, Semi-discrete, and Fully Discretised Navier-Stokes
-  Equations}.
-\newblock 08 2018.
+  Equations}, pages 277--312.
+\newblock Springer International Publishing, Cham, 2019.
 
 \bibitem{BieCM12}
 Lorenz~T. Biegler, Stephen~L. Campbell, and Volker Mehrmann, editors.
 \newblock {\em Control and Optimization with Differential-Algebraic
   Constraints}.
-\newblock Philadelphia, PA, 2012.
+\newblock {SIAM} Publications, Philadelphia, PA, 2012.
+
+\bibitem{BreCP96}
+K.~E. Brenan, S.~L. Campbell, and L.~R. Petzold.
+\newblock {\em Numerical Solution of Initial-Value Problems in Differential
+  Algebraic Equations}.
+\newblock {SIAM} Publications, Philadelphia, PA, 2nd edition, 1996.
 
 \bibitem{Chi13}
 C.~Chicone.
@@ -33,7 +39,7 @@ J.L. Daleckii and M.G. Krein.
 \bibitem{DieE99}
 L.~Dieci and T.~Eirola.
 \newblock On smooth decompositions of matrices.
-\newblock 20:800--819, 1999.
+\newblock {\em {SIAM} J. Matr. Anal. Appl.}, 20:800--819, 1999.
 
 \bibitem{DuL06}
 Nguyen~Huu Du and Vu~Hoang Linh.
@@ -61,8 +67,7 @@ Nguyen~Thieu Huy.
 \bibitem{IlcR13}
 A.~Ilchmann and T.~Reis.
 \newblock {\em Surveys in Differential-Algebraic Equations I}.
-\newblock Differential-Algebraic Equations Forum. Springer Berlin Heidelberg,
-  2013.
+\newblock Differential-Algebraic Equations Forum. Springer, 2013.
 
 \bibitem{KunM06}
 P.~Kunkel and V.~Mehrmann.
@@ -88,7 +93,7 @@ J.~Lindenstrauss and L.~Tzafriri.
 
 \bibitem{LinM09}
 Vu~Hoang Linh and Volker Mehrmann.
-\newblock Lyapunov, bohl and sacker-sell spectral intervals for
+\newblock Lyapunov, {Bohl and Sacker-Sell} spectral intervals for
   differential-algebraic equations.
 \newblock {\em Journal of Dynamics and Differential Equations}, 21(1):153--194,
   Mar 2009.
@@ -126,7 +131,7 @@ Frank R{\"a}biger and Roland Schnaubelt.
 R.~Riaza.
 \newblock A matrix pencil approach to the local stability analysis of
   non-linear circuits.
-\newblock 32:23--46, 2004.
+\newblock {\em Internat. J. Circ. Theor. Appl.}, 32:23--46, 2004.
 
 \bibitem{Tri78}
 H.~Triebel.

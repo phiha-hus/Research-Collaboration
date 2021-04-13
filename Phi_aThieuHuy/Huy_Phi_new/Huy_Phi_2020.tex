@@ -12,9 +12,10 @@
 \usepackage{amssymb,amsmath,bm,mathrsfs}
 \usepackage{graphicx}
 \usepackage{enumerate}
+
 %\usepackage[notcite]{showkeys}
 %\usepackage{color}
-%\usepackage{showlabels}
+\usepackage[inline,right]{showlabels}
 %\renewcommand{\showlabelfont}{\small\slshape\color{red}}
 
 \usepackage{lineno}
@@ -22,7 +23,7 @@
 
 \usepackage{amsthm}
 \usepackage{mathabx}
-%\usepackage{hyperref} %$#
+\usepackage{hyperref} %$#
 
 %%%%%%%%%%%%%%%%%
 
@@ -134,14 +135,14 @@ This family satisfies the condition $X(t,t)=Id$ and the so-called \emph{semi-gro
 X(t,r)X(r,s) = X(t,s), \mbox{ for all } t\geq r\geq s\geq 0.
 \end{equation}
 %
-Furthermore, the solution of the corresponding semi-linear ODE
+Furthermore, every solution of the corresponding semi-linear ODE
 %
 %\be\label{semilinear ODE}
 \[ \dfrac{dx(t)}{dt} = A(t)x(t) + f(t,x(t)), \ \mbox{ for all }t\geq s \geq 0,
 \]
 %\ee
 %
-is given by the so-called \emph{variation-of-constant formula}
+also satisfies the so-called \emph{variation-of-constant formula}
 %
 \be\label{variational form}
 x(t) = X(t,s)x(s) + \int_s^t X(t,\tau) f(\tau,x(\tau)) d\tau, \ \mbox{ for all }t\geq s \geq 0.
@@ -165,15 +166,16 @@ For more details on the notion and discussion on properties and applications of 
 \begin{definition}\label{def2}
 A given evolution family $\{X(t,s)\}_{t\geq s\geq 0}$ of the ODE \eqref{eq3} is said to have an \emph{exponential dichotomy} on the half-line if there exist a family of projection matrices $\{P(t)\}_{t\geq 0}$ and two positive constants $N,\nu$ such that the following conditions are satisfied.
 \begin{enumerate}
-	\item[i)] $P(t)(t)X(t,s)=X(t,s)P(s)$  for all  $t\geq s\geq 0$, 		
-	\item[ii)] the restriction $X(t,s)_{|}: \ker P(s) \rar \ker P(t)$ is an isomorphism and we denote the inverse of $X(s,t)_{\mid}$, 
+	\item[i)] $P(t)X(t,s)=X(t,s)P(s)$  for all  $t\geq s\geq 0$, 		
+	\item[ii)] for all $t\geq s \geq 0$, the restriction $X(t,s)_{|}: \ker P(s) \rar \ker P(t)$ is an isomorphism, and we denote its inverse by $X(s,t)_{\mid}$, 
 	\item[iii)] $\|X(t,s) P(s)x \| \leq Ne^{-\nu(t-s)}\|P(s)x\|$, for all $t\geq s \geq 0$, $x\in \r^n$, 
 	\item[iv)]  $\|X(t,s)_| \ (I-P(s)) x \| \leq Ne^{\nu(t-s)}\| (I-P(s)) x\|$, for all $s\geq t \geq 0$, $x\in \r^n$.		
 \end{enumerate}
 Here $\{P(t)\}_{t\geq 0}$ (reps. $N$, $\nu$) are called \emph{dichotomy projections} (resp. \emph{dichotomy constants}).
 \end{definition}
 
-Next we recall some basic concepts and properties for DAEs, starting with \emph{fundamental solution matrix} as below.
+The concept exponential dichotomy means that the state space $\r^n$ has been splitted into the stable subspace ($\im(P(t))$)
+and the unstable subspace ($\ker(P(t))$). Now let us recall some basic concepts and properties for DAEs, starting with \emph{fundamental solution matrix} as below.
 %
 \begin{definition}
 	(i) Consider the DAE \eqref{eq2}. A matrix function $X \in C([0,\infty),\r^{n,k})$, $d\leq k \leq n$, is called \emph{a fundamental solution matrix} of \eqref{eq2} if each of its columns is a solution to \eqref{eq2} and $\rank X(t)=d$, for all $t\geq 0$. \\
@@ -189,7 +191,7 @@ We can easily see that, the fundamental solution matrices for DAEs are not neces
 Throughout this paper, we will assume the following.
 %
 \begin{assumption}\label{Ass1}
-Consider the DAEs \eqref{eq1}, \eqref{eq2}. We assume that the function pair $(E,A)$ in these DAEs is \emph{strangeness-free}, i.e., 
+Assume that the function pair $(E,A)$ in the DAEs \eqref{eq1} and \eqref{eq2} is \emph{strangeness-free}, i.e., 
 %
 \[
 \rank \m{E_1(t) \\ A_2(t)} = n,
@@ -198,7 +200,7 @@ Consider the DAEs \eqref{eq1}, \eqref{eq2}. We assume that the function pair $(E
 for all $t\geq 0$. Furthermore, we assume that $E \in C^1([0,\infty),\r^{n,n})$ and $A \in C^0([0,\infty),\r^{n,n})$.
 \end{assumption}
 %
-It should be important to note, that for general linear, homogeneous DAE of the form \eqref{eq2}, one can transform it to the strangeness-free form without alternating the solution space. For further details, see \cite[Chap. 3]{KunM06}.\\
+In general, not all systems of the type or \eqref{eq2} is strangeness-free. Nevertheless, under some constant rank assumption, one can always transform it, without alternating the solution space, to the strangeness-free form. For further details, see \cite{KunM06,BreCP96,LamMT13}.\\
 %%
 %\begin{lemma}\label{thm3.9KunM06}(\cite[Theorem 3.9]{KunM06})
 %Let $E\in C^{\ell}(\hro{I},\C^{m,n})$, $\ell\in \N_0\cup \{\infty\}$, with constant $\rank E(t)=d$ for all $t\in \hro{I}$. Then there exist pointwise nonsingular
@@ -219,7 +221,7 @@ By making use of some smooth factorizations, for example QR or SVD (\cite{DieE99
 %	Consider the DAE \eqref{eq1} and assume that it satisfies Assumption \ref{Ass1}. \\
 %	i) Then, there exists a continuous, pointwise-orthogonal matrix function $V(t)$, $t\geq 0$, such that by changing variable $x(t) = V(t)y(t)$, we can transform \eqref{eq1} to the form
 %	%
-%	\begin{equation}\label{decoupled system}
+%	\begin{equation}\label{semi-explicit system}
 %	\m{\Si(t) & 0 \\ 0 & 0} \m{ \dot{y}_1(t) \\ \dot{y}_2(t)} = \m{\tA_1(t) & \tA_2(t) \\ \tA_3(t) & \tA_4(t)} \m{ y_1(t) \\ y_2(t)} + \m{\tf_1(t,y_1(t),y_2(t)) \\  \tf_2(t,y_1(t),y_2(t))},
 %	\end{equation}
 %	%
@@ -227,16 +229,16 @@ By making use of some smooth factorizations, for example QR or SVD (\cite{DieE99
 %	ii) Consequently, the DAE \eqref{eq1} becomes the coupled system
 %	%
 %	\begin{align}\label{coupled system}
-%	\label{decoupled system.1} \Si(t) \dot{y}_1(t) &=  \tA_1(t)y_1(t) + \tA_2(t)y_2(t) + \tf_1(t,y_1(t),y_2(t)), \\
-%	\label{decoupled system.2} 0 &= \tA_3(t)y_1(t) + \tA_4(t)y_4(t) + \tf_2(t,y_1(t),y_2(t)).
+%	\label{semi-explicit system.1} \Si(t) \dot{y}_1(t) &=  \tA_1(t)y_1(t) + \tA_2(t)y_2(t) + \tf_1(t,y_1(t),y_2(t)), \\
+%	\label{semi-explicit system.2} 0 &= \tA_3(t)y_1(t) + \tA_4(t)y_4(t) + \tf_2(t,y_1(t),y_2(t)).
 %	\end{align}
 %	%
 %\end{lemma}
 
 \begin{lemma}\label{lem1}
-Consider the DAE \eqref{eq2} and assume that it satisfies Assumption \ref{Ass1}. Then, there exist  pointwise-orthogonal matrix-valued functions $U$ and $V\in C^1([0,\infty),\r^{n,n})$, such that after changing variable $x(t) = V(t)y(t)$, and scaling \eqref{eq2} with $U(t)$, we can transform it to the so-called \emph{decoupled system} of the following form
+Consider the DAE \eqref{eq2} and assume that it satisfies Assumption \ref{Ass1}. Then, there exist  pointwise-orthogonal matrix-valued functions $U\in C^0([0,\infty),\r^{n,n})$ and $V\in C^1([0,\infty),\r^{n,n})$, such that after changing variable $x(t) = V(t)y(t)$, and scaling \eqref{eq2} with $U(t)$, we can transform it to the so-called \emph{semi-explicit system} of the following form
 %
-\be\label{decoupled system}
+\be\label{semi-explicit system}
 \m{\Si(t) & 0 \\ 0 & 0} \m{ \dot{y}_1(t) \\ \dot{y}_2(t)} = \m{\tA_1(t) & \tA_2(t) \\ \tA_3(t) & \tA_4(t)} \m{ y_1(t) \\ y_2(t)},
 \ee
 %
@@ -255,7 +257,7 @@ where $\Si(t)$ is a continuous, pointwise nonsingular function with values in $\
 U(t) E(t) V(t) y(t) = U(t) \left( A(t)V(t) - E(t)\dot{V}(t) \right) y(t),
 \]
 %
-which is exactly of the form \eqref{decoupled system}. Furthermore, notice that 
+which is exactly of the form \eqref{semi-explicit system}. Furthermore, notice that 
 %
 \[
 \m{\Si(t) & 0 \\ \tA_3(t) & \tA_4(t)} = \m{U_1(t) & 0 \\ 0 & I_{a}} \ \m{E_1(t) \\ A_2(t)} \ V,
@@ -264,17 +266,17 @@ which is exactly of the form \eqref{decoupled system}. Furthermore, notice that
 then Assumption \ref{Ass1} yields that both $\Si$ and $\tA_4$ are nonsingular. This completes the proof.
 \end{proof}
 %
-Let $\hA_3 := -\tA^{-1}_4(t) \tA_3(t)$, $\hA_1 := \Si^{-1}(t) \tA_1(t) + \Si^{-1}(t) \tA_2(t) \tA^{-1}_4(t) \tA_3(t)$, we rewrite the transformed system \eqref{decoupled system} as
+Let $\hA_3(t) := -\tA^{-1}_4(t) \tA_3(t)$, $\hA_1(t) := \Si^{-1}(t) \ \left( \tA_1(t) + \tA_2(t) \tA^{-1}_4(t) \tA_3(t) \right)$, we rewrite system \eqref{semi-explicit system} as 
 %
 \begin{align}
 \label{eq5.1} \dot{y}_1(t) &= \hA_1(t) y_1(t), \\ 
 \label{eq5.2} y_2(t) &= \hA_3(t) y_1(t).
 \end{align}
 %
-Since $V(t)$ is orthogonal for all $t\geq 0$, we see that all important qualitative properties of $x(t)$, such as boundedness, exponential stability, contractivity, expansiveness, etc., can be carried out for the function $y(t)$. Clearly, we see that \eqref{eq5.2} gives an \emph{algebraic constraint} that the solution to \eqref{decoupled system} must obey, while \eqref{eq5.1} gives the dynamic of \eqref{decoupled system}. 
-For this reason, we call it \emph{an underlying ODE} to \eqref{decoupled system}.\\
+Since $V(t)$ is orthogonal for all $t\geq 0$, we see that all important qualitative properties of $x(t)$, such as boundedness, exponential stability, contractivity, expansiveness, etc., can be carried out for the function $y(t)$. Clearly, we see that \eqref{eq5.2} gives an \emph{algebraic constraint} that the solution to \eqref{semi-explicit system} must obey, while \eqref{eq5.1} gives the dynamic of \eqref{semi-explicit system}. 
+For this reason, we call it \emph{an underlying ODE} to \eqref{semi-explicit system}.\\
 
-Let $\{\hY_1(t,s)\}_{t\geq s \geq 0}$ be the evolution family associated with the matrix function $\hA_1(t)$, then we can define the corresponding evolution families for two DAEs \eqref{decoupled system}, \eqref{eq2} consecutively as follows.
+Let $\{\hY_1(t,s)\}_{t\geq s \geq 0}$ be the evolution family associated with the matrix function $\hA_1(t)$, then we can define the corresponding evolution families for two DAEs \eqref{semi-explicit system}, \eqref{eq2} consecutively as follows.
 %
 \begin{equation}\label{eq4}
 \hY(t,s) := \m{\hY_1(t,s) & 0 \\ \hA_3(t) \hY_1(t,s) & 0}, \ \hX(t,s) = V(t)\hY(t,s) V^T(s), \mbox{ for all } t\geq s \geq 0.
@@ -294,23 +296,9 @@ Furthermore, we can directly verify the semigroup properties, i.e.
 \end{align*}
 %
 
-Now we give a solution formula for system \eqref{eq1}, in comparison to \eqref{variational form}.
+In the following, for ease of notation, we will use the abbreviation $\hX(t):=\hX(t,0)$, $\hX^-(t):=\hX^-(t,0)$, $\hY(t):=\hY(t,0)$ and $\hY^-(t):=\hY^-(t,0)$. The concept of exponential dichotomy for the DAE \eqref{semi-explicit system} is given as below.
 
-\begin{lemma}\label{lem5}
-	Consider the DAE \eqref{eq1} and the evolution family $(X(t,s))_{t\geq s\geq 0}$ defined by \eqref{eq4}. Then the solution to \eqref{eq1}, if exists, also satisfies the so-called \emph{mild equation}
-	%
-	\begin{equation*}
-	\m{x_1(t) \\ x_2(t)} = \hX(t,s) \m{x_1(s) \\ x_2(s)} + \int_{s}^{t} \hX(t,\tau) \m{\hf_1( \tau,x_1(\tau),x_2(\tau) ) \\ 0 } d\tau  \ + \m{ 0 \\ \hf_2( t,x_1(t),x_2(t) )},
-	\end{equation*}
-	for all $t\geq s \geq 0$, where $\hf_1 := \Si^{-1}(t) f_1$ and $\hf_2 := -\tA^{-1}_4(t) f_2$.
-\end{lemma}
-\begin{proof}
-	The proof can be obtained directly by using Lemma \ref{lem1}. Thus, in order to keep the brevity we will omit the details here.
-\end{proof}
-
-In the following, for ease of notation, we will use the abbreviation $\hX(t):=\hX(t,0)$, $\hX^-(t):=\hX^-(t,0)$, $\hY(t):=\hY(t,0)$ and $\hY^-(t):=\hY^-(t,0)$. The concept of exponential dichotomy for the DAE \eqref{decoupled system} is given as below.
-
-\begin{definition}\label{def dichotomy}(\cite{LinM09}) The DAE \eqref{decoupled system} is said to have an \emph{exponential dichotomy} if there exist a family of projection matrices $\{\Py(t)\}_{t\geq 0}$ in $\r^{d,d}$ and positive constants $N$, $\nu$ such that
+\begin{definition}\label{def dichotomy}(\cite{LinM09}) The DAE \eqref{semi-explicit system} is said to have an \emph{exponential dichotomy} if there exist a family of projection matrices $\{\Py(t)\}_{t\geq 0}$ in $\r^{d,d}$ and positive constants $N$, $\nu$ such that
 %
 \begin{align}\label{eq7}
 \bigg\| \hY(t) \m{\Py(t) & 0 \\ 0 & 0} \hY^-(s)   \bigg\| \leq N e^{-\nu (t-s)}, \mbox{ for all } t\geq s \geq 0, \notag \\
@@ -332,7 +320,19 @@ and
 \end{equation*}
 %
 In addition, since $V^T(0) \m{Id-\Py(t) & 0 \\ 0 & 0} V(0)$ is also a projection matrix for any $t\geq 0$, we can interpret the exponential dichotomy of 
-\eqref{eq2} as the one of \eqref{decoupled system}. %The following result gives us the first characterization for exponential dichotomy of \eqref{eq2}.
+\eqref{eq2} as the one of \eqref{semi-explicit system}. 
+
+\begin{lemma}\label{lem5}
+	Consider the DAE \eqref{eq1} and the evolution family $(X(t,s))_{t\geq s\geq 0}$ defined by \eqref{eq4}. Then, the solution to \eqref{eq1}, if exists, also satisfies the so-called \emph{mild equation}
+	%
+	\begin{equation*}
+		\m{x_1(t) \\ x_2(t)} = \hX(t,s) \m{x_1(s) \\ x_2(s)} + \int_{s}^{t} \hX(t,\tau) \m{\hf_1( \tau,x_1(\tau),x_2(\tau) ) \\ 0 } d\tau  \ + \m{ 0 \\ \hf_2( t,x_1(t),x_2(t) )},
+	\end{equation*}
+	for all $t\geq s \geq 0$, where $\hf_1 := \Si^{-1}(t) f_1$ and $\hf_2 := -\tA^{-1}_4(t) f_2$.
+\end{lemma}
+\begin{proof}
+	The proof can be obtained directly by using Lemma \ref{lem1}. Thus, in order to keep the brevity we will omit the details here.
+\end{proof}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Function Spaces and Admissibility} \label{Sec 2}
@@ -381,9 +381,9 @@ We now introduce the notion of admissibility in the following definition.
 		for every compact interval $ [a,b]\subset \r_+$ we have
 		\begin{equation}\label{embed}
 		\int_a^b|\varphi(t)|dt\le 
-		\frac{M(b-a)}{\|\chi_{[a,b]}\|_E}\|\varphi\|_E\hbox{ for all }
-		\varphi\in E.
+		\frac{M(b-a)}{\|\chi_{[a,b]}\|_E}\|\varphi\|_E\hbox{ for all } \varphi\in E,
 		\end{equation}
+		where $\chi_{[a,b]}$ is the indicator function of $[a,b]$. 
 		\item The function $\Lb_1\varphi$ defined by
 		$\Lb_1\varphi(t):=
 		\int_t^{t+1}\varphi(\tau)d\tau$ belongs to $E$.
@@ -471,61 +471,65 @@ find sufficient and necessary conditions for the considered systems to admit exp
 	The DAE \eqref{eq2} has exponential dichotomy if and only if the matrix function $\hA_3(t)$ is bounded, and the corresponding underlying ODE \eqref{eq5.1} also has exponential dichotomy. Moreover, the existence of exponential dichotomy imlies that $\underset{t\geq 0}{\sup \ } \|\Py(t)\| < \infty$. 
 \end{proposition}
 
-Notice that, even for ODEs, Proposition \ref{prop1} is only valid for 
-finite-dimensional systems but not for infinite dimensional systems. 
-For this reason, we recall another important result below.
+Together with \eqref{eq2}, let us consider the following system
 %
-\begin{proposition}\label{prop2} (\cite{DalK02}) The ODE \eqref{eq3} has an exponential dichotomy if and only if for any continuous, bounded function $f(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to \eqref{eq3}.
+\begin{equation}\label{eq3.1}
+	E(t)\dot{x}(t) = A(t) x(t) + g(t) \ .  
+\end{equation}
+%
+Notice that, even for ODEs, Proposition \ref{prop1} is only valid for finite-dimensional systems but not for infinite dimensional systems, \cite{DalK02}. 
+For this reason, we recall a classical result by Perron below.
+%
+\begin{proposition}\label{prop2} (\cite{DalK02}) The ODE \eqref{eq3} has an exponential dichotomy if and only if for any continuous, bounded function $g(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to the system
+%
+\begin{equation}\label{eq31}
+	\dot{x}(t) = A(t) x(t) + g(t) \ .  
+\end{equation}
+%	
 \end{proposition}
 %
-In view of Proposition \ref{prop2}, comparable conditions for the existence of exponential dichotomy have not been considered for DAEs, and hence, this will be our main aim in this section.
+In view of Proposition \ref{prop2}, comparable result has not been achieved for DAEs, and hence, this will be our main aim in this section.
 
 \begin{definition}\label{EA-bounded}
-	Consider the matrix functions $E$, $A$ in system \eqref{eq2}. Then, a function $f:\r_+ \rar \r^n$ satisfying the condition 
+	Consider the matrix functions $E$, $A$ in system \eqref{eq2}. Then, a function $g:\r_+ \rar \r^n$ satisfying the condition 
 	%
 	\[
-	\underset{t\geq 0}{\sup} \bigg\{ \bigg\| \m{\Si^{-1}(t) & -\Si^{-1}(t) \tA_2(t) \tA^{-1}_4(t) \\ 0 & \tA^{-1}_4(t)} f(t) \bigg\| \bigg\} < +\infty,
+	\underset{t\geq 0}{\sup} \bigg\{ \bigg\| \m{\Si^{-1}(t) & -\Si^{-1}(t) \tA_2(t) \tA^{-1}_4(t) \\ 0 & \tA^{-1}_4(t)} g(t) \bigg\| \bigg\} < +\infty,
 	\]
 	%
 	is called $(E,A)$-bounded. We denote the set of all continuous and
 	 $(E,A)$-bounded functions by $\BEA$.
 \end{definition}
 
-The main result of this section is to prove a characterization of the exponential dichotomy for DAEs. Roughly speaking, the DAE \eqref{eq2} admits exponential dichotomy if and only if the mapping $\cL := E\dfrac{d}{dt} - A$ is surjective on the space $\BEA$. In connection with the solvability of the corresponding linear and inhomogeneous DAE
-%
-\begin{equation}\label{eq3.1}
-\pm{d \mbox{ rows }\\ a \mbox{ rows }} \quad \underbrace{\m{E_1(t) \\ 0}}_{E(t)}  \dot{x}(t) = \underbrace{ \m{A_1(t) \\ A_2(t)} }_{A(t)} + 
-\underbrace{ \m{f_1(t) \\ f_2(t)} }_{f(t)} , \ t\in [0,+\infty).
-\end{equation}
-%
+The main result of this section is to prove a characterization of the exponential dichotomy for DAEs. Roughly speaking, the DAE \eqref{eq2} admits exponential dichotomy if and only if the mapping $\cL := E\dfrac{d}{dt} - A$ is surjective on the space $\BEA$. 
 We formulate our main result in this section as follows.
 \begin{theorem}\label{thm3.1}
 	Consider the linear, strangeness-free DAE \eqref{eq2} and the associated inhomogeneous DAE \eqref{eq3.1}. 
-	%Then, the DAE \eqref{eq2} admits exponential dichotomy if and only if for any continuous, $(E,A)$-bounded function $f(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to the DAE \eqref{eq3.1}.
+	%Then, the DAE \eqref{eq2} admits exponential dichotomy if and only if for any continuous, $(E,A)$-bounded function $g(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to the DAE \eqref{eq3.1}.
 	Then the following assertions hold. 
 	\begin{enumerate}[(i)]
-	\item If the DAE \eqref{eq2} admits exponential dichotomy then for any continuous, $(E,A)$-bounded function $f(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to the DAE \eqref{eq3.1}. 
+	\item If the DAE \eqref{eq2} admits exponential dichotomy then for any continuous, $(E,A)$-bounded function $g(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to the DAE \eqref{eq3.1}. 
 	\item If the matrix function $\hA_3(t)$ is bounded, then the converse of assertion (i) holds true.
 	\end{enumerate}
 \end{theorem}
 
 \begin{proof}
-	Firstly, we notice that, since $\hf = U(t) \m{\Sigma^{-1}(t) & -\Si^{-1}(t) \tA_2(t) \tA^{-1}_4(t) \\ 0 & -\hA_4^{-1}} f(t)$, the $(E,A)$-boundedness of $f$ is equivalent to the boundedness of $\hf$. Recall that the decoupled system \eqref{decoupled system} reads
+	Firstly, we notice that, since $\hg = U(t) \m{\Sigma^{-1}(t) & -\Si^{-1}(t) \tA_2(t) \tA^{-1}_4(t) \\ 0 & -\hA_4^{-1}} g(t)$, the $(E,A)$-boundedness of $f$ is equivalent to the boundedness of $\hf$. Recall that the semi-explicit system \eqref{semi-explicit system} reads
 	%
 	\begin{align} %\label{eq3.10}
-		\label{eq3.10a} \dot{y}_1(t) &= \hA_1(t) y_1(t) + \hf_1(t), \\
-		\label{eq3.10b} y_2(t) &= \hA_3(t) y_1(t) + \hf_2(t).
+		\label{eq3.10a} \dot{y}_1(t) &= \hA_1(t) y_1(t) + \hg_1(t), \\
+		\label{eq3.10b} y_2(t) &= \hA_3(t) y_1(t) + \hg_2(t).
 	\end{align}
 	%  
 	
-	(i) Assuming that the DAE \eqref{eq2} admits exponential dichotomy, then \eqref{decoupled system} also has an exponential dichotomy. Proposition \ref{prop1} implies that equation \eqref{eq3.10a} has an exponential dichotomy, and the function $\hA_3$ is bounded. Therefore, Proposition \ref{prop2} implies that $y_1$ is bounded, and consequently, $y_2$ is also bounded.   
+	(i) Assuming that the DAE \eqref{eq2} admits exponential dichotomy, then \eqref{semi-explicit system} also has an exponential dichotomy. Proposition \ref{prop1} implies that equation \eqref{eq3.10a} has an exponential dichotomy, and the function $\hA_3$ is bounded. Therefore, Proposition \ref{prop2} implies that $y_1$ is bounded, and consequently, $y_2$ is also bounded.   
 	%
 
 	(ii) From Proposition \ref{prop2}, it follows that \eqref{eq3.10a} has exponential dichotomy.  On the other hand, the boundedness of $\hA_3$ implies that \eqref{eq2} admits exponential dichotomy.
 \end{proof}
 
 %\begin{remark}
-%Making use of admissible function spaces, stronger conditions for characterizing the exponential dichotomy of the DAE \eqref{eq2} have been obtained in \cite{HuyP19b}, where an inhomogeneity function $f(t)$ belongs to less restricted spaces than $\BEA$. There, we also study the robustness of exponential dichotomy under structured-perturbations.%
+%Making use of admissible function spaces, stronger conditions for characterizing the exponential dichotomy of the DAE \eqref{eq2} have been obtained in \cite{HuyP19b}, where an inhomogeneity function $g(t)$ belongs to less restricted spaces than $\BEA$. There, we also study the robustness of exponential dichotomy under structured-perturbations.%
 %\end{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -545,25 +549,33 @@ we can transform \eqref{eq1} to the coupled system
 where
 %
 \begin{equation}\label{eq4.2}
-\hf(t,y(t)) = \m{\hf_1(t,y(t)) \\ \hf_2(t,y(t)) } := \m{\Si^{-1}(t) f_1(t,x(t)) - \Si^{-1}(t) \tA_2(t) \tA^{-1}_4(t) f_2(t,x(t)) \\ -A^{-1}_4(t) f_2(t,x(t))}.
+\hf(t,y(t)) = \m{\hf_1(t,y(t)) \\ \hf_2(t,y(t)) } := 
+U(t) \m{\Sigma^{-1}(t) & -\Si^{-1}(t) \tA_2(t) \tA^{-1}_4(t) \\ 0 & -\hA_4^{-1}} \m{f_1(t,y(t)) \\ f_2(t,y(t))} \ .
 \end{equation}
 %
 Notice that, unlike the DAEs \eqref{eq2} and \eqref{eq3.1}, equation \eqref{eq4.1b} only gives an implicit algebraic constraint in terms of $y_1$ and $y_2$. In order to guarantee the strangeness-free of system \eqref{eq1}, we need the following assumption. 
 
 \def\r{\mathbb{R}}
 \begin{assumption}\label{Ass4.1}
-Assume that for some $\rho > 0$, the function $A^{-1}_4(t) f_2(t,x)$ is a contraction mapping  in the ball $B_{\rho}:=\{x\in\r^n | \|x\|\le \rho\}$ (uniformly in time), i.e., 
+Assume that for some $\rho > 0$, the function $A^{-1}_4(t) f_2(t,x)$ is a contraction mapping  in the ball $B_{\rho}:=\{x\in\r^n | \ \|x\|\le \rho\}$ (uniformly in time), i.e., 
 %
 \[
-\| A^{-1}_4(t) f_2(t,x) - A^{-1}_4(t) f_2(t,\tx) \| \leq L \|x-\tx \|, 
+\| A^{-1}_4(t) \left( f_2(t,x) - f_2(t,\tx) \right) \| \leq L \|x-\tx \|, 
 \]
 %
 for a.e. $t\in\hro{R_+}$, and for all $x, \tx \in B_{\rho}$ where the Lipschitz constant $L$ satisfies that $L<1$.
 \end{assumption}
 %
+We notice that a sufficient condition for Assumption \eqref{Ass4.1} is that 
+%
+\begin{equation}\label{Lipschitz}
+\| f_2(t,x) - f_2(t,\tx) \| \leq \dfrac{L}{\n{A^{-1}_4(t)}} \|x-\tx \|  \ .
+\end{equation}
+%
+%
 \begin{lemma}\label{lem4.0}
-Under Assumption \ref{Ass4.1} and given $y_1\in B_rho$, there exists a unique function
- $y_2\in \B_rho$ satisfying  \eqref{eq4.1b}.
+Under Assumption \ref{Ass4.1} and given $y_1\in B_{\rho}$, there exists a unique function
+ $y_2\in \B_{\rho}$ satisfying  \eqref{eq4.1b}.
 %restricted to the ball $B_{\rho} \subset \r{^n}$, $y_2$ can be uniquely solvable from \eqref{eq4.1b} in terms of $t$ and $y_1$.
 \end{lemma}
 %
@@ -589,7 +601,7 @@ Let	$\vphi$ be a positive function belonging to an admissible Banach function sp
 \end{definition}
 %
 \begin{assumption}\label{Ass4.2}
-Assume that the function \ $t\mapsto\Si^{-1}(t)  \ f_1(t,x(t)) - \Si^{-1}(t) \tA_2(t) \tA^{-1}_4(t)  \ f_2(t,x(t))$  belongs to class $(M,\vphi,\rho)$ for some positive constants $M$, $\rho$ and a positive function $\vphi \in E$.
+Assume that the function \ $t\mapsto \m{\Sigma^{-1}(t) & -\Si^{-1}(t) \tA_2(t) \tA^{-1}_4(t)} f(t,x(t))$  belongs to class $(M,\vphi,\rho)$ for some positive constants $M$, $\rho$ and a positive function $\vphi \in E$.
 \end{assumption}
 
 %The following proposition gives one sufficient condition for examining Assumptions \ref{Ass4.1}, \ref{Ass4.2}.
@@ -639,7 +651,7 @@ Then, we have
 In the following lemma, we give an explicit form for bounded solutions to system \eqref{mild equation}.
 %
 \begin{lemma}\label{lem4.3}
-Let the evolution family  $(\hY(t,s))_{t\geq s\geq 0}$ of system \eqref{decoupled system} have   an exponential dichotomy with the corresponding projection matrices $\{\Py(t)\}_{t\geq 0}$  and the dichotomy constants $N,\nu>0$. Furthermore, assume that Assumptions \ref{Ass4.1}, \ref{Ass4.2} hold true. 
+Let the evolution family  $(\hY(t,s))_{t\geq s\geq 0}$ of system \eqref{semi-explicit system} have   an exponential dichotomy with the corresponding projection matrices $\{\Py(t)\}_{t\geq 0}$  and the dichotomy constants $N,\nu>0$. Furthermore, assume that Assumptions \ref{Ass4.1}, \ref{Ass4.2} hold true. 
 Let $y(t)$ be any solution to \eqref{mild equation} such that $ess \sup_{t\geq t_0} \|y(t)\| \leq \rho$ for fixed $t_0 \geq 0$ and some $\rho > 0$. Then, for $t\geq t_0 \geq 0$, we can rewrite $y(t)$  in the form
 	\begin{equation}\label{4.4}
 		\m{y_1(t) \\ y_2(t)} = Y(t,t_0) \m{v_0 \\ 0} + \int_{t_0}^{\infty} G(t,\tau) \m{\hf_1(\tau,y(\tau)) \\ 0} d\tau + \m{0 \\ \hf_2(t,y(t))},
@@ -712,7 +724,7 @@ In the following theorem, we exploit the local structure of bounded solutions to
 
 \begin{theorem}\label{thm4.1}
 Let the evolution family  $(\hY(t,s))_{t\geq s\geq 0}$ 
-of system \eqref{decoupled system} have an exponential dichotomy with the corresponding projection matrices $\{\Py(t)\}_{t\geq 0}$  and the dichotomy constants $N,\nu>0$. Furthermore, assume that Assumptions \ref{Ass4.1}, \ref{Ass4.2} hold true, and constant $H_3$ defined as in \eqref{4.8}. Then, the following assertions hold true.
+of system \eqref{semi-explicit system} have an exponential dichotomy with the corresponding projection matrices $\{\Py(t)\}_{t\geq 0}$  and the dichotomy constants $N,\nu>0$. Furthermore, assume that Assumptions \ref{Ass4.1}, \ref{Ass4.2} hold true, and constant $H_3$ defined as in \eqref{4.8}. Then, the following assertions hold true.
  
 (i) If  
 %
@@ -864,7 +876,7 @@ Now, we are able to introduce the concept of a local stable manifold for the sol
 \end{definition}
 We now state and prove our main result on the existence of a local stable manifold for DAEs.
 \begin{theorem}\label{thm4.2}
-Let the evolution family  $(\hY(t,s))_{t\geq s\geq 0}$ of system \eqref{decoupled system} have an exponential dichotomy with the corresponding projection matrices $\{\Py(t)\}_{t\geq 0}$  and the dichotomy constants $N,\nu>0$. Furthermore, assume that Assumptions \ref{Ass4.1}, \ref{Ass4.2} hold true. If 
+Let the evolution family  $(\hY(t,s))_{t\geq s\geq 0}$ of system \eqref{semi-explicit system} have an exponential dichotomy with the corresponding projection matrices $\{\Py(t)\}_{t\geq 0}$  and the dichotomy constants $N,\nu>0$. Furthermore, assume that Assumptions \ref{Ass4.1}, \ref{Ass4.2} hold true. If 
 %
 \begin{equation*}\label{eq4.11}
 %\dfrac{H_3}{1-e^{-\nu}} 
@@ -882,8 +894,7 @@ then there exists a local stable manifold for the solutions of $\eqref{mild equa
 First we notice that the phase subspace $\r^d$ splits into the direct sum $\r^d= \im \Py(t) \oplus \kernel \Py(t)$ for all $t\geq 0$. 
 We set $W_1(t):= \im \Py(t)$ and $W_2(t):=\kernel \Py(t)$, then due to Proposition \ref{prop1}, we see that $\underset{t\geq 0}{\sup \ } \|\Py(t)\| < \infty$, and hence, $\inf_{t\in\hro{R_+}}Sn(W_1(t), W_2(t))>0$. \\
 
-For any $\rho>0$ defined as in  Assumptions \ref{Ass4.1}, \ref{Ass4.2}, let $\rho_1 := \trho = \dfrac{1-L}{2N(1+H_1)} \rho$ \ and \ $\rho_2 := \dfrac{(1-L)\rho}{2}$. For each $t \geq 0$ we define the mapping 
-$g_{t}$ acts on $B_{\rho_1} \cap W_1(t)$ as 
+For any $\rho>0$ defined as in  Assumptions \ref{Ass4.1}, \ref{Ass4.2}, let $\rho_1 := \trho = \dfrac{1-L}{2N(1+H_1)} \rho$ \ and \ $\rho_2 := \dfrac{(1-L)\rho}{2}$. For each $t \geq 0$ we define the mapping $g_{t}$ acting on $B_{\rho_1} \cap W_1(t)$ as 
 %
 \[
 g_{t}(w_1) := \int_{t}^{\infty} \hY_1(t,\tau) (I_d-\Py(\tau)) f_1(\tau,y(\tau)) d\tau,
@@ -946,7 +957,7 @@ Assume that the following hypotheses hold true.
 \end{enumerate}
 \end{assumption}
 
-We can directly verify that orthogonal transformations of the form $x=Vy$ preserves the $\vphi$-Lipschitz property, and hence, function $\hf_1$ in \eqref{eq4.1a} is also $\vphi$-Lipschitz. Besides that, function $\hf_2$ in \eqref{eq4.1b} is also a contraction mapping with the Lipschitz constant $L<1$. \ For notational simplicity, now we will study the transformed system \eqref{decoupled system} and the integral-algebraic system \eqref{mild equation}.
+We can directly verify that orthogonal transformations of the form $x=Vy$ preserves the $\vphi$-Lipschitz property, and hence, function $\hf_1$ in \eqref{eq4.1a} is also $\vphi$-Lipschitz. Besides that, function $\hf_2$ in \eqref{eq4.1b} is also a contraction mapping with the Lipschitz constant $L<1$. \ For notational simplicity, now we will study the transformed system \eqref{semi-explicit system} and the integral-algebraic system \eqref{mild equation}.
 
 \begin{definition}\label{global stable manifold}
 	A subset $\bbM$ of the constrained manifold $\bbL(t,y)$ is said to be a \emph{global, invariant stable manifold} for solutions to $\eqref{mild equation}$  if for every $t\in\hro{R_+}$  the phase subspace $\r^{d}$ splits into a direct sum  $\r^{d} = W_1(t)\oplus  W_2(t)$  such that
@@ -971,7 +982,7 @@ We can directly verify that orthogonal transformations of the form $x=Vy$ preser
 Analogously to Lemma \ref{lem4.3}, we give the explicit form of bounded solutions to system \eqref{mild equation} as below.
 %
 \begin{lemma}\label{lem5.1}
-	Let the evolution family  $(\hY(t,s))_{t\geq s\geq 0}$ of system \eqref{decoupled system} have an exponential dichotomy with the corresponding projection matrices $\{\Py(t)\}_{t\geq 0}$  and the dichotomy constants $N,\nu>0$. Furthermore, assume that Assumption \ref{Ass5.1} holds true. 
+	Let the evolution family  $(\hY(t,s))_{t\geq s\geq 0}$ of system \eqref{semi-explicit system} have an exponential dichotomy with the corresponding projection matrices $\{\Py(t)\}_{t\geq 0}$  and the dichotomy constants $N,\nu>0$. Furthermore, assume that Assumption \ref{Ass5.1} holds true. 
 	Let $y(t)$ be any solution to \eqref{mild equation} such that $ess \sup_{t\geq t_0} \|y(t)\| < \infty$ for a fixed $t_0 \geq 0$. 
 	Then, for all $t\geq t_0 \geq 0$, we can rewrite $y(t)$  in the form
 	\begin{equation}\label{5.4}
@@ -986,14 +997,14 @@ The proof can be done by using similar arguments as in the proof of Lemma \ref{l
 In the following two theorems, we present the global versions of Theorems \ref{thm4.1} and \ref{thm4.2}, where we construct the structure of bounded solutions to \eqref{mild equation} and prove the existence of a global, stable manifold, respectively. 
 
 \begin{theorem}\label{thm5.1}
-	Let the evolution family  $(\hY(t,s))_{t\geq s\geq 0}$ of system \eqref{decoupled system} have an exponential dichotomy with the corresponding projection matrices $\{\Py(t)\}_{t\geq 0}$  and the dichotomy constants $N,\nu>0$. Furthermore, assume that Assumption \ref{Ass5.1} holds true. 
+	Let the evolution family  $(\hY(t,s))_{t\geq s\geq 0}$ of system \eqref{semi-explicit system} have an exponential dichotomy with the corresponding projection matrices $\{\Py(t)\}_{t\geq 0}$  and the dichotomy constants $N,\nu>0$. Furthermore, assume that Assumption \ref{Ass5.1} holds true. 
 	\begin{enumerate}[(i)]
-	\item For any fixed $t_0 \geq 0$, if  
+	\item For any fixed $t_0 \geq 0$, if $H_3<1-L$ 
 	%
-	\begin{equation*}
-	%\dfrac{H_3}{1-e^{-\nu}} 
-	H_3 <  1-L,
-	\end{equation*}
+%	\begin{equation*}
+%	%\dfrac{H_3}{1-e^{-\nu}} 
+%	H_3 <  1-L,
+%	\end{equation*}
 	%
 	then there corresponds to each  $v_0\in \im \Py(t_0)$ one and only one solution $y(t)$ to $\eqref{mild equation}$ on $[t_0,\infty)$ satisfying $\Py(t_0)y_1(t_0)= v_0$ and $ess\sup_{t\geq t_0}\|y(t)\| < \infty$. 
 	\item Any two solutions $y(t)$, $\ty(t)$ corresponding to different
@@ -1028,7 +1039,7 @@ In the following two theorems, we present the global versions of Theorems \ref{t
 
 
 \begin{theorem}\label{thm5.2}
-	Let the evolution family  $(\hY(t,s))_{t\geq s\geq 0}$ of system \eqref{decoupled system} have an exponential dichotomy with the corresponding projection matrices $\{\Py(t)\}_{t\geq 0}$  and the dichotomy constants $N,\nu>0$. Furthermore, assume that Assumption \ref{Ass5.1} holds true. If 
+	Let the evolution family  $(\hY(t,s))_{t\geq s\geq 0}$ of system \eqref{semi-explicit system} have an exponential dichotomy with the corresponding projection matrices $\{\Py(t)\}_{t\geq 0}$  and the dichotomy constants $N,\nu>0$. Furthermore, assume that Assumption \ref{Ass5.1} holds true. If 
 	%
 	\begin{equation*}
 	%\dfrac{H_3}{1-e^{-\nu}} 
@@ -1100,7 +1111,7 @@ Now let us illustrate our results by the following examples.
 		\end{align}
 		%
 		Clearly, we still need to linearize \eqref{eq5.3} to obtain system of the form \eqref{eq1}.
-		Fortunately, in this case the linearization procedure around a trajectory yields the decoupled form \eqref{decoupled system}
+		Fortunately, in this case the linearization procedure around a trajectory yields the decoupled form \eqref{semi-explicit system}
 		%
 		\begin{align}\label{eq5.4}
 		M \dot{U} &= \tA_1(t) U + \tA_2(t) P + g_1(t,U,P), \notag \\
@@ -1116,7 +1127,7 @@ Now let us illustrate our results by the following examples.
 		Consequently, if the homogenous DAE 
 		%
 		\[
-		\m{M & 0 \\ 0 & 0} \m{\dot{U} \\ \dot{V} } = \m{\tA_1(t) & \tA_2(t) \\ \tA_3(t) & \tA_4(t)} \m{U \\ P}
+		\m{M & 0 \\ 0 & 0} \m{\dot{U} \\ \dot{P} } = \m{\tA_1(t) & \tA_2(t) \\ \tA_3(t) & \tA_4(t)} \m{U \\ P}
 		\]
 		%
 		admits an exponential dichotomy, and $g_1$ satisfies the $\vphi$-Lipschitz condition, and $g_2$ is a contraction mapping (uniformly in time), then there exists a stable manifold for the solution to \eqref{eq5.3}.
@@ -1177,9 +1188,11 @@ Thus, for $\vphi$-Lipschitz function $v_R$ and contraction mapping $i_G$, we obt
 %comments and remarks that improved the paper.
 
 %============================================================================
-%\bibliographystyle{alpha}
+%\bibliographystyle{abbrv}
 \bibliographystyle{plain}
-\bibliography{Huy_Phi_2020}
+%\bibliography{Huy_Phi_2020}
+\bibliography{Phi_July_2018}
+
 \end{document}
 
 \begin{example}\label{exam0.2}{\rm
