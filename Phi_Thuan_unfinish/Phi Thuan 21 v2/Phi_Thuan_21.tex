@@ -202,7 +202,7 @@ The first order descriptor system \eqref{SiDE 1st ord} is called
 	%	\item[ii)] \emph{strongly controllable or S-controllable} if both \textbf{C1} and \textbf{C2} holds. 
 		\item[ii)] \emph{controllable on a reachable set or R-controllable} if for any pair $x_0 \in R$ and any $x^f_0 \in R$ there exist a finite time $n_f$ and an input sequence $u$ such that $x(n_f) = x^f_0$.
 		\item[iii)] \emph{causal controllable or Y-controllable} if if there exists a feedback $u(k)=Kx(k)$ such that its closed-loop system $Ex(k+1)=(A+BK)x(k)$ is causal.
-		\item[iv)] \emph{normalizable} if if if there exists a feedback $u(k)=Kx(k+1)$ such that its closed-loop system $(E+BK)x(k+1)=Ax(k)$ is a explicit difference equation.
+		\item[iv)] \emph{normalizable} if there exists a feedback $u(k)=Kx(k+1)$ such that its closed-loop system $(E+BK)x(k+1)=Ax(k)$ is an explicit difference equation.
 	\end{enumerate}
 \end{definition}
 
@@ -310,30 +310,6 @@ this is not always fulfilled as shown in Example \ref{Exa2} below.
 	This is in fact a first order system, since $M=0$. We can directly check that this system is Y-controllable. Nevertheless, all the first order formulations in \eqref{first order companion form} are not. 
 	%
 	Furthermore, for another input matrix $B=\sm{0 \\ 1}$ direct computations yield that \eqref{descriptor 2nd order discrete} is C-controllable, while all the formulations in \eqref{first order companion form} are not. 
-\end{example}
-
-In the following example we illustrate that for second order systems, C-controllabi\-lity does not always imply Y-controllability.
-
-\begin{example}\label{example 4}
-	Consider the following system
-	%
-	\begin{equation}\label{eq3.6}
-		\underbrace{\m{1 & 0 \\ 0 & 0}}_{M} x(n+2) 
-		+ \underbrace{\m{-1 & -1 \\ -1 & 0 }}_{D} x(n+1) + \underbrace{\m{0 & 1 \\ 1 & 0 }}_{K} x(n) = \m{0 \\ 0} u(n) \ .
-	\end{equation}
-	%
-	Clearly, the structure of the pencil $(M,D)$ implies that this system is not Y-controllable, and via one shift we can transform it to the first order system
-	%
-	\begin{equation*}
-		\m{0 & 1 \\ 1 & 0} x(n+1) + \m{0 & -1 \\ -1 & 0 } x(n) = 0 \ ,
-	\end{equation*}
-	%
-	which can be directly proven that is C-controllable. Thus, C-controllability does not imply Y-controllability. \
-	%
-	The same observation can be made for continuous-time second order descriptor systems by considering the following system
-	\[
-	\m{1 & 0 \\ 0 & 0} \ddot{x}(t) + \m{0 & 1 \\ 1 & 0} \dot{x}(t) = 0 \ .
-	\]
 \end{example}
 
 In view of all these difficulties, it is natural to seek for a suitable first order reformulation that is Y-controllable and be beneficial to study other controllability properties of \eqref{descriptor 2nd order discrete}. This task will be done in the next section. Two auxiliaries lemmata below will be very useful for our analysis later.
@@ -1148,7 +1124,33 @@ We summarize the relation between the controllability of the systems discussed a
 %\begin{corollary}
 %If the system \eqref{descriptor 2nd order discrete} is C-controllable then in the condensed form \eqref{descriptor 2nd order discrete}, we must have that $r_0 = 0$.
 %\end{corollary}
-We recall, that Example \eqref{example 4} suggests that we should discuss the C-controllability of the strangeness-free formulation \eqref{descriptor 2nd order sfree} instead of the original system \eqref{descriptor 2nd order discrete}. The characterizations of C-controllability for system \eqref{descriptor 2nd order discrete} are given in the following theorem.
+%
+In the following example we illustrate that for second order systems, C-controllabi\-lity does not always imply Y-controllability.
+
+\begin{example}\label{example 4}
+	Consider the following system
+	%
+	\begin{equation}\label{eq3.6}
+		\underbrace{\m{0 & -1 \\ 0 & 0}}_{M} x(n+2) 
+		+ \underbrace{\m{1 & 1 \\ 0 & 1 }}_{D} x(n+1) + \underbrace{\m{-1 & 0 \\ -1 & -1 }}_{K} x(n) = \m{2 \\ 0} u(n) \ .
+	\end{equation}
+	%
+	Clearly, the structure of the pencil $(M,D)$ implies that this system is not Y-controllable, and via one shift we can transform it to the first order system
+	%
+	\begin{equation*}
+		\m{0 & 0 \\ 0 & 1} x(n+1) + \m{-1 & 0 \\ -1 & -1 } x(n) = \m{2 \\ 0} u(n) \ ,
+	\end{equation*}
+	%
+	which can be directly proven that is C-controllable. Thus, C-controllability does not imply Y-controllability. \
+	%
+	The same observation can be made for continuous-time second order descriptor systems by considering the following system
+	\[
+	\m{0 & -1 \\ 0 & 0} \ddot{x}(t) + \m{1 & 1 \\ 0 & 1} \dot{x}(t) 
+	+ \m{-1 & 0 \\ -1 & -1} x(t) =  \m{2 \\ 0} u(t) \ .
+	\]
+\end{example}
+%We recall, that 
+Example \eqref{example 4} suggests that we should discuss the C-controllability of the strangeness-free formulation \eqref{descriptor 2nd order sfree} instead of the original system \eqref{descriptor 2nd order discrete}. The characterizations of C-controllability for system \eqref{descriptor 2nd order discrete} are given in the following theorem.
 
 \begin{theorem}\label{Thm C-ctrl}
 	Consider the system \eqref{descriptor 2nd order discrete} and assume that it is already in the strangeness-free form \eqref{descriptor 2nd order sfree}. Let $\Rext$ be the reachable set of the minimal extension form \eqref{descriptor minimal extension}. 
