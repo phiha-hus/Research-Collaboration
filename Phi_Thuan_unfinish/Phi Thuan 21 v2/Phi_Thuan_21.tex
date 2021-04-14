@@ -1,0 +1,1295 @@
+%Version 1.0 Phi 10.03.21
+\documentclass{siamltex}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+
+%\usepackage{showkeys}
+\usepackage{hyperref}
+\usepackage{isomath} %for slanted \Pi
+
+\usepackage{booktabs} %tables formatting
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{mathabx}
+
+\usepackage{tikz}
+\usepackage{verbatim}
+%\usepackage[active,tightpage]{preview}
+%\PreviewEnvironment{tikzpicture}
+%\setlength\PreviewBorder{5pt}%
+%%%>
+\usetikzlibrary{arrows}
+\usetikzlibrary{positioning}
+\usepackage{cancel}
+
+%\usepackage[right]{showlabels} 
+%\renewcommand{\showlabelfont}{\ttfamily\scriptsize} 
+%\usepackage{showkeys}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\K}{\mathbb{C}}
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{proof}[theorem]{Proof}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{lemma}[theorem]{Lemma}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+%\numberwithin{equation}{section}
+%%%%% matrix construction %%%%%
+\newcommand {\mat}      [1] {\left[\begin{array}{#1}}
+\newcommand {\rix}          {\end{array}\right]}
+%
+\DeclareMathOperator{\gr}{gr}
+\DeclareMathOperator{\dom}{dom}
+\DeclareMathOperator{\Ima}{Im}
+%\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\ke}{ker}
+\DeclareMathOperator{\Rea}{Re}
+\DeclareMathOperator{\spa}{span}
+\DeclareMathOperator{\dist}{dist}
+%\DeclareMathOperator{\diag}{diag}
+\DeclareMathOperator{\rre}{Re}
+\DeclareMathOperator{\ind}{ind}
+%\journal{Systems $\&$ Control Letters}
+
+\include{command}
+
+\begin{document}
+\title{Controllability of second order discrete-time descriptor systems}
+\author{Ha Phi\thanks{Faculty of Math-Mechanics-Informatics, Hanoi University of Science, 334 Nguyen Trai Street, Thanh Xuan, Hanoi, Vietnam (haphi.hus@vnu.edu.vn)}
+	\and Do Duc Thuan\thanks{School of Applied Mathematics and Informatics, Hanoi University of Science and Technology, 1 Dai Co Viet Str., Hanoi, Vietnam (thuan.doduc@hust.edu.vn)}.
+	}
+
+\date{\today}
+
+\maketitle
+
+\begin{abstract}
+This paper is devoted to controllability of  second order discrete-time descriptor systems.  Characterizations for controllability different concepts are derived and feedback designs are investigated by transforming the system into an appropriate form. Some observability conditions are also studied for these descriptor systems. It shows how the classical conditions for first order discrete-time systems can be generalized to second order discrete-time descriptor systems. We will develop the algebraic approach 
+to establish concise and stably computed condensed forms, which play a key role in our controllability analysis.  This work completes the researches about controllability of higher order descriptor systems.
+%proposed in \cite{LosM08, MehS06} has been developed and modified in order to establish more concise and stably computed condensed forms, which play a key role in our analysis. 
+\\
+{\bf Keywords.} Second order systems; Descriptor systems; causal controllability; Complete controllability; Strong controllability; Feedback.
+\\
+{\bf Mathematics Subject Classifications:} 06B99, 34D99,47A10, 47A99, 65P99. \ 93B05, 93B07, 93B10.
+\end{abstract}
+
+%=================================================================================================================
+\section{Introduction}\label{intro}
+%=================================================================================================================
+
+In this paper we study the second order descriptor system
+%in continuous-time
+%%
+%\begin{equation}\label{continuous DAE}
+%\begin{split}
+%&	M \ddot{x}(t) + D \dot{x}(t) + K x(t) = B u(t) \ \mbox{ for all } t \geq t_0, \\
+%&   x(t_0) = x_0, \ \dot{x}(t_0) = \dot{x}_0.
+%\end{split}
+%\end{equation}	
+%%
+%and 
+in discrete-time
+%
+\begin{equation}\label{descriptor 2nd order discrete}
+	\begin{split}
+		& M x(n+2) + D x(n+1) + K x(n) = B u(n) \ \mbox{ for all } n \geq n_0, \\
+		&y(k)=Cx(k),\\
+		& x(n_0) = x_0, \ x(n_0+1) = x_1,
+	\end{split}
+\end{equation}
+%
+where $M$, $D$, $K \in \r^{d,d}$, $B \in \r^{d,p}$, $C\in \r^{q,d}$ are real, constant coefficient matrices. 
+%In the continuous-time case the state $x$, input $u$ are real-valued vector functions, and in the discrete-time case $x$, $u$ are real-valued vector sequences. 
+Here $x=\{x(n)\}_{n\geq n_0}$, $u=\{u(n)\}_{n\geq n_0}$ are real-valued vector sequences. 
+%Without loss of generality, we may assume that $t_0=0$ in the continuous-time case, and $n_0=0$ in the discrete-time case. 
+System \eqref{descriptor 2nd order discrete} is concerned with the singular difference equations (SiDE)
+%
+\begin{equation}\label{SiDE 2nd ord}
+	M x(n+2) + D x(n+1) + K x(n) = f(n) \ \mbox{ for all } n \geq n_0.
+\end{equation}
+%
+They arise as mathematical models in various fields such as population dynamics, economics, the discretization of some differential- algebraic equations (DAEs) or partial differential equations (PDEs), from sampling in dynamical systems; e.g., see  
+\cite{BreCP96, DuLMT13, KunM06, LCB07, L77}. 
+Recently, solvability and stability of SiDEs of second order has been investigaed in \cite{LinNT16,LP21,MehrT15}. However, controllability for these systems has not been reached althought it has been well-studied for both DAEs and SiDEs of first order \cite{BeR13,Dai89, KG14}.
+
+In classical approach \cite{Aga00,Ela13,Kel01,MKA19}, usually new variables are introduced such that a high order system can be reformulated as a first order one. 
+%Recently, in \cite{MKA19}, the authors have used it to study observability of higher order linear systems.
+As will be seen later in Examples \ref{disadvantage} and \ref{Exa2}, this method, however, is not only non-unique but also has presented some substantial disadvantages from both theoretical and numerical viewpoints. These drawbacks include (1) give a wrong prediction on the index and hence, increase the complexity of a numerical solution method, (2) increase the computational effort due to the bigger size of a reformulated system, (3) affect the controllability/observability of the system itself, i.e. a first order resulting system is uncontrollable, even though the original one is.
+%This fact is well-known for continuous-time systems, for example in a multi-body system one can control the state but not always the velocity. 
+%Moreover, introducing new variables may also require associated initial conditions, which is not always available. For example one cannot require an initial condition of an input function. 
+
+To overcome these obstacles, the \emph{algebraic approach}, which treats the system directly without reformulating it, has been studied in \cite{LosM08,MehS06,Wun06,Wun08}. Nevertheless, the proposed method therein has also presented some additional difficulties as follows. Firstly, important condensed forms numbered (2.3)-(2.5) are big and complicated, which is really hard to be generalized for higher order systems. More importantly, the system transformations are not unitary, and hence, condensed forms and characteristic values could not be stably computed. In \cite{LosM08}, the authors have studied controllability for second order continuous-time descriptor systems. Though characterizations for the impulse controllability are given, a feedback strategy to obtain gain matrices is still missing of acceleration feedback.
+
+ 
+From the observation above, the motivation of this work includes: Firstly, we want to develop and modify the algebraic method suggested in \cite{LosM08} to make it more convenient to study different controllability concepts for second order discrete-time descriptor systems. Secondly, we want to fill in missing gaps in previous researches that we have mentioned above for causal controllability. In particular, motivated by recent researches on the control properties of multi-body systems (e.g. \cite{Abd16,Abd19,Abd15,HelA13,YuZ16}), we will study another types of feedback, namely acceleration, beside the classical displacement/velocity feedbacks. After that, a comparable framework for controllability of discrete-time systems is set up by using the algebraic approach.  Finally, based on controllability, we derive some characterization for observability of second order discrete-time descriptor systems.  
+
+It should be noted, that all results in this paper also carry over to descriptor systems with time-variable, complex-valued coefficients or higher order descriptor systems. However, for notational convenience, and because that this is the most important case in practice, we restrict ourself to time-invariant, real-valued systems of second order.
+
+The outline of this paper is as follows. 
+%
+After recalling some preliminary concepts and some auxiliary lemmas, in Section \ref{Sec3} we present the the condensed forms \eqref{condensed form 1}, \eqref{condensed form 2} for \eqref{descriptor 2nd order discrete}. Based on these, we discuss the causal controllability of \eqref{descriptor 2nd order discrete} via different types of feedbacks and their characterization.
+Here we also discuss the advantage of an acceleration feedback to the causal controllability of the system, while the other feedbacks fail. 
+%
+In Section \ref{Sec4}, making use of \eqref{condensed form 1}, we analyze other controllability concepts for system \eqref{descriptor 2nd order discrete}. There, we also highlight a new feature of second order systems compare to first order ones, as well as the difference between continuous-time and discrete-time systems. In Section 5, observability for \eqref{descriptor 2nd order discrete} is investigated.
+%
+Finally, we finish with some conclusion.
+
+
+
+
+%=================================================================================================================
+\section{Preliminaries and auxiliary lemmas}\label{preliminary}
+%=================================================================================================================
+
+First let us briefly recall some important concepts for a first order descriptor system
+%
+\begin{equation}\label{SiDE 1st ord}
+	E \xi(n+1) - A \xi(n) = B_1 u(n) \quad \mbox{ for all } n\geq n_0,
+\end{equation}
+%
+where $E$, $A \in \r^{\td,\td}$, $B_1 \in \r^{\td,p}$ for some $\td\in \N$. Here we notice that the matrix $E$ may be rank deficient, and the matrix pair $(E,A)$ is regular, i.e., $\det(\lb E-A) \not=0$ in the polynomial sense. It is well-known, that the regularity of the pair $(E,A)$ is the necessary and sufficient condition for the existence and uniqueness of a solution to \eqref{SiDE 1st ord}, see, e.g. \cite{Dai89}. Moreover, the regular pair $(E,A)$ can be transformed to Kronecker-Weierstra\ss \ canonical form (see, e.g. \cite{MehrT15}), i.e., there exist nonsingular matrices $U$, $V$ such that
+	\begin{equation}
+	\label{Kronecker}
+	UEV = \m{I_{\td_1} & 0 \\ 0 & N}, \ UAV = \m{J & 0 \\ 0 & I_{\td_2}}, \ \m{B_{11} \\ B_{12}} = UB_1 \ ,
+	\end{equation}
+where $N$ is a nilpotent matrix of nilpotency index $\nu$, i.e., $N^{\nu}=0$ and $N^i\not=0$ for $i=1, 2\ldots \nu-1$. The index $\nu$ is called the index of the pair $(E, A)$ which doesn't depend on $U,V$ and we write $ind(E, A) = \nu$.
+Consequently, the explicit solution of \eqref{SiDE 1st ord} is of the form $\xi(n) = V \m{\xi_1(n) \\ \xi_2(n)}$ with
+	\be\label{solution}
+	\begin{split}
+		\xi_1(n+1) &= J^{n-n_0+1} \ x(n_0) + \sum_{i=0}^{n-n_0} J^{i} \ B_{11} \ u(n-i) , \\
+		\xi_2(n) &= - \sum_{i=0}^{\nu-1} N^{i} \ B_{12} \ u(n+i)  \\
+	\end{split}
+	\ee
+	for all $n\geq n_0$.
+
+Clearly, the initial condition $\xi(n_0)$ could not be arbitrarily taken. System \eqref{SiDE 1st ord} is called causal if the state $\xi(n) $ is determined completely by the initial condition  $\xi(n_0)$ and former inputs  $u(i)$ with $i=n_0,n_0+1\ldots, n$. It is easy to see that if $\ind(E,A)=1$ then system \eqref{SiDE 1st ord} is causal. For a given input sequence $u=\{u(n)\}_{n\geq n_0}$, the set of consistent initial condition is given by
+\[
+\mathcal{S}_0 = \left\{ V \m{\xi_1(n) \\ \xi_2(n)} \ \Big| \ \xi_1(n_0) \in \r^{\td_1}, \ \xi_2(n_0) = -  \sum_{i=0}^{\nu-1} N^{i} \ B_{12} \ u(n+i)  \right\} \ .
+\]
+The set $\mathcal{R}$ of \emph{reachable states} or \emph{reachable set} of \eqref{SiDE 1st ord} is the set of all vector that can be reached from some consistent initial vector $\xi(n_0)$ and some input sequence $\{u(n)\}_{n\geq n_0}$. In fact, for \eqref{SiDE 1st ord}, it is well-known (e.g. \cite{VerLK81}) that 
+%
+\[
+\mathcal{R} = \r^{\td_1} \oplus \cK(N,B_{12}),
+\]
+%
+where $\cK(N,B_{12}) = \im \left[ B_{12}, \ NB_{12}, \ \dots, \ N^{\nu-1}B_{12} \right]$. 
+%
+%\[
+%\cK(N,B_{12}) = \im \left[ B_{12}, \ NB_{12}, \ \dots, \ N^{\nu-1}B_{12} \right] \ .
+%\]
+%
+The following corollary is directly followed. 
+%
+\begin{corollary}\label{coro4}
+Consider the first order, discrete-time descriptor system of the form 
+%
+\begin{equation}
+\m{E_1 \\ 0} \xi(n+1) + \m{A_1 \\ A_2} \xi(n) = \m{B_1 \\ B_2} w(n) \ \mbox{ for all } n \geq 0,
+\end{equation}
+%
+where $x(n) \in \r^d$, $\m{E_1 \\ A_2}$ is nonsingular, and $B_2$ has full row rank. Then the reachable subspace $\cal{R}$ is the whole space $\r^d$. 
+\end{corollary}
+
+\begin{definition}
+The first order descriptor system \eqref{SiDE 1st ord} is called 
+	\begin{enumerate}
+		\item[i)] \emph{completely controllable or C-controllable} if for any pair $x_0 \in \r^n$ and any $x^f_0 \in \r^n$ there exist a finite time $n_f$ and an input sequence $u$ such that $x(n_f) = x^f_0$.
+	%	\item[ii)] \emph{strongly controllable or S-controllable} if both \textbf{C1} and \textbf{C2} holds. 
+		\item[ii)] \emph{controllable on a reachable set or R-controllable} if for any pair $x_0 \in R$ and any $x^f_0 \in R$ there exist a finite time $n_f$ and an input sequence $u$ such that $x(n_f) = x^f_0$.
+		\item[iii)] \emph{causal controllable or Y-controllable} if if there exists a feedback $u(k)=Kx(k)$ such that its closed-loop system $Ex(k+1)=(A+BK)x(k)$ is causal.
+		\item[iv)] \emph{normalizable} if if if there exists a feedback $u(k)=Kx(k+1)$ such that its closed-loop system $(E+BK)x(k+1)=Ax(k)$ is a explicit difference equation.
+	\end{enumerate}
+\end{definition}
+
+For most classical control design aim, typically, one or more of the following rank conditions are required
+%
+\begin{equation}\label{rank 1st ord}
+	\begin{split}
+		\mathbf{C0:} &\quad \rank \m{\a E - \b A, \ B_1} = \td \ \mbox{ for all } (\a,\b) \in \C^2\setminus\{(0,0)\}, \\
+		\mathbf{C1:} &\quad \rank \m{\lb E - A, \ B_1} = \td \ \mbox{ for all } \lb \in \C, \ \mbox{ \textbf{finite mode contr.} }\\
+		\mathbf{C2:} &\quad \rank \m{E, \ AS_{\infty}(E), \ B_1} = \td,  \ \mbox{ \textbf{causal mode contr.} } \\
+		\mathbf{C3:} &\quad \rank \m{E, \ B_1} = \td,  \ \mbox{ \textbf{normalizable} }
+	\end{split}
+\end{equation}
+%
+where $S_{\infty}(E)$ is a matrix whose columns span an orthogonal basis of $\ker(E)$. Furthermore, it should be noted that $\mathbf{C0} = \mathbf{C1} + \mathbf{C3}$.
+%
+From characterizations of controllability in \cite{BeR13,Dai89, KG14} and by Kronecker-Weierstra\ss \ canonical form we can deduce
+\begin{proposition}\label{def1.1}
+	Consider the first order descriptor system \eqref{SiDE 1st ord}, whose the matrix pair $(E,A)$ is regular. Then \eqref{SiDE 1st ord} is 
+	\begin{enumerate}
+		\item[i)] \emph{completely controllable or C-controllable} if \textbf{C0} holds.
+	%	\item[ii)] \emph{strongly controllable or S-controllable} if both \textbf{C1} and \textbf{C2} holds. 
+		\item[ii)] \emph{controllable on a reachable set or R-controllable} if \textbf{C1} holds. 
+		\item[iii)] \emph{causal controllable or Y-controllable} if \textbf{C2} holds. 
+		\item[iv)] \emph{normalizable} if \textbf{C3} holds. 
+	\end{enumerate}
+\end{proposition}
+%
+For the physical meanings of these controllability concepts and their properties, we refer the interested readers to classical textbooks \cite{Bro70,Green12,Son13,Zhou96}. 
+
+\begin{definition} 
+	i) System \eqref{descriptor 2nd order discrete} is called \emph{regular} if there exists an input sequence $u=\{u(n)\}_{n\geq n_0}$ 
+	such that the corresponding IVP \eqref{descriptor 2nd order discrete} is uniquely solvable. In this situation, we also say that the input $u$ and the initial vectors $x_0$, $x_1$ are \emph{consistent}. \\ 
+	ii) In addition, a regular system \eqref{descriptor 2nd order discrete} is called \emph{causal} if for each $n\geq n_0$, $x(n)$ does not depend on an input $u$ at future time, i.e., $u(n+1)$, $u(n+2)$,.... 
+	but only at present and past time, i.e., $u(n)$, $u(n-1),...,u(n_0)$.
+\end{definition}
+
+
+
+\begin{definition}(\cite{LinNT16})
+	System \eqref{SiDE 2nd ord} is called \emph{strangeness-free} if there exists a pointwise nonsingular matrix sequence $\{P_n\}_{n\geq n_0}$ such that by scaling \eqref{SiDE 2nd ord} at each point $n$ with the corresponding matrix $P_n$, we obtain a new system of the form
+	%
+	\be\label{SiDE 2nd order sfree - not descriptor}
+	\pm{\hr_2 \\ \hr_1 \\ \hr_0 \\ \hv } \ 
+	\m{\hM_{1} \\ 0 \\ 0 \\ 0 } x(n\!+\!2) + \m{ \hD_{1} \\ \hD_{2} \\ 0 \\ 0 } x(n\!+\!1) + \m{ \hK_{1} \\ \hK_{2} \\ \hK_{3} \\ 0 } x(n)  
+	= \m{ \hat{f}_{n,1} \\ \hat{f}_{n,2} \\  \hat{f}_{n,3} \\ 0} 
+	\ \mbox{for all} \ n\geq n_0, 
+	\ee
+	%
+	where the matrix $\m{\hM^T_{1}  &  \hD^T_{2}  &  \hK^T_{3}}^T$ has full row rank. \
+	Notice that, restricted to the case that $M=0$, we obtain exactly the well-known concept \emph{strangeness-free} for the first order DAEs in \cite{KunM06}. % In this case, the first block row in \eqref{SiDE 2nd order sfree - not descriptor} is disappeared (i.e., $\hr_{2}=0$).
+\end{definition}
+
+%Moreover, to characterize the Y-controllability of the first order system \eqref{SiDE 1st ord}, another well-known condition is given in the following lemma, see \cite{Dai89}.
+
+%\begin{lemma}\label{lem1} System \eqref{SiDE 1st ord} is Y-controllable if and only if any of the following equivalent conditions hold true.
+%	\begin{enumerate}
+	%	\item[i)] The constant rank below is satisfied. 
+		%
+%		\begin{equation}\label{condition I - Dai89}
+%			\rank \left( \m{E & 0 & 0 \\ A & E & B_1}\right)  = \rank(E) + \td  \ .
+%		\end{equation}
+		%
+%		\item[ii)] There exists a matrix $F_d$ such that for an input $u(n)=-F_d x(n)$, the closed-loop system of \eqref{SiDE 1st ord} is regular and strangeness-free.
+%	\end{enumerate}
+%\end{lemma} 
+
+To study control properties of second order descriptor systems, the classical approach is to reformulate \eqref{descriptor 2nd order discrete} in the form of \eqref{SiDE 1st ord}. 
+In the following example we demonstrate some critical difficulties that may arise while performing this approach for SiDEs.
+%
+\begin{example}\label{disadvantage} Consider \eqref{descriptor 2nd order discrete}, where the matrix coefficients are
+	%
+	\be\label{eq1.4}
+	M = \m{1 & 0 \\ 0 & 0}, \ D = \m{1 & 0 \\ 0 & 0}, \ K = \m{1 & 1 \\ 1 & 0}, \  B = \m{1 \\ 0} \ .  
+	\ee
+	%
+	In fact, we have at least four ways to reformulate \eqref{descriptor 2nd order discrete} as follows
+	%
+	%
+	\begin{equation}\label{first order companion form}
+		\begin{split}
+			\mbox{\textbf{companion form }:} &\ \m{I & 0 \\ 0 & M} \m{x(n+1) \\ x(n+2)} = \m{0 & I \\ -K & -D} \m{x(n) \\ x(n+1)} + \m{0 \\ B} u(n), \\
+			\mbox{\textbf{2nd form}:} &\ \m{D & M \\ M & 0} \m{x(n+1) \\ x(n+2)} = \m{-K & 0 \\ 0 & M} \m{x(n) \\ x(n+1)} + \m{B \\ 0} u(n), \\
+			\mbox{\textbf{3rd form}:} &\ \m{D & M \\ -M & 0} \m{x(n+1) \\ x(n+2)} = \m{-K & 0 \\ 0 & -M} \m{x(n) \\ x(n+1)} + \m{B \\ 0} u(n), \\
+			\mbox{\textbf{4th form }:} &\ \m{-K & 0 \\ 0 & M} \m{x(n+1) \\ x(n+2)} = \m{0 & -K \\ -K & -D} \m{x(n) \\ x(n+1)} + \m{0 \\ B} u(n).
+		\end{split}
+	\end{equation}
+	%
+	Each form above has its advantage, especially in case that $M$, $K$, $D$ has a symmetric or skew-symmetric structure. Now let us check the controllability of these systems by verifying the rank conditions \eqref{rank 1st ord}. 
+	Direct computations turns out that only in the fourth form, the index of the matrix pair $(E,A)$ is three, while in the others, the index is four,
+	which suggests a wrong prediction, that $x(n)$ depends also on $u(n+3)$, instead of only $u(n)$, $u(n+1)$, $u(n+2)$.
+	%	
+\end{example}
+
+In control theory, classical design approaches usually require that the system is at least S-controllable (and hence, must be Y-controllable). Nevertheless,  
+this is not always fulfilled as shown in Example \ref{Exa2} below.
+
+\begin{example}\label{Exa2}
+	Consider the artificial descriptor system \eqref{descriptor 2nd order discrete} with
+	%
+	\[
+	M = 0, \ D = \m{0 & 1 \\ 0 & 0}, \ K = \m{0 & 0 \\ 1 & 0}, \ B = \m{1 \\ 0}.
+	\]
+	%
+	This is in fact a first order system, since $M=0$. We can directly check that this system is Y-controllable. Nevertheless, all the first order formulations in \eqref{first order companion form} are not. 
+	%
+	Furthermore, for another input matrix $B=\sm{0 \\ 1}$ direct computations yield that \eqref{descriptor 2nd order discrete} is C-controllable, while all the formulations in \eqref{first order companion form} are not. 
+\end{example}
+
+In the following example we illustrate that for second order systems, C-controllabi\-lity does not always imply Y-controllability.
+
+\begin{example}\label{example 4}
+	Consider the following system
+	%
+	\begin{equation}\label{eq3.6}
+		\underbrace{\m{1 & 0 \\ 0 & 0}}_{M} x(n+2) 
+		+ \underbrace{\m{-1 & -1 \\ -1 & 0 }}_{D} x(n+1) + \underbrace{\m{0 & 1 \\ 1 & 0 }}_{K} x(n) = \m{0 \\ 0} u(n) \ .
+	\end{equation}
+	%
+	Clearly, the structure of the pencil $(M,D)$ implies that this system is not Y-controllable, and via one shift we can transform it to the first order system
+	%
+	\begin{equation*}
+		\m{0 & 1 \\ 1 & 0} x(n+1) + \m{0 & -1 \\ -1 & 0 } x(n) = 0 \ ,
+	\end{equation*}
+	%
+	which can be directly proven that is C-controllable. Thus, C-controllability does not imply Y-controllability. \
+	%
+	The same observation can be made for continuous-time second order descriptor systems by considering the following system
+	\[
+	\m{1 & 0 \\ 0 & 0} \ddot{x}(t) + \m{0 & 1 \\ 1 & 0} \dot{x}(t) = 0 \ .
+	\]
+\end{example}
+
+In view of all these difficulties, it is natural to seek for a suitable first order reformulation that is Y-controllable and be beneficial to study other controllability properties of \eqref{descriptor 2nd order discrete}. This task will be done in the next section. Two auxiliaries lemmata below will be very useful for our analysis later.
+%
+\begin{lemma}\label{lem1.5} (\cite[Lemma 4.1]{HaL19})
+	Given four matrices $\chA$, $\chB$, $\chC$ in $\r^{m,d}$ and $\chD$ in $\r^{m,p}$. Then there exists an orthogonal matrix $\chU \in \r^{m,m}$ such that 
+	%
+	\be\label{eq1.6}
+	\chU \m{\chA & \chB & \chC & \vline & \chD}
+	\!=\! 
+	\m{\chA_1 & \chB_1 & \chC_1 & \vline & \chD_1 \\
+		0     & \chB_2 & \chC_2 & \vline & 0	 \\
+		0     & 0	   & \chC_3 & \vline & 0	 \\
+		0     & 0	   & 0		& \vline & 0	 \\ \hline \\[-.35cm]
+		0     & \chB_4 & \chC_4 & \vline & \chD_4 \\
+		0     & 0	   & \chC_5 & \vline & \chD_5 },
+	\ee
+	where the matrices $\chA_1$, $\chB_2$, $\chB_4$, $\chC_3$, $\sm{\chD_4 \\ \chD_5}$ have full row rank.
+\end{lemma}
+
+\begin{lemma}\label{lem1.6} Let $P=\sm{P_1 \\ P_2} \in\r^{p,d}$, $Q = \sm{0 \\ Q_2} \in \r^{q,d}$ be two matrices. Furthermore, assume that	$Q_2$ has full row rank. 
+	Then there exist a matrix $F\in \r^{d,d}$ such that $P+QF$ has full row rank if and only if $P_1$ also has full row rank.
+\end{lemma}
+\begin{proof}
+	The necessary part is followed directly from the observation that
+	%
+	\[
+	P+QF = \m{P_1 \\ P_2} + \m{0 \\ Q_2} F   = \m{P_1 \\ P_2 + Q_2F} = \m{P_1 &  0 \\ P_2 & Q_2} \m{I \\ F}.
+	\]
+	%
+	For the sufficient part, see \cite[Lemma 2.8]{HaL19}.
+\end{proof}
+
+%=================================================================================================================
+\section{Condensed forms and causal controllability}\label{Sec3}
+%=================================================================================================================
+
+In this section, we will modify an \emph{algebraic method} presented in \cite{LosM08} to study the causal controllability (Y-controllability) of system \eqref{descriptor 2nd order discrete}. The main idea is to transform \eqref{descriptor 2nd order discrete} directly, but not reformulate it as a first order one, into so-called \emph{condensed forms}. 
+Moreover, in comparison to \cite{LosM08}, the main advantage of our method is two folds. First, the condensed form is much more concise, and can be computed in a stable way. Second, it is helpful to design a suitable feedback that make the closed-loop system to be impulse-free.
+
+Now let us introduce some rank conditions, which generalize the ones in \eqref{rank 1st ord}.
+%
+\begin{equation}\label{rank 2nd ord}
+	\begin{split}
+		%\mathbf{C20:} &\quad \rank \m{\a E - \b A, \ B_1} = d \ \mbox{ for all } (\a,\b) \in \C^2\setminus\{(0,0)\}, \\
+		\mathbf{C21:} &\quad \rank \m{\lb^2 M + \lb D + K, \ B} = d \ \mbox{ for all } \lb \in \C, \\
+		\mathbf{C22:} &\quad \rank \m{M, \ DS^1_{\infty}, \ KS^2_{\infty}, \ B} = d, \\
+		\mathbf{C23:} &\quad \rank \m{M \ D \ B} = d, \\
+		\mathbf{C24:} &\quad \rank \m{M, \ B} = d,
+	\end{split}
+\end{equation}
+%
+where columns of $S^1_{\infty}$ form a basis of $\kernel M$, and columns of $S^2_{\infty}$ form the basis of 
+%
+\[
+\kernel \sm{M \\ Z_1^T D } \setminus \kernel \sm{ M \\ Z_1^T D \\ Z_3^T K},
+\]
+%
+and columns of $Z_1$ and of $Z_3$ span the left null spaces of $M$ and $\sm{M & D}$, respectively.
+
+\begin{definition}\label{equivalence}
+	Two second order descriptor systems of the form \eqref{descriptor 2nd order discrete} with system matrices $(M,D,K,B)$, and $(\tM,\tD,\tK,\tB)$ are called \emph{strongly (left) equivalent} if there exist nonsingular matrices $U \in \r^{d,d}$ and $V \in \r^{m,m}$ such that
+	%
+	\[
+	\tM = UM,\ \tD = UD, \ \tK=UK, \ \tB = UBV,
+	\]
+	%
+	We write $(M,D,K,B) \lsim (\tM,\tD,\tK,\tB)$.
+\end{definition}
+
+It should be noted that, in contrast to \cite{LosM08,MehS06,Wun08}, we avoid to perform variable transformations, i.e. $x(n)=W(n)y(n)$ for some nonsingular matrix $W(n)$. 
+This approach will make our analysis more concise and clearer. More importantly, we aim at stably computable condensed forms, which is not available by the approach 
+presented in the references above. 
+%
+Recently, using condensed forms under strongly left equivalence transformation, solvability analysis for second order discrete-time systems has been discussed in \cite{HaL19}.
+%
+Furthermore, we also incorporate another class of equivalent transformations as follows.
+
+\begin{definition}\label{feedbacks} Two systems $M x(n+2) +  D x(n+ 1) +  K x(n) = B u(n)$ and $ \tM x(n\!+ \!2) \!+ \! \tD x(n\!+ \!1) \!+ \! \tK x(n) \!=\! \tB u(n)$ are called \emph{equivalent under}
+	\begin{enumerate}
+		\item[i)] \emph{displacement/position feedback} if there exists a matrix $F_d \in \r^{m,d}$ such that \ $(M,D,K,B) \lsim (\tM,\tD,\tK + F_d \tB,\tB)$.
+		\item[ii)] \emph{velocity feedback} if there exists a matrix $F_v \in \r^{m,d} $ such that \linebreak $(M,D,K,B) \lsim (\tM,\tD + F_v \tB ,\tK ,\tB)$.
+		\item[iii)] \emph{acceleration feedback} if there exists a matrix $F_a \in \r^{m,d}$ such that \linebreak $(M,D,K,B) \lsim (\tM  + F_a \tB,\tD,\tK,\tB)$.
+	\end{enumerate}
+	Here $F_d$, $F_v$, $F_a$ are called displacement, velocity, acceleration gain matrices.
+\end{definition}
+
+We notice that this concept is equivalent to classical feedback concepts as in mechanics for continuous-time descriptor systems \cite{LosMPR08,Lue77}. Furthermore, in general, a chosen feedback may contain all acceleration part $F_a x(n+2)$, velocity part $F_v x(n+1)$ and displacement/position part $F_d x(n)$, i.e.,
+%
+\be\label{feedback} 
+u(n) = - F_a x(n+2) - F_v x(n+1) - F_d x(n).
+\ee
+%
+Consequently, the resulting closed-loop system is
+%
+\be\label{close-loop}
+(M + B F_a) x(n+2) + (D+BF_v) x(n+1) + (K+BF_d) x(n) = 0.
+\ee
+%
+
+Now let us recall the concept of Y-controllability for system \eqref{descriptor 2nd order discrete}.
+% 
+\begin{definition}
+	The  descriptor system \eqref{descriptor 2nd order discrete} is called {\it Y-controllable via displace\-ment-velocity-acceleration feedback} if there exists a feedback of the form \eqref{feedback} such that the closed-loop system 
+	\eqref{close-loop} is regular and strangeness-free.
+	%\begin{enumerate}
+	%\item[i)] \emph{Y-controllable via displacement feedback} if there exists a feedback $u(n) = F_d x(n)$ such that the closed-loop system is regular, strangeness-free.
+	%\item[ii)] \emph{Y-controllable via velocity feedback} if there exists a feedback $u(n) = F_v x(n+1)$ such that the closed-loop system is regular, strangeness-free.
+	%\item[iii)] \emph{Y-controllable via acceleration feedback} if there exists a feedback $u(n) = F_a x(n+2)$ such that the closed-loop system is regular, strangeness-free.
+	%\end{enumerate} 
+\end{definition}
+
+\begin{lemma}
+	The Y-controllability is invariant under left equivalent transformations.
+\end{lemma}
+\begin{proof}
+	Due to Definition \ref{equivalence}, by choosing 
+	%
+	\[
+	u(n) = - V^{-1} F_a x(n+2) - V^{-1} F_v x(n+1) - V^{-1} F_d x(n)
+	\]
+	%
+	the proof is straightforward.
+\end{proof}
+
+In the following theorem, we present the first condensed form of system \eqref{descriptor 2nd order discrete}. 
+
+\begin{theorem}\label{condensed form} Consider the descriptor system \eqref{descriptor 2nd order discrete}. Then there exist two orthogonal matrices $U$, $V$ such that the following identities hold.
+	%
+	\be\label{condensed form 1}
+	U \m{M \ D \ K} \!=\!
+	\m{M_{1} & D_{1}    & K_{1}     \\
+		0    & D_{2}    & K_{2}     \\
+		0    & 0          & K_{3}     \\  \hline
+		0    & D_{4}    & K_{4}     \\
+		0    & 0          & K_{5}     \\  
+		0    & 0          & 0}, 
+	\
+	U B V \!=\!
+	\m{ B_{11}		& B_{12}  & B_{13} \\
+		0 			& 0		    & B_{23} \\
+		0 			& 0		    & 0        \\	\hline 
+		0      	& \Si_{1} & B_{43} \\ 
+		0     		& 0		    & \Si_{0}        \\ 
+		0     		& 0         & 0}, 
+	\quad \pm{r_{2} \\ r_{1} \\ r_{0} \\ \vphi_{1} \\ \vphi_{0} \\  v}
+	\ee
+	%
+	where sizes of the block rows are $r_{2}$, $r_{1}$, $r_{0}$, $\vphi_{1}$, $\vphi_{0}$, $v$, the matrices $M_{1}$, $\sm{ D_{2} \\ D_{4} }$, $K_{3}$ are of full row rank, and the matrices $\Si_{1}$, $\Si_{0}$ are nonsingular and diagonal.
+\end{theorem}
+\begin{proof}
+	The proof is followed directly from Lemma \ref{lem1.5} by consecutively partitioning two matrices $\chD_5$ and $\chD_4$ in \eqref{eq1.6} via Singular Value Decompositions.
+\end{proof}
+
+Theorem \ref{condensed form} has one direct corollary below.
+
+\begin{corollary}\label{coro1}
+In the condensed form \eqref{condensed form 1}, the condition $r_0 = v_0 = 0$  holds true if and only if condition \textbf{C23} holds true, i.e. the matrix $\m{M \ D \ B}$ has full row rank $d$.
+\end{corollary}
+
+\begin{remark}
+	The orthogonality of $U$ and $V$ guarantees that the condensed form \eqref{condensed form 1} can be numerically stably computed. This is an important advantage, in comparison to the condensed form in Theorem 2.4, \cite{LosM08}. Furthermore, we refer the interested reader to Remark 2.7 in the same article.
+\end{remark}
+
+%==================================================================================================
+\subsection{Causal controllability via displacement and velocity feedbacks}\label{sec3.1}
+%==================================================================================================
+
+Now we are ready to present our first main result about the Y-controllability of \eqref{descriptor 2nd order discrete}. 
+
+\begin{theorem}\label{Thm 1}
+	Consider the second order descriptor system \eqref{descriptor 2nd order discrete} and the condensed form \eqref{condensed form 1}. 
+	Then we have that:\\
+	i) System \eqref{descriptor 2nd order discrete} is Y-controllable via displacement-velocity feedback if and only if $v = 0$ and the matrix $\m{M^T_1 & D^T_2 & K^T_3}^T$ has full row rank. \\
+	ii) System \eqref{descriptor 2nd order discrete} is Y-controllable via displacement feedback if and only if $v = 0$ and the matrix $\m{M^T_1 & D^T_2 & D^T_4 & K^T_3}^T$ has full row rank. \\
+	iii) System \eqref{descriptor 2nd order discrete} is Y-controllable via velocity feedback if and only if $v = 0$ and the matrix $\m{M^T_1 & D^T_2 & K^T_3 & K^T_5}^T$ has full row rank. 
+\end{theorem}
+\begin{proof}
+	Since the proofs of these three parts are very similar, for the sake of brevity we will present only the detailed arguments for the claim i).\\
+	\textbf{Necessity:} Due to \eqref{condensed form 1} we see that 
+	%
+	\[
+	\m{M & D & K & \vline & B} \lsim  
+	\m{M_{1} & D_{1}    & K_{1}    & \vline & B_{11}		& B_{12}    & B_{13}   \\
+		0    & D_{2}    & K_{2}    & \vline & 0 			& 0		    & B_{23} 	\\
+		0    & 0        & K_{3}    & \vline & 0 			& 0		    & 0      		\\  \hline \\[-.35cm]
+		0    & D_{4}    & K_{4}    & \vline & 0      		& \Si_{1} 	& B_{43} 	 \\
+		0    & 0        & K_{5}    & \vline & 0     		& 0		    & \Si_{0}   \\  
+		0    & 0        & 0		   & \vline & 0     		& 0		    & 0  	} 
+	\qquad  \pm{r_{2} \\ r_{1} \\ r_{0} \\ \vphi_{1} \\ \vphi_{0} \\  v} \ .
+	\]
+	%
+	Thus, by using Gaussian elimination, we obtain
+	%
+	
+	\begin{equation}\label{eq3.1}
+		\m{M & D & K & \vline & B} \lsim  
+		\m{M_{1} & D^{new}_{1}    & K^{new}_{1}    & \vline & B_{11}		& 0    		& 0   \\
+			0    & D_{2}    	  & K^{new}_{2}    & \vline & 0 			& 0		    & 0 	\\
+			0    & 0        & K_{3}    & \vline & 0 			& 0		    & 0      		\\  \hline \\[-.35cm]
+			0    & D_{4}    & K^{new}_{4}    & \vline & 0      		& \Si_{1} 	& 0 	 \\
+			0    & 0        & K_{5}    & \vline & 0     		& 0		    & \Si_{0}   \\  
+			0    & 0        & 0		   & \vline & 0     		& 0		    & 0  },
+	\end{equation}
+	%
+	where by the super script $new$ we indicate a (possibly) new matrix at the same block position. 
+	This form implies that no matter what feedback has been applied, it will not affect the strangeness property of the upper part of the corresponding system, and hence, system \eqref{descriptor 2nd order discrete} is Y-controllable only if the matrix $\m{M^T_1 & D^T_2 & K^T_3}^T$ has full row rank. 
+	Finally, notice that system \eqref{descriptor 2nd order discrete} is of square size, so it is regular only if $v=0$. This completed the necessity part. \\
+	%
+	\textbf{Sufficiency:} By applying Lemma \ref{lem1.6} for the matrices $P=\m{ M^T_{1} \ D^T_{2} \ K^T_{3}}^T$, $Q=\sm{0 & \Si_{1} & 0  \\ 0 & 0 & \Si_{0} }$ and $G=\m{D^T_{4} & K^T_{5}}^T$, 
+	we see that there exist two matrices $F_d, \ F_v$ such that the matrix 
+	%
+	\[
+	\m{ M_{1} \\ D_{2} \\ K_{3} \\ D_{4} + \m{0 & \Si_{1} & B_{43}} F_v \\[.1cm] K_{5} + \m{0 & 0 & \Si_{0}} F_d }
+	\]
+	%
+	has full row rank. Consequently, for the displacement-velocity feedback
+	%
+	\be\label{eq5.5}
+	u(n) = - F_v x(n+1)(t) - F_d x(n) \mbox{ for all } n\geq n_0,
+	\ee
+	%	
+	the closed loop system 
+	%
+	\begin{equation}\label{eq5.6}
+		M x(n+2) + (D+BF_v) x(n+1) + (K+BF_d) x(n) = 0	
+	\end{equation}
+	%
+	is strangeness-free. Furthermore, due to the fact that in \eqref{condensed form 1} $v=0$, the closed-loop system \eqref{eq5.6} is regular, and hence, this finishes the proof.
+\end{proof}
+
+Making use of \eqref{condensed form 1}, we can rewrite our system \eqref{descriptor 2nd order discrete} as follows
+%
+\be\label{system in condensed form 1}
+\m{M_{1} & D_{1}    & K_{1}     \\
+	0    & D_{2}    & K_{2}     \\
+	0    & 0          & K_{3}     \\  \hline
+	0    & D_{4}    & K_{4}     \\
+	0    & 0          & K_{5}     \\  
+	0    & 0          & 0}
+\m{x(n+2) \\ x(n+1) \\ x(n) } \!=\! 
+\m{ B_{11}		& B_{12}  & B_{13} \\
+	0 			& 0		    & B_{23} \\
+	0 			& 0		    & 0        \\	\hline 
+	0      	& \Si_{1} & B_{43} \\ 
+	0     		& 0		    & \Si_{0}        \\ 
+	0     		& 0         & 0} v(n) , 
+\qquad \pm{r_{2} \\ r_{1} \\ r_{0} \\ \hline  \vphi_{1} \\ \vphi_{0} \\  v}
+\ee
+%
+where $u(n) = V v(n)$ for all $n\geq n_0$. \ Let $z(n) := M_1 x(n+1)$ we can then introduce a new variable $\xi(n) = \sm{z(n) \\ x(n)} \in \r^{r_2+d}$ and rewrite system \eqref{system in condensed form 1} in the so-called 
+\emph{minimal extension form}
+%
+\be\label{descriptor minimal extension}
+\underbrace{\m{	I_{r_2} 	 & D_{1}   \\
+		0    & M_{1}        \\ 
+		0    & D_{2}         \\
+		0 	 & 0			\\  \hline
+		0    & D_{4}       \\
+		0    & 0             \\  
+		0    & 0 }
+}_{\tE}
+\xi(n+1)
+\!+\!	
+\underbrace{
+	\m{	0 	 & K_{1}     \\
+		-I_{r_2}	 & 0		 \\
+		0    & K_{2}     \\
+		0    & K_{3}     \\ \hline
+		0    & K_{4}     \\
+		0    & K_{5}     \\  
+		0    & 0}
+}_{-\tA}
+\xi(n) \!=\! 
+\underbrace{
+	\m{ B_{11}		& B_{12}    & B_{13} \\
+		0 			& 0		    & 0        \\
+		0 			& 0		    & B_{23} \\
+		0 			& 0		    & 0        \\ \hline 
+		0      		& \Si_{1}   & B_{43} \\ 
+		0     		& 0		    & \Si_{0}        \\ 
+		0     		& 0         & 0}
+}_{\tB} v(n) , 
+\quad \pm{r_{2} \\ r_2 \\ r_{1} \\ r_{0} \\ \hline  \vphi_{1} \\ \vphi_{0} \\  v}
+\ee
+%
+
+\begin{theorem}\label{Thm 2}
+	Consider the descriptor system \eqref{descriptor 2nd order discrete} and the condensed form \eqref{condensed form 1}. 
+	Furthermore, assume that $v = 0$ and the matrix $\m{M^T_1 & D^T_2 & K^T_3}^T$ has full row rank. Then the minimal extension form \eqref{descriptor minimal extension} is also Y-controllable.
+\end{theorem}
+\begin{proof} In order to prove the desired claim we will verify the rank condition \eqref{rank 1st ord}. 
+	%
+	Let $S_{\infty}(\tE)$ be a full column rank matrix whose columns form an orthogonal basis of the vector space $\ker(\tE)$. Partition $S_{\infty}(\tE) = \sm{U_1 \\ V_1} \in \r^{r_2+d,r_2+d}$ correspondingly to \eqref{descriptor minimal extension}, we see that 
+	%
+	\[
+	D_2 V_1 = 0, \ M_1 V_1 = 0.
+	\]
+	%
+	Now  we will prove that $K_3 V_1$ has full row rank. To do it first we perform an SVD for the matrix $\sm{M_1 \\ D_2}$, and due to the fact that 
+	the matrix $\sm{M_1 \\ D_2}$ has full row rank, it follows that
+	%
+	\[
+	U^T_2 \sm{M_1 \\ D_2} V_2 = \m{\Si & 0}, 
+	\]
+	%
+	where $\Si$ is a nonsingular, diagonal matrix. Hence, $V_1 = V_2 \sm{0 \\ I}$.  \ 
+	%
+	Partitioning $U^T_2 K_3 V_2$ correspondingly, we have $U^T_2 K_3 V_2 = \m{K_{31} & K_{32}}$. Notice that since the matrix $\m{M_1^T & D_2^T & K_3^T}^T$ has full row rank, $K_{32}$ has full row rank. Thus,
+	%
+	\[
+	K_3 V_1 = U_2 \ \m{K_{31} & K_{32}} V^T_2 \  V_2 \m{0 \\ I} = U_2 \ K_{32},
+	\]
+	%
+	which has full row rank. Therefore, we see that
+	%
+	\begin{align*}
+		\m{\tE & \tA S_{\infty}(\tE) & \tB} = 
+		\left[
+		\begin{array}{ll|l|rrr}
+			I 	 & D_{1}        &	K_{1}V_1     & B_{11}		& B_{12}    & B_{13} \\
+			0    & M_{1}        &   U_1		  	 &  0 			& 0		    & 0        \\	
+			0    & D_{2}        &	K_{2}V_1     &  0 			& 0		    & B_{23} \\ 
+			0 	 & 0			& 	K_{3}V_1     &  0 			& 0		    & 0        \\ \hline \\[-.35cm]
+			0    & D_{4}        &	K_{5}V_1     &  0 	     	& \Si_{1}   & B_{43} \\ 
+			0    & 0            &  0     	  	 & 0		    & 0   		& \Si_{0} \\
+			0    & 0            &  0     	  	 & 0		    & 0   		& 0 
+		\end{array}
+		\right]
+		\qquad \pm{r_{2} \\  r_2 \\ r_{1} \\ r_{0} \\ \hline  \vphi_{1} \\ \vphi_{0} \\  v}
+	\end{align*}
+	%
+	has full row rank if and only if $v = 0$. This completes the proof.
+\end{proof}
+
+From Theorems \ref{Thm 1}, \ref{Thm 2} above, we see that one can interpret the upper part of system \eqref{system in condensed form 1} as an \emph{impulse uncontrollable part}, while the lower part is the 
+\emph{causal controllable part}.
+Furthermore, the key point for constructing a suitable first order reformulation to \eqref{descriptor 2nd order discrete} (and also for feedback design strategies) is to bring system \eqref{descriptor 2nd order discrete} to the form \eqref{condensed form 1}, where the upper part must be strangeness-free, i.e., $\m{M_1^T & D_2^T & K_3^T}^T$ has full row rank. Recently, this task has been finished in both theoretical and numerical ways. 
+%
+To keep the brevity of this paper, we will omit the details and refer the interested readers to \cite[Section 4]{HaL19}. Below we recall one important result taken from this research.
+
+\begin{proposition}\label{Thm 2.1}(\cite[Theorem 4.7]{HaL19})
+	Consider the descriptor system \eqref{descriptor 2nd order discrete}. Then it has exactly the same solution set as the so-called \emph{strangeness-free descriptor system}
+	%
+	\be\label{descriptor 2nd order sfree}
+	\underbrace{\m{\hM_{1} \\ 0 \\ 0 \\ \hline \\[-.35cm] 0 \\ 0 \\ 0 }}_{\hM} \! x(n\!+\!2) \!+\!
+	\underbrace{\m{\hD_{1} \\ \hD_{2} \\ 0 \\ \hline \\[-.35cm] \hD_{4} \\ 0 \\ 0 }}_{\hD} \! x(n\!+\!1) \!+\!
+	\underbrace{\m{\hK_{1} \\ \hK_{2} \\ \hK_{3} \\ \hline \\[-.35cm] \hK_{4} \\ \hK_{5} \\ 0 }}_{\hK} \! x(n) \!=\! 
+	\underbrace{ 
+		\m{ \hB_{11}	& \hB_{12}  	& \hB_{13} \\
+			0 			& 0		    	& \hB_{23} \\
+			0 			& 0		    	& 0        \\ \hline \\[-.35cm]
+			0      		& \hat{\Si}_{1} & \hB_{43} \\ 
+			0     		& 0		    	& \hat{\Si}_{0}        \\ 
+			0     		& 0         	& 0}}_{\hB}  \! v(n) , 
+	%
+	\quad \pm{\hr_{2} \\ \hr_{1} \\ \hr_{0} \\ \hline \\[-.35cm] \hat{\vphi}_{1} \\ \hat{\vphi}_{0} \\  \hv}
+	\ee 
+	%
+	for all \ $t\geq t_0$, where $\m{\hM^T_{1}  &   \hD^T_{2}  &  \hK^T_{3}}^T$ has full row rank, $\hat{\Si}_{{1}}$ and $\hat{\Si}_{{0}}$ are nonsingular and diagonal, and
+	$u(n) = V v(n)$ for all $n \geq n_0$. Furthermore, if system \eqref{descriptor 2nd order discrete} is regular then \ $\hv=0$.
+\end{proposition}
+
+Therefore, making use of Theorems \ref{Thm 1}, \ref{Thm 2} and Proposition \ref{Thm 2.1}, we can completely analyze the Y-controllability and feedback design of \eqref{descriptor 2nd order discrete}. \ We, furthermore, can deduce from these theorems other conditions that help us directly verify the Y-controllability of 
+\eqref{descriptor 2nd order discrete} (without any feedback design strategy) as below. 
+
+\begin{corollary}\label{coro2}
+	Consider the second order descriptor system \eqref{descriptor 2nd order discrete} and the condensed form \eqref{condensed form 1}.
+	Then system \eqref{descriptor 2nd order discrete} is Y-controllable via displacement-velocity feedback if and only if 
+	condition $\mathbf{C21}$ is satisfied.
+	%Then the following assertions hold true.
+	%	\begin{enumerate}
+	%		\item[i)] System \eqref{descriptor 2nd order discrete} is Y-controllable via displacement-velocity feedback if and only if the matrix $\m{M \ DS^1_{\infty} \ KS^2_{\infty} \ B}$ has full row rank, where $S^1_{\infty}$ and $S^2_{\infty}$ span the right null spaces of $M$ and $\m{M & D}$, respectively.
+	%		\item[ii)] System \eqref{descriptor 2nd order discrete} is Y-controllable via displacement feedback if and only if in \eqref{condensed form 1}, we have $v = 0$ and 
+	%		the matrix $\m{M & D & KS^2_{\infty} & B}$ has full row rank.
+	%		\item[iii)] System \eqref{descriptor 2nd order discrete} is Y-controllable via velocity feedback if and only if in \eqref{condensed form 1}, we have $v = 0$ and ...
+	%	\end{enumerate}
+\end{corollary}
+
+\begin{remark}
+	In comparison to the continuous-time case, we see that Corollary \ref{coro2} is similar to Theorem 3.14 i) (\cite{LosM08}). 
+	Nevertheless, if one wants to use only one type of feedback (displacement or velocity), then it could lead to extra difficulties, since the condensed form (2.3) (\cite{LosM08}) could not be stably-computed. Therefore, we suggest the reader to use Theorem \ref{Thm 1}.  
+\end{remark}
+
+%============================================================================
+\subsection{Causal controllability via acceleration feedback}\label{Sec3.3}
+
+For second order systems, one can consider different types of feedback (acceleration/velocity/displace\-ment) separately, or mimic them together. In the pioneering work \cite{LosM08}, Loose and Mehrmann considered three types: position, velocity, position-velocity feedback; while recently Abdelaziz (\cite{Abd16}) considered displacement-accerleration feedback, and Zhu and Zhang (\cite{YuZ16}) considered the most general form \eqref{feedback}. In this section, we will not limit ourself to velocity/displacement feedback as in previous section, but study also the effectiveness of acceleration feedback. Clearly, to in-cooperate another feedback type, we need a new condensed form, instead of using \eqref{condensed form 1}. This is given in the following theorem.
+
+\begin{theorem}\label{Condensed form 2} Consider the descriptor system \eqref{descriptor 2nd order discrete}. Then, there exist two orthogonal matrices $U$, $V$ such that the following identities hold.
+	%
+	\be\label{condensed form 2}
+	U \m{M & D & K} \!=\!
+	\m{\tM_{1}  & \tD_{1}    & \tK_{1}     \\
+		0    & \tD_{2}    & \tK_{2}     \\
+		0    & 0          & \tK_{3}     \\  \hline \\[-.35cm]
+		\tM_{4}  & \tD_{4}    & \tK_{4}     \\
+		0    & \tD_{5}    & \tK_{5}     \\
+		0    & 0          & \tK_{6}     \\  \hline 
+		0    & 0          & 0}, 
+	\
+	U B V \!=\!
+	\m{ 0  & 0 			& \tB_{13}  & \tB_{14} \\
+		0  & 0 			& 0		    & \tB_{24} \\
+		0  & 0 			& 0		    & 0        \\	\hline \\[-.35cm]
+		0  &\tilde{\Si}_{2}   & \tB_{43}  & \tB_{44} \\
+		0  & 0      	& \tilde{\Si}_{1} & \tB_{54} \\ 
+		0  & 0     		& 0		    & \tilde{\Si}_{0}        \\ \hline
+		0  & 0     		& 0         & 0       	
+	}, \quad \pm{r_{2} \\ r_{1} \\ r_{0} \\ \hline \\[-.35cm] \vphi_{2} \\ \vphi_{1} \\ \vphi_{0} \\ \hline \\[-.35cm] v}
+	\ee
+	where sizes of the block rows are $r_{2},\ r_{1},\ r_{0},\ \vphi_{2},\ \vphi_{1},\ \vphi_{0},\  v$, the matrices $\sm{\tM_{1} \\ \tM_{4} }$, $\sm{ \tD_{2} \\ \tD_{5} }$, $\tK_{3}$ are of full row rank, and the matrices $\tilde{\Si}_{2}$, $\tilde{\Si}_{1}$, $\tilde{\Si}_{0}$ are nonsingular and diagonal.
+\end{theorem}
+\begin{proof}
+	The proof can be obtained directly by using Theorem \ref{condensed form}. To keep the brevity of this paper we will omit the detail.
+\end{proof}
+
+The following corollaries are direct consequences of Theorem \ref{Condensed form 2}.
+
+\begin{corollary}\label{coro3}
+	Consider the descriptor system \eqref{descriptor 2nd order discrete} and the factorization \eqref{condensed form 2}. Then, the following assertions hold true.\\
+	i) System \eqref{descriptor 2nd order discrete} is Y-controllable via only displacement feedback if and only if in \eqref{condensed form 1}, we have $v=0$ and the matrix $\m{\tM^T_1 & \tM^T_4 & \tD^T_2 & \tD^T_5 & \tK^T_3}^T$ is of full row rank. \\
+	ii) System \eqref{descriptor 2nd order discrete} is Y-controllable via displacement-velocity feedback if and only if in \eqref{condensed form 1}, $v=0$ and the matrix $\m{\tM^T_1 & \tM^T_4 & \tD^T_2 & \tK^T_3}^T$ is of full row rank. 		
+	%
+%	\begin{enumerate}
+%		\item[i)] System \eqref{descriptor 2nd order discrete} is Y-controllable via only displacement feedback if and only if in \eqref{condensed form 1}, we have $v=0$ and the matrix $\m{\tM^T_1 & \tM^T_4 & \tD^T_2 & \tD^T_5 & \tK^T_3}^T$ is of full row rank. 
+%		\item[ii)] System \eqref{descriptor 2nd order discrete} is Y-controllable via displacement-velocity feedback if and only if in \eqref{condensed form 1}, $v=0$ and the matrix $\m{\tM^T_1 & \tM^T_4 & \tD^T_2 & \tK^T_3}^T$ is of full row rank. 		
+%	\end{enumerate}
+	%
+\end{corollary}
+
+\begin{corollary}\label{coro5}
+	Consider the descriptor system \eqref{descriptor 2nd order discrete} and the factorization \eqref{condensed form 2}. Then, the following assertions hold true. \\
+	i) System \eqref{descriptor 2nd order discrete} is Y-controllable via only acceleration feedback if and only if $v=0$ and the matrix $\m{\tM^T_1 & \tD^T_2 & \tK^T_3 & \tD^T_5 & \tK^T_6}^T$ is of full row rank. \\
+	ii) System \eqref{descriptor 2nd order discrete} is Y-controllable via d-v-a feedback if and only if $v=0$ and the matrix $\m{\tM^T_1 & \tD^T_2 & \tK^T_3}^T$ is of full row rank.
+	%
+%	\begin{enumerate}
+%		\item[i)] System \eqref{descriptor 2nd order discrete} is Y-controllable via only acceleration feedback if and only if $v=0$ and the matrix $\m{\tM^T_1 & \tD^T_2 & \tK^T_3 & \tD^T_5 & \tK^T_6}^T$ is of full row rank. 
+%		\item[ii)] System \eqref{descriptor 2nd order discrete} is Y-controllable via d-v-a feedback if and only if $v=0$ and the matrix $\m{\tM^T_1 & \tD^T_2 & \tK^T_3}^T$ is of full row rank. 
+%	\end{enumerate}
+\end{corollary}
+
+
+\begin{example}
+	To illustrate the effectiveness of an acceleration feedback, we consider the discrete-time version of a non-gyroscopic system (e.g. \cite{HugS80})
+	%
+	\begin{equation}
+		\m{0 & 0 \\ 1 & 0} x(n+2) + \m{1 & 0\\0 & 0} x(n) = \m{0 \\ 1} u(n) \ .
+	\end{equation}
+	%
+	Here we have that $\tM_{4} = \tK_3 = \m{1 & 0}$, $\tM_{1} = \tD_{2}=\tD_{4}=\tD_{5} = \tK_{6} = [ \ ]$.
+	Due to Corollary \ref{coro5}i) this system is Y-controllable by acceleration feedback. Furthermore, it is not possible to eliminate the causal behavior by using only displacement and velocity feedbacks, since all the rank conditions in Corollary \ref{coro3} fail. 
+\end{example}
+
+
+\begin{example}
+	Similarly, using Corollaries \ref{coro3}, \ref{coro5} we see that one must use both acceleration and velocity feedbacks to eliminate the causal behavior of the system
+	%
+	\begin{equation*}
+		\m{0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0 } x(n+2) 
+		+ \m{0 & 0 & 0 \\ 0 & 0 & 0 \\ 1 & 0 & 0 } x(n+1) 
+		+ \m{1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 } x(n) 
+		= \m{0 & 0 \\ 1 & 0 \\ 0 & 1} u(n) \ .
+	\end{equation*}
+	%
+	We notice, that we can also construct a system that requires all three types of feedbacks to regularize it.
+\end{example}
+
+%=================================================================================================================
+\section{Other controllability concepts and their characterizations}\label{Sec4}
+%=================================================================================================================
+
+In this section, using the condensed forms \eqref{condensed form 1}, \eqref{descriptor minimal extension} proposed above, we will discuss other controllability concepts for second order systems. We will also point out the difference between a discrete and continuous time cases, and a new feature of second order system as well. 
+
+% Now let us move to other controllability concepts that extend the corresponding ones of first order systems.
+
+\begin{definition}\label{C2 concepts}
+	Consider the descriptor system \eqref{descriptor 2nd order discrete}. \\ 
+	i) A set ${\cal R} \subseteq \r^n$ is called \emph{reachable from} the pair $(x_0,x_1)$ if for every $x^f_0 \in {\cal R}$ there exists an input sequence $u$ that transfers the system in finite time from $x(n_0) = x_0$ to $x_f$. \\
+	ii) A set ${\cal R}_2 \subseteq \r^n \times \r^n$ is called \emph{reachable from} the pair $(x_0,x_1)$ if for every $(x^f_0,x^f_1) \in {\cal R}_2$ there exists an input sequence
+	$u$ that transfers the system in finite time from $x(n_0) = x_0$, $x(n_1) = x_1$ to $x^f_0$, $x^f_1$. \\
+	iii) The system is called \emph{C-controllable} if for any pair $(x_0,x_1) \in \r^n \times \r^n$ and any $x^f_0 \in \r^n$ there exist a finite time $n_f$ and
+	an input sequence $u$ such that $x(n_f) = x^f_0$. \\
+	iv) The system is called \emph{strongly C2-controllable} if for any pair $(x_0,x_1) \in \r^n \times \r^n$ and any pair $(x^f_0,x^f_1) \in \r^n \times \r^n$ there exist a finite time $n_f$ and an input sequence $u$ such that $x(n_f) = x^f_0$, $x(n_f+1) = x^f_1$. \\
+	v) The system is called \emph{R-controllable} if any state $x^f_0 \in {\cal R}$ can be reached from some pair $(x_0,x_1)$ in finite time. \\
+	vi) The system is called \emph{R2-controllable} if any pair $(x^f_0,x^f_1) \in {\cal R}_2$ can be reached from some pair $(x_0,x_1)$ in finite time.
+\end{definition}
+
+Following directly from this definition, we have the following lemma.
+
+\begin{lemma}\label{lem4.2}
+	Consider the descriptor system \eqref{descriptor 2nd order discrete} and its first order companion form \eqref{first order companion form}. Then \eqref{descriptor 2nd order discrete} is  strongly C2-controllable (resp., R2-controllable) if and only if \eqref{first order companion form} is C-controllable (resp., R-controllable).
+\end{lemma}
+
+In the following theorem, we give a characterization for these controllability concepts.
+
+\begin{theorem}\label{Theorem strongly C2 & R2}
+	Consider the descriptor system \eqref{descriptor 2nd order discrete} and its first order companion form \eqref{first order companion form}. Then the following assertions hold true.\\
+	i) System \eqref{descriptor 2nd order discrete} is R2-controllable if and only if the system matrix coefficients satisfy condition $\mathbf{C21}$. \\
+	ii) Besides that, system \eqref{descriptor 2nd order discrete} is  strongly C2-controllable if and only if the system matrix coefficients satisfy both conditions $\mathbf{C21}$ and $\mathbf{C24}$. 
+\end{theorem}
+\begin{proof}
+	Due to Lemma \ref{lem4.2}, we only need to analyze the C-controllability and R-controllability of the companion form \eqref{first order companion form}.  Thus, the proof is directly followed from Definition \ref{def1.1}.
+\end{proof}
+
+Now let us come back to the strangeness-free form \eqref{descriptor 2nd order sfree}. Clearly, we see that it is reasonable to control $x(n)$ and only the part $M_1 x(n+1)$ but not the whole $x(n+1)$. 
+This fact motivates another concept below, which is more suitable for singular descriptor systems.
+
+\begin{definition}\label{C2-contrl}
+	Consider the descriptor system \eqref{descriptor 2nd order discrete} and assume that it is already in the strangeness-free form \eqref{descriptor 2nd order sfree}. Then system \eqref{descriptor 2nd order discrete} is called 
+	\emph{C2-controllable} if the minimal extension form \eqref{descriptor minimal extension} is $C$-controllable.
+\end{definition}
+
+
+\begin{lemma}\label{lem4.5} Consider the descriptor system \eqref{descriptor 2nd order discrete} and its the strangeness-free from \eqref{descriptor 2nd order sfree} and the 
+	minimal extension form \eqref{descriptor minimal extension}. Then we have that: \\
+	i) System \eqref{descriptor minimal extension} is $R$-controllable if and only if system \eqref{descriptor 2nd order sfree} satisfies condition $\mathbf{C21}$. \\ 
+	ii) System \eqref{descriptor minimal extension} is $C$-controllable if and only if system \eqref{descriptor 2nd order sfree} satisfies both conditions $\mathbf{C21}$ and $\mathbf{C23}$. \\
+	iii) The constant rank condition $\mathbf{C21}$ is preserved under the strangeness-free formulation.
+\end{lemma}
+\begin{proof}
+%	The proof is not difficult but quite long and technical, so we will leave it to Appendix \ref{appendix 1}.
+	
+For notational convenience, within this proof, we will omit the superscript \ $\widehat{}$ \ on all matrices in the strangeness-free form \eqref{descriptor 2nd order sfree}.
+Due to Definition \ref{def1.1}, system \eqref{descriptor minimal extension} is $R$-controllable (resp. $C$-controllable) if and only if the matrix coefficients $\tE$, $\tA$, $\tB$ satisfy the constant rank $\mathbf{C1}$ (resp., $\mathbf{C0}$). \\
+i) Condition $\mathbf{C1}$ applied to system \eqref{descriptor minimal extension} reads
+%
+\begin{equation}\label{a1}
+\rank 
+\m{	\lb I_{r_2}  \quad & \lb D_{1} + K_{1}     & \vline & B_{11}		& B_{12}    & B_{13}   \\
+	- I_{r_2}    \quad & \lb M_{1}  			 & \vline & 0     		& 0		    & 0   \\
+	0    	 & \lb D_{2} + K_{2}     & \vline & 0 			& 0		    & B_{23} 	\\
+	0        & K_{3}    			 & \vline & 0 			& 0		    & 0      		\\  \hline \\[-.35cm]
+	0    	 & \lb D_{4}+ K_{4}    	 & \vline & 0      		& \Si_{1} 	& B_{43} 	 \\
+	0        & K_{5}    			 & \vline & 0     		& 0		    & \Si_{0}   \\  
+	0        & 0		   			 & \vline & 0     		& 0		    & 0  	} 
+%\quad \pm{r_{2} \\ r_2 \\ r_{1} \\ r_{0} \\ \hline  \vphi_{1} \\ \vphi_{0} \\  v}
+= d + r_2 \  \mbox{ for all } \lb \in \C.
+\end{equation}
+% 
+By using matrix row manipulation in order to eliminate $\lb I_{r_2}$ in the first row, we see that \eqref{a1} is equivalent to the condition
+%
+\begin{equation}\label{a2}
+\rank 
+\m{	0  \quad & \lb^2 M_{1} + \lb D_{1} + K_{1}     & \vline & B_{11}		& B_{12}    & B_{13}   \\
+	- I_{r_2}    \quad & \lb M_{1}  			 & \vline & 0     		& 0		    & 0   \\
+	0    	 & \lb D_{2} + K_{2}     & \vline & 0 			& 0		    & B_{23} 	\\
+	0        & K_{3}    			 & \vline & 0 			& 0		    & 0      		\\  \hline \\[-.35cm]
+	0    	 & \lb D_{4}+ K_{4}    	 & \vline & 0      		& \Si_{1} 	& B_{43} 	 \\
+	0        & K_{5}    			 & \vline & 0     		& 0		    & \Si_{0}   \\  
+	0        & 0		   			 & \vline & 0     		& 0		    & 0  	} 
+%\quad \pm{r_{2} \\ r_2 \\ r_{1} \\ r_{0} \\ \hline  \vphi_{1} \\ \vphi_{0} \\  v}
+= d + r_2 \  \mbox{ for all } \lb \in \C.
+\end{equation}
+% 
+Clearly, this holds true if and only if \ $\rank \m{\lb^2 M + \lb D + K, \ B} = d$, which is exactly the rank condition $\mathbf{C21}$. \\
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+ii) Due to Definition \ref{def1.1}, we see that $\mathbf{C0}=\mathbf{C1}+\mathbf{C3}$, and hence we need to prove that the condition $\mathbf{C3}$ is equivalent to the condition $\mathbf{C23}$. 
+Now let us look at the condition $\mathbf{C3}$, which means that the matrix
+%
+\[
+\pm{r_{2} \\ r_2 \\ r_{1} \\ r_{0} \\ \hline  \vphi_{1} \\ \vphi_{0} \\  v} \quad
+\m{I_{r_2}	& D_{1}    & \vline & B_{11}		& B_{12}    & B_{13}   \\
+	0    	& M_1      & \vline & 0     		& 0		    & 0    \\
+	0    	& D_{2}    & \vline & 0 			& 0		    & B_{23} 	\\
+	0    	& 0        & \vline & 0 			& 0		    & 0      	\\  \hline \\[-.35cm]
+	0    	& D_{4}    & \vline & 0      		& \Si_{1} 	& B_{43} 	 \\
+	0    	& 0        & \vline & 0     		& 0		    & \Si_{0}   \\  
+	0    	& 0        & \vline & 0     		& 0		    & 0  	} 
+\]
+%
+has full row rank ($d+r_2$). Recall that in the strangeness-free form \eqref{descriptor 2nd order sfree}
+the matrix $\sm{\hM_1 \\ \hD_2}$ has full row rank. Therefore, condition $\mathbf{C3}$ holds true if and only if $r_0 = v = 0$. \\
+%
+Moreover, the condition $\mathbf{C23}$, which means that the matrix
+%
+\[
+\pm{r_2 \\ r_{1} \\ r_{0} \\ \hline  \vphi_{1} \\ \vphi_{0} \\  v} \quad
+\m{M_{1} & D_{1}    & \vline & B_{11}		& B_{12}    & B_{13}   \\
+	0    & D_{2}    & \vline & 0 			& 0		    & B_{23} 	\\
+	0    & 0        & \vline & 0 			& 0		    & 0      		\\  \hline
+	0    & D_{4}    & \vline & 0      		& \Si_{1} 	& B_{43} 	 \\
+	0    & 0        & \vline & 0     		& 0		    & \Si_{0}   \\  
+	0    & 0        & \vline & 0     		& 0		    & 0  	} \ .
+\]
+%
+has full row rank ($d$), is fulfilled also only when $r_0 = v = 0$. Thus, two conditions $\mathbf{C3}$ and $\mathbf{C23}$ are equivalent, and hence, it complete the proof of this part. \\
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+iii) In order to prove that the condition $\mathbf{C21}$ is preserved under the strangeness-free formulation we only need to prove that it is preserved under one index reduction step. First we notice that for any two strongly equivalent tuples $(M,D,K,B)$ and $(\hM,\hD,\hK,\hB)$ we have that
+%
+\[
+\m{\lb^2 M + \lb D + K, \ B} = U \ \m{\lb^2 M + \lb D + K, \ B}  \ \m{I & 0 \\ 0 & V} \ . 
+\]
+%
+Thus, $\rank \m{\lb^2 M + \lb D + K, \ B}$ is invariant under strongly equivalent relation. Consequently, we may assume that $(M,D,K,B)$ takes the form as in the right hand side of \eqref{eq3.1}. For notational convenience, we 
+will omit the super script $new$ and rewrite our system as follows.
+%
+\begin{equation}\label{a3}
+\m{M_{1} \\ 0     \\ 0 		\\ \hline 0     \\ 0 		\\ 0 } x(n+2) + 
+\m{D_{1} \\ D_{2} \\ 0 		\\ \hline D_{4} \\ 0 		\\ 0}  x(n+1) +
+\m{K_{1} \\ K_{2} \\ K_{3}  \\ \hline K_{4} \\  K_{5}   \\ 0 } x(n)	=
+\m{ B_{11}		& 0  		& 0 \\
+	0 			& 0		    & 0 \\
+	0 			& 0		    & 0  \\	\hline 
+	0      		& \Si_{1} 	& 0 \\ 
+	0     		& 0		    & \Si_{0}        \\ 
+	0     		& 0         & 0} v(n) , 
+\qquad \pm{r_{2} \\ r_{1} \\ r_{0} \\ \hline  \vphi_{1} \\ \vphi_{0} \\  v}
+\end{equation}
+%
+where $M_1$, $D_2$, $K_3$ have full row rank, and the matrices $\Si_0$, $\Si_1$ are digonal and nonsingular. \\
+We recall, that due to \cite[Lemma 4.4]{HaL19}, one step index reduction in the strangeness-free formulation is indeed 
+% removing the hidden redundancy in the upper part of system \eqref{a3} by 
+transforming \eqref{a3} into the new form which reads
+%
+{\small
+\be\label{a4}
+\underbrace{ \sm{S^{(2)} M_{1} \\ 0     \\ 0 	\\ 0     \\ 0 	\\[.05cm] \hline \\ 0     \\ 0  \\ 0 } }_{\tM} \! x(n \!+\! 2) \!+\! 
+\underbrace{ \sm{S^{(2)} D_{1} \\ Z^{(2)} D_{1} \!+\! Z^{(4)} K_{2} \\ S^{(1)} D_{2} 	\\ 0 \\ 0 \\[.05cm] \hline \\ D_{4} \\ 0 \\ 0} }_{\tD} \! x(n\!+\!1) \!+\!
+\underbrace{ \sm{S^{(2)} K_{1} \\ Z^{(2)} K_{1} \\ S^{(1)} K_{2} \\ Z^{(1)} K_{2} 	\\ K_{3}  \\[.05cm] \hline \\ K_{4} \\  K_{5}   \\ 0 } }_{\tK} \! x(n) 
+\!=\! 
+\underbrace{ \sm{ S^{(2)} B_{11}		& 0  		& 0 \\
+		Z^{(2)} B_{11}		& 0  		& 0 \\
+		0 			& 0		    & 0 \\
+		0 			& 0		    & 0 \\
+		0 			& 0		    & 0  \\[.05cm]	\hline 
+		& & \\
+		0      		& \Si_{1} 	& 0 \\ 
+		0     		& 0		    & \Si_{0}        \\ 
+		0     		& 0         & 0} }_{\tB} \! v(n) \ .  
+\
+\begin{bsmallmatrix}
+	d_{2} \\ s_2 \\ d_1 \\ s_1 \\ r_0 \\[.05cm] \hline \\ \vphi_2 \\ \vphi_{1} \\ v
+\end{bsmallmatrix}
+\ee
+}
+%
+%\begin{align}\label{a4}
+%\notag 
+%& 
+%\underbrace{ \m{S^{(2)} M_{1} \\ 0     \\ 0 	\\ 0     \\ 0 	\\ \hline 0     \\ 0  \\ 0 } }_{\tM} x(n + 2) + 
+%\underbrace{ \m{S^{(2)} D_{1} \\ Z^{(2)} D_{1} + Z^{(4)} K_{2} \\ S^{(1)} D_{2} 	\\ 0 \\ 0 \\ \hline D_{4} \\ 0 \\ 0} }_{\tD}  x(n+1) +
+%\underbrace{ \m{S^{(2)} K_{1} \\ Z^{(2)} K_{1} \\ S^{(1)} K_{2} \\ Z^{(1)} K_{2} 	\\ K_{3}  \\ \hline K_{4} \\  K_{5}   \\ 0 } }_{\tK} x(n)  \\
+%& = 
+%\underbrace{ \m{ S^{(2)} B_{11}		& 0  		& 0 \\
+%	Z^{(2)} B_{11}		& 0  		& 0 \\
+%	0 			& 0		    & 0 \\
+%	0 			& 0		    & 0 \\
+%	0 			& 0		    & 0  \\	\hline 
+%	0      		& \Si_{1} 	& 0 \\ 
+%	0     		& 0		    & \Si_{0}        \\ 
+%	0     		& 0         & 0} }_{\tB} v(n) , 
+%\qquad \pm{ d_{2} \\ s_2 \\ d_1 \\ s_1 \\ r_0 \\ \hline \vphi_2 \\ \vphi_{1} \\ v} \ . 
+%\end{align}
+%
+Here, the matrices $S^{(i)}$, $i=1, 2$, and $Z^{(j)}$, $j=1,...,5$ satisfy the following conditions.
+%
+\begin{enumerate}
+\item[i)] For $i=1, 2$, the matrices $\sm{S^{(i)} \\ Z^{(i)}} \in \r^{r_i,r_i}$ are orthogonal, and $r_i = d_i+s_i$.
+\item[ii)] The following identities hold true.
+\begin{subequations}\label{eq2.10}
+	\begin{alignat*}{3}
+	Z^{(1)} D_{2} + Z^{(3)} K_{3} \ &=& \ 0, \\
+	Z^{(2)} M_{1} + Z^{(4)} D_{2} + Z^{(5)} K_{3} \ & = & \ 0.
+	\end{alignat*}	
+\end{subequations}
+\end{enumerate}
+%
+Consider the matrix $\m{\lb^2 \tM + \lb \tD + \tK, \ \tB}$, we directly see that 
+%
+\[ 
+\m{\lb^2 \tM + \lb \tD + \tK, \ \tB} = U_{\lb} \m{\lb^2 M + \lb D + K, \ B}, 
+\]
+%
+where the matrix $U_{\lb}$ is defined as
+%
+\[
+U_{\lb} :=
+\left[
+\begin{array}{cccccc}
+\sm{ S^{(2)} \\ Z^{(2)} } & \sm{ 0 \\ \lb Z^{(4)} }	  & \sm{ 0 \\ \lb^2 Z^{(5)} }		& 0 			& 0 					&	0			\\[.2cm] 
+				0		  & \sm{ S^{(1)} \\ Z^{(1)} } & \sm{ 0 \\ \lb Z^{(3)} }			& 0 			& 0 					&	0			\\ 
+				0		  &	0						  & I_{r_0}	    					& 0 			& 0 					&	0			\\						  
+				0		  & 0 						  &	0								& I_{\vphi_1} 	& 0 					&  	0			\\ 
+				0		  & 0						  & 0								& 0				& I_{\vphi_0} 			&  	0			\\ 
+				0		  & 0						  & 0 								& 0 			& 0			 			&   I_v 
+\end{array} 
+\right] \ .
+\]
+%
+Since all matrices on the main diagonal are orthogonal, we see that $U_{\lb}$ is nonsingular for all $\lb \in \C$. Therefore, 
+%
+\[
+\rank \m{\lb^2 \tM + \lb \tD + \tK, \ \tB}  = \rank \m{\lb^2 M + \lb D + K, \ B} \ \mbox{ for all } \lb \in \C,
+\]
+%
+and hence, the condition $\mathbf{C21}$ is preserved under one index reduction step. This finishes our proof.
+\end{proof}
+
+In comparison to Theorem \ref{Thm 2}, the advantage of the minimal extension form \eqref{descriptor minimal extension} will be proven in the following theorem.
+
+\begin{theorem}\label{thm4}
+	Consider the descriptor system \eqref{descriptor 2nd order discrete}, its the strangeness-free from \eqref{descriptor 2nd order sfree} and the minimal extension form \eqref{descriptor minimal extension}. If 
+	system \eqref{descriptor 2nd order discrete} is R2-controllable then so is system \eqref{descriptor 2nd order sfree}. Furthermore, if this is the case, then system \eqref{descriptor minimal extension} is $R$-controllable.
+\end{theorem}
+\begin{proof} Making use of Theorem \ref{Theorem strongly C2 & R2} i) and Lemma \ref{lem4.5} ii) we see that the constant rank condition $\mathbf{C21}$ holds for the coefficients of system \eqref{descriptor minimal extension}.
+	As in the proof of Lemma \ref{lem4.5},	due to simple matrix row manipulations, from system \eqref{descriptor minimal extension} we see that
+	%
+	\[ \rank \m{\lb \tE- \tA,\ \tB} = \rank \m{\lb^2 M + \lb D + K, \ B} + r_2 \ ,
+	\]
+	%
+	and hence, $\rank \m{\lb \tE- \tA, \tB} \!=\! d + r_2$. This implies that system \eqref{descriptor minimal extension} is $R$-controllable. 
+\end{proof}
+
+\begin{theorem}\label{Theorem C2-contrl.}
+	Consider the descriptor system \eqref{descriptor 2nd order discrete} and its the strangeness-free from \eqref{descriptor 2nd order sfree}. Then system \eqref{descriptor 2nd order discrete} is C2-controllable if and only if the following conditions are satisfied. \\
+	i) The matrix coefficients of system \eqref{descriptor 2nd order discrete} satisfies the condition $\mathbf{C21}$. \\ 
+	ii) The matrix coefficients of the strangeness-free system \eqref{descriptor 2nd order sfree} satisfies the condition $\mathbf{C23}$.
+\end{theorem}
+\begin{proof}
+	The proof is followed directly from Definition \ref{C2-contrl} and Lemma \ref{lem4.5}.
+\end{proof}
+
+The following example shows that the condition $\mathbf{C23}$ is not invariant under the strangeness-free formulation.
+
+\begin{example}\label{exam3.2}
+	Consider the following system
+	%
+	\begin{equation}\label{eq4.1}
+		\underbrace{\m{1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 }}_{M} x(n+2) 
+		+ \underbrace{\m{0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0 }}_{D} x(n+1) 
+		+ \underbrace{\m{1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 }}_{K} x(n) 
+		= \underbrace{\m{0 \\ 0 \\ 1}}_{B} u(n) \ .
+	\end{equation}
+	%
+	Due to the strangeness-free formulation in \cite{HaL19}, we can shift the second row equation forward to obtain
+	%
+	\[
+	\m{1 & 0 & 0} x(n+2) + \m{0 & 1 & 0} x(n+1) = 0 \ .
+	\]
+	%
+	By removing this from the first equation, we obtain that \ $\m{1 & 0 & 0} x(n) = 0$.
+	Therefore, we obtain the system
+	%
+	\[
+	\m{0 & 0 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0 } x(n+1) + \m{1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 } x(n) = \m{0 \\ 0 \\ 1} u(n) \ .
+	\]
+	%
+	Analogously, by subtracting the shifted version of the first row equation from the second equation, we obtain the strangeness-free formulation \eqref{SiDE 2nd order sfree - not descriptor} that reads
+	%
+	\be\label{eq4.2}
+	\underbrace{\m{0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 }}_{\hM} x(n+2) 
+	+ \underbrace{\m{0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 }}_{\hD} x(n+1) 
+	+ \underbrace{\m{1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 }}_{\hK} x(n) 
+	= \underbrace{\m{0 \\ 0 \\ 1}}_{\hB} u(n) \ .
+	\ee
+	%
+	Clearly, $\rank \m{M \ D \ B} = 3 > 1 = \rank\m{\hM \ \hD \ \hB}$. This means that the condition $\mathbf{C23}$ is not invariant under the strangeness-free formulation. \\
+	%
+	Furthermore, by verifying condition $\mathbf{C21}$, we directly see that system \eqref{eq4.1} is $R2$-controllable. Indeed, we have that
+	%
+	\[
+	\rank \m{\lb^2 M + \lb D + K & \vline & \ B} = 
+	\rank \m{\lb^2+1 & \lb & 0 & \ \vline & \ 0 \\ \lb & 1 & 0 & \ \vline & \ 0 \\ 0 & 0 & 0 & \ \vline & \ 1} = 3 \ .
+	\]
+	%
+	As obtained above, since $\rank\m{\hM \ \hD \ \hB}=1<3$, system \eqref{eq4.1} is not $C2$-controllable.
+	In fact, from \eqref{eq4.2}, we see that system \eqref{eq4.1} is not even $C$-controllable.
+\end{example}
+
+\begin{remark}\label{rem4.9}
+	As stated in Theorem \ref{Theorem C2-contrl.}, the condition $\mathbf{C23}$ must be required for the strangeness-free system \eqref{descriptor 2nd order sfree} instead of for the original system \eqref{descriptor 2nd order discrete}. This is the main difference between discrete and continuous time descriptor systems. In details, \cite[Corollary 3.11 ii, Theorem 3.18 iv]{LosM08} imply that the continuous-time version of system \eqref{eq4.1} is $C2$-controllable (resp. $C$-controllable).
+\end{remark}
+
+Naturally, one may ask whether one can verify the $C2$-controllability of system \eqref{descriptor 2nd order discrete} without performing an index reduction procedure (i.e., without determining the strangeness-free form \eqref{descriptor 2nd order sfree}). In fact, the positive answer is given in the following theorem.
+
+\begin{theorem}\label{Theorem C2-contrl. V2}
+	Consider the descriptor system \eqref{descriptor 2nd order discrete} and its condensed form \eqref{condensed form 1}. Then, system \eqref{descriptor 2nd order discrete} is $C2$-controllable if and only if two following conditions are satisfied. \\
+	i) The matrix coefficients of system \eqref{descriptor 2nd order discrete} satisfies the condition $\mathbf{C21}$. \\ 
+	ii) In the upper part of system \eqref{condensed form 1}, $r_0 = v_0 = 0$ and the matrix $\sm{M_1 \\ D_2}$ has full row rank. \\ 
+	Finally, condition ii) is equivalent to the requirement that 
+	$\rank \m{M \ D \ B} \!=\! d$ and the matrix $\sm{M_1 \\ D_2}$ has full row rank. 
+\end{theorem}
+\begin{proof} 
+	Due to Definition \ref{C2-contrl} system \eqref{descriptor 2nd order discrete} is $C2$-controllable if and only if the minimal extension form \eqref{descriptor minimal extension} is $C$-controllable.
+	From Definition \ref{def1.1} and Lemma \ref{lem4.5} iii, we see that $\mathbf{C0}=\mathbf{C1}+\mathbf{C3}$ and $\mathbf{C1}$ is equivalent to the condition $\mathbf{C21}$. \\ 
+	Hence, we only need to prove that the condition $\mathbf{C3}$ is equivalent to the claim ii). Now let us look at the condition $\mathbf{C3}$, which means that the matrix
+	%
+	\[
+	\pm{r_{2} \\ r_2 \\ r_{1} \\ r_{0} \\ \hline  \vphi_{1} \\ \vphi_{0} \\  v} \quad
+	\m{I_{r_2}	& D_{1}    & \vline & B_{11}		& B_{12}    & B_{13}   \\
+		0    	& M_1      & \vline & 0     		& 0		    & 0    \\
+		0    	& D_{2}    & \vline & 0 			& 0		    & B_{23} 	\\
+		0    	& 0        & \vline & 0 			& 0		    & 0      	\\  \hline \\[-.35cm]
+		0    	& D_{4}    & \vline & 0      		& \Si_{1} 	& B_{43} 	 \\
+		0    	& 0        & \vline & 0     		& 0		    & \Si_{0}   \\  
+		0    	& 0        & \vline & 0     		& 0		    & 0  	} 
+	\]
+	%
+	has full row rank, is fulfilled if and only if $\sm{M_1 \\ D_2}$ has full row rank and $r_0 = v = 0$, which is nothing else than the claim ii). \ 
+	%
+	Finally, the last claim is directly followed from Corollary \ref{coro1}. This completes the proof.
+\end{proof}
+
+We summarize the relation between the controllability of the systems discussed above in Figure \ref{diag1}. \ Now let us discuss the C-controllability of system \eqref{descriptor 2nd order discrete}. 
+%The following corollary is straightforward from the condensed form \eqref{condensed form 1}.
+%
+%\begin{corollary}
+%If the system \eqref{descriptor 2nd order discrete} is C-controllable then in the condensed form \eqref{descriptor 2nd order discrete}, we must have that $r_0 = 0$.
+%\end{corollary}
+We recall, that Example \eqref{example 4} suggests that we should discuss the C-controllability of the strangeness-free formulation \eqref{descriptor 2nd order sfree} instead of the original system \eqref{descriptor 2nd order discrete}. The characterizations of C-controllability for system \eqref{descriptor 2nd order discrete} are given in the following theorem.
+
+\begin{theorem}\label{Thm C-ctrl}
+	Consider the system \eqref{descriptor 2nd order discrete} and assume that it is already in the strangeness-free form \eqref{descriptor 2nd order sfree}. Let $\Rext$ be the reachable set of the minimal extension form \eqref{descriptor minimal extension}. 
+	Let $E_0 = \diag(0_{r_2},I_d)$. Then the following assertions are equivalent. \\
+	i) System \eqref{descriptor 2nd order discrete} is C-controllable. \\
+	ii) System \eqref{descriptor 2nd order discrete} is R-controllable and $\im E_0 \subseteq \Rext$. \\
+	iii) System \eqref{descriptor 2nd order discrete} is R-controllable and $\rank \m{M \ D \ B} = d$.
+\end{theorem}
+\begin{proof}
+	Notice that in system \eqref{descriptor minimal extension} $\xi_n = \m{z_n \ x_n}^T \in \r^{r_2+d}$, so the equivalence between i) and ii) is straightforward. 
+	From the definition of C-controllability and the fact that system \eqref{descriptor 2nd order discrete} is square, we have $r_0=v_0=0$. 
+	Corollary \ref{coro1}, therefore, implies that $\rank \m{M \ D \ B} \!=\! d$. Hence, we have proved that $i) \Rightarrow iii)$. Now we prove that $iii) \Rightarrow ii)$. \\
+	Due to Corollary \ref{coro1}, we see that $r_0=v_0=0$, and hence the 3rd and 6th rows are not present in the form \eqref{descriptor minimal extension}. 
+	Applying Theorem \ref{Thm 1} i), in analogous to the sufficiency part, we see that there exist 
+	two matrices $F_d, \ F_v$ such that the matrix $\m{M_1^T \ D^T_2 \ K^T_3 \ \tD^T_{4} \ \tK^T_{5} }^T$ has full row rank, where
+	%
+	\[ \tD_4 := D_{4} + \m{0 & \Si_{1} & B_{43}} F_v , \ \tK_5:= K_{5} + \m{0 & 0 & \Si_{0}} F_d \ .
+	\]
+	%
+	Consequently, by introducing a new input function $w=\{w(n)\}$ such that 
+	%
+	\[ u(n) = - F_v x(n+1)(t) - F_d x(n) + w(n) \ \mbox{ for all } n\geq n_0, \]
+	%
+	we can transform the minimal extension form \eqref{descriptor minimal extension} to the closed loop system 
+	%
+	\begin{equation}\label{eq4.3}
+		\m{	I_{r_2} 	 & \ D_{1}   \\
+			0    & \ M_{1}        \\ 
+			0    & \ D_{2}         \\ 
+			0    & \ \tD_{4}    \\ \hline 
+			0    & \ 0
+		}
+		\xi(n+1)
+		+	
+		\m{	0 	 & K_{1}     \\
+			-I_{r_2}	 & 0		 \\
+			0    & K_{2}     \\ 
+			0    & K_{4}     \\ \hline \\[-.35cm]
+			0    & \tK_{5}
+		}
+		\xi(n) = 
+		\m{ B_{11}		& B_{12}    & B_{13} \\
+			0 			& 0		    & 0        \\
+			0 			& 0		    & B_{23} \\  
+			0      		& \Si_{1}   & B_{43} \\ \hline
+			0     		& 0		    & \Si_{0}    
+		}
+		w(n) , 
+		\quad \pm{r_{2} \\ r_2 \\ r_{1} \\  \vphi_{1} \\ \vphi_{0} } \ .
+	\end{equation}
+	%
+	Notice that, since $w(n)$ can be freely chosen like $u(n)$, we neither change the $R$-controllability or change the reachable set $\cal{R}$ of system \eqref{descriptor 2nd order discrete}. 
+	Since the matrix $\m{M_1^T & D^T_2 & \tD^T_{4} & \tK^T_{5} }^T$ has full row rank, the matrix
+	%
+	\[
+	\m{ 	I_{r_2} 	 & \ D_{1}   \\
+		0    & \ M_{1}        \\ 
+		0    & \ D_{2}         \\ 
+		0    & \ \tD_{4}    \\ \hline \\[-.35cm]
+		0    & \tK_{5}
+	}
+	\]
+	%
+	has full row rank, and hence, system \eqref{eq4.3} is regular and strangeness-free. 
+	Corollary \ref{coro4}% (Appendix \ref{appendix 2})
+ applied to system \eqref{eq4.3} implies that the reachable subspace of \eqref{eq4.3} is $\Rext = \R^{r_2+d}$	and hence, $\im E_0 \subseteq \Rext$. This completes the proof. 
+\end{proof}
+
+By following \cite{Dai89}, we can determine the reachable set $\cR$ of system \eqref{eq4.3} based on the Kronecker-Weierstra\ss canonical form of \eqref{descriptor 2nd order discrete}, see  \eqref{Kronecker}.
+%
+\begin{equation}\label{eq4.4}
+\m{I_{n_1} & 0 \\ 0 & 0} \txi(n+1) + \m{\barA_1 & 0 \\ 0 & I_{\vphi_0}} \txi(n) + \m{\barB_1 \\ \barB_2} v(n),
+\end{equation}
+%
+where $n_1 = 2r_2 + r_1 + \vphi_1$. Now we are ready to discuss the R-controllability of the strangeness-free system \eqref{descriptor 2nd order discrete}.
+
+\begin{theorem}\label{Thm R-ctrl} Consider the system \eqref{descriptor 2nd order discrete} and assume that it is already in the strangeness-free form \eqref{descriptor 2nd order sfree}. 
+	Let us also consider the system \eqref{eq4.4}. Then, system \eqref{descriptor 2nd order discrete} is R-controllable if and only if 
+for the corresponding first order system \eqref{eq4.4} the matrix product
+%
+\begin{equation}\label{eq4.5}
+\m{0 & I_{n_1-r_2}} \m{ \barB_1, \ \barA_1 \barB_1, \ \dots, \ \barA_1 ^{n_1-1}\barB_1 }, 
+\end{equation}
+% 
+has full row rank. Here the matrix $\m{0 & I_{n_1-r_2}} \in \R^{n_1-r_2,n_1}$.
+\end{theorem}
+\begin{proof}
+From \cite[Chap. 2]{Dai89} we see that the first order system \eqref{eq4.4} has the reachable set $\cR = \R^{n_1} \oplus \im(B_2)$, and \eqref{eq4.4} is R-controllable if and only if
+$\im \cK(\barA_1 ,\barB_1) = \R^{n_1}$, where $\cK(\barA_1 ,\barB_1) := \im \left[ \barB_1, \ \barA_1 \barB_1, \ \dots, \ \barA_1 ^{n_1-1}\barB_1 \right]$.
+Furthermore, notice that the first $r_2$ variables of \eqref{eq4.3} come from the transformation of second order system \eqref{descriptor 2nd order sfree} to the first order
+system \eqref{eq4.3}, and are not relevant to consider for R-controllability. Therefore, the proof is straightly followed.
+\end{proof}
+
+\begin{figure}[!h]
+	\centering
+	\begin{tikzpicture}[scale=1.0, transform shape]
+		%\tikzstyle{every node} = [circle, fill=gray!30]
+		\tikzstyle{every node} = [rectangle]
+		\node[draw] (a) at (0,6) {\textbf{Descriptor system \eqref{descriptor 2nd order discrete}}};
+		\node[draw] (b) at (8,6) {\textbf{Strangeness-free form \eqref{descriptor 2nd order sfree}}};
+		\node[draw] (c) at (0, 0) {\textbf{Companion form \eqref{first order companion form}}};
+		\node[draw] (d) at (8, 0) {\textbf{Minimal extension form \eqref{descriptor minimal extension}}};
+		
+		\draw[->] (a) -- (b) node[pos=.5,sloped,above] {\textbf{$R2$-ctrl. $\Leftrightarrow R2$-ctrl.}};
+		\draw[->] (b) -- (d) node[pos=.5,sloped,above] {\textbf{$R2$-ctrl. $\Leftrightarrow R$-ctrl.}};
+		\draw[->] (b) -- (d) node[pos=.5,sloped,below] {\textbf{$C2$-ctrl. $\Leftrightarrow C$-ctrl.}};
+		\draw[->] (a) -- (c) node[pos=.5,sloped,above] {\textbf{$R2$-ctrl. $\Leftrightarrow R$-ctrl.}};
+		\draw[->] (a) -- (c) node[pos=.5,sloped,below] {\textbf{strongly $C2$-ctrl. $\Leftrightarrow$ $C$-ctrl.}};
+		\draw[-] (a) -- (d) node[pos=.5,sloped,above] {\textbf{$C2$-ctrl. $\overset{\Delta}{\Longleftrightarrow} C$-ctrl.}};
+		\draw[-] (d) -- (c) node[pos=.5,sloped,above] {\textbf{$C$-ctrl. $\rightarrow$ $C$-ctrl.}};
+		\draw[-] (d) -- (c) node[pos=.5,sloped,below] {\textbf{$C$-ctrl. \cancel{$\leftarrow$} $C$-ctrl.}};
+		
+		%\foreach \from/\to in {a/b, b/d, c/d}
+		%\draw [<->] (\from) -- (\to);
+	\end{tikzpicture}
+	\caption{Controllability diagrams of system \eqref{descriptor 2nd order discrete} and its reformulations} \label{diag1}
+\end{figure}
+
+%============================================================================
+\section{Conclusion and Outlook}
+%=================================================================================================================
+
+In this paper we have presented the theoretical analysis for the controllability of linear, second order descriptor systems in 
+%both continuous-time and 
+discrete-time.
+We have modified an algebraic method proposed in \cite{MehS06,LosM08} to make it more convenient and reliable to apply, in order to study second order descriptor systems. We have given several necessary and sufficient conditions, which are numerically verifiable, in order to characterize all the fundamental controllability concepts for the considered systems. 
+We have pointed out that C-controllable does not imply Y-controllable, and have also presented suitable feedback design strategy in order to eliminate the causal behavior of the considered systems. Future research includes the generalization of this approach to higher order descriptor systems, and also a comparable framework for the observability concepts. 
+
+%============================================================================
+
+{\bf Acknowledgments:}
+The first author also would like to thank the Vietnam Institute for Advanced Study in Mathematics (VIASM) for their kind hospitality during his research visit. 
+%This research was partially supported by NAFOSTED (Vietnam National Foundation for Science and Technology Development). 
+%We also thank the anonymous referees for helpful comments.
+
+%============================================================================
+\bibliographystyle{amsplain}
+%\bibliographystyle{abbrv}
+\bibliography{Phi_July_2019}
+
+%\appendix
+%\include{Appendix}
+
+\end{document}

@@ -1,0 +1,307 @@
+Return-Path: <simax@siam.org>
+X-Spam-Checker-Version: SpamAssassin 3.3.1 (2010-03-16) on
+	mail.math.tu-berlin.de
+X-Spam-Level: 
+X-Spam-Status: No, score=-4.2 required=5.0 tests=BAYES_00,HTML_MESSAGE,
+	RCVD_IN_DNSWL_MED autolearn=ham version=3.3.1
+Received: from mail.tu-berlin.de (mail.tu-berlin.de [130.149.7.33])
+	by mail.math.tu-berlin.de (8.14.3/8.14.3) with ESMTP id s7SH1kv0028038
+	(version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-SHA bits=256 verify=NOT)
+	for <mehrmann@math.tu-berlin.de>; Thu, 28 Aug 2014 19:01:46 +0200
+X-tubIT-Incoming-IP: 63.128.21.163
+Received: from us-smtp-delivery-163.mimecast.com ([63.128.21.163])
+	by mail.tu-berlin.de (exim-4.72/mailfrontend-6) with esmtps [TLSv1:RC4-MD5:128]
+	for <mehrmann@math.tu-berlin.de>
+	id 1XN34x-0004Td-4d; Thu, 28 Aug 2014 19:01:46 +0200
+Received: from mailer.siam.org (mailer.siam.org [38.98.219.156]) (Using TLS)
+ by us-mta-14.us.mimecast.lan; Thu, 28 Aug 2014 13:01:40 -0400
+Received: from suv2010003.siam.org (192.168.226.251) by SUS428.siam.org
+ (192.168.220.106) with Microsoft SMTP Server id 14.3.181.6; Thu, 28 Aug 2014
+ 13:01:40 -0400
+Received: from localhost.localdomain (suv2010003.siam.org [127.0.0.1])	by
+ suv2010003.siam.org (8.13.8/8.13.8) with ESMTP id s7SH1eOY002457;	Thu, 28 Aug
+ 2014 13:01:40 -0400
+MIME-Version: 1.0
+X-Mailer: MIME::Lite 3.027 (F2.74; T1.28; A2.05; B3.07; Q3.07)
+Date: Thu, 28 Aug 2014 13:01:40 -0400
+Message-ID: <75140924530070@suv2010003.siam.org>
+To: <mehrmann@math.tu-berlin.de>
+Subject: SIMAX manuscript #098419; receipt of new submission
+CC: <ducthuank7@gmail.com>
+From: <simax@siam.org>
+Reply-To: <blythe@siam.org>
+X-MC-Unique: -V4nMqUHQQOcsAtILaWhlA-2
+Content-Type: multipart/alternative;
+	boundary="_----------=_140924530019832"; charset="UTF-8"
+X-PMX-Version: 6.0.0.2142326, Antispam-Engine: 2.7.2.2107409, Antispam-Data: 2014.8.28.165118
+X-PMX-Spam: Gauge=IIIIIIII, Probability=8%, Report='
+  SUPERLONG_LINE 0.05, BODYTEXTH_SIZE_10000_LESS 0, BODY_SIZE_10000_PLUS 0, DATE_TZ_NA 0, NO_REAL_NAME 0, __ANY_URI 0, __C230066_P5 0, __CP_NOT_1 0, __CP_URI_IN_BODY 0, __CT 0, __CTYPE_HAS_BOUNDARY 0, __CTYPE_MULTIPART 0, __CTYPE_MULTIPART_ALT 0, __FRAUD_MONEY 0, __FRAUD_MONEY_VALUE 0, __HAS_FROM 0, __HAS_HTML 0, __HAS_MSGID 0, __HAS_REPLYTO 0, __HAS_X_MAILER 0, __MIME_HTML 0, __MIME_VERSION 0, __OEM_PRICE 0, __RATWARE_SIGNATURE_3_N1 0, __REPLYTO_SAMEAS_FROM_DOMAIN 0, __SANE_MSGID 0, __STOCK_PHRASE_7 0, __SUBJ_ALPHA_END 0, __TAG_EXISTS_HTML 0, __TO_MALFORMED_2 0, __TO_NO_NAME 0, __URI_NS , __XMAILER_MIME_LITE 0'
+X-Virus-Scanned: clamav-milter 0.98.1 at mail
+X-Virus-Status: Clean
+
+--_----------=_140924530019832
+Content-Type: text/plain; charset=WINDOWS-1252
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+                                 =20
+Dear Prof. Mehrmann,                                 =20
+                                 =20
+Thank you for submitting "Stability analysis of implicit difference equatio=
+ns under restricted perturbations."  Your paper has been assigned MS#098419=
+..                      =20
+
+You can check on the status of the paper by logging in at http://simax.siam=
+..org and following the live manuscripts link.   =20
+                      =20
+You will receive notice after the review process has been completed. You ca=
+n send inquiries to simax@siam.org at any time. It's helpful to refer to yo=
+ur paper by title, by the manuscript number, and by your name.             =
+    =20
+
+The authors listed for your submission are Volker Mehrmann and Do Thuan, an=
+d as=20
+Corresponding Author you represent that any and all co-authors are aware of=
+ and agree with this submission. The Editor-in-Chief has been notified of y=
+our submission and all further correspondence will be sent only to you as t=
+he Corresponding Author.
+
+We are including additional information below that we encourage you keep on=
+ hand as reference. Please do not hesitate to write if you have any questio=
+ns.              =20
+            =20
+         =20
+Regards,           =20
+         =20
+Heather Blythe
+Senior Publications Coordinator
+SIAM                =20
+E-mail: blythe@siam.org                =20
+Phone: 215-382-9800, ext. 352                =20
+Fax: 215-386-7999 =20
+
+      -----------------------------------------------------------
+
+
+Information for the author:
+
+In order to facilitate electronic searches of our articles and to help read=
+ers who may be scanning our journals or Tables of Contents for articles of =
+interest, we ask that you give special consideration to the following items=
+, should you be asked to revise your paper, or should it be accepted for pu=
+blication.
+
+=09Title: The title should accurately and specifically reflect the subject =
+matter addressed in the paper.  Do not use mathematical symbols or equation=
+s in the title unless absolutely necessary.
+
+=09Abstract: Abstracts are often reproduced, separate from the body of the =
+article, in review journals and in electronic search facilities. Many reade=
+rs will decide whether to read your article based on the information contai=
+ned in the abstract. Thus, the abstract should be brief (250 words or less)=
+, but should accurately summarize the contents of the paper. Specifically: =
+indicate the conclusions reached in the paper and the possible applications=
+ of the research performed; avoid using mathematical equations; do not cite=
+ references by number.
+
+ =09Key words: This list should reflect the main ideas and concepts address=
+ed in the paper.
+
+=09AMS subject classifications: This list is especially useful to readers e=
+ngaging in electronic searches. Please give all relevant classifications. T=
+hese can be found in the annual "Subject Index" of Mathematical Reviews, an=
+d can be searched electronically through the American Mathematical Society'=
+s World Wide Web server, http://www.ams.org/.
+
+        TeX Information: If your paper is accepted for publication, SIAM wi=
+ll ask you to supply a LaTeX2E (preferred), TeX, or AMSTeX file for your pa=
+per.  You will receive more information from SIAM at that time and will be =
+asked to apply SIAM's style macros to your TeX file. For information on SIA=
+M's macros please visit http://www.siam.org/journals/auth-info.php. Note th=
+at SIAM cannot accept electronic files produced on any other typesetting or=
+ word processing system.
+
+        Color illustrations: SIAM journals are printed in black and white, =
+with art printed in color only when it is deemed by the editor to be scient=
+ifically necessary.  If it is your wish or expectation that any of the figu=
+res in your paper appear in color in the printed version, please inform us =
+immediately.  =20
+Color art that is not deemed scientifically necessary by the editor can be =
+=20
+printed in color at the author's expense.
+
+Following is a list of relevant SIAM publications personnel. Feel free to c=
+ontact us with any questions or problems.
+
+Contact KARL DURST, Editorial Assistant, at simax@siam.org:=20
+
+1. for information on the status of papers in review;
+2. to notify SIAM of change of contact information;
+
+Contact MITCH CHERNOFF, Publications Manager, at chernoff@siam.org:
+
+1. with general requests;
+2. about problems with the review process;
+3. for Editorial Board information;
+4. for backlog information.
+
+Contact HEATHER BLYTHE (blythe@siam.org), Senior Publications Coordinator:
+
+1. with questions concerning page charges or reprints.
+
+Contact SCOTT COLLINS (collins@siam.org), Composition Specialist:
+
+1. with technical questions about SIAM's TeX, LaTeX, or AMSTeX macros.
+
+
+Open Access: If your paper is accepted and published, SIAM will offer - for=
+ a  one-time fee of $2500 - the option to place the article into open acces=
+s. The Publisher will not charge for access to the final published version =
+of the Work, provided the author chooses this option and pays the Article P=
+rocessing Charge (APC). Otherwise, the full article will be available only =
+to journal subscribers.=20
+
+At acceptance, authors are given the opportunity to select the open access =
+option through item 5 on the Consent to Publish form.=20
+
+
+Page charges: If your paper is accepted and published, you will receive a v=
+oluntary page-charge request. Payment of page charges is voluntary and in n=
+o way affects the publication of present or future papers.=20
+
+Current page charges are $72 per page of printed text. This helps maintain =
+our policy of affordable pricing, and we ask authors to consider defraying =
+the rising costs of publishing SIAM print and electronic journals with a vo=
+luntary payment through either a grant or your organization.=20
+
+SIAM will also accept any other amount should you decide to contribute. Que=
+stions about page charges can also be sent to the reprints coordinator at r=
+eprints@siam.org.=20
+
+
+
+--_----------=_140924530019832
+Content-Type: text/html; charset=WINDOWS-1252
+Content-Disposition: inline
+Content-Transfer-Encoding: base64
+
+PEhUTUw+CjxoZWFkPgo8bWV0YSBodHRwLWVxdWl2PSJDb250ZW50LVR5cGUiIGNvbnRlbnQ9InRl
+eHQvaHRtbDsgY2hhcnNldD1VVEYtOCI+CjxtZXRhIG5hbWU9IkF1dGhvciIgY29udGVudD0ia28i
+Pgo8bWV0YSBuYW1lPSJHRU5FUkFUT1IiIGNvbnRlbnQ9Ik1vemlsbGEvNC43IFtlbl0gKFdpbk5U
+OyBJKSBbTmV0c2NhcGVdIj4KPC9oZWFkPgo8Ym9keSB0ZXh0PSIjMDAwMDAwIiBiZ2NvbG9yPSIj
+RkZGRkZGIiBsaW5rPSIjRkYwMDAwIiB2bGluaz0iI0NDMDAwMCIgYWxpbms9IiNGRjAwMDAiPgoK
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxCUj4KRGVhciBQcm9mLiBNZWhybWFu
+biwgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPEJSPgogICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgPEJSPgpUaGFuayB5b3UgZm9yIHN1Ym1pdHRpbmcgIlN0YWJpbGl0
+eSBhbmFseXNpcyBvZiBpbXBsaWNpdCBkaWZmZXJlbmNlIGVxdWF0aW9ucyB1bmRlciByZXN0cmlj
+dGVkIHBlcnR1cmJhdGlvbnMuIiAgWW91ciBwYXBlciBoYXMgYmVlbiBhc3NpZ25lZCBNUyMwOTg0
+MTkuICAgICAgICAgICAgICAgICAgICAgICA8QlI+CjxCUj4KWW91IGNhbiBjaGVjayBvbiB0aGUg
+c3RhdHVzIG9mIHRoZSBwYXBlciBieSBsb2dnaW5nIGluIGF0IDxBIEhSRUY9Imh0dHA6Ly9zaW1h
+eC5zaWFtLm9yZyI+aHR0cDovL3NpbWF4LnNpYW0ub3JnPC9BPiBhbmQgZm9sbG93aW5nIHRoZSBs
+aXZlIG1hbnVzY3JpcHRzIGxpbmsuICAgIDxCUj4KICAgICAgICAgICAgICAgICAgICAgICA8QlI+
+CllvdSB3aWxsIHJlY2VpdmUgbm90aWNlIGFmdGVyIHRoZSByZXZpZXcgcHJvY2VzcyBoYXMgYmVl
+biBjb21wbGV0ZWQuIFlvdSBjYW4gc2VuZCBpbnF1aXJpZXMgdG8gc2ltYXhAc2lhbS5vcmcgYXQg
+YW55IHRpbWUuIEl0J3MgaGVscGZ1bCB0byByZWZlciB0byB5b3VyIHBhcGVyIGJ5IHRpdGxlLCBi
+eSB0aGUgbWFudXNjcmlwdCBudW1iZXIsIGFuZCBieSB5b3VyIG5hbWUuICAgICAgICAgICAgICAg
+ICAgPEJSPgo8QlI+ClRoZSBhdXRob3JzIGxpc3RlZCBmb3IgeW91ciBzdWJtaXNzaW9uIGFyZSBW
+b2xrZXIgTWVocm1hbm4gYW5kIERvIFRodWFuLCBhbmQgYXMgPEJSPgpDb3JyZXNwb25kaW5nIEF1
+dGhvciB5b3UgcmVwcmVzZW50IHRoYXQgYW55IGFuZCBhbGwgY28tYXV0aG9ycyBhcmUgYXdhcmUg
+b2YgYW5kIGFncmVlIHdpdGggdGhpcyBzdWJtaXNzaW9uLiBUaGUgRWRpdG9yLWluLUNoaWVmIGhh
+cyBiZWVuIG5vdGlmaWVkIG9mIHlvdXIgc3VibWlzc2lvbiBhbmQgYWxsIGZ1cnRoZXIgY29ycmVz
+cG9uZGVuY2Ugd2lsbCBiZSBzZW50IG9ubHkgdG8geW91IGFzIHRoZSBDb3JyZXNwb25kaW5nIEF1
+dGhvci48QlI+CjxCUj4KV2UgYXJlIGluY2x1ZGluZyBhZGRpdGlvbmFsIGluZm9ybWF0aW9uIGJl
+bG93IHRoYXQgd2UgZW5jb3VyYWdlIHlvdSBrZWVwIG9uIGhhbmQgYXMgcmVmZXJlbmNlLiBQbGVh
+c2UgZG8gbm90IGhlc2l0YXRlIHRvIHdyaXRlIGlmIHlvdSBoYXZlIGFueSBxdWVzdGlvbnMuICAg
+ICAgICAgICAgICAgPEJSPgogICAgICAgICAgICAgPEJSPgogICAgICAgICAgPEJSPgpSZWdhcmRz
+LCAgICAgICAgICAgIDxCUj4KICAgICAgICAgIDxCUj4KSGVhdGhlciBCbHl0aGU8QlI+ClNlbmlv
+ciBQdWJsaWNhdGlvbnMgQ29vcmRpbmF0b3I8QlI+ClNJQU0gICAgICAgICAgICAgICAgIDxCUj4K
+RS1tYWlsOiBibHl0aGVAc2lhbS5vcmcgICAgICAgICAgICAgICAgIDxCUj4KUGhvbmU6IDIxNS0z
+ODItOTgwMCwgZXh0LiAzNTIgICAgICAgICAgICAgICAgIDxCUj4KRmF4OiAyMTUtMzg2LTc5OTkg
+IDxCUj4KPEJSPgogICAgICAtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLTxCUj4KPEJSPgo8QlI+CkluZm9ybWF0aW9uIGZvciB0aGUgYXV0
+aG9yOjxCUj4KPEJSPgpJbiBvcmRlciB0byBmYWNpbGl0YXRlIGVsZWN0cm9uaWMgc2VhcmNoZXMg
+b2Ygb3VyIGFydGljbGVzIGFuZCB0byBoZWxwIHJlYWRlcnMgd2hvIG1heSBiZSBzY2FubmluZyBv
+dXIgam91cm5hbHMgb3IgVGFibGVzIG9mIENvbnRlbnRzIGZvciBhcnRpY2xlcyBvZiBpbnRlcmVz
+dCwgd2UgYXNrIHRoYXQgeW91IGdpdmUgc3BlY2lhbCBjb25zaWRlcmF0aW9uIHRvIHRoZSBmb2xs
+b3dpbmcgaXRlbXMsIHNob3VsZCB5b3UgYmUgYXNrZWQgdG8gcmV2aXNlIHlvdXIgcGFwZXIsIG9y
+IHNob3VsZCBpdCBiZSBhY2NlcHRlZCBmb3IgcHVibGljYXRpb24uPEJSPgo8QlI+CglUaXRsZTog
+VGhlIHRpdGxlIHNob3VsZCBhY2N1cmF0ZWx5IGFuZCBzcGVjaWZpY2FsbHkgcmVmbGVjdCB0aGUg
+c3ViamVjdCBtYXR0ZXIgYWRkcmVzc2VkIGluIHRoZSBwYXBlci4gIERvIG5vdCB1c2UgbWF0aGVt
+YXRpY2FsIHN5bWJvbHMgb3IgZXF1YXRpb25zIGluIHRoZSB0aXRsZSB1bmxlc3MgYWJzb2x1dGVs
+eSBuZWNlc3NhcnkuPEJSPgo8QlI+CglBYnN0cmFjdDogQWJzdHJhY3RzIGFyZSBvZnRlbiByZXBy
+b2R1Y2VkLCBzZXBhcmF0ZSBmcm9tIHRoZSBib2R5IG9mIHRoZSBhcnRpY2xlLCBpbiByZXZpZXcg
+am91cm5hbHMgYW5kIGluIGVsZWN0cm9uaWMgc2VhcmNoIGZhY2lsaXRpZXMuIE1hbnkgcmVhZGVy
+cyB3aWxsIGRlY2lkZSB3aGV0aGVyIHRvIHJlYWQgeW91ciBhcnRpY2xlIGJhc2VkIG9uIHRoZSBp
+bmZvcm1hdGlvbiBjb250YWluZWQgaW4gdGhlIGFic3RyYWN0LiBUaHVzLCB0aGUgYWJzdHJhY3Qg
+c2hvdWxkIGJlIGJyaWVmICgyNTAgd29yZHMgb3IgbGVzcyksIGJ1dCBzaG91bGQgYWNjdXJhdGVs
+eSBzdW1tYXJpemUgdGhlIGNvbnRlbnRzIG9mIHRoZSBwYXBlci4gU3BlY2lmaWNhbGx5OiBpbmRp
+Y2F0ZSB0aGUgY29uY2x1c2lvbnMgcmVhY2hlZCBpbiB0aGUgcGFwZXIgYW5kIHRoZSBwb3NzaWJs
+ZSBhcHBsaWNhdGlvbnMgb2YgdGhlIHJlc2VhcmNoIHBlcmZvcm1lZDsgYXZvaWQgdXNpbmcgbWF0
+aGVtYXRpY2FsIGVxdWF0aW9uczsgZG8gbm90IGNpdGUgcmVmZXJlbmNlcyBieSBudW1iZXIuPEJS
+Pgo8QlI+CiAJS2V5IHdvcmRzOiBUaGlzIGxpc3Qgc2hvdWxkIHJlZmxlY3QgdGhlIG1haW4gaWRl
+YXMgYW5kIGNvbmNlcHRzIGFkZHJlc3NlZCBpbiB0aGUgcGFwZXIuPEJSPgo8QlI+CglBTVMgc3Vi
+amVjdCBjbGFzc2lmaWNhdGlvbnM6IFRoaXMgbGlzdCBpcyBlc3BlY2lhbGx5IHVzZWZ1bCB0byBy
+ZWFkZXJzIGVuZ2FnaW5nIGluIGVsZWN0cm9uaWMgc2VhcmNoZXMuIFBsZWFzZSBnaXZlIGFsbCBy
+ZWxldmFudCBjbGFzc2lmaWNhdGlvbnMuIFRoZXNlIGNhbiBiZSBmb3VuZCBpbiB0aGUgYW5udWFs
+ICJTdWJqZWN0IEluZGV4IiBvZiBNYXRoZW1hdGljYWwgUmV2aWV3cywgYW5kIGNhbiBiZSBzZWFy
+Y2hlZCBlbGVjdHJvbmljYWxseSB0aHJvdWdoIHRoZSBBbWVyaWNhbiBNYXRoZW1hdGljYWwgU29j
+aWV0eSdzIFdvcmxkIFdpZGUgV2ViIHNlcnZlciwgPEEgSFJFRj0iaHR0cDovL3d3dy5hbXMub3Jn
+Ly4iPmh0dHA6Ly93d3cuYW1zLm9yZy8uPC9BPjxCUj4KPEJSPgogICAgICAgIFRlWCBJbmZvcm1h
+dGlvbjogSWYgeW91ciBwYXBlciBpcyBhY2NlcHRlZCBmb3IgcHVibGljYXRpb24sIFNJQU0gd2ls
+bCBhc2sgeW91IHRvIHN1cHBseSBhIExhVGVYMkUgKHByZWZlcnJlZCksIFRlWCwgb3IgQU1TVGVY
+IGZpbGUgZm9yIHlvdXIgcGFwZXIuICBZb3Ugd2lsbCByZWNlaXZlIG1vcmUgaW5mb3JtYXRpb24g
+ZnJvbSBTSUFNIGF0IHRoYXQgdGltZSBhbmQgd2lsbCBiZSBhc2tlZCB0byBhcHBseSBTSUFNJ3Mg
+c3R5bGUgbWFjcm9zIHRvIHlvdXIgVGVYIGZpbGUuIEZvciBpbmZvcm1hdGlvbiBvbiBTSUFNJ3Mg
+bWFjcm9zIHBsZWFzZSB2aXNpdCA8QSBIUkVGPSJodHRwOi8vd3d3LnNpYW0ub3JnL2pvdXJuYWxz
+L2F1dGgtaW5mby5waHAuIj5odHRwOi8vd3d3LnNpYW0ub3JnL2pvdXJuYWxzL2F1dGgtaW5mby5w
+aHAuPC9BPiBOb3RlIHRoYXQgU0lBTSBjYW5ub3QgYWNjZXB0IGVsZWN0cm9uaWMgZmlsZXMgcHJv
+ZHVjZWQgb24gYW55IG90aGVyIHR5cGVzZXR0aW5nIG9yIHdvcmQgcHJvY2Vzc2luZyBzeXN0ZW0u
+PEJSPgo8QlI+CiAgICAgICAgQ29sb3IgaWxsdXN0cmF0aW9uczogU0lBTSBqb3VybmFscyBhcmUg
+cHJpbnRlZCBpbiBibGFjayBhbmQgd2hpdGUsIHdpdGggYXJ0IHByaW50ZWQgaW4gY29sb3Igb25s
+eSB3aGVuIGl0IGlzIGRlZW1lZCBieSB0aGUgZWRpdG9yIHRvIGJlIHNjaWVudGlmaWNhbGx5IG5l
+Y2Vzc2FyeS4gIElmIGl0IGlzIHlvdXIgd2lzaCBvciBleHBlY3RhdGlvbiB0aGF0IGFueSBvZiB0
+aGUgZmlndXJlcyBpbiB5b3VyIHBhcGVyIGFwcGVhciBpbiBjb2xvciBpbiB0aGUgcHJpbnRlZCB2
+ZXJzaW9uLCBwbGVhc2UgaW5mb3JtIHVzIGltbWVkaWF0ZWx5LiAgIDxCUj4KQ29sb3IgYXJ0IHRo
+YXQgaXMgbm90IGRlZW1lZCBzY2llbnRpZmljYWxseSBuZWNlc3NhcnkgYnkgdGhlIGVkaXRvciBj
+YW4gYmUgIDxCUj4KcHJpbnRlZCBpbiBjb2xvciBhdCB0aGUgYXV0aG9yJ3MgZXhwZW5zZS48QlI+
+CjxCUj4KRm9sbG93aW5nIGlzIGEgbGlzdCBvZiByZWxldmFudCBTSUFNIHB1YmxpY2F0aW9ucyBw
+ZXJzb25uZWwuIEZlZWwgZnJlZSB0byBjb250YWN0IHVzIHdpdGggYW55IHF1ZXN0aW9ucyBvciBw
+cm9ibGVtcy48QlI+CjxCUj4KQ29udGFjdCBLQVJMIERVUlNULCBFZGl0b3JpYWwgQXNzaXN0YW50
+LCBhdCBzaW1heEBzaWFtLm9yZzogPEJSPgo8QlI+CjEuIGZvciBpbmZvcm1hdGlvbiBvbiB0aGUg
+c3RhdHVzIG9mIHBhcGVycyBpbiByZXZpZXc7PEJSPgoyLiB0byBub3RpZnkgU0lBTSBvZiBjaGFu
+Z2Ugb2YgY29udGFjdCBpbmZvcm1hdGlvbjs8QlI+CjxCUj4KQ29udGFjdCBNSVRDSCBDSEVSTk9G
+RiwgUHVibGljYXRpb25zIE1hbmFnZXIsIGF0IGNoZXJub2ZmQHNpYW0ub3JnOjxCUj4KPEJSPgox
+LiB3aXRoIGdlbmVyYWwgcmVxdWVzdHM7PEJSPgoyLiBhYm91dCBwcm9ibGVtcyB3aXRoIHRoZSBy
+ZXZpZXcgcHJvY2Vzczs8QlI+CjMuIGZvciBFZGl0b3JpYWwgQm9hcmQgaW5mb3JtYXRpb247PEJS
+Pgo0LiBmb3IgYmFja2xvZyBpbmZvcm1hdGlvbi48QlI+CjxCUj4KQ29udGFjdCBIRUFUSEVSIEJM
+WVRIRSAoYmx5dGhlQHNpYW0ub3JnKSwgU2VuaW9yIFB1YmxpY2F0aW9ucyBDb29yZGluYXRvcjo8
+QlI+CjxCUj4KMS4gd2l0aCBxdWVzdGlvbnMgY29uY2VybmluZyBwYWdlIGNoYXJnZXMgb3IgcmVw
+cmludHMuPEJSPgo8QlI+CkNvbnRhY3QgU0NPVFQgQ09MTElOUyAoY29sbGluc0BzaWFtLm9yZyks
+IENvbXBvc2l0aW9uIFNwZWNpYWxpc3Q6PEJSPgo8QlI+CjEuIHdpdGggdGVjaG5pY2FsIHF1ZXN0
+aW9ucyBhYm91dCBTSUFNJ3MgVGVYLCBMYVRlWCwgb3IgQU1TVGVYIG1hY3Jvcy48QlI+CjxCUj4K
+PEJSPgpPcGVuIEFjY2VzczogSWYgeW91ciBwYXBlciBpcyBhY2NlcHRlZCBhbmQgcHVibGlzaGVk
+LCBTSUFNIHdpbGwgb2ZmZXIgLSBmb3IgYSAgb25lLXRpbWUgZmVlIG9mICQyNTAwIC0gdGhlIG9w
+dGlvbiB0byBwbGFjZSB0aGUgYXJ0aWNsZSBpbnRvIG9wZW4gYWNjZXNzLiBUaGUgUHVibGlzaGVy
+IHdpbGwgbm90IGNoYXJnZSBmb3IgYWNjZXNzIHRvIHRoZSBmaW5hbCBwdWJsaXNoZWQgdmVyc2lv
+biBvZiB0aGUgV29yaywgcHJvdmlkZWQgdGhlIGF1dGhvciBjaG9vc2VzIHRoaXMgb3B0aW9uIGFu
+ZCBwYXlzIHRoZSBBcnRpY2xlIFByb2Nlc3NpbmcgQ2hhcmdlIChBUEMpLiBPdGhlcndpc2UsIHRo
+ZSBmdWxsIGFydGljbGUgd2lsbCBiZSBhdmFpbGFibGUgb25seSB0byBqb3VybmFsIHN1YnNjcmli
+ZXJzLiA8QlI+CjxCUj4KQXQgYWNjZXB0YW5jZSwgYXV0aG9ycyBhcmUgZ2l2ZW4gdGhlIG9wcG9y
+dHVuaXR5IHRvIHNlbGVjdCB0aGUgb3BlbiBhY2Nlc3Mgb3B0aW9uIHRocm91Z2ggaXRlbSA1IG9u
+IHRoZSBDb25zZW50IHRvIFB1Ymxpc2ggZm9ybS4gPEJSPgo8QlI+CjxCUj4KUGFnZSBjaGFyZ2Vz
+OiBJZiB5b3VyIHBhcGVyIGlzIGFjY2VwdGVkIGFuZCBwdWJsaXNoZWQsIHlvdSB3aWxsIHJlY2Vp
+dmUgYSB2b2x1bnRhcnkgcGFnZS1jaGFyZ2UgcmVxdWVzdC4gUGF5bWVudCBvZiBwYWdlIGNoYXJn
+ZXMgaXMgdm9sdW50YXJ5IGFuZCBpbiBubyB3YXkgYWZmZWN0cyB0aGUgcHVibGljYXRpb24gb2Yg
+cHJlc2VudCBvciBmdXR1cmUgcGFwZXJzLiA8QlI+CjxCUj4KQ3VycmVudCBwYWdlIGNoYXJnZXMg
+YXJlICQ3MiBwZXIgcGFnZSBvZiBwcmludGVkIHRleHQuIFRoaXMgaGVscHMgbWFpbnRhaW4gb3Vy
+IHBvbGljeSBvZiBhZmZvcmRhYmxlIHByaWNpbmcsIGFuZCB3ZSBhc2sgYXV0aG9ycyB0byBjb25z
+aWRlciBkZWZyYXlpbmcgdGhlIHJpc2luZyBjb3N0cyBvZiBwdWJsaXNoaW5nIFNJQU0gcHJpbnQg
+YW5kIGVsZWN0cm9uaWMgam91cm5hbHMgd2l0aCBhIHZvbHVudGFyeSBwYXltZW50IHRocm91Z2gg
+ZWl0aGVyIGEgZ3JhbnQgb3IgeW91ciBvcmdhbml6YXRpb24uIDxCUj4KPEJSPgpTSUFNIHdpbGwg
+YWxzbyBhY2NlcHQgYW55IG90aGVyIGFtb3VudCBzaG91bGQgeW91IGRlY2lkZSB0byBjb250cmli
+dXRlLiBRdWVzdGlvbnMgYWJvdXQgcGFnZSBjaGFyZ2VzIGNhbiBhbHNvIGJlIHNlbnQgdG8gdGhl
+IHJlcHJpbnRzIGNvb3JkaW5hdG9yIGF0IHJlcHJpbnRzQHNpYW0ub3JnLiA8QlI+CjwvYm9keT4K
+PC9IVE1MPgo=
+
+
+--_----------=_140924530019832--

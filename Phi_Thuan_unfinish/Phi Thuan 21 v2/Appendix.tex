@@ -1,0 +1,274 @@
+%%=======================================================================================
+\section{Proof of Lemma \ref{lem4.5}}\label{appendix 1}
+%%=======================================================================================
+For notational convenience, within this proof, we will omit the superscript \ $\widehat{}$ \ on all matrices in the strangeness-free form \eqref{descriptor 2nd order sfree}.
+Due to Definition \ref{def1.1}, system \eqref{descriptor minimal extension} is $R$-controllable (resp. $C$-controllable) if and only if the matrix coefficients $\tE$, $\tA$, $\tB$ satisfy the constant rank $\mathbf{C1}$ (resp., $\mathbf{C0}$). \\
+i) Condition $\mathbf{C1}$ applied to system \eqref{descriptor minimal extension} reads
+%
+\begin{equation}\label{a1}
+\rank 
+\m{	\lb I_{r_2}  \quad & \lb D_{1} + K_{1}     & \vline & B_{11}		& B_{12}    & B_{13}   \\
+	- I_{r_2}    \quad & \lb M_{1}  			 & \vline & 0     		& 0		    & 0   \\
+	0    	 & \lb D_{2} + K_{2}     & \vline & 0 			& 0		    & B_{23} 	\\
+	0        & K_{3}    			 & \vline & 0 			& 0		    & 0      		\\  \hline \\[-.35cm]
+	0    	 & \lb D_{4}+ K_{4}    	 & \vline & 0      		& \Si_{1} 	& B_{43} 	 \\
+	0        & K_{5}    			 & \vline & 0     		& 0		    & \Si_{0}   \\  
+	0        & 0		   			 & \vline & 0     		& 0		    & 0  	} 
+%\quad \pm{r_{2} \\ r_2 \\ r_{1} \\ r_{0} \\ \hline  \vphi_{1} \\ \vphi_{0} \\  v}
+= d + r_2 \  \mbox{ for all } \lb \in \C.
+\end{equation}
+% 
+By using matrix row manipulation in order to eliminate $\lb I_{r_2}$ in the first row, we see that \eqref{a1} is equivalent to the condition
+%
+\begin{equation}\label{a2}
+\rank 
+\m{	0  \quad & \lb^2 M_{1} + \lb D_{1} + K_{1}     & \vline & B_{11}		& B_{12}    & B_{13}   \\
+	- I_{r_2}    \quad & \lb M_{1}  			 & \vline & 0     		& 0		    & 0   \\
+	0    	 & \lb D_{2} + K_{2}     & \vline & 0 			& 0		    & B_{23} 	\\
+	0        & K_{3}    			 & \vline & 0 			& 0		    & 0      		\\  \hline \\[-.35cm]
+	0    	 & \lb D_{4}+ K_{4}    	 & \vline & 0      		& \Si_{1} 	& B_{43} 	 \\
+	0        & K_{5}    			 & \vline & 0     		& 0		    & \Si_{0}   \\  
+	0        & 0		   			 & \vline & 0     		& 0		    & 0  	} 
+%\quad \pm{r_{2} \\ r_2 \\ r_{1} \\ r_{0} \\ \hline  \vphi_{1} \\ \vphi_{0} \\  v}
+= d + r_2 \  \mbox{ for all } \lb \in \C.
+\end{equation}
+% 
+Clearly, this holds true if and only if \ $\rank \m{\lb^2 M + \lb D + K, \ B} = d$, which is exactly the rank condition $\mathbf{C21}$. \\
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+ii) Due to Definition \ref{def1.1}, we see that $\mathbf{C0}=\mathbf{C1}+\mathbf{C3}$, and hence we need to prove that the condition $\mathbf{C3}$ is equivalent to the condition $\mathbf{C23}$. 
+Now let us look at the condition $\mathbf{C3}$, which means that the matrix
+%
+\[
+\pm{r_{2} \\ r_2 \\ r_{1} \\ r_{0} \\ \hline  \vphi_{1} \\ \vphi_{0} \\  v} \quad
+\m{I_{r_2}	& D_{1}    & \vline & B_{11}		& B_{12}    & B_{13}   \\
+	0    	& M_1      & \vline & 0     		& 0		    & 0    \\
+	0    	& D_{2}    & \vline & 0 			& 0		    & B_{23} 	\\
+	0    	& 0        & \vline & 0 			& 0		    & 0      	\\  \hline \\[-.35cm]
+	0    	& D_{4}    & \vline & 0      		& \Si_{1} 	& B_{43} 	 \\
+	0    	& 0        & \vline & 0     		& 0		    & \Si_{0}   \\  
+	0    	& 0        & \vline & 0     		& 0		    & 0  	} 
+\]
+%
+has full row rank ($d+r_2$). Recall that in the strangeness-free form \eqref{descriptor 2nd order sfree}
+the matrix $\sm{\hM_1 \\ \hD_2}$ has full row rank. Therefore, condition $\mathbf{C3}$ holds true if and only if $r_0 = v = 0$. \\
+%
+Moreover, the condition $\mathbf{C23}$, which means that the matrix
+%
+\[
+\pm{r_2 \\ r_{1} \\ r_{0} \\ \hline  \vphi_{1} \\ \vphi_{0} \\  v} \quad
+\m{M_{1} & D_{1}    & \vline & B_{11}		& B_{12}    & B_{13}   \\
+	0    & D_{2}    & \vline & 0 			& 0		    & B_{23} 	\\
+	0    & 0        & \vline & 0 			& 0		    & 0      		\\  \hline
+	0    & D_{4}    & \vline & 0      		& \Si_{1} 	& B_{43} 	 \\
+	0    & 0        & \vline & 0     		& 0		    & \Si_{0}   \\  
+	0    & 0        & \vline & 0     		& 0		    & 0  	} \ .
+\]
+%
+has full row rank ($d$), is fulfilled also only when $r_0 = v = 0$. Thus, two conditions $\mathbf{C3}$ and $\mathbf{C23}$ are equivalent, and hence, it complete the proof of this part. \\
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+iii) In order to prove that the condition $\mathbf{C21}$ is preserved under the strangeness-free formulation we only need to prove that it is preserved under one index reduction step. First we notice that for any two strongly equivalent tuples $(M,D,K,B)$ and $(\hM,\hD,\hK,\hB)$ we have that
+%
+\[
+\m{\lb^2 M + \lb D + K, \ B} = U \ \m{\lb^2 M + \lb D + K, \ B}  \ \m{I & 0 \\ 0 & V} \ . 
+\]
+%
+Thus, $\rank \m{\lb^2 M + \lb D + K, \ B}$ is invariant under strongly equivalent relation. Consequently, we may assume that $(M,D,K,B)$ takes the form as in the right hand side of \eqref{eq3.1}. For notational convenience, we 
+will omit the super script $new$ and rewrite our system as follows.
+%
+\begin{equation}\label{a3}
+\m{M_{1} \\ 0     \\ 0 		\\ \hline 0     \\ 0 		\\ 0 } x(n+2) + 
+\m{D_{1} \\ D_{2} \\ 0 		\\ \hline D_{4} \\ 0 		\\ 0}  x(n+1) +
+\m{K_{1} \\ K_{2} \\ K_{3}  \\ \hline K_{4} \\  K_{5}   \\ 0 } x(n)	=
+\m{ B_{11}		& 0  		& 0 \\
+	0 			& 0		    & 0 \\
+	0 			& 0		    & 0  \\	\hline 
+	0      		& \Si_{1} 	& 0 \\ 
+	0     		& 0		    & \Si_{0}        \\ 
+	0     		& 0         & 0} v(n) , 
+\qquad \pm{r_{2} \\ r_{1} \\ r_{0} \\ \hline  \vphi_{1} \\ \vphi_{0} \\  v}
+\end{equation}
+%
+where $M_1$, $D_2$, $K_3$ have full row rank, and the matrices $\Si_0$, $\Si_1$ are digonal and nonsingular. \\
+We recall, that due to \cite[Lemma 4.4]{HaL19}, one step index reduction in the strangeness-free formulation is indeed 
+% removing the hidden redundancy in the upper part of system \eqref{a3} by 
+transforming \eqref{a3} into the new form which reads
+%
+{\small
+\be\label{a4}
+\underbrace{ \sm{S^{(2)} M_{1} \\ 0     \\ 0 	\\ 0     \\ 0 	\\[.05cm] \hline \\ 0     \\ 0  \\ 0 } }_{\tM} \! x(n \!+\! 2) \!+\! 
+\underbrace{ \sm{S^{(2)} D_{1} \\ Z^{(2)} D_{1} \!+\! Z^{(4)} K_{2} \\ S^{(1)} D_{2} 	\\ 0 \\ 0 \\[.05cm] \hline \\ D_{4} \\ 0 \\ 0} }_{\tD} \! x(n\!+\!1) \!+\!
+\underbrace{ \sm{S^{(2)} K_{1} \\ Z^{(2)} K_{1} \\ S^{(1)} K_{2} \\ Z^{(1)} K_{2} 	\\ K_{3}  \\[.05cm] \hline \\ K_{4} \\  K_{5}   \\ 0 } }_{\tK} \! x(n) 
+\!=\! 
+\underbrace{ \sm{ S^{(2)} B_{11}		& 0  		& 0 \\
+		Z^{(2)} B_{11}		& 0  		& 0 \\
+		0 			& 0		    & 0 \\
+		0 			& 0		    & 0 \\
+		0 			& 0		    & 0  \\[.05cm]	\hline 
+		& & \\
+		0      		& \Si_{1} 	& 0 \\ 
+		0     		& 0		    & \Si_{0}        \\ 
+		0     		& 0         & 0} }_{\tB} \! v(n) \ .  
+\
+\begin{bsmallmatrix}
+	d_{2} \\ s_2 \\ d_1 \\ s_1 \\ r_0 \\[.05cm] \hline \\ \vphi_2 \\ \vphi_{1} \\ v
+\end{bsmallmatrix}
+\ee
+}
+%
+%\begin{align}\label{a4}
+%\notag 
+%& 
+%\underbrace{ \m{S^{(2)} M_{1} \\ 0     \\ 0 	\\ 0     \\ 0 	\\ \hline 0     \\ 0  \\ 0 } }_{\tM} x(n + 2) + 
+%\underbrace{ \m{S^{(2)} D_{1} \\ Z^{(2)} D_{1} + Z^{(4)} K_{2} \\ S^{(1)} D_{2} 	\\ 0 \\ 0 \\ \hline D_{4} \\ 0 \\ 0} }_{\tD}  x(n+1) +
+%\underbrace{ \m{S^{(2)} K_{1} \\ Z^{(2)} K_{1} \\ S^{(1)} K_{2} \\ Z^{(1)} K_{2} 	\\ K_{3}  \\ \hline K_{4} \\  K_{5}   \\ 0 } }_{\tK} x(n)  \\
+%& = 
+%\underbrace{ \m{ S^{(2)} B_{11}		& 0  		& 0 \\
+%	Z^{(2)} B_{11}		& 0  		& 0 \\
+%	0 			& 0		    & 0 \\
+%	0 			& 0		    & 0 \\
+%	0 			& 0		    & 0  \\	\hline 
+%	0      		& \Si_{1} 	& 0 \\ 
+%	0     		& 0		    & \Si_{0}        \\ 
+%	0     		& 0         & 0} }_{\tB} v(n) , 
+%\qquad \pm{ d_{2} \\ s_2 \\ d_1 \\ s_1 \\ r_0 \\ \hline \vphi_2 \\ \vphi_{1} \\ v} \ . 
+%\end{align}
+%
+Here, the matrices $S^{(i)}$, $i=1, 2$, and $Z^{(j)}$, $j=1,...,5$ satisfy the following conditions.
+%
+\begin{enumerate}
+\item[i)] For $i=1, 2$, the matrices $\sm{S^{(i)} \\ Z^{(i)}} \in \r^{r_i,r_i}$ are orthogonal, and $r_i = d_i+s_i$.
+\item[ii)] The following identities hold true.
+\begin{subequations}\label{eq2.10}
+	\begin{alignat*}{3}
+	Z^{(1)} D_{2} + Z^{(3)} K_{3} \ &=& \ 0, \\
+	Z^{(2)} M_{1} + Z^{(4)} D_{2} + Z^{(5)} K_{3} \ & = & \ 0.
+	\end{alignat*}	
+\end{subequations}
+\end{enumerate}
+%
+Consider the matrix $\m{\lb^2 \tM + \lb \tD + \tK, \ \tB}$, we directly see that 
+%
+\[ 
+\m{\lb^2 \tM + \lb \tD + \tK, \ \tB} = U_{\lb} \m{\lb^2 M + \lb D + K, \ B}, 
+\]
+%
+where the matrix $U_{\lb}$ is defined as
+%
+\[
+U_{\lb} :=
+\left[
+\begin{array}{cccccc}
+\sm{ S^{(2)} \\ Z^{(2)} } & \sm{ 0 \\ \lb Z^{(4)} }	  & \sm{ 0 \\ \lb^2 Z^{(5)} }		& 0 			& 0 					&	0			\\[.2cm] 
+				0		  & \sm{ S^{(1)} \\ Z^{(1)} } & \sm{ 0 \\ \lb Z^{(3)} }			& 0 			& 0 					&	0			\\ 
+				0		  &	0						  & I_{r_0}	    					& 0 			& 0 					&	0			\\						  
+				0		  & 0 						  &	0								& I_{\vphi_1} 	& 0 					&  	0			\\ 
+				0		  & 0						  & 0								& 0				& I_{\vphi_0} 			&  	0			\\ 
+				0		  & 0						  & 0 								& 0 			& 0			 			&   I_v 
+\end{array} 
+\right] \ .
+\]
+%
+Since all matrices on the main diagonal are orthogonal, we see that $U_{\lb}$ is nonsingular for all $\lb \in \C$. Therefore, 
+%
+\[
+\rank \m{\lb^2 \tM + \lb \tD + \tK, \ \tB}  = \rank \m{\lb^2 M + \lb D + K, \ B} \ \mbox{ for all } \lb \in \C,
+\]
+%
+and hence, the condition $\mathbf{C21}$ is preserved under one index reduction step. This finishes our proof.
+
+
+%%=======================================================================================
+\section{Appendix Section 2}\label{appendix 2}
+%%=======================================================================================
+If this is the case, then it is well-known that one can make use of Kronecker-Weierstra\ss \ canonical form and then to deduce the explicit solution to \eqref{SiDE 1st ord}, see e.g. \cite{Dai89}.
+\begin{proposition}\label{Kronecker}
+	Consider the first order descriptor system \eqref{SiDE 1st ord} and assume that $(E,A)$ is a regular pair. Then there exist nonsingular matrices $U$, $V$ such that
+	%
+	\begin{equation}
+	UEV = \m{I_{\td_1} & 0 \\ 0 & N}, \ UAV = \m{J & 0 \\ 0 & I_{\td_2}}, \ \m{B_{11} \\ B_{12}} = UB_1 \ ,
+	\end{equation}
+	%
+	where $N$ is a nilpotent matrix of nilpotency index $\nu(N)$. Consequently, the explicit solution of \eqref{SiDE 1st ord} is of the form \  $\xi(n) = V \m{\xi_1(n) \\ \xi_2(n)}$, where
+	%
+	\be\label{solution}
+	\begin{split}
+		\xi_1(n+1) &= J^{n-n_0+1} \ x(n_0) + \sum_{i=0}^{n-n_0} J^{i} \ B_{11} \ u(n-i) , \\
+		\xi_2(n) &= - \sum_{i=0}^{\nu(N)-1} N^{i} \ B_{12} \ u(n+i)  \\
+	\end{split}
+	\ee
+	%
+	for all $n\geq n_0$.
+\end{proposition}
+
+Clearly, the initial condition $\xi(n_0)$ could not be arbitrarily taken. For a given input sequence $u=\{u(n)\}_{n\geq n_0}$, the set of consistent initial condition is given by
+%
+\[
+\mathcal{S}_0 = \left\{ V \m{\xi_1(n) \\ \xi_2(n)} \ \Big| \ \xi_1(n_0) \in \r^{\td_1}, \ \xi_2(n_0) = -  \sum_{i=0}^{\nu(N)-1} N^{i} \ B_{12} \ u(n+i)  \right\} \ .
+\]
+%
+The set $\mathcal{R}$ of \emph{reachable states} or \emph{reachable set} of \eqref{SiDE 1st ord} is the set of all vector that can be reached from some consistent initial vector $\xi(n_0)$ and some input sequence $\{u(n)\}_{n\geq n_0}$. In fact, for \eqref{SiDE 1st ord}, it is well-known (e.g. \cite{VerLK81}) that 
+%
+\[
+\mathcal{R} = \r^{\td_1} \oplus \cK(N,B_{12}),
+\]
+%
+where $\cK(N,B_{12}) = \im \left[ B_{12}, \ NB_{12}, \ \dots, \ N^{\nu(N)-1}B_{12} \right]$. 
+%
+%\[
+%\cK(N,B_{12}) = \im \left[ B_{12}, \ NB_{12}, \ \dots, \ N^{\nu(N)-1}B_{12} \right] \ .
+%\]
+%
+The following corollary is directly followed. 
+%
+\begin{corollary}\label{coro4}
+Consider the first order, discrete-time descriptor system of the form 
+%
+\begin{equation}
+\m{E_1 \\ 0} \xi(n+1) + \m{A_1 \\ A_2} \xi(n) = \m{B_1 \\ B_2} w(n) \ \mbox{ for all } n \geq 0,
+\end{equation}
+%
+where $x(n) \in \r^d$, $\m{E_1 \\ A_2}$ is nonsingular, and $B_2$ has full row rank. Then the reachable subspace $\cal{R}$ is the whole space $\r^d$. 
+\end{corollary}
+
+
+%In the following lemma, we bring out the relation between strangeness-free and impulse-free properties.
+%
+%\begin{lemma}\label{strangeness-free vs. impulse free}
+%	Consider the descriptor system \eqref{descriptor 2nd order discrete} and assume that it is regular. Then system \eqref{descriptor 2nd order discrete} is causal if the associated SiDE \eqref{SiDE 2nd ord} is strangeness-free. The converse of this claim, however, does not hold true. 
+%\end{lemma}
+%\begin{proof}
+%	Without loss of generality, we may assume that system \eqref{descriptor 2nd order discrete} is already in the form \eqref{SiDE 2nd order sfree - not descriptor}. Thus, it reads
+%	%
+%	\be\label{eq1.2}
+%	\pm{\hr_2 \\ \hr_1 \\ \hr_0 \\ \hv } \ 
+%	\m{\hM_{1} \\ 0 \\ 0 \\ 0 } x(n\!+\!2) + \m{ \hD_{1} \\ \hD_{2} \\ 0 \\ 0 } x(n\!+\!1) + \m{ \hK_{1} \\ \hK_{2} \\ \hK_{3} \\ 0 } x(n)  
+%	= \m{ \hB_{1} \\ \hB_{2} \\ \hB_{3} \\ \hB_{4} } u(n) \ \mbox{ for all } \ n\geq n_0, 
+%	\ee
+%	%
+%	where the matrix $\m{\hM^T_{1}  &  \hD^T_{2}  &  \hK^T_{3}}^T$ has full row rank. Hence, we can rewrite this system as 
+%	%
+%	\[
+%	\m{\hM_{1} \\ \hD_{2} \\ \hK_{3} \\ 0 } x(n\!+\!2) + \m{ \hD_{1} \\ \hK_{2}  \\ 0 \\ 0 } x(n\!+\!1) + \m{ \hK_{1} \\ 0 \\ 0 \\ 0 } x(n)  
+%	= \m{ \hB_{1}  u(n) \\ \hB_{2} u(n+1) \\ \hB_{3} u(n+2) \\ \hB_{4}u(n) }  \ \mbox{ for all } \ n\geq n_0.
+%	\]
+%	%
+%	Notice that the regularity of \eqref{descriptor 2nd order discrete} implies that $\m{\hM^T_{1}  &  \hD^T_{2}  &  \hK^T_{3}}^T$ is nonsingular.
+%	Thus, it directly follows by definition that system \eqref{descriptor 2nd order discrete} is causal. \ The counter example will be present in Example \ref{Exa1} below.
+%\end{proof}
+%
+%It should be noted, that a system can be causal but not I-controllable, as in the following example.
+%%
+%\begin{example}\label{Exa1}
+%	It can be verify directly, that for the coefficients
+%	%
+%	\[
+%	E = \m{1 & 0 \\ 0 & 0}, \ A = \m{0 & 1 \\ 1 & 0}, \ B = \m{0 \\ 0} \ .  
+%	\]
+%	%
+%	system \eqref{SiDE 1st ord} is causal but neither be I-controllable nor strangeness-free.
+%\end{example}
+
