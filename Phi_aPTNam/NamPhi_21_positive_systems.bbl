@@ -163,12 +163,12 @@ P.~Kunkel and V.~Mehrmann.
   Solution}.
 \newblock EMS Publishing House, Z{\"u}rich, Switzerland, 2006.
 
-\bibitem[Gerdts(2005)]{Ger05}
-M.~Gerdts.
-\newblock Local minimum principle for optimal control problems subject to index
-  two differential algebraic equations systems.
-\newblock Technical report, Fakult\"at f\"ur Mathematik, Universit\"at Hamburg,
-  Hamburg, Germany, 2005.
+\bibitem[Varga(2019)]{Varga19}
+Andreas Varga.
+\newblock \emph{Descriptor System Techniques and Software Tools}, pages 1--10.
+\newblock Springer London, London, 2019.
+\newblock ISBN 978-1-4471-5102-9.
+\newblock \doi{10.1007/978-1-4471-5102-9_100054-1}.
 
 \bibitem[Virnik(2008)]{Vir08}
 Elena Virnik.

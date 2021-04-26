@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.4.15)  27 APR 2021 03:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.4.15)  27 APR 2021 06:50
 entering extended mode
 **./NamPhi_21_positive_systems.tex
 (NamPhi_21_positive_systems.tex
@@ -540,18 +540,6 @@ Overfull \hbox (5.19507pt too wide) in paragraph at lines 224--226
 \openout4 = `NamPhi_21_positive_systems.brf'.
 
  [10]
-Underfull \hbox (badness 1194) in paragraph at lines 81--81
-[][]\OT1/cmr/m/n/10 Emilia Frid-man.  Sta-bil-ity of lin-ear de-scrip-tor sys-t
-ems with de-lay: a
- []
-
-
-Underfull \hbox (badness 2042) in paragraph at lines 81--81
-\OT1/cmr/m/n/10 Lyapunov-based ap-proach.  \OT1/cmr/m/it/10 J. Math. Anal. Appl
-.\OT1/cmr/m/n/10 , 273(1):24 -- 44,
- []
-
-
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [11])
@@ -570,18 +558,23 @@ LaTeX Warning: There were multiply-defined labels.
 Package rerunfilecheck Info: File `NamPhi_21_positive_systems.out' has not chan
 ged.
 (rerunfilecheck)             Checksum: C17437D25344BDB8FA33D6DACB75BD21;904.
-Package rerunfilecheck Info: File `NamPhi_21_positive_systems.brf' has not chan
-ged.
-(rerunfilecheck)             Checksum: 6B4841AECE42EEF04C6CE4492101B401;1844.
+
+Package rerunfilecheck Warning: File `NamPhi_21_positive_systems.brf' has chang
+ed.
+(rerunfilecheck)                Rerun to get bibliographical references right.
+
+Package rerunfilecheck Info: Checksums for `NamPhi_21_positive_systems.brf':
+(rerunfilecheck)             Before: D41D8CD98F00B204E9800998ECF8427E;0
+(rerunfilecheck)             After:  6C95C3DAEB5A7E8D2E600B982EC75C92;1889.
  ) 
 Here is how much of TeX's memory you used:
- 11113 strings out of 479334
- 159295 string characters out of 2866960
- 485378 words of memory out of 3000000
- 28308 multiletter control sequences out of 15000+200000
+ 11116 strings out of 479334
+ 159354 string characters out of 2866960
+ 485439 words of memory out of 3000000
+ 28311 multiletter control sequences out of 15000+200000
  412573 words of font info for 62 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,23n,102p,998b,487s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 98i,23n,102p,998b,479s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><C:/Progr
 am Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Program Files/MiK
 TeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files/MiKTeX/fonts/ty
@@ -600,9 +593,9 @@ type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/public
 /cmtt8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.
 pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:
 /Program Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on NamPhi_21_positive_systems.pdf (12 pages, 348466 bytes).
+Output written on NamPhi_21_positive_systems.pdf (12 pages, 343316 bytes).
 PDF statistics:
- 475 PDF objects out of 1000 (max. 8388607)
+ 439 PDF objects out of 1000 (max. 8388607)
  91 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
