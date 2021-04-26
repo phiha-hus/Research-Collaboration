@@ -1,0 +1,147 @@
+\begin{thebibliography}{10}
+
+\bibitem{AltH18}
+R.~Altmann and J.~Heiland.
+\newblock {\em Continuous, Semi-discrete, and Fully Discretised Navier-Stokes
+  Equations}, pages 277--312.
+\newblock Springer International Publishing, Cham, 2019.
+
+\bibitem{BieCM12}
+Lorenz~T. Biegler, Stephen~L. Campbell, and Volker Mehrmann, editors.
+\newblock {\em Control and Optimization with Differential-Algebraic
+  Constraints}.
+\newblock {SIAM} Publications, Philadelphia, PA, 2012.
+
+\bibitem{BreCP96}
+K.~E. Brenan, S.~L. Campbell, and L.~R. Petzold.
+\newblock {\em Numerical Solution of Initial-Value Problems in Differential
+  Algebraic Equations}.
+\newblock {SIAM} Publications, Philadelphia, PA, 2nd edition, 1996.
+
+\bibitem{Chi13}
+C.~Chicone.
+\newblock {\em Ordinary Differential Equations with Applications}.
+\newblock Texts in Applied Mathematics. Springer New York, 2013.
+
+\bibitem{ChyDL08}
+Chuan-Jen Chyan, Nguyen~Huu Du, and Vu~Hoang Linh.
+\newblock On data-dependence of exponential stability and stability radii for
+  linear time-varying differential-algebraic systems.
+\newblock {\em Journal of Differential Equations}, 245(8):2078 -- 2102, 2008.
+
+\bibitem{DalK02}
+J.L. Daleckii and M.G. Krein.
+\newblock {\em Stability of Solutions of Differential Equations in Banach
+  Space}.
+\newblock Translations of mathematical monographs. American Mathematical
+  Society, 2002.
+
+\bibitem{DieE99}
+L.~Dieci and T.~Eirola.
+\newblock On smooth decompositions of matrices.
+\newblock {\em {SIAM} J. Matr. Anal. Appl.}, 20:800--819, 1999.
+
+\bibitem{DuL06}
+Nguyen~Huu Du and Vu~Hoang Linh.
+\newblock Stability radii for linear time-varying differential–algebraic
+  equations with respect to dynamic perturbations.
+\newblock {\em Journal of Differential Equations}, 230(2):579 -- 599, 2006.
+
+\bibitem{GroR07}
+C.~Grossmann, H.G. Roos, and M.~Stynes.
+\newblock {\em Numerical Treatment of Partial Differential Equations}.
+\newblock Springer-Verlag Berlin Heidelberg, 2007.
+
+\bibitem{Huy06}
+Nguyen~Thieu Huy.
+\newblock Exponential dichotomy of evolution equations and admissibility of
+  function spaces on a half-line.
+\newblock {\em Journal of Functional Analysis}, 235(1):330 -- 354, 2006.
+
+\bibitem{Huy09a}
+Nguyen~Thieu Huy.
+\newblock Invariant manifolds of admissible classes for semi-linear evolution
+  equations.
+\newblock {\em Journal of Differential Equations}, 246(5):1820 -- 1844, 2009.
+
+\bibitem{IlcR13}
+A.~Ilchmann and T.~Reis.
+\newblock {\em Surveys in Differential-Algebraic Equations I}.
+\newblock Differential-Algebraic Equations Forum. Springer, 2013.
+
+\bibitem{KunM06}
+P.~Kunkel and V.~Mehrmann.
+\newblock {\em Differential-Algebraic Equations -- Analysis and Numerical
+  Solution}.
+\newblock EMS Publishing House, Z{\"u}rich, Switzerland, 2006.
+
+\bibitem{LamMT13}
+R.~Lamour, R.~M{\"a}rz, and C.~Tischendorf.
+\newblock {\em Differential-algebraic equations: {A} projector based analysis.}
+\newblock Differential-Algebraic Equations Forum 1. Berlin: Springer, 2013.
+
+\bibitem{LenM90}
+M.~Lentini and R.~Marz.
+\newblock Conditioning and dichotomy in differential algebraic equations.
+\newblock {\em SIAM Journal on Numerical Analysis}, 27(6):1519--1526, 1990.
+
+\bibitem{Lin13}
+J.~Lindenstrauss and L.~Tzafriri.
+\newblock {\em Classical Banach Spaces II: Function Spaces}.
+\newblock Ergebnisse der Mathematik und ihrer Grenzgebiete. 2. Folge. Springer
+  Berlin Heidelberg, 2013.
+
+\bibitem{LinM09}
+Vu~Hoang Linh and Volker Mehrmann.
+\newblock Lyapunov, {Bohl and Sacker-Sell} spectral intervals for
+  differential-algebraic equations.
+\newblock {\em Journal of Dynamics and Differential Equations}, 21(1):153--194,
+  Mar 2009.
+
+\bibitem{Mas66}
+J.L. Massera and J.J. Sch{\"a}ffer.
+\newblock {\em Linear differential equations and function spaces}.
+\newblock Pure and applied mathematics. Academic Press, 1966.
+
+\bibitem{MinW04}
+Nguyen~Van Minh and Jianhong Wu.
+\newblock Invariant manifolds of partial functional differential equations.
+\newblock {\em Journal of Differential Equations}, 198(2):381 -- 421, 2004.
+
+\bibitem{HUY09b}
+Thieu~Huy Nguyen.
+\newblock Stable manifolds for semi-linear evolution equations and
+  admissibility of function spaces on a half-line.
+\newblock {\em Journal of Mathematical Analysis and Applications}, 354(1):372
+  -- 386, 2009.
+
+\bibitem{Paz12}
+A.~Pazy.
+\newblock {\em Semigroups of Linear Operators and Applications to Partial
+  Differential Equations}.
+\newblock Applied Mathematical Sciences. Springer New York, 2012.
+
+\bibitem{RabS96}
+Frank R{\"a}biger and Roland Schnaubelt.
+\newblock The spectral mapping theorem for evolution semigroups on spaces of
+  vector-valued functions.
+\newblock {\em Semigroup Forum}, 52(1):225--239, Dec 1996.
+
+\bibitem{Ria04}
+R.~Riaza.
+\newblock A matrix pencil approach to the local stability analysis of
+  non-linear circuits.
+\newblock {\em Internat. J. Circ. Theor. Appl.}, 32:23--46, 2004.
+
+\bibitem{Tri78}
+H.~Triebel.
+\newblock {\em Interpolation Theory, Function Spaces, Differential Operators}.
+\newblock Carnegie-Rochester Conference Series on Public Policy. North-Holland
+  Publishing Company, 1978.
+
+\bibitem{Zhi72}
+V.V. Zhikov.
+\newblock On the theory of admissibility of pairs of function spaces.
+\newblock {\em Soviet Math. Dokl.}, 13(4):1108--1111, 1972.
+
+\end{thebibliography}

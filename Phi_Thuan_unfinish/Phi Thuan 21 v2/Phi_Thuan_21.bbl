@@ -13,7 +13,7 @@ Taha Abdelaziz, \emph{Eigenstructure assignment by displacement–acceleration
   and Control \textbf{138(6)} (2016), 064502--064502--7.
 
 \bibitem{Abd19}
-Taha H.~S. Abdelaziz, \emph{Robust solution for second-order systems using
+Taha Abdelaziz, \emph{Robust solution for second-order systems using
   displacement--acceleration feedback}, Journal of Control, Automation and
   Electrical Systems \textbf{31} (2019), 2195--3899.
 
@@ -60,10 +60,6 @@ S.N. Elaydi, \emph{An introduction to difference equations}, Undergraduate
 M.~Green and D.J.N. Limebeer, \emph{Linear robust control}, Dover Books on
   Electrical Engineering, Dover Publications, Incorporated, 2012.
 
-\bibitem{HaL19}
-Phi Ha and Vu~Hoang Linh, \emph{Solvability analysis of second order, discrete
-  time descriptor systems}, {\tt url: https://arxiv.org/abs/1802.01148}, 2019.
-
 \bibitem{HelA13}
 T.~{Helmy} and S.~{Abdelaziz}, \emph{Robust pole placement for second-order
   linear systems using velocity-plus-acceleration feedback}, IET Control Theory
@@ -80,9 +76,8 @@ Nicholas~P. Karampetakis and Anastasia Gregoriadou, \emph{Reachability and
   \textbf{87} (2014), 235 -- 248.
 
 \bibitem{Kel01}
-Frank Kelly, \emph{Mathematical modelling of the internet}, Mathematics
-  Unlimited-2001 and Beyond, B. Engquist and W. Schmid, eds., Springer-Verlag,
-  Berlin, 2001, pp.~685--702.
+W.G. Kelley and A.C. Peterson, \emph{Difference equations: An introduction with
+  applications}, Harcourt/Academic Press, 2001.
 
 \bibitem{KunM06}
 P.~Kunkel and V.~Mehrmann, \emph{Differential-algebraic equations -- analysis
@@ -96,8 +91,8 @@ L.~Lang, W.~Chen, B.~R. Bakshi, P.~K. Goel, and S.~Ungarala, \emph{Bayesian
 \bibitem{LinNT16}
 V.~Linh, N.~Thanh~Nga, and D.~Thuan, \emph{Exponential stability and robust
   stability for linear time-varying singular systems of second order difference
-  equations}, SIAM Journal on Matrix Analysis and Applications \textbf{39}
-  (2018), no.~1, 204--233.
+  equations}, {{SIAM} J. Matr. Anal. Appl.} \textbf{39} (2018), no.~1,
+  204--233.
 
 \bibitem{LP21}
 V.H. Linh and H.~Phi, \emph{Index reduction for second order singular systems
@@ -113,13 +108,9 @@ P.~Losse, V.~Mehrmann, L.K. Poppe, and T.~Reis, \emph{The modified optimal
   {${\mathcal H}_\infty$} control problem for descriptor systems}, {{SIAM} J.
   Cont.} \textbf{47} (2008), 2795--2811.
 
-\bibitem{L77}
-D.~G. Luenberger, \emph{Dynamic equations in descriptor form}, {{IEEE} Trans.
-  Automat. Control} \textbf{22} (1977), 312–322.
-
 \bibitem{Lue77}
-\bysame, \emph{Dynamic equations in descriptor form}, {{IEEE} Trans. Automat.
-  Control} \textbf{AC-22} (1977), 312--321.
+D.~G. Luenberger, \emph{Dynamic equations in descriptor form}, {{IEEE} Trans.
+  Automat. Control} \textbf{AC-22} (1977), 312--321.
 
 \bibitem{MehS06}
 V.~Mehrmann and C.~Shi, \emph{Transformation of high order linear

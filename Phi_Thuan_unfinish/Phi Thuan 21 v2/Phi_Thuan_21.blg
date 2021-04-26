@@ -5,49 +5,44 @@ Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: amsplain.bst
 Reallocating 'name_of_file' (item size: 1) to 14 items.
 Database file #1: Phi_July_2019.bib
-Repeated entry---line 6678 of file Phi_July_2019.bib
- : %@book{Kel01
- :             ,
-I'm skipping whatever remains of this entry
-You've used 33 entries,
+You've used 31 entries,
             2213 wiz_defined-function locations,
-            1048 strings with 13750 characters,
-and the built_in function-call counts, 10221 in all, are:
-= -- 905
-> -- 413
+            1035 strings with 13483 characters,
+and the built_in function-call counts, 9586 in all, are:
+= -- 839
+> -- 402
 < -- 1
-+ -- 166
-- -- 130
-* -- 844
-:= -- 1642
-add.period$ -- 33
-call.type$ -- 33
-change.case$ -- 166
++ -- 161
+- -- 127
+* -- 798
+:= -- 1551
+add.period$ -- 31
+call.type$ -- 31
+change.case$ -- 158
 chr.to.int$ -- 0
-cite$ -- 33
-duplicate$ -- 403
-empty$ -- 934
-format.name$ -- 130
-if$ -- 2163
+cite$ -- 31
+duplicate$ -- 373
+empty$ -- 874
+format.name$ -- 127
+if$ -- 2018
 int.to.chr$ -- 0
-int.to.str$ -- 33
-missing$ -- 73
-newline$ -- 109
-num.names$ -- 66
-pop$ -- 218
+int.to.str$ -- 31
+missing$ -- 71
+newline$ -- 103
+num.names$ -- 63
+pop$ -- 212
 preamble$ -- 1
-purify$ -- 131
+purify$ -- 125
 quote$ -- 0
-skip$ -- 232
+skip$ -- 207
 stack$ -- 0
-substring$ -- 767
-swap$ -- 54
+substring$ -- 702
+swap$ -- 44
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 114
+type$ -- 104
 warning$ -- 0
-while$ -- 96
-width$ -- 35
-write$ -- 295
-(There was 1 error message)
+while$ -- 90
+width$ -- 33
+write$ -- 277

@@ -32,7 +32,7 @@
 \usepackage[authoryear]{natbib}
 \usepackage{graphicx}
 \usepackage[active]{srcltx}
-\usepackage{epstopdf} 
+%\usepackage{epstopdf} 
 
 \usepackage{lineno}
 \linenumbers
@@ -148,7 +148,7 @@ From the theoretical viewpoint, the study for such systems is much more complica
 [....] \\
 
 The short outline of this work is as follows. Firstly, in Section \ref{sec2}, we briefly recall the solvability analysis to system \eqref{delay-descriptor}, which is followed by an imporant result about solution comparison for system \eqref{zero-input system} (Theorem \ref{solution comparison 1}). 
-Based on the explicit solution representation in Section \ref{sec2}, we characterize the posivity of system \eqref{delay-descriptor} in Section \ref{sec3}. We establish there algebraic, numerically verifiable conditions in terms of the system matrix coefficients. To follow, in Section \ref{sec4} we discuss further about the zero-input system \eqref{zero-input system} under biconditional requirements: stability and positivity.
+Based on the explicit solution representation in Section \ref{sec2}, we characterize the posivity of system \eqref{delay-descriptor} in Section \ref{sec3}. We establish there algebraic, numerically verifiable conditions in terms of the system matrix coefficients. To follow, in Section \ref{sec4} we discuss further about the zero-input system \eqref{zero-input system} under biconditional requirements: stability and positivity. Finally, we conclude this research with some discussion and open questions. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 2  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preliminaries} \label{sec2}
@@ -199,18 +199,24 @@ for all $t\in (0,\tau)$ and for all $j=1,2,...,n_f$. We notice, that for each $j
 \begin{equation}\label{continuity condition}
 	x_j(0) = x_{j-1}(\tau) \ .
 \end{equation}
-In particular, $x_1(0) = \phi(0)$ and the function $x_0$ is given.
-Inherited from the theory of delay-different equations (\citet{HalL93}), we recall the concept of \emph{non-advancedness} as follow.
+In particular, $x_1(0) = \phi(0)$ and the function $x_0$ is given. \\
 
-\begin{definition}
-A regular delay-descriptor system \eqref{delay-descriptor} is called \emph{non-advanced} if for any consistent and continuous initial function $\vphi$, there exists a piecewise differentiable solution 
-$x(t)$ to the IVP \eqref{delay-descriptor}, \eqref{initial condition}.
-\end{definition} 
-
-Obviously, the non-advancedness of system \eqref{delay-descriptor} is equivalent to the fact that
-the function $x_{j}$ is at least as smooth as $x_{j-1}$ for all $j\in \N$. In deed, most of systems that we have encountered in applications are non-advanced, \citet{AscP95,ShaG06,Ha15}. For more detailed discussions about the types of the DDAE \eqref{zero-input system}, we refer the readers to \cite{Ha15,HaM16,Ung18}.
+It is well-known (see e.g. \citet{BelC63,HalL93}) that in general, time-delayed systems has been classified into three different types (retarded, neutral, advanced). For example, the 
+time-delayed equation
 %
-\begin{definition}\label{regularity} Consider the DDAE \eqref{delay-descriptor}. The matrix triple $(E,A,B)$ is called \emph{regular} if the (two variable) \emph{characteristic polynomial} $\mathfrak{P}(\lb,\om):=\det(\lb E - A - \om B)$ is not identically zero. 
+\[
+a_0 \dot{x}(t) + a_1\dot{x}(t-\tau) + b_0 x(t) + b_1 x(t-\tau) = f(t)
+\]
+%
+is retarded if $a_0\not= 0$ and $a_1=0$; is neutral if $a_0\not= 0$, $a_1\not= 0$; is advanced if $a_0=0$, $a_1\not= 0$, $b_0 \not=0$. \ Obviously, this classification is based on the smoothness comparison between $x(t)$ and $x(t-\tau)$. In literature, not only the theoretical but also numerical solution has been studied mainly for non-advanced systems (i.e., retarded or neutral), due to their apperance in various applications. For this reason, in \cite{Ha15,HaM16,Ung18} the authors poposed a concept of \emph{non-advancedness} for \eqref{delay-descriptor} (see Definition \ref{def2} below).
+We also notice, that even though not clearly proposed, due to the author's knowledge, so far results for delay-descriptor are only obtained for certain classes of non-advanced systems, e.g. \citet{AscP95,ShaG06,ZhuP97,ZhuP98,Mic11}.
+%
+\begin{definition}\label{def2}
+A regular delay-descriptor system \eqref{delay-descriptor} is called \emph{non-advanced} if for any consistent and continuous initial function $\vphi$, there exists a piecewise differentiable solution $x(t)$ to the IVP \eqref{delay-descriptor}, \eqref{initial condition}.
+\end{definition} 
+%
+%
+\begin{definition}\label{regularity} Consider the DDAE \eqref{delay-descriptor}. The matrix triple $(E,A,B)$ is called \emph{regular} if the (two variable) \emph{characteristic polynomial} $\det(\lb E - A - \om B)$ is not identically zero. 
 If, in addition, $B=0$ we say that the matrix pair $(E,A)$ (or the pencil $\lb E-A$) is regular.  
 The sets $\si(E,A,B):= \{\lb \in \C \ | \ \det(\lb E -A-e^{-\lb \tau}B) = 0\}$ and $\rho(E,A,B)=\C\setminus \si(E,A,B)$ are called the \emph{spectrum} and the \emph{resolvent set} of \eqref{delay-descriptor}, respectively. 
 \end{definition}
@@ -232,16 +238,20 @@ Consider the following systems with the parameters $\ep_1$, $\ep_2$.
 %
 \begin{equation}\label{eq11}
 \underbrace{
-	\m{0 & 1 &  & \\  & \ddots & \ddots & \\  &  & \ddots & 1 \\  &  &  & 0}
+	\m{1 & 0 \\ 0 & 0} 
+	% \m{0 & 1 &  & \\  & \ddots & \ddots & \\  &  & \ddots & 1 \\  &  &  & 0}
 }_{E}  \dot{x}(t) 
 = 
 \underbrace{
-	\m{ 1 & & & & \\ & \ddots & & & \\ & & & 1 & \\ & & & & 1}
+	\m{0 & 1 \\ 1 & 0}
+	% \m{ 1 & & & & \\ & \ddots & & & \\ & & & 1 & \\ & & & & 1}
 }_{A}  x(t) 
-+ \m{ 0 & & & \ep_1 \\ & \ddots & &  \\ & & 0 &   \\  & & & \ep_2} x(t-h),  
++ 
+    % \m{ 0 & & & \ep_1 \\ & \ddots & &  \\ & & 0 &   \\  & & & \ep_2} x(t-h) \ . 
+ \underbrace{   \m{0 & \ep_1 \\ 0 & \ep_2} }_{A_d} x(t-\tau)  \ .
 \end{equation}
 %
-It is well-known that in this example $\ind(E,A)=n$. Furthermore, depending on the value of $\ep_2$, the system will be advanced (if $\ep_2\not=0$) and be non-advanced (if $\ep_2\not=0$).
+It is well-known that in this example $\ind(E,A) = 2$. Furthermore, depending on the value of $\ep_2$, the system will be advanced (if $\ep_2\not=0$) and be non-advanced (if $\ep_2\not=0$). Analogously, one can construct a non-advanced system which has an arbitrarily high index. 
 \end{example}
 
 Let $E$ have index $\tnu$, i.e., $\ind(E,I_n)=\tnu$, the Drazin inverse $E^D$ of E is uniquely defined by the properties
@@ -321,17 +331,97 @@ Furthermore, the consistency condition at $t=0$ reads
 (\hE^D\hE - I) \left( \vphi(0) + \hA^D \hA_d \vphi(-\tau) + \sum_{i=0}^{\nu-1} (\hE^D\hA)^i \hA^D \hB u^{(i)}(0) \right) = 0 \ .
 \end{equation}%
 \end{corollary}
+
+\subsection{A simple check for the non-advancedness}
+Assume that the pair $(E,A)$ is regular with index $\ind(E,A)=\nu$. 
+We want to give a simple check whether the corresponding system \eqref{zero-input system} is non-advanced or not. In analoguous to the case of DAEs \cite{BreCP96,KunM06}, we aim to extract the so-called \emph{underlying delay equation} of the form 
+%
+\begin{equation}\label{underlying DDEs}
+\dot{x}(t) = \bA x(t) + \bA_{d0} x(t-h) + \bA_{d1} \dot{x}(t-h),
+\end{equation}
+%
+from system \eqref{zero-input system} and its derivatives, which read in details
+%
+\[
+E x^{(i)}(t) = \bA x^{(i-1)}(t) + \bA_{d} x^{(i-1)}(t-h), \mbox{ for all } i=1,\dots,\nu.
+\]
+%
+We rewrite these equations into the so-called \emph{inflated system}
+%
+\begin{align}\label{inflated}
+& 
+\underbrace{
+\m{E & & & & \\ -A & E & & & \\ & & \ddots & \ddots & \\ & & & -A & E}
+}_{\cE}	
+\m{\dot{x} \\ \ddot{x} \\ \vdots \\ x^{(\nu+1)}}
+= 
+\underbrace{
+\m{A & 0 & \hdots & & 0 \\ 0 & 0 & \hdots & & 0 \\ \vdots & \vdots & & & \vdots \\ 0 & 0 & \hdots &  & 0}
+}_{\cA}	
+\m{x \\ \dot{x} \\ \vdots \\ x^{(\nu)}} \notag \\
+& \ + 
+\underbrace{
+\m{A_d & & & \\ & A_d & & \\  & & \ddots & \\ & & & A_d}
+}_{\cA_d}	
+\m{x(t-h) \\ \dot{x}(t-h) \\ \vdots \\ x^{(\nu)}(t-h)} \ .
+\end{align}
+%
+Here the matrix coefficients are $\cE,\cA,\cA_d \in \R^{(\nu+1) n,(\nu+1) n}$. For the reader's convenience, below we will use MATLAB notations. System of the form \eqref{underlying DDEs} can be extracted from \eqref{inflated} if and only if there exists a matrix $P=\m{P_0 & P_1 & \dots & P_{\nu}}^T$ in $\R^{(\nu+1) n,n}$ such that
+%
+\begin{align*}
+P^T \cE &= \m{ I_n \ & 0_{n,\nu n} } \\
+P^T \cA_d &= \m{* \ & * \ & 0_{n,(\nu-1)n}}, 
+\end{align*}
+%
+where $*$ stands for an arbitrary matrix. Consequently, $P$ is the solution to the following linear systems
+%
+\begin{equation}\label{adv. check eq.}
+\m{\cE & \cA(:,2n+1 : end)}^T P = \m{I_n \ & 0_{n,\nu n} \ & 0_{n,(\nu-1)n} }^T \ .
+\end{equation}
+%
+Therefore, making use of Crammer's rule we directly obtain the simple check for the non-advancedness of system \eqref{zero-input system} in the following theorem.
+%
+\begin{theorem}\label{thm check advancedness}
+Consider the zero-input descriptor system \eqref{zero-input system} 
+and assume that the pair $(E,A)$ is regular with index $\ind(E,A)=\nu$. 
+Then, this system is non-advanced if and only if the following rank condition is satisfied 
+%
+\[
+\rank \m{\cE^T \\ \cA(:,2n+1 : end)^T}
+= \rank \left[ \pm{\cE^T \\ \cA(:,2n+1 : end)^T} \ \vline \ \pm{I_n \\ 0_{(2\nu-1)n,n} } \right]
+\]
+%
+\end{theorem}
+%
+Theorem \ref{thm check advancedness} applied to the index two case straightly gives us the following corollary.
+%
+\begin{corollary}
+Consider the zero-input descriptor system \eqref{zero-input system} and assume that the pair $(E,A)$ is regular with index $\ind(E,A)=2$.  	
+Then, system \eqref{zero-input system} is non-advanced if and only if the following identity hold true.
+%
+\begin{equation}\label{check advanced}
+\rank \m{E^T & -A^T & 0 \\ 0 & E^T & -A^T \\ 0 & 0 & A_d^T } =
+n + \rank \m{E^T & -A^T \\ 0 & E^T \\ 0 & A_d^T} \ .
+\end{equation}
+%
+\end{corollary} 
+
+\begin{example}
+Let us reconsider system \eqref{eq11} in Example \ref{example 1}. Numerical verification of non-advancedness via condition \eqref{check advanced} completely agrees with theoretical observation.
+\end{example}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 2 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Comparison principal} \label{sec2b}
 
-\begin{lemma}\label{lem2.1}
+\begin{lemma}\label{lem2.1} If the system is non-advanced ... 
 It suffices to prove that if $u_j(t) \leq \tu_j(t)$ and $x_{j-1}(t) \leq \tx_{j-1}(t)$ for all $t\in[0,\tau]$ then it follows that $x_{j}(t) \leq \tx_j(t)$ for all $t\in[0,\tau]$.
 \end{lemma}
 
 By simple induction, making use of Lemma \ref{lem2.1},we obtain the solution comparison for system \eqref{delay-descriptor}.
 
 \begin{theorem}\label{solution comparison 1}
-Consider system \eqref{delay-descriptor} and assume that it is positive. Let $x(t)$ (resp. $\tx(t)$) be a state function corresponds to a reference input $u(t)$ (resp. $\tu(t)$)
+Consider system \eqref{delay-descriptor} and assume that it is positive. 
+Furthermore, assume that $(\hE^D\hE - I) \ (\hE^D\hA)^i  \hA^D \hB \geq 0$ for all $i=0,\dots,\nu-1$. \ Let $x(t)$ (resp. $\tx(t)$) be a state function corresponds to a reference input $u(t)$ (resp. $\tu(t)$)
 and a preshape function $\vphi(t)$ (resp. $\tvphi(t)$). Furthermore, assume that the following conditions hold. \\
 i)  $\vphi(t) \leq \tvphi(t)$ for all $t \in [-\tau,0]$, \\
 ii) $u^{(i)}(t) \leq \tu^{(i)}(t)$ for all $t\geq 0$ and all $i\leq (\nu-1) \ \floor{t/\tau}$. 

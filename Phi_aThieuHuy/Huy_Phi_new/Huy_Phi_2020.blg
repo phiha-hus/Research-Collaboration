@@ -1,0 +1,118 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: Huy_Phi_2020.aux
+Reallocating 'name_of_file' (item size: 1) to 6 items.
+The style file: plain.bst
+Reallocating 'name_of_file' (item size: 1) to 14 items.
+Database file #1: Phi_July_2018.bib
+Repeated entry---line 3488 of file Phi_July_2018.bib
+ : @article{ChyDL08
+ :                 ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 4313 of file Phi_July_2018.bib
+ : @article{DuL06
+ :               ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 6646 of file Phi_July_2018.bib
+ : @book{IlcR13
+ :             ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 6657 of file Phi_July_2018.bib
+ : @book{IlcR13
+ :             ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 8027 of file Phi_July_2018.bib
+ : @article{LenM90
+ :                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 13480 of file Phi_July_2018.bib
+ : @article{Ria04
+ :               ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 13669 of file Phi_July_2018.bib
+ : @article{Ria04
+ :               ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 13801 of file Phi_July_2018.bib
+ : @article{ChyDL08
+ :                 ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 13836 of file Phi_July_2018.bib
+ : @article{DieE99
+ :                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 13848 of file Phi_July_2018.bib
+ : @article{DuL06
+ :               ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 13991 of file Phi_July_2018.bib
+ : @book{IlcR13
+ :             ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 14036 of file Phi_July_2018.bib
+ : @book{KunM06
+ :             ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 14045 of file Phi_July_2018.bib
+ : @book{LamMT13
+ :              ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 14054 of file Phi_July_2018.bib
+ : @article{LenM90
+ :                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 14080 of file Phi_July_2018.bib
+ : @article{LinM09
+ :                ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 14265 of file Phi_July_2018.bib
+ : @book{BieCM12
+ :              ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 14343 of file Phi_July_2018.bib
+ : @book{GroR07
+ :             ,
+I'm skipping whatever remains of this entry
+Warning--can't use both author and editor fields in AltH18
+You've used 25 entries,
+            2118 wiz_defined-function locations,
+            993 strings with 12661 characters,
+and the built_in function-call counts, 7534 in all, are:
+= -- 744
+> -- 303
+< -- 1
++ -- 121
+- -- 94
+* -- 499
+:= -- 1279
+add.period$ -- 82
+call.type$ -- 25
+change.case$ -- 110
+chr.to.int$ -- 0
+cite$ -- 26
+duplicate$ -- 299
+empty$ -- 644
+format.name$ -- 94
+if$ -- 1594
+int.to.chr$ -- 0
+int.to.str$ -- 25
+missing$ -- 37
+newline$ -- 128
+num.names$ -- 51
+pop$ -- 130
+preamble$ -- 1
+purify$ -- 97
+quote$ -- 0
+skip$ -- 185
+stack$ -- 0
+substring$ -- 481
+swap$ -- 35
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 74
+warning$ -- 1
+while$ -- 69
+width$ -- 27
+write$ -- 277
+(There were 17 error messages)

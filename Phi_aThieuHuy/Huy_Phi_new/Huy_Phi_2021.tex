@@ -472,7 +472,7 @@ In the qualitative analysis of ODEs, one of the central topic is to
 find sufficient and necessary conditions for the considered systems to admit exponential dichotomy. Many researches have been devoted to this topic, and critical results have been achieved for ODEs  in finite and infinite dimensional phase spaces (e.g. \cite[Chap. 4]{DalK02}, \cite{Zhi72}). For DAEs, the only result that we are aware of is recalled below.
 
 \begin{proposition}\label{prop1} (\cite{LinM09})
-	The DAE \eqref{eq2} has exponential dichotomy if and only if the matrix function $\hA_3(t)$ is bounded, and the corresponding underlying ODE \eqref{eq5.1} also has exponential dichotomy. Moreover, the existence of exponential dichotomy imlies that $\underset{t\geq 0}{\sup \ } \|\Py(t)\| < \infty$. 
+	The DAE \eqref{eq2} has exponential dichotomy if and only if the corresponding underlying ODE \eqref{eq5.1} also has exponential dichotomy, and the matrix function $\hA_3(t)$ is bounded. Moreover, the existence of exponential dichotomy imlies that $\underset{t\geq 0}{\sup \ } \|\Py(t)\| < \infty$. 
 \end{proposition}
 
 Together with \eqref{eq2}, let us consider the following system
@@ -493,26 +493,15 @@ For this reason, we recall a classical result by Perron below.
 \end{proposition}
 %
 In view of Proposition \ref{prop2}, comparable result has not been achieved for DAEs, and hence, this will be our main aim in this section.
-
-\begin{definition}\label{EA-bounded}
-	Consider the matrix functions $E$, $A$ in system \eqref{eq2}. Then, a function $g:\r_+ \rar \r^n$ satisfying the condition 
-	%
-	\[
-	\underset{t\geq 0}{\sup} \bigg\{ \bigg\| \m{\Si^{-1}(t) & -\Si^{-1}(t) \tA_2(t) \tA^{-1}_4(t) \\ 0 & \tA^{-1}_4(t)} g(t) \bigg\| \bigg\} < +\infty,
-	\]
-	%
-	is called $(E,A)$-bounded. We denote the set of all continuous and
-	 $(E,A)$-bounded functions by $\BEA$.
-\end{definition}
-
-The main result of this section is to prove a characterization of the exponential dichotomy for DAEs. Roughly speaking, the DAE \eqref{eq2} admits exponential dichotomy if and only if the mapping $\cL := E\dfrac{d}{dt} - A$ is surjective on the space $\BEA$. 
+The main result of this section is to prove a characterization of the exponential dichotomy for DAEs. Roughly speaking, under some conditions, the DAE \eqref{eq2} admits exponential dichotomy if and only if the mapping $\cL := E\dfrac{d}{dt} - A$ is surjective on the space $C_b(\r_+)$. 
 We formulate our main result in this section as follows.
 \begin{theorem}\label{thm3.1}
 	Consider the linear, strangeness-free DAE \eqref{eq2} and the associated inhomogeneous DAE \eqref{eq3.1}. 
 	%Then, the DAE \eqref{eq2} admits exponential dichotomy if and only if for any continuous, $(E,A)$-bounded function $g(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to the DAE \eqref{eq3.1}.
-	Then the following assertions hold. 
+	Furthermore, assume that the matrix-valued functions $\Sigma^{-1}(t)$, $\tA_2(t)$ and $\tA^{-1}_4(t)$ are uniformly bounded on $\r_+$. 
+	Then the following assertions hold true. 
 	\begin{enumerate}[(i)]
-	\item If the DAE \eqref{eq2} admits exponential dichotomy then for any continuous, $(E,A)$-bounded function $g(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to the DAE \eqref{eq3.1}. 
+	\item If the DAE \eqref{eq2} admits exponential dichotomy then for any continuous, bounded function $g(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to the DAE \eqref{eq3.1}. 
 	\item If the matrix function $\hA_3(t)$ is bounded, then the converse of assertion (i) holds true.
 	\end{enumerate}
 \end{theorem}
@@ -530,7 +519,7 @@ We formulate our main result in this section as follows.
 	(i) Assuming that the DAE \eqref{eq2} admits exponential dichotomy, then \eqref{semi-explicit system} also has an exponential dichotomy. Proposition \ref{prop1} implies that equation \eqref{eq3.10a} has an exponential dichotomy, and the function $\hA_3$ is bounded. Therefore, Proposition \ref{prop2} implies that $y_1$ is bounded, and consequently, $y_2$ is also bounded.   
 	%
 
-	(ii) From Proposition \ref{prop2}, it follows that \eqref{eq3.10a} has exponential dichotomy \textbf{May be wrong, since the domains of g and hg are not the same}.  On the other hand, the boundedness of $\hA_3$ implies that \eqref{eq2} admits exponential dichotomy.
+	(ii) From Proposition \ref{prop2}, it follows that \eqref{eq3.10a} has exponential dichotomy.  On the other hand, the boundedness of $\hA_3$ implies that \eqref{eq2} admits exponential dichotomy.
 \end{proof}
 
 %\begin{remark}
