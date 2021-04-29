@@ -175,7 +175,12 @@ Here $\{P(t)\}_{t\geq 0}$ (reps. $N$, $\nu$) are called \emph{dichotomy projecti
 \end{definition}
 
 The concept exponential dichotomy means that the state space $\r^n$ has been splitted into the stable subspace ($\im(P(t))$)
-and the unstable subspace ($\ker(P(t))$). Now let us recall some basic concepts and properties for DAEs, starting with \emph{fundamental solution matrix} as below.
+and the unstable subspace ($\ker(P(t))$). 
+
+%================================================================================================================================
+\subsection{A short review of DAE solvability theory}
+%================================================================================================================================
+%Now let us recall some basic concepts and properties for DAEs, starting with \emph{fundamental solution matrix} as below.
 %
 \begin{definition}
 	(i) Consider the DAE \eqref{eq2}. A matrix function $X \in C([0,\infty),\r^{n,k})$, $d\leq k \leq n$, is called \emph{a fundamental solution matrix} of \eqref{eq2} if each of its columns is a solution to \eqref{eq2} and $\rank X(t)=d$, for all $t\geq 0$. \\
@@ -268,10 +273,10 @@ which is exactly of the form \eqref{semi-explicit system}. Furthermore, notice t
 then Assumption \ref{Ass1} yields that both $\Si$ and $\tA_4$ are nonsingular. This completes the proof.
 \end{proof}
 %
-Let $\hA_3(t) := -\tA^{-1}_4(t) \tA_3(t)$, $\hA_1(t) := \Si^{-1}(t) \ \left( \tA_1(t) + \tA_2(t) \tA^{-1}_4(t) \tA_3(t) \right)$, we rewrite system \eqref{semi-explicit system} as 
+Let $\hA_3 := -\tA^{-1}_4 \tA_3$, $\hA_s := \tA_1 + \tA_2 \tA^{-1}_4 \tA_3$ is the Schur complement, we rewrite system \eqref{semi-explicit system} as 
 %
 \begin{align}
-\label{eq5.1} \dot{y}_1(t) &= \hA_1(t) y_1(t), \\ 
+\label{eq5.1} \dot{y}_1(t) &= \Si^{-1}(t) \hA_s(t) y_1(t), \\ 
 \label{eq5.2} y_2(t) &= \hA_3(t) y_1(t).
 \end{align}
 %
@@ -300,18 +305,18 @@ Then, we can directly verify the semigroup properties, i.e.
 Furthermore, Lemma \ref{lem5} below shows that the family $\{\hX(t,s)\}$ play the same role as the evolution family $(X(t,s))_{t\geq s\geq 0}$, in comparison to \eqref{variational form}.
 
 \begin{lemma}\label{lem5}
-Consider the DAE \eqref{eq1} and the evolution family $(X(t,s))_{t\geq s\geq 0}$ defined by \eqref{eq4}. 
-For the function $U$ defined in Lemma \ref{lem5}, let $\hf(t,x) := U(t)f(t,x)$. Then, the solution to \eqref{eq1}, if exists, also satisfies the so-called \emph{mild equation}
+Consider the DAE \eqref{eq1} and the evolution family $(X(t,s))_{t\geq s\geq 0}$ defined by \eqref{eq4}. Furthermore, we also consider the pointwise-orthogonal matrix-valued functions $U$, $V$ defined in Lemma \ref{lem5}. Then, the solution to \eqref{eq1}, if exists, also satisfies the so-called \emph{mild equation}
 	%
-	\begin{equation*}
-		\m{x_1(t) \\ x_2(t)} = \hX(t,s) \m{x_1(s) \\ x_2(s)} + \int_{s}^{t} \hX(t,\tau) \m{\hf_1( \tau,x_1(\tau),x_2(\tau) ) \\ 0 } d\tau  \ + \m{ 0 \\ \hf_2( t,x_1(t),x_2(t) )},
-	\end{equation*}
-	for all $t\geq s \geq 0$, where $\hf_1 := \m{\Si^{-1}(t) & 0} \hf$ and $\hf_2 := \m{0 & -\tA^{-1}_4(t)} \hf$.
+	\begin{align*}
+		\m{x_1(t) \\ x_2(t)} =& \hX(t,s) \m{x_1(s) \\ x_2(s)} + \int_{s}^{t} \hX(t,\tau) \m{\Si^{-1}(\tau) & -\Si^{-1}(t) \tA_2(t) \tA^{-1}_4(t) \\ 0 & 0} U(\tau) f(\tau,x(\tau)) d\tau  \\
+		&\ + \m{0 & 0 \\ 0 & -\tA^{-1}_4(t) } U(t) f(t,x(t)),
+	\end{align*}
+	for all $t\geq s \geq 0$.	
 \end{lemma}
 \begin{proof}
 	The proof can be obtained directly by using Lemma \ref{lem1}. Thus, in order to keep the brevity we will omit the details here.
 \end{proof}
-
+%
 
 In the following, for ease of notation, we will use the abbreviation $\hX(t):=\hX(t,0)$, $\hX^-(t):=\hX^-(t,0)$, $\hY(t):=\hY(t,0)$ and $\hY^-(t):=\hY^-(t,0)$. The concept of exponential dichotomy for the DAE \eqref{semi-explicit system} is given as below.
 
@@ -472,7 +477,7 @@ In the qualitative analysis of ODEs, one of the central topic is to
 find sufficient and necessary conditions for the considered systems to admit exponential dichotomy. Many researches have been devoted to this topic, and critical results have been achieved for ODEs  in finite and infinite dimensional phase spaces (e.g. \cite[Chap. 4]{DalK02}, \cite{Zhi72}). For DAEs, the only result that we are aware of is recalled below.
 
 \begin{proposition}\label{prop1} (\cite{LinM09})
-	The DAE \eqref{eq2} has exponential dichotomy if and only if the matrix function $\hA_3(t)$ is bounded, and the corresponding underlying ODE \eqref{eq5.1} also has exponential dichotomy. Moreover, the existence of exponential dichotomy imlies that $\underset{t\geq 0}{\sup \ } \|\Py(t)\| < \infty$. 
+	The DAE \eqref{semi-explicit system} has an exponential dichotomy if and only if the corresponding underlying ODE \eqref{eq5.1} also has exponential dichotomy, and the matrix function $\hA_3(t)$ is bounded. Moreover, the existence of exponential dichotomy imlies that $\underset{t\geq 0}{\sup \ } \|\Py(t)\| < \infty$. 
 \end{proposition}
 
 Together with \eqref{eq2}, let us consider the following system
@@ -558,6 +563,13 @@ where
 \m{\Sigma^{-1}(t) & -\Si^{-1}(t) \tA_2(t) \tA^{-1}_4(t) \\ 0 & -\hA_4^{-1}} U(t) \m{f_1(t,y(t)) \\ f_2(t,y(t))} \ .
 \end{equation}
 %
+
+%
+\[
+\hf = \m{\hf_1 \\ \hf_2} := \m{\Si^{-1}(t) & 0 \\ 0 & -\tA^{-1}_4(t) } U(t) f(t,x(t)) 
+\]
+%
+
 Notice that, unlike the DAEs \eqref{eq2} and \eqref{eq3.1}, equation \eqref{eq4.1b} only gives an implicit algebraic constraint in terms of $y_1$ and $y_2$. In order to guarantee the strangeness-free of system \eqref{eq1}, we need the following assumption. 
 
 \def\r{\mathbb{R}}
