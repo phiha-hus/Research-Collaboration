@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.29)  29 APR 2021 23:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.29)  30 APR 2021 17:10
 entering extended mode
 **./Huy_Phi_2020.tex
 (Huy_Phi_2020.tex
@@ -171,6 +171,14 @@ File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
 (D:\Program Files\MikTex\tex/latex/latex-tools\enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 \@enLab=\toks27
+)
+(D:\Program Files\MikTex\tex/latex/graphics\color.sty
+Package: color 2020/02/24 v1.2b Standard LaTeX Color (DPC)
+
+(D:\Program Files\MikTex\tex/latex/graphics-cfg\color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 147.
 )
 (D:\Program Files\MikTex\tex/latex/showlabels\showlabels.sty
 Package: showlabels 2015/12/08 v1.7
@@ -639,40 +647,43 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \@input{command.aux}
 \openout2 = `command.aux'.
 
-(command.tex) (Huy_Phi_2020.aux)
+(command.tex) (Huy_Phi_2020.aux
+
+LaTeX Warning: Label `eq7' multiply defined.
+
+)
 \openout1 = `Huy_Phi_2020.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 49.
-LaTeX Font Info:    ... okay on input line 49.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 49.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 50.
+LaTeX Font Info:    ... okay on input line 50.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 50.
 
-
-(D:\Program Files\MikTex\tex/latex/amsfonts\umsa.fd
+ (D:\Program Files\MikTex\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 50.
 
 
 (D:\Program Files\MikTex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 49
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 50
 .
 
 (D:\Program Files\MikTex\tex/latex/jknappen\ursfs.fd
@@ -699,7 +710,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (D:\Program Files\MikTex\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 49.
+Package hyperref Info: Link coloring OFF on input line 50.
 
 (D:\Program Files\MikTex\tex/latex/hyperref\nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -712,9 +723,9 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count297
 )
-LaTeX Info: Redefining \ref on input line 49.
-LaTeX Info: Redefining \pageref on input line 49.
-LaTeX Info: Redefining \nameref on input line 49.
+LaTeX Info: Redefining \ref on input line 50.
+LaTeX Info: Redefining \pageref on input line 50.
+LaTeX Info: Redefining \nameref on input line 50.
 
 (Huy_Phi_2020.out) (Huy_Phi_2020.out)
 \@outlinefile=\write3
@@ -725,57 +736,57 @@ LaTeX Info: Redefining \nameref on input line 49.
 
 
 {C:/Users/DELL/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 110--114
+Underfull \hbox (badness 10000) in paragraph at lines 112--116
 
  []
 
 [2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 281--285
+Underfull \hbox (badness 10000) in paragraph at lines 298--303
 
  []
 
-[4] [5] [6] [7] [8] [9] [10]
-Overfull \hbox (5.6736pt too wide) detected at line 819
+[4] [5] [6] [7] [8] [9] [10] [11]
+Overfull \hbox (5.6736pt too wide) detected at line 904
 []
  []
 
-[11]
-Underfull \hbox (badness 10000) in paragraph at lines 911--913
-
- []
-
-[12]
-Underfull \hbox (badness 10000) in paragraph at lines 918--922
+[12] [13]
+Underfull \hbox (badness 10000) in paragraph at lines 996--998
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 928--931
+Underfull \hbox (badness 10000) in paragraph at lines 1003--1007
 
  []
 
-[13] [14] [15] [16]
-<Josephson-junction.png, id=530, 346.29375pt x 196.48407pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1013--1016
+
+ []
+
+[14] [15] [16] [17]
+<Josephson-junction.png, id=564, 346.29375pt x 196.48407pt>
 File: Josephson-junction.png Graphic file (type png)
 <use Josephson-junction.png>
-Package pdftex.def Info: Josephson-junction.png  used on input line 1158.
+Package pdftex.def Info: Josephson-junction.png  used on input line 1243.
 (pdftex.def)             Requested size: 207.77785pt x 117.89134pt.
+ [18 <./Josephson-junction.png>] (Huy_Phi_2020.bbl [19])
+[20] (Huy_Phi_2020.aux)
 
-Underfull \vbox (badness 1728) has occurred while \output is active []
+LaTeX Warning: There were multiply-defined labels.
 
- [17 <./Josephson-junction.png>] (Huy_Phi_2020.bbl [18]) [19] (Huy_Phi_2020.aux
-)
 Package rerunfilecheck Info: File `Huy_Phi_2020.out' has not changed.
 (rerunfilecheck)             Checksum: 9B0D6F8B8E57190E6127A193BD8333D8;2098.
  ) 
 Here is how much of TeX's memory you used:
- 11411 strings out of 479321
- 158858 string characters out of 2866504
- 562226 words of memory out of 3000000
- 28366 multiletter control sequences out of 15000+600000
- 422158 words of font info for 93 fonts, out of 8000000 for 9000
+ 11494 strings out of 479321
+ 159956 string characters out of 2866504
+ 577874 words of memory out of 3000000
+ 28427 multiletter control sequences out of 15000+600000
+ 422334 words of font info for 94 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 82i,21n,88p,802b,533s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 82i,21n,88p,802b,570s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\DELL\AppData\Local\MiKTeX\fonts/pk/ljfour/public/mathabx/dpi600\ma
 tha5.pk> <C:\Users\DELL\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600
 \tcrm1000.pk> <C:\Users\DELL\AppData\Local\MiKTeX\fonts/pk/ljfour/public/mathab
@@ -786,27 +797,28 @@ ljfour/public/mathabx/dpi600\mathx10.pk> <C:\Users\DELL\AppData\Local\MiKTeX\fo
 nts/pk/ljfour/public/mathabx/dpi600\matha8.pk> <C:\Users\DELL\AppData\Local\MiK
 TeX\fonts/pk/ljfour/public/mathabx/dpi600\matha6.pk><D:/Program Files/MikTex/fo
 nts/type1/public/amsfonts/cm/cmbx10.pfb><D:/Program Files/MikTex/fonts/type1/pu
-blic/amsfonts/cm/cmbx7.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts
-/cm/cmcsc10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.
-pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><D:/Progr
-am Files/MikTex/fonts/type1/public/amsfonts/cm/cmmi6.pfb><D:/Program Files/MikT
-ex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/Program Files/MikTex/fonts/type
-1/public/amsfonts/cm/cmmi8.pfb><D:/Program Files/MikTex/fonts/type1/public/amsf
-onts/cm/cmr10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmr5.
-pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/Progra
-m Files/MikTex/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/Program Files/MikTex
-/fonts/type1/public/amsfonts/cm/cmss8.pfb><D:/Program Files/MikTex/fonts/type1/
-public/amsfonts/cm/cmsy10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfo
-nts/cm/cmsy7.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmti10
-.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmti8.pfb><D:/Prog
-ram Files/MikTex/fonts/type1/public/amsfonts/cm/cmtt8.pfb><D:/Program Files/Mik
-Tex/fonts/type1/public/amsfonts/cm/cmtt9.pfb><D:/Program Files/MikTex/fonts/typ
-e1/public/amsfonts/symbols/msam10.pfb><D:/Program Files/MikTex/fonts/type1/publ
-ic/amsfonts/symbols/msbm10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsf
-onts/symbols/msbm7.pfb>
-Output written on Huy_Phi_2020.pdf (19 pages, 456793 bytes).
+blic/amsfonts/cm/cmbx12.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfont
+s/cm/cmbx7.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmcsc10.
+pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/Prog
+ram Files/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><D:/Program Files/Mik
+Tex/fonts/type1/public/amsfonts/cm/cmmi6.pfb><D:/Program Files/MikTex/fonts/typ
+e1/public/amsfonts/cm/cmmi7.pfb><D:/Program Files/MikTex/fonts/type1/public/ams
+fonts/cm/cmmi8.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmr1
+0.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmr5.pfb><D:/Prog
+ram Files/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/Program Files/MikT
+ex/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/Program Files/MikTex/fonts/type1
+/public/amsfonts/cm/cmss8.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfo
+nts/cm/cmsy10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmsy7
+.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmti10.pfb><D:/Pro
+gram Files/MikTex/fonts/type1/public/amsfonts/cm/cmti8.pfb><D:/Program Files/Mi
+kTex/fonts/type1/public/amsfonts/cm/cmtt8.pfb><D:/Program Files/MikTex/fonts/ty
+pe1/public/amsfonts/cm/cmtt9.pfb><D:/Program Files/MikTex/fonts/type1/public/am
+sfonts/symbols/msam10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/
+symbols/msbm10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/symbols
+/msbm7.pfb>
+Output written on Huy_Phi_2020.pdf (20 pages, 481477 bytes).
 PDF statistics:
- 767 PDF objects out of 1000 (max. 8388607)
- 149 named destinations out of 1000 (max. 500000)
+ 810 PDF objects out of 1000 (max. 8388607)
+ 165 named destinations out of 1000 (max. 500000)
  70 words of extra memory for PDF output out of 10000 (max. 10000000)
 

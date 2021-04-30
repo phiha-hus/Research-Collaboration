@@ -76,34 +76,34 @@ I'm skipping whatever remains of this entry
 Warning--can't use both author and editor fields in AltH18
 You've used 25 entries,
             2118 wiz_defined-function locations,
-            993 strings with 12661 characters,
-and the built_in function-call counts, 7534 in all, are:
-= -- 744
-> -- 303
+            994 strings with 12594 characters,
+and the built_in function-call counts, 7503 in all, are:
+= -- 742
+> -- 298
 < -- 1
-+ -- 121
-- -- 94
-* -- 499
-:= -- 1279
++ -- 119
+- -- 92
+* -- 494
+:= -- 1273
 add.period$ -- 82
 call.type$ -- 25
-change.case$ -- 110
+change.case$ -- 109
 chr.to.int$ -- 0
 cite$ -- 26
 duplicate$ -- 299
 empty$ -- 644
-format.name$ -- 94
-if$ -- 1594
+format.name$ -- 92
+if$ -- 1589
 int.to.chr$ -- 0
 int.to.str$ -- 25
 missing$ -- 37
 newline$ -- 128
 num.names$ -- 51
-pop$ -- 130
+pop$ -- 129
 preamble$ -- 1
-purify$ -- 97
+purify$ -- 96
 quote$ -- 0
-skip$ -- 185
+skip$ -- 186
 stack$ -- 0
 substring$ -- 481
 swap$ -- 35

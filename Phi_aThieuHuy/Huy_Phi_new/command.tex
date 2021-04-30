@@ -29,6 +29,10 @@
 \def\bbL{\mathbb{L}}
 \def\bbM{\mathbb{M}}
 
+\def\osim{\overset{o}{\sim}}
+\def\tSi{\tilde{\Sigma}}
+
+
 \def\om{\omega}
 \def\leq{\leqslant}
 \def\rar{\rightarrow}
@@ -38,6 +42,7 @@
 \def\C{\hro{C}}
 \def\hro{\mathbb}
 \def\N{\hro{N}}
+
 
 \def\a{\alpha}
 \def\b{\beta}
@@ -52,6 +57,9 @@
 \def\si{\sigma}
 \def\ka{\kappa}
 \def\tka{\tilde{\kappa}}
+
+\def\bfE{\mathbf{E}}
+\def\bfA{\mathbf{A}}
 \def\CE{\mathcal{E}}
 \def\tE{\tilde{E}}
 \def\hE{\hat{E}}
@@ -64,10 +72,12 @@
 \def\hr{\hat{r}}
 \def\hv{\hat{v}}
 \def\tr{\tilde{r}}
-\def\trho{\tilde{\rho}}
 
+
+\def\trho{\tilde{\rho}}
 \def\nab{\nabla}
 
+\def\cA{\mathcal A}
 \def\cB{\mathcal B}
 \def\cM{\mathcal M}
 \def\tcM{\tilde{\mathcal M}}
@@ -156,6 +166,14 @@
 	\begin{bmatrix}
 		#1 
 	\end{bmatrix}
+}
+
+\newcommand{\sm}[1]{
+	\left[
+	\begin{smallmatrix}
+		#1 
+	\end{smallmatrix}
+	\right]
 }
 
 \renewcommand{\pm}[1]{

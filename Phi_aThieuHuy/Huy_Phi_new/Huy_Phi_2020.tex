@@ -14,9 +14,10 @@
 \usepackage{enumerate}
 
 %\usepackage[notcite]{showkeys}
-%\usepackage{color}
+\usepackage{color}
 \usepackage[inline,right]{showlabels}
-%\renewcommand{\showlabelfont}{\small\slshape\color{red}}
+%\renewcommand{\showlabelfont}{\sriptsize\slshape\color{red}}
+\renewcommand{\showlabelfont}{\ttfamily\small\color{red}} 
 
 \usepackage{lineno}
 \linenumbers
@@ -64,6 +65,7 @@
 	334 Nguyen Trai St., Hanoi, Vietnam}
 \email{haphi.hus@vnu.edu.vn}
 
+\date{\today}
 
 \begin{abstract}
 We study linear and semi-linear differential-algebraic equations (DAEs) on the half-line $\r_+$. 
@@ -80,37 +82,37 @@ Firstly, we characterize the existence of exponential dichotomy for linear DAEs 
  The present paper  focuses on the existence of invariant 
 (local and global) stable manifolds for semi-linear non-autonomous differential-algebraic equations (DAEs) of the form
 %
-\begin{equation}\label{eq1}
-\pm{d \mbox{ rows }\\ a \mbox{ rows }} \quad \underbrace{\m{E_1(t) \\ 0}}_{E(t)}  \dot{x}(t) = \underbrace{ \m{A_1(t) \\ A_2(t)} }_{A(t)} x(t) + 
+\begin{equation}\label{semi linDAE}
+\pm{d \mbox{ rows }\\ a \mbox{ rows }} \quad \underbrace{\m{\bfE_1(t) \\ 0}}_{E(t)}  \dot{x}(t) = \underbrace{ \m{\bfA_1(t) \\ \bfA_2(t)} }_{A(t)} x(t) + 
 \underbrace{ \m{f_1(t,x(t)) \\ f_2(t,x(t))} }_{f(t,x(t))} , \quad t\in \r_+:=[0,+\infty).
 \end{equation}
 %
 To do that, we start by investigating 
 the exponential dichotomy of the associated linear system
 %
-\begin{equation}\label{eq2}
+\begin{equation}\label{linDAE}
 E(t)\dot{x}(t) = A(t) x(t), \quad t\in [0,+\infty).
 \end{equation}
 %
-Here $E=\m{E_1(t) \\ 0}$, $A = \m{A_1(t) \\ A_2(t)}$ are assumed to be matrix-valued functions acting 
+Here $E=\m{\bfE_1(t) \\ 0}$, $A = \m{\bfA_1(t) \\ \bfA_2(t)}$ are assumed to be matrix-valued functions acting 
 on $\r_+$ to $\r^{n,n}$, 
-$x: \r_+  \rightarrow \r^{n}$, $f:\r_+ \times \r{^n} \rightarrow \r{^n}$. Furthermore, we assume that for all $t$, the matrices $E_1(t)$, $A_2(t)$ have full row rank. 
+$x: \r_+  \rightarrow \r^{n}$, $f:\r_+ \times \r{^n} \rightarrow \r{^n}$. Furthermore, we assume that for all $t$, the matrices $\bfE_1(t)$, $\bfA_2(t)$ have full row rank. 
 
-DAE systems of the forms \eqref{eq1}, \eqref{eq2} arise in many applications, include multibody dynamics, electrical circuits, chemical engineering, and many other applications. 
+DAE systems of the forms \eqref{semi linDAE}, \eqref{linDAE} arise in many applications, include multibody dynamics, electrical circuits, chemical engineering, and many other applications. 
 Due to the rank-deficiency of $E(t)$, the qualitative behavior of DAEs is much richer, in comparison to ordinary differential equations (ODEs). We refer the reader to recent monographs \cite{BieCM12,KunM06,LamMT13,IlcR13} and the references therein. 
 In particular, even though the stability analysis for DAEs have been intensively discussed (see the survey \cite[Chapter 2]{IlcR13}), 
 there are only few papers on the spectral theory of DAEs and in particular, the exponential dichotomy for DAEs. 
 We refer to \cite{LenM90} for the concept of exponential dichotomy and its relation to the well conditioning of the associated boundary value problem, to \cite{LinM09} for Lyapunov and other spectra for linear DAEs, to \cite{ChyDL08,DuL06} for the robustness of exponential stability and Bohl exponents. 
 
-On the other hand, whenever the exponential dichotomy of the linear, homogeneous system \eqref{eq2} is characterized, 
-the next important question in the qualitative theory of DAEs is to study the existence of  integral manifolds (e.g., stable, unstable, center, center-stable, center-unstable) for the semi-linear DAE \eqref{eq1} \cite{DalK02,Chi13}. 
+On the other hand, whenever the exponential dichotomy of the linear, homogeneous system \eqref{linDAE} is characterized, 
+the next important question in the qualitative theory of DAEs is to study the existence of  integral manifolds (e.g., stable, unstable, center, center-stable, center-unstable) for the semi-linear DAE \eqref{semi linDAE} \cite{DalK02,Chi13}. 
 Unfortunately, till now this question is essentially open for DAEs. In order to shorten these gaps, this paper is devoted to investigation of
- the exponential dichotomy of \eqref{eq2} and stable manifolds of \eqref{eq1}. Our method is based on the classical "Lyapunov-Perron method" (\cite{DalK02,Zhi72}) and the admissibility of function spaces (\cite{Huy06,Huy09a}). 
+ the exponential dichotomy of \eqref{linDAE} and stable manifolds of \eqref{semi linDAE}. Our method is based on the classical "Lyapunov-Perron method" (\cite{DalK02,Zhi72}) and the admissibility of function spaces (\cite{Huy06,Huy09a}). 
 
 The outline of this paper is as follows. In the rest of this first section we recall some basis concepts for later use, including the notion of the exponential dichotomy and its properties, as well as some important features of admissible function spaces. 
 %Then, in Section \ref{Sec 2} we present the admissibility of function spaces and their properties. 
- In Section \ref{Sec 3} we gives a characterization for the existence of exponential dichotomy for the DAE \eqref{eq2}. 
-Section \ref{Sec 4} contains our main results on the existence and properties of local stable manifold for the semi-linear DAE \eqref{eq1}. The global version of these results will be presented in Section \ref{Sec 5}. Finally, we illustrate our results by studying a spatial discretization of  Navier-Stokes equations, and we conclude this research by a summary and some open problems.\\
+ In Section \ref{Sec 3} we gives a characterization for the existence of exponential dichotomy for the DAE \eqref{linDAE}. 
+Section \ref{Sec 4} contains our main results on the existence and properties of local stable manifold for the semi-linear DAE \eqref{semi linDAE}. The global version of these results will be presented in Section \ref{Sec 5}. Finally, we illustrate our results by studying a spatial discretization of  Navier-Stokes equations, and we conclude this research by a summary and some open problems.\\
 
 \subsection{Evolution Families and Exponential Dichotomies}
 Let us now recall some basic notions. By ($\r^n$, $\n{\cdot}$) we denote the n-dimensional real vector space equipped with the Euclidean norm. For any matrix $V$, by $V^T$ we denote its transpose. \ 
@@ -174,8 +176,8 @@ A given evolution family $\{X(t,s)\}_{t\geq s\geq 0}$ of the ODE \eqref{eq3} is 
 Here $\{P(t)\}_{t\geq 0}$ (reps. $N$, $\nu$) are called \emph{dichotomy projections} (resp. \emph{dichotomy constants}).
 \end{definition}
 
-The concept exponential dichotomy means that the state space $\r^n$ has been splitted into the stable subspace ($\im(P(t))$)
-and the unstable subspace ($\ker(P(t))$). 
+The concept exponential dichotomy means that the state space $\r^n$ has been splitted into the (exponentially) stable subspace ($\im(P(t))$)
+and the (exponentially) unstable subspace ($\ker(P(t))$). 
 
 %================================================================================================================================
 \subsection{A short review of DAE solvability theory}
@@ -183,7 +185,7 @@ and the unstable subspace ($\ker(P(t))$).
 %Now let us recall some basic concepts and properties for DAEs, starting with \emph{fundamental solution matrix} as below.
 %
 \begin{definition}
-	(i) Consider the DAE \eqref{eq2}. A matrix function $X \in C([0,\infty),\r^{n,k})$, $d\leq k \leq n$, is called \emph{a fundamental solution matrix} of \eqref{eq2} if each of its columns is a solution to \eqref{eq2} and $\rank X(t)=d$, for all $t\geq 0$. \\
+	(i) Consider the DAE \eqref{linDAE}. A matrix function $X \in C([0,\infty),\r^{n,k})$, $d\leq k \leq n$, is called \emph{a fundamental solution matrix} of \eqref{linDAE} if each of its columns is a solution to \eqref{linDAE} and $\rank X(t)=d$, for all $t\geq 0$. \\
 	(ii) A fundamental solution matrix is said to be \emph{maximal} if $k=n$ and \emph{minimal} if $k=d$, respectively. A maximal fundamental solution is called \emph{principal} if it satisfies the \emph{projected initial condition}
 	%
 	\begin{equation}\label{projected intial condition}
@@ -193,21 +195,41 @@ and the unstable subspace ($\ker(P(t))$).
 \end{definition}
 %
 We can easily see that, the fundamental solution matrices for DAEs are not necessarily square or of full rank. Furthermore, each fundamental solution matrix has exactly $d$-linear independent columns, and a minimal fundamental solution matrix can be made maximal by adding $n-d$ zero columns. This is the major difference between ODEs and DAEs. Consequently, we are unable to define the evolution family for a DAE in the classical sense. The modified concept, but still capture the essence of an original one, has been proposed and carefully discussed in \cite{LinM09}. We recall it below, and notice that this concept is equivalent to the one proposed by Lentini and M\"arz in \cite{LenM90} within the context of the matrix chains approach and tractability index.
-Throughout this paper, we will assume the following.
+
+\textbf{\huge LinM09}
+
+
+Therefore, throughout this paper, we will assume the following.
 %
 \begin{assumption}\label{Ass1}
-Assume that the function pair $(E,A)$ in the DAEs \eqref{eq1} and \eqref{eq2} is \emph{strangeness-free}, i.e., 
+Assume that the function pair $(E,A)$ in the DAEs \eqref{semi linDAE}, \eqref{linDAE} is \emph{strangeness-free}, i.e., 
 %
 \[
-\rank \m{E_1(t) \\ A_2(t)} = n,
+\rank \m{\bfE_1(t) \\ \bfA_2(t)} = n,
 \]
 %
 for all $t\geq 0$. Furthermore, we assume that $E \in C^1([0,\infty),\r^{n,n})$ and $A \in C^0([0,\infty),\r^{n,n})$.
 \end{assumption}
 %
-\begin{remark}
-In general, not all systems of the type or \eqref{eq2} is strangeness-free. Nevertheless, under some constant rank assumption, one can always transform it, without alternating the solution space, to the strangeness-free form. For further details, see \cite{KunM06,BreCP96,LamMT13}.
-\end{remark}
+
+\begin{definition}
+The DAE 
+%
+\begin{equation}\label{eq7}
+	\tE(t) \dot{y}(t) = \tA(t) x(t) + \tf(t,y(t))
+\end{equation}%
+%
+is called \emph{orthogonally equivalent} to the DAE \eqref{semi linDAE} if there exist 
+pointwise-orthogonal matrix-valued functions $U\in C^0([0,\infty),\r^{n,n})$ and $V\in C^1([0,\infty),\r^{n,n})$, such that after changing variable $x(t) = V(t)y(t)$, and scaling \eqref{linDAE} with $U(t)$, we obtain exactly \eqref{eq7}. In details, this means that the following identities hold true.
+%
+\begin{equation}
+\tE = U E V, \ \tA = UAV-UE\dot{V}, \ \tf(t,y(t)) = U(t)f(t,Vy(t)), \mbox{ for all } t\geq 0.
+\end{equation}
+%
+We denote this orthogonal equivalence by $(E,A,f) \osim (\tE,\tA,\tf)$ and omit the terms $f$, $\tf$ if the homogeneous system \eqref{linDAE} is considered. 
+\end{definition}
+%
+Indeed, one can directly verify that this orthogonal equivalence concept is an equivalent relation, i.e., it fulfills three properties: reflexivity, symmetry and transitivity. We omit the detailed proof here in order to keep the brevity of this work. \
 %%
 %\begin{lemma}\label{thm3.9KunM06}(\cite[Theorem 3.9]{KunM06})
 %Let $E\in C^{\ell}(\hro{I},\C^{m,n})$, $\ell\in \N_0\cup \{\infty\}$, with constant $\rank E(t)=d$ for all $t\in \hro{I}$. Then there exist pointwise nonsingular
@@ -221,69 +243,65 @@ In general, not all systems of the type or \eqref{eq2} is strangeness-free. Neve
 %\end{lemma}
 %%
 %\textbf{\large Need to write more about Moore-Penrose pseudo inverse for $E(t)$ to prepare for Section 3}
-
-By making use of some smooth factorizations, for example QR or SVD (\cite{DieE99}  or \cite{KunM06}, Theorem 3.9), we can decouple and then exploit the structure of the DAE \eqref{eq2} in the following lemma.
+%%
+By making use of some smooth factorizations, for example QR or SVD (\cite{DieE99}  or \cite[Thm 3.9]{KunM06}), we can decouple and then exploit the structure of the DAE \eqref{linDAE} in the following lemma.
 
 %\begin{lemma}\label{lem0}
-%	Consider the DAE \eqref{eq1} and assume that it satisfies Assumption \ref{Ass1}. \\
-%	i) Then, there exists a continuous, pointwise-orthogonal matrix function $V(t)$, $t\geq 0$, such that by changing variable $x(t) = V(t)y(t)$, we can transform \eqref{eq1} to the form
+%	Consider the DAE \eqref{semi linDAE} and assume that it satisfies Assumption \ref{Ass1}. \\
+%	i) Then, there exists a continuous, pointwise-orthogonal matrix function $V(t)$, $t\geq 0$, such that by changing variable $x(t) = V(t)y(t)$, we can transform \eqref{semi linDAE} to the form
 %	%
 %	\begin{equation}\label{semi-explicit system}
-%	\m{\Si(t) & 0 \\ 0 & 0} \m{ \dot{y}_1(t) \\ \dot{y}_2(t)} = \m{\tA_1(t) & \tA_2(t) \\ \tA_3(t) & \tA_4(t)} \m{ y_1(t) \\ y_2(t)} + \m{\tf_1(t,y_1(t),y_2(t)) \\  \tf_2(t,y_1(t),y_2(t))},
+%	\m{\Si(t) & 0 \\ 0 & 0} \m{ \dot{y}_1(t) \\ \dot{y}_2(t)} = \m{A_1(t) & A_2(t) \\ A_3(t) & A_4(t)} \m{ y_1(t) \\ y_2(t)} + \m{\tf_1(t,y_1(t),y_2(t)) \\  \tf_2(t,y_1(t),y_2(t))},
 %	\end{equation}
 %	%
-%	with pointwise nonsingular matrix functions $\Si(t) \in \r^{d,d}$ and $\tA_4(t) \in \r^{a,a}$. \\
-%	ii) Consequently, the DAE \eqref{eq1} becomes the coupled system
+%	with pointwise nonsingular matrix functions $\Si(t) \in \r^{d,d}$ and $A_4(t) \in \r^{a,a}$. \\
+%	ii) Consequently, the DAE \eqref{semi linDAE} becomes the coupled system
 %	%
 %	\begin{align}\label{coupled system}
-%	\label{semi-explicit system.1} \Si(t) \dot{y}_1(t) &=  \tA_1(t)y_1(t) + \tA_2(t)y_2(t) + \tf_1(t,y_1(t),y_2(t)), \\
-%	\label{semi-explicit system.2} 0 &= \tA_3(t)y_1(t) + \tA_4(t)y_4(t) + \tf_2(t,y_1(t),y_2(t)).
+%	\label{semi-explicit system.1} \Si(t) \dot{y}_1(t) &=  A_1(t)y_1(t) + A_2(t)y_2(t) + \tf_1(t,y_1(t),y_2(t)), \\
+%	\label{semi-explicit system.2} 0 &= A_3(t)y_1(t) + A_4(t)y_4(t) + \tf_2(t,y_1(t),y_2(t)).
 %	\end{align}
 %	%
 %\end{lemma}
 
 \begin{lemma}\label{lem1}
-Consider the DAE \eqref{eq2} and assume that it satisfies Assumption \ref{Ass1}. Then, there exist  pointwise-orthogonal matrix-valued functions $U\in C^0([0,\infty),\r^{n,n})$ and $V\in C^1([0,\infty),\r^{n,n})$, such that after changing variable $x(t) = V(t)y(t)$, and scaling \eqref{eq2} with $U(t)$, we can transform it to the so-called \emph{semi-explicit system} of the following form
+Consider the DAE \eqref{linDAE} and assume that it satisfies Assumption \ref{Ass1}. Then, there exist pointwise-orthogonal matrix-valued functions $U\in C^0([0,\infty),\r^{n,n})$ and $V\in C^1([0,\infty),\r^{n,n})$, such that by changing variable $x(t) = V(t)y(t)$, and scaling \eqref{linDAE} with $U(t)$, we obtain the so-called \emph{semi-explicit system}
 %
 \be\label{semi-explicit system}
-\m{\Si(t) & 0 \\ 0 & 0} \m{ \dot{y}_1(t) \\ \dot{y}_2(t)} = \m{\tA_1(t) & \tA_2(t) \\ \tA_3(t) & \tA_4(t)} \m{ y_1(t) \\ y_2(t)},
+\m{\Si(t) & 0 \\ 0 & 0} \m{ \dot{y}_1(t) \\ \dot{y}_2(t)} = \m{A_1(t) & A_2(t) \\ A_3(t) & A_4(t)} \m{ y_1(t) \\ y_2(t)},
 \ee
 %
-with pointwise nonsingular matrix-valued functions $\Si(t) \in \r^{d,d}$ and $\tA_4(t) \in \r^{a,a}$. 
+with pointwise nonsingular matrix-valued functions $\Si(t) \in \r^{d,d}$ and $A_4(t) \in \r^{a,a}$. 
 %
 \end{lemma}
-\begin{proof} Applying an SVD factorization for $E_1(t)$ we can find 
+\begin{proof} Applying an SVD factorization for $\bfE_1(t)$ we can find 
 pointwise-orthogonal matrix functions $U_1(t) \in C^1([0,\infty),\r^{d,d})$ and $V\in C^1([0,\infty),\r^{n,n})$	
 such that
 %
-$ U_1(t) E_1(t) V(t) = \m{\Si(t) & 0}$,
+$ U_1(t) \bfE_1(t) V(t) = \m{\Si(t) & 0}$,
 %	  
-where $\Si(t)$ is a continuous, pointwise nonsingular function with values in $\r^{d,d}$. Changing the variable $x(t) = V(t)y(t)$ and scaling \eqref{eq2} with $U(t):=\m{U_1(t) & 0 \\ 0 & I_{a}}$, we obtain a new system 
+where $\Si(t)$ is a continuous, pointwise nonsingular function with values in $\r^{d,d}$. Changing the variable $x(t) = V(t)y(t)$ and scaling \eqref{linDAE} with $U(t):=\sm{U_1(t) & 0 \\ 0 & I_{a}}$, we obtain a new system exactly of the form \eqref{semi-explicit system}. Furthermore, notice that 
 %
 \[
-U(t) E(t) V(t) y(t) = U(t) \left( A(t)V(t) - E(t)\dot{V}(t) \right) y(t),
+\m{\Si(t) & 0 \\ A_3(t) & A_4(t)} = \m{U_1(t) & 0 \\ 0 & I_{a}} \ \m{\bfE_1(t) \\ \bfA_2(t)} \ V,
 \]
 %
-which is exactly of the form \eqref{semi-explicit system}. Furthermore, notice that 
-%
-\[
-\m{\Si(t) & 0 \\ \tA_3(t) & \tA_4(t)} = \m{U_1(t) & 0 \\ 0 & I_{a}} \ \m{E_1(t) \\ A_2(t)} \ V,
-\]
-%
-then Assumption \ref{Ass1} yields that both $\Si$ and $\tA_4$ are nonsingular. This completes the proof.
+then Assumption \ref{Ass1} yields that both $\Si$ and $A_4$ are nonsingular. This completes the proof.
 \end{proof}
 %
-Let $\hA_3 := -\tA^{-1}_4 \tA_3$, $\hA_s := \tA_1 + \tA_2 \tA^{-1}_4 \tA_3$ is the Schur complement, we rewrite system \eqref{semi-explicit system} as 
+Let $\hA_3 := -A^{-1}_4 A_3$, $\hA_1 := \Si^{-1} \left( A_1 - A_2 A^{-1}_4 A_3 \right)$, we rewrite system \eqref{semi-explicit system} as 
 %
-\begin{align}
-\label{eq5.1} \dot{y}_1(t) &= \Si^{-1}(t) \hA_s(t) y_1(t), \\ 
-\label{eq5.2} y_2(t) &= \hA_3(t) y_1(t).
-\end{align}
+\begin{subequations}\label{eq10}
+\begin{alignat}{2}
+ \dot{y}_1(t) &= \hA_1(t) y_1(t), \label{eq10.1} \\ 
+       y_2(t) &= \hA_3(t) y_1(t). \label{eq10.2}
+\end{alignat}
+\end{subequations}
 %
-Since $V(t)$ is orthogonal for all $t\geq 0$, we see that all important qualitative properties of $x(t)$, such as boundedness, exponential stability, contractivity, expansiveness, etc., can be carried out for the function $y(t)$. Clearly, we see that \eqref{eq5.2} gives an \emph{algebraic constraint} that the solution to \eqref{semi-explicit system} must obey, while \eqref{eq5.1} gives the dynamic of \eqref{semi-explicit system}. 
+Since $V(t)$ is orthogonal for all $t\geq 0$, we see that all important qualitative properties of $x(t)$, such as boundedness, exponential stability, contractivity, expansiveness, etc., can be carried out for the function $y(t)$ without any difficulty. Clearly, we see that \eqref{eq10.2} gives an \emph{algebraic constraint} that the solution to \eqref{semi-explicit system} must obey, while \eqref{eq10.1} gives the dynamic of \eqref{semi-explicit system}. 
 For this reason, we call it \emph{an underlying ODE} to \eqref{semi-explicit system}.\\
 
-Let $\{\hY_1(t,s)\}_{t\geq s \geq 0}$ be the evolution family associated with the matrix function $\hA_1(t)$, then we can define the corresponding evolution families for two DAEs \eqref{semi-explicit system}, \eqref{eq2} consecutively as follows.
+Let $\{\hY_1(t,s)\}_{t\geq s \geq 0}$ be the evolution family associated with the matrix function $\hA_1(t)$, then we can define the corresponding evolution families for two DAEs \eqref{semi-explicit system}, \eqref{linDAE} consecutively as follows.
 %
 \begin{equation}\label{eq4}
 \hY(t,s) := \m{\hY_1(t,s) & 0 \\ \hA_3(t) \hY_1(t,s) & 0}, \ \hX(t,s) := V(t)\hY(t,s) V^T(s), \mbox{ for all } t\geq s \geq 0.
@@ -302,14 +320,81 @@ Then, we can directly verify the semigroup properties, i.e.
 \hX(t,s) & = \hX(t,0) \hX^-(s,0), \mbox{ for all } t\geq s \geq 0.
 \end{align*}
 %
-Furthermore, Lemma \ref{lem5} below shows that the family $\{\hX(t,s)\}$ play the same role as the evolution family $(X(t,s))_{t\geq s\geq 0}$, in comparison to \eqref{variational form}.
+
+Furthermore, Lemmas \ref{lem4} and \ref{lem5} below show that the family $\{\hX(t,s)\}_{t\geq s\geq 0}$ does not depend on the choice of orthogonal transformations,  
+and it plays the same role as the evolution family $\{X(t,s)\}_{t\geq s\geq 0}$, in comparison to \eqref{variational form}.
+
+\begin{lemma}\label{lem4}
+The families $\{X(t,s)\}_{t\geq s\geq 0}$, $\{X^-(t,s)\}_{t\geq s\geq 0}$ defined by \eqref{eq4}, \eqref{eq5} do not depend on the choice of orthogonal transformations.
+\end{lemma}
+\begin{proof} We will prove this claim only for the first family $\{X(t,s)\}_{t\geq s\geq 0}$, since for the second family the proof is essentially the same. 
+Let us assume that we have two semi-explicit forms of system \eqref{linDAE} obtained under orthogonal transformations, i.e., 
+\begin{equation}\label{eq6}
+(E,A) \osim \left( \m{\Si & 0 \\ 0 & 0},\m{A_1 & A_2 \\ A_3 & A_4} \right)
+\mbox{ and }
+(E,A) \osim \left( \m{\tSi & 0 \\ 0 & 0},\m{\tA_1 & \tA_2 \\ \tA_3 & \tA_4} \right) \ .
+\end{equation}
+The transitivity implies that these two semi-explicit systems are also orthogonally equivalent. Thus, there exist pointwise-orthogonal matrix-valued functions $S\!=\!\sm{S_1 & S_2 \\ S_3 & S_4}\in \! C^0([0,\infty),\r^{n,n})$ and $T\!=\!\sm{T_1 & T_2 \\ T_3 & T_4}\in \! C^1([0,\infty),\r^{n,n})$, such that
+\begin{eqnarray}
+&& \m{\tSi & 0 \\ 0 & 0}  = \m{S_1 & S_2 \\ S_3 & S_4} \m{\Si & 0 \\ 0 & 0} \m{T_1 & T_2 \\ T_3 & T_4},  \label{14}\\
+&& \m{\tA_1 & \tA_2 \\ \tA_3 & \tA_4} =  \m{S_1 & S_2 \\ S_3 & S_4} \left( \m{A_1 & A_2 \\ A_3 & A_4} \m{T_1 & T_2 \\ T_3 & T_4} - 
+\m{\Si & 0 \\ 0 & 0} \m{\dot{T}_1 & \dot{T}_2 \\ \dot{T}_3 & \dot{T}_4} \right) \ . \label{15}
+\end{eqnarray}
+The first identity implies that $S_3 \Si \m{T_1 & T_2} = 0$. Notice that product of two full row rank matrices is also a full row rank matrix (see e.g. \cite{GolV96}), 
+this follows that $S_3 = 0$. Thus, $S=\sm{S_1 & S_2 \\ 0 & S_4}$, and hence, due to the orthogonality of $S$, we see that both $S_1$ is nonsingular and $S_4$ is also orthogonal. Also from \eqref{14}, we see that $S_1\Si T_2 = 0$, and hence $T_2 = 0$. Consequently, by inserting $S_3=0$ and $T_2=0$ into \eqref{14} and \eqref{15} we obtain
+%
+\begin{subequations}\label{eq16}
+\begin{alignat}{4}
+& \tSi = S_1 \Si T_1, \\	
+& \tA_1 = \m{S_1 & S_2} \left( \m{A_1 & A_2 \\ A_3 & A_4} \m{T_1 \\ T_3} - \m{\Si \dot{T}_1 \\ 0 } \right) , \\
+& \tA_2 = \m{S_1 & S_2} \m{A_2 \\ A_4} T_4, \\
+& \tA_3 = S_4 \m{A_3 & A_4}  \m{T_1 \\ T_3} , \\
+& \tA_4 = S_4 A_4 T_4 \ .
+\end{alignat}
+\end{subequations}
+%
+Now we determine the underlying equation \eqref{eq10.1} and the algebraic constraint equation \eqref{eq10.2} for the second system in \eqref{eq6}.
+These equations reads
+%
+\begin{subequations}\label{eq17}
+	\begin{alignat}{2}
+		\dot{\ty}_1(t) &= \hat{\cA}_1(t) \ty_1(t), \label{eq17.1} \\ 
+		\ty_2(t) &= \hat{\cA}_3(t) \ty_1(t). \label{eq17.2}
+	\end{alignat}
+\end{subequations}
+%  
+where $\hat{\cA}_3 := -\tA^{-1}_4 \tA_3$, $\hat{\cA}_1 := \tSi^{-1} \left( \tA_1 - \tA_2 \tA^{-1}_4 \tA_3 \right)$. 
+Furthermore, making use of \eqref{eq16} we see that 
+%
+\[
+\hat{\cA}_3 = - \tA^{-1}_4 \tA_3 = - \left( S_4 A_4 T_4 \right)^{-1} S_4 \m{A_3 & A_4}  \m{T_1 \\ T_3} = - T_4^{-1} \m{-\hA_3 & I}  \m{T_1 \\ T_3} \ , 
+\]
+%
+and 
+%
+\begin{align*}
+\tSi \hat{\cA}_1 &= \tA_1 - \tA_2 \tA^{-1}_4 \tA_3 \\
+		  		 &= \m{S_1 & S_2} \left( \m{A_1 & A_2 \\ A_3 & A_4} \m{T_1 \\ T_3} - \m{\Si \dot{T}_1 \\ 0 } \right) - 
+		  		 \m{S_1 & S_2} \m{A_2 \\ A_4} T_4 \left( S_4 A_4 T_4 \right)^{-1} S_4 \m{A_3 & A_4}  \m{T_1 \\ T_3} \\
+		  		 &= S_1 \left( \left(A_1 + A_2 A^{-1}_4 A_3 \right) T_1 - \Si \dot{T}_1 \right) \\
+		  		 &= S_1 \Si \left(  \hA_1 T_1 - \dot{T}_1 \right) \ .
+\end{align*}
+%
+Hence, we have
+%
+\[
+\hat{\cA}_1 = \left(S_1 \Si T_1\right)^{-1} \ S_1 \Si \left(  \hA_1 T_1 - \dot{T}_1 \right) = T_1^{-1} \left(  \hA_1 T_1 - \dot{T}_1 \right) \ .
+\]
+%
+Therefore, the underlying ODE \eqref{eq17.1} is directly obtained from \eqref{eq10.1} by the variable transformation $\ty_1(t)=T_1(t) y_1(t)$. 
+\end{proof}
 
 \begin{lemma}\label{lem5}
-Consider the DAE \eqref{eq1} and the evolution family $(X(t,s))_{t\geq s\geq 0}$ defined by \eqref{eq4}. Furthermore, we also consider the pointwise-orthogonal matrix-valued functions $U$, $V$ defined in Lemma \ref{lem5}. Then, the solution to \eqref{eq1}, if exists, also satisfies the so-called \emph{mild equation}
+Consider the DAE \eqref{semi linDAE} and the evolution family $(X(t,s))_{t\geq s\geq 0}$ defined by \eqref{eq4}. Furthermore, we also consider the pointwise-orthogonal matrix-valued functions $U$, $V$ defined in Lemma \ref{lem5}. Then, the solution to \eqref{semi linDAE}, if exists, also satisfies the so-called \emph{mild equation}
 	%
 	\begin{align*}
-		\m{x_1(t) \\ x_2(t)} =& \hX(t,s) \m{x_1(s) \\ x_2(s)} + \int_{s}^{t} \hX(t,\tau) \m{\Si^{-1}(\tau) & -\Si^{-1}(t) \tA_2(t) \tA^{-1}_4(t) \\ 0 & 0} U(\tau) f(\tau,x(\tau)) d\tau  \\
-		&\ + \m{0 & 0 \\ 0 & -\tA^{-1}_4(t) } U(t) f(t,x(t)),
+		\m{x_1(t) \\ x_2(t)} =& \hX(t,s) \m{x_1(s) \\ x_2(s)} + \int_{s}^{t} \hX(t,\tau) \m{\Si^{-1}(\tau) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & 0} U(\tau) f(\tau,x(\tau)) d\tau  \\
+		&\ + \m{0 & 0 \\ 0 & -A^{-1}_4(t) } U(t) f(t,x(t)),
 	\end{align*}
 	for all $t\geq s \geq 0$.	
 \end{lemma}
@@ -342,7 +427,7 @@ and
 \end{equation*}
 %
 In addition, since $V^T(0) \m{Id-\Py(t) & 0 \\ 0 & 0} V(0)$ is also a projection matrix for any $t\geq 0$, we can interpret the exponential dichotomy of 
-\eqref{eq2} as the one of \eqref{semi-explicit system}. 
+\eqref{linDAE} as the one of \eqref{semi-explicit system}. 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 2%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \subsection{Function Spaces and Admissibility} \label{Sec 2}
 
@@ -477,10 +562,10 @@ In the qualitative analysis of ODEs, one of the central topic is to
 find sufficient and necessary conditions for the considered systems to admit exponential dichotomy. Many researches have been devoted to this topic, and critical results have been achieved for ODEs  in finite and infinite dimensional phase spaces (e.g. \cite[Chap. 4]{DalK02}, \cite{Zhi72}). For DAEs, the only result that we are aware of is recalled below.
 
 \begin{proposition}\label{prop1} (\cite{LinM09})
-	The DAE \eqref{semi-explicit system} has an exponential dichotomy if and only if the corresponding underlying ODE \eqref{eq5.1} also has exponential dichotomy, and the matrix function $\hA_3(t)$ is bounded. Moreover, the existence of exponential dichotomy imlies that $\underset{t\geq 0}{\sup \ } \|\Py(t)\| < \infty$. 
+	The DAE \eqref{semi-explicit system} has an exponential dichotomy if and only if the corresponding underlying ODE \eqref{eq10.1} also has exponential dichotomy, and the matrix function $\hA_3(t)$ is bounded. Moreover, the existence of exponential dichotomy imlies that $\underset{t\geq 0}{\sup \ } \|\Py(t)\| < \infty$. 
 \end{proposition}
 
-Together with \eqref{eq2}, let us consider the following system
+Together with \eqref{linDAE}, let us consider the following system
 %
 \begin{equation}\label{eq3.1}
 	E(t)\dot{x}(t) = A(t) x(t) + g(t) \ .  
@@ -500,30 +585,30 @@ For this reason, we recall a classical result by Perron below.
 In view of Proposition \ref{prop2}, comparable result has not been achieved for DAEs, and hence, this will be our main aim in this section.
 
 \begin{definition}\label{EA-bounded}
-	Consider the matrix functions $E$, $A$ in system \eqref{eq2}. Then, a function $g:\r_+ \rar \r^n$ satisfying the condition 
+	Consider the matrix functions $E$, $A$ in system \eqref{linDAE}. Then, a function $g:\r_+ \rar \r^n$ satisfying the condition 
 	%
 	\[
-	\underset{t\geq 0}{\sup} \bigg\{ \bigg\| \m{\Si^{-1}(t) & -\Si^{-1}(t) \tA_2(t) \tA^{-1}_4(t) \\ 0 & \tA^{-1}_4(t)} g(t) \bigg\| \bigg\} < +\infty,
+	\underset{t\geq 0}{\sup} \bigg\{ \bigg\| \m{\Si^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & A^{-1}_4(t)} g(t) \bigg\| \bigg\} < +\infty,
 	\]
 	%
 	is called $(E,A)$-bounded. We denote the set of all continuous and
 	 $(E,A)$-bounded functions by $\BEA$.
 \end{definition}
 
-The main result of this section is to prove a characterization of the exponential dichotomy for DAEs. Roughly speaking, the DAE \eqref{eq2} admits exponential dichotomy if and only if the mapping $\cL := E\dfrac{d}{dt} - A$ is surjective on the space $\BEA$. 
+The main result of this section is to prove a characterization of the exponential dichotomy for DAEs. Roughly speaking, the DAE \eqref{linDAE} admits exponential dichotomy if and only if the mapping $\cL := E\dfrac{d}{dt} - A$ is surjective on the space $\BEA$. 
 We formulate our main result in this section as follows.
 \begin{theorem}\label{thm3.1}
-	Consider the linear, strangeness-free DAE \eqref{eq2} and the associated inhomogeneous DAE \eqref{eq3.1}. 
-	%Then, the DAE \eqref{eq2} admits exponential dichotomy if and only if for any continuous, $(E,A)$-bounded function $g(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to the DAE \eqref{eq3.1}.
+	Consider the linear, strangeness-free DAE \eqref{linDAE} and the associated inhomogeneous DAE \eqref{eq3.1}. 
+	%Then, the DAE \eqref{linDAE} admits exponential dichotomy if and only if for any continuous, $(E,A)$-bounded function $g(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to the DAE \eqref{eq3.1}.
 	Then the following assertions hold. 
 	\begin{enumerate}[(i)]
-	\item If the DAE \eqref{eq2} admits exponential dichotomy then for any continuous, $(E,A)$-bounded function $g(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to the DAE \eqref{eq3.1}. 
+	\item If the DAE \eqref{linDAE} admits exponential dichotomy then for any continuous, $(E,A)$-bounded function $g(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to the DAE \eqref{eq3.1}. 
 	\item If the matrix function $\hA_3(t)$ is bounded, then the converse of assertion (i) holds true.
 	\end{enumerate}
 \end{theorem}
 
 \begin{proof}
-	Firstly, we notice that, since $\hg = \m{\Sigma^{-1}(t) & -\Si^{-1}(t) \tA_2(t) \tA^{-1}_4(t) \\ 0 & -\hA_4^{-1}} U(t)
+	Firstly, we notice that, since $\hg = \m{\Sigma^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & -\hA_4^{-1}} U(t)
 	 g(t)$, the $(E,A)$-boundedness of $f$ is equivalent to the boundedness of $\hf$. Recall that the semi-explicit system \eqref{semi-explicit system} reads
 	%
 	\begin{align} %\label{eq3.10}
@@ -532,24 +617,24 @@ We formulate our main result in this section as follows.
 	\end{align}
 	%  
 	
-	(i) Assuming that the DAE \eqref{eq2} admits exponential dichotomy, then \eqref{semi-explicit system} also has an exponential dichotomy. Proposition \ref{prop1} implies that equation \eqref{eq3.10a} has an exponential dichotomy, and the function $\hA_3$ is bounded. Therefore, Proposition \ref{prop2} implies that $y_1$ is bounded, and consequently, $y_2$ is also bounded.   
+	(i) Assuming that the DAE \eqref{linDAE} admits exponential dichotomy, then \eqref{semi-explicit system} also has an exponential dichotomy. Proposition \ref{prop1} implies that equation \eqref{eq3.10a} has an exponential dichotomy, and the function $\hA_3$ is bounded. Therefore, Proposition \ref{prop2} implies that $y_1$ is bounded, and consequently, $y_2$ is also bounded.   
 	%
 
-	(ii) From Proposition \ref{prop2}, it follows that \eqref{eq3.10a} has exponential dichotomy \textbf{May be wrong, since the domains of g and hg are not the same}.  On the other hand, the boundedness of $\hA_3$ implies that \eqref{eq2} admits exponential dichotomy.
+	(ii) From Proposition \ref{prop2}, it follows that \eqref{eq3.10a} has exponential dichotomy \textbf{May be wrong, since the domains of g and hg are not the same}.  On the other hand, the boundedness of $\hA_3$ implies that \eqref{linDAE} admits exponential dichotomy.
 \end{proof}
 
 %\begin{remark}
-%Making use of admissible function spaces, stronger conditions for characterizing the exponential dichotomy of the DAE \eqref{eq2} have been obtained in \cite{HuyP19b}, where an inhomogeneity function $g(t)$ belongs to less restricted spaces than $\BEA$. There, we also study the robustness of exponential dichotomy under structured-perturbations.%
+%Making use of admissible function spaces, stronger conditions for characterizing the exponential dichotomy of the DAE \eqref{linDAE} have been obtained in \cite{HuyP19b}, where an inhomogeneity function $g(t)$ belongs to less restricted spaces than $\BEA$. There, we also study the robustness of exponential dichotomy under structured-perturbations.%
 %\end{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Local Stable manifolds for semi-linear DAEs}\label{Sec 4}
 
-In this section we study the existence of a local stable manifold for the semi-linear DAE  \eqref{eq1}. 
-Throughout this section we assume that the evolution family  $(X(t,s))_{t\geq s\geq 0}$ associated with the linear, homogeneous DAE \eqref{eq2} admits an exponential dichotomy on $\hro{R_+}$. 
+In this section we study the existence of a local stable manifold for the semi-linear DAE  \eqref{semi linDAE}. 
+Throughout this section we assume that the evolution family  $(X(t,s))_{t\geq s\geq 0}$ associated with the linear, homogeneous DAE \eqref{linDAE} admits an exponential dichotomy on $\hro{R_+}$. 
 
 From Lemma \ref{lem1}, by using orthogonal transformation $x(t)=V(t)y(t)$, where $y(t)= \m{y_1(t) \\ y_2(t)}  \in \r^{d+a}$ 
-we can transform \eqref{eq1} to the coupled system
+we can transform \eqref{semi linDAE} to the coupled system
 %
 \begin{align}
 	\label{eq4.1a} \dot{y}_1(t) &= \hA_1(t) y_1(t) + \hf_1(t,y(t)), \\
@@ -560,24 +645,24 @@ where
 %
 \begin{equation}\label{eq4.2}
 \hf(t,y(t)) = \m{\hf_1(t,y(t)) \\ \hf_2(t,y(t)) } := 
-\m{\Sigma^{-1}(t) & -\Si^{-1}(t) \tA_2(t) \tA^{-1}_4(t) \\ 0 & -\hA_4^{-1}} U(t) \m{f_1(t,y(t)) \\ f_2(t,y(t))} \ .
+\m{\Sigma^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & -\hA_4^{-1}} U(t) \m{f_1(t,y(t)) \\ f_2(t,y(t))} \ .
 \end{equation}
 %
 
 %
 \[
-\hf = \m{\hf_1 \\ \hf_2} := \m{\Si^{-1}(t) & 0 \\ 0 & -\tA^{-1}_4(t) } U(t) f(t,x(t)) 
+\hf = \m{\hf_1 \\ \hf_2} := \m{\Si^{-1}(t) & 0 \\ 0 & -A^{-1}_4(t) } U(t) f(t,x(t)) 
 \]
 %
 
-Notice that, unlike the DAEs \eqref{eq2} and \eqref{eq3.1}, equation \eqref{eq4.1b} only gives an implicit algebraic constraint in terms of $y_1$ and $y_2$. In order to guarantee the strangeness-free of system \eqref{eq1}, we need the following assumption. 
+Notice that, unlike the DAEs \eqref{linDAE} and \eqref{eq3.1}, equation \eqref{eq4.1b} only gives an implicit algebraic constraint in terms of $y_1$ and $y_2$. In order to guarantee the strangeness-free of system \eqref{semi linDAE}, we need the following assumption. 
 
 \def\r{\mathbb{R}}
 \begin{assumption}\label{Ass4.1}
-Assume that for some $\rho > 0$, the function $\tA^{-1}_4(t) f_2(t,x)$ is a contraction mapping  in the ball $B_{\rho}:=\{x\in\r^n | \ \|x\|\le \rho\}$ (uniformly in time), i.e., 
+Assume that for some $\rho > 0$, the function $A^{-1}_4(t) f_2(t,x)$ is a contraction mapping  in the ball $B_{\rho}:=\{x\in\r^n | \ \|x\|\le \rho\}$ (uniformly in time), i.e., 
 %
 \[
-\| \tA^{-1}_4(t) \left( f_2(t,x) - f_2(t,\tx) \right) \| \leq L \|x-\tx \|, 
+\| A^{-1}_4(t) \left( f_2(t,x) - f_2(t,\tx) \right) \| \leq L \|x-\tx \|, 
 \]
 %
 for a.e. $t\in\hro{R_+}$, and for all $x, \tx \in B_{\rho}$ where the Lipschitz constant $L$ satisfies that $L<1$.
@@ -611,20 +696,20 @@ Let	$\vphi$ be a positive function belonging to an admissible Banach function sp
 \end{definition}
 %
 \begin{assumption}\label{Ass4.2}
-Assume that the function \ $t\mapsto \Sigma^{-1}(t) \m{I_d & -\tA_2(t) \tA^{-1}_4(t)} f(t,x(t))$  belongs to class $(M,\vphi,\rho)$ for some positive constants $M$, $\rho$ and a positive function $\vphi \in E$.
+Assume that the function \ $t\mapsto \Sigma^{-1}(t) \m{I_d & -A_2(t) A^{-1}_4(t)} f(t,x(t))$  belongs to class $(M,\vphi,\rho)$ for some positive constants $M$, $\rho$ and a positive function $\vphi \in E$.
 \end{assumption}
 
 The following proposition gives one sufficient condition for examining Assumptions \ref{Ass4.1}, \ref{Ass4.2}.
 
 \begin{proposition}
-Consider the semi-linear DAE \eqref{eq1}. Furthermore, assume that all three functions $\Si^{-1}$, $\tA^{-1}_4$, $\Si^{-1} \tA_2 \tA^{-1}_4$ are bounded. If the function $f = \m{f_1 \\ f_2}$ belongs to the class $(M,\vphi,\rho)$ then the following claims hold true. \\
+Consider the semi-linear DAE \eqref{semi linDAE}. Furthermore, assume that all three functions $\Si^{-1}$, $A^{-1}_4$, $\Si^{-1} A_2 A^{-1}_4$ are bounded. If the function $f = \m{f_1 \\ f_2}$ belongs to the class $(M,\vphi,\rho)$ then the following claims hold true. \\
 i) $\hf_1$ belongs to the class $(M,\vphi,\rho)$, and \\
-ii) $f_2$ is Lipschitz with the Lipschitz constant $\vphi \ \underset{t\geq 0}{\sup} \ \n{\tA^{-1}_4}$.
+ii) $f_2$ is Lipschitz with the Lipschitz constant $\vphi \ \underset{t\geq 0}{\sup} \ \n{A^{-1}_4}$.
 
 We notice that a sufficient condition for Assumption \eqref{Ass4.1} is that 
 %
 \begin{equation}\label{Lipschitz}
-	\| f_2(t,x) - f_2(t,\tx) \| \leq \dfrac{L}{\n{\tA^{-1}_4(t)}} \|x-\tx \|  \ .
+	\| f_2(t,x) - f_2(t,\tx) \| \leq \dfrac{L}{\n{A^{-1}_4(t)}} \|x-\tx \|  \ .
 \end{equation}
 %
 \end{proposition}
@@ -835,13 +920,13 @@ Furthermore, notice that from \eqref{eq4.7} it follows that
 $\mu<\nu$ implying the positivity of $H_4$. This completes the proof.
 \end{proof}
 
-%We define the so-called \emph{constrained manifold}, which all the solution to \eqref{eq1} must lie on
+%We define the so-called \emph{constrained manifold}, which all the solution to \eqref{semi linDAE} must lie on
 %%
 %\[
 %\bbL(t,x):= \{(t,x) \in \r_+ \times \r^n\ | \  0 = A_2(t)x(t) + f_2(t,x(t)) \}  \ . 
 %\]
 %%
-%We further notice that this manifold is of dimension $d$, which is the degree of freedom to the DAE \eqref{eq1}. 
+%We further notice that this manifold is of dimension $d$, which is the degree of freedom to the DAE \eqref{semi linDAE}. 
 %Now we are able to introduce the concept of a stable manifold for the solutions of the integral-algebraic system \eqref{mild equation}.
 %
 %\begin{definition}\label{def4.2}
@@ -951,7 +1036,7 @@ Finally, $H_3< \dfrac{(1-L)(1+H_1)(1+H_2)}{N+(1+H_1)(1+H_2)}$ yields that $\dfra
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Global Invariant stable manifolds for semi-linear DAEs}\label{Sec 5}
 
-In this section we study the existence of global stable manifolds for semi-linear DAEs of the form \eqref{eq1}. We begin with the concept of $\vphi$-Lipschitz functions.
+In this section we study the existence of global stable manifolds for semi-linear DAEs of the form \eqref{semi linDAE}. We begin with the concept of $\vphi$-Lipschitz functions.
 
 \begin{definition}\label{def5.1}
 Let $E$ be an admissible Banach function space and $\vphi \in E$ be a positive function. A function $h:\hro{R}_+ \times \r^{n}\rar\r^{d} $ is said to be \emph{$\vphi$-Lipschitz} if the following conditions hold true.
@@ -966,8 +1051,8 @@ In comparability to Assumptions \ref{Ass4.1}, \ref{Ass4.2}, we also need some gl
 \begin{assumption}\label{Ass5.1}
 Assume that the following hypotheses hold true.
 \begin{enumerate}[(i)]
-\item  The function   $\Si^{-1}(t)  \ f_1(t,x(t)) - \Si^{-1}(t) \tA_2(t) \tA^{-1}_4(t)  \ f_2(t,x(t))$ \ is $\vphi$-Lipschitz. 
-\item The function $\tA^{-1}_4(t) \ f_2(t,x(t))$ is a contraction mapping with the Lipschitz constant $L<1$ for all $(t,x(t))$ lying on the constraint-manifold associated with \eqref{eq1} defined by
+\item  The function   $\Si^{-1}(t)  \ f_1(t,x(t)) - \Si^{-1}(t) A_2(t) A^{-1}_4(t)  \ f_2(t,x(t))$ \ is $\vphi$-Lipschitz. 
+\item The function $A^{-1}_4(t) \ f_2(t,x(t))$ is a contraction mapping with the Lipschitz constant $L<1$ for all $(t,x(t))$ lying on the constraint-manifold associated with \eqref{semi linDAE} defined by
 \begin{equation*}
 \bbL(t,x):= \{(t,x) \in \r_+ \times \r^n \ | \   A_2(t)x + f_2(t,x)=0 \}  \ . 
 \end{equation*}
@@ -1127,24 +1212,24 @@ Now let us illustrate our results by the following examples.
 		0 &= C^TM^{-1}C \ P - C^TM^{-1} \left( F-(K+N(U)) \ U \right) \ .
 		\end{align}
 		%
-		Clearly, we still need to linearize \eqref{eq5.3} to obtain system of the form \eqref{eq1}.
+		Clearly, we still need to linearize \eqref{eq5.3} to obtain system of the form \eqref{semi linDAE}.
 		Fortunately, in this case the linearization procedure around a trajectory yields the decoupled form \eqref{semi-explicit system}
 		%
 		\begin{align}\label{eq5.4}
-		M \dot{U} &= \tA_1(t) U + \tA_2(t) P + g_1(t,U,P), \notag \\
-		0 &= C^TM^{-1} \left( C - \dfrac{\partial F}{\partial P} \right) P - C^TM^{-1} \left(\dfrac{\partial F}{\partial U} - A(t) \right) U +  C^TM^{-1} g_2(t,U,P) \ .
+		M \dot{U} &= A_1(t) U + A_2(t) P + g_1(t,U,P), \notag \\
+		0 &= C^TM^{-1} \left( C - \dfrac{\partial F}{\partial P} \right) P - C^TM^{-1} \left(\dfrac{\partial F}{\partial U} - K \right) U +  C^TM^{-1} g_2(t,U,P) \ .
 		\end{align}
 		%
 		We further notice that since $C^T M^{-1} \left( C - \dfrac{\partial F}{\partial P} \right)$ is nonsingular, from the second equation we can uniquely determine $P$ in term of $U$, and hence, system \eqref{eq5.3} is indeed strangeness-free. 
 		Let 
 		%
 		\[
-		\tA_3(t) :=  - C^TM^{-1} \left(\dfrac{\partial F}{\partial U} - A(t) \right) , \ \tA_4(t) := C^TM^{-1} \left( C - \dfrac{\partial F}{\partial P} \right) \]
+		A_3(t) :=  - C^TM^{-1} \left(\dfrac{\partial F}{\partial U} - K \right) , \ A_4(t) := C^TM^{-1} \left( C - \dfrac{\partial F}{\partial P} \right) \]
 		%
 		Consequently, if the homogenous DAE 
 		%
 		\[
-		\m{M & 0 \\ 0 & 0} \m{\dot{U} \\ \dot{P} } = \m{\tA_1(t) & \tA_2(t) \\ \tA_3(t) & \tA_4(t)} \m{U \\ P}
+		\m{M & 0 \\ 0 & 0} \m{\dot{U} \\ \dot{P} } = \m{A_1(t) & A_2(t) \\ A_3(t) & A_4(t)} \m{U \\ P}
 		\]
 		%
 		admits an exponential dichotomy, and $g_1$ satisfies the $\vphi$-Lipschitz condition, and $g_2$ is a contraction mapping (uniformly in time), then there exists a stable manifold for the solution to \eqref{eq5.3}.
@@ -1235,7 +1320,7 @@ Thus, for $\vphi$-Lipschitz function $v_R$ and contraction mapping $i_G$, we obt
 		C^TU &= g(U,P), 
 		\end{align*}
 		%
-		where $U(t)$, $P(t)$ approximate the velocity $u(t,\xi)$ and the pressure $p(t,\xi)$, respectively. Here the leading matrix $M$ is either an identity matrix or a symmetric positive definite matrix depending on the spatial discretization scheme. Furthermore, the matrix $C^T M^{-1} \left( C - \dfrac{\partial f}{\partial P} \right)$ is nonsingular. Using linearization around a trajectory, we then obtain a system of the form \eqref{eq1}. Nevertheless, it is well-known, e.g. \cite{AltH18}, that the differentiation index of this system is two, and hence, it is not strangeness-free. Thus, one need to transform it first to obtain a strangeness-free DAE below.
+		where $U(t)$, $P(t)$ approximate the velocity $u(t,\xi)$ and the pressure $p(t,\xi)$, respectively. Here the leading matrix $M$ is either an identity matrix or a symmetric positive definite matrix depending on the spatial discretization scheme. Furthermore, the matrix $C^T M^{-1} \left( C - \dfrac{\partial f}{\partial P} \right)$ is nonsingular. Using linearization around a trajectory, we then obtain a system of the form \eqref{semi linDAE}. Nevertheless, it is well-known, e.g. \cite{AltH18}, that the differentiation index of this system is two, and hence, it is not strangeness-free. Thus, one need to transform it first to obtain a strangeness-free DAE below.
 		%
 		\begin{align}
 		M \dot{U} + (K+N(U)) \ U + C P &= F(U,P), \notag \\

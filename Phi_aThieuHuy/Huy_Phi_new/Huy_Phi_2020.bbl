@@ -12,12 +12,6 @@ Lorenz~T. Biegler, Stephen~L. Campbell, and Volker Mehrmann, editors.
   Constraints}.
 \newblock {SIAM} Publications, Philadelphia, PA, 2012.
 
-\bibitem{BreCP96}
-K.~E. Brenan, S.~L. Campbell, and L.~R. Petzold.
-\newblock {\em Numerical Solution of Initial-Value Problems in Differential
-  Algebraic Equations}.
-\newblock {SIAM} Publications, Philadelphia, PA, 2nd edition, 1996.
-
 \bibitem{Chi13}
 C.~Chicone.
 \newblock {\em Ordinary Differential Equations with Applications}.
@@ -46,6 +40,11 @@ Nguyen~Huu Du and Vu~Hoang Linh.
 \newblock Stability radii for linear time-varying differential–algebraic
   equations with respect to dynamic perturbations.
 \newblock {\em Journal of Differential Equations}, 230(2):579 -- 599, 2006.
+
+\bibitem{GolV96}
+G.~H. Golub and C.~F. {Van Loan}.
+\newblock {\em Matrix Computations}.
+\newblock The Johns Hopkins University Press, Baltimore, MD, 3rd edition, 1996.
 
 \bibitem{GroR07}
 C.~Grossmann, H.G. Roos, and M.~Stynes.
