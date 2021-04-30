@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.29)  30 APR 2021 17:10
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.29)  1 MAY 2021 00:23
 entering extended mode
 **./Huy_Phi_2020.tex
 (Huy_Phi_2020.tex
@@ -745,31 +745,31 @@ Underfull \hbox (badness 10000) in paragraph at lines 298--303
 
  []
 
-[4] [5] [6] [7] [8] [9] [10] [11]
-Overfull \hbox (5.6736pt too wide) detected at line 904
+[4] [5] [6] [7] [8] [9] [10] [11] [12]
+Overfull \hbox (5.6736pt too wide) detected at line 922
 []
  []
 
-[12] [13]
-Underfull \hbox (badness 10000) in paragraph at lines 996--998
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 1014--1016
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1003--1007
+Underfull \hbox (badness 10000) in paragraph at lines 1021--1025
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1013--1016
+Underfull \hbox (badness 10000) in paragraph at lines 1031--1034
 
  []
 
 [14] [15] [16] [17]
-<Josephson-junction.png, id=564, 346.29375pt x 196.48407pt>
+<Josephson-junction.png, id=567, 346.29375pt x 196.48407pt>
 File: Josephson-junction.png Graphic file (type png)
 <use Josephson-junction.png>
-Package pdftex.def Info: Josephson-junction.png  used on input line 1243.
+Package pdftex.def Info: Josephson-junction.png  used on input line 1261.
 (pdftex.def)             Requested size: 207.77785pt x 117.89134pt.
  [18 <./Josephson-junction.png>] (Huy_Phi_2020.bbl [19])
 [20] (Huy_Phi_2020.aux)
@@ -780,13 +780,13 @@ Package rerunfilecheck Info: File `Huy_Phi_2020.out' has not changed.
 (rerunfilecheck)             Checksum: 9B0D6F8B8E57190E6127A193BD8333D8;2098.
  ) 
 Here is how much of TeX's memory you used:
- 11494 strings out of 479321
- 159956 string characters out of 2866504
- 577874 words of memory out of 3000000
- 28427 multiletter control sequences out of 15000+600000
+ 11504 strings out of 479321
+ 160033 string characters out of 2866504
+ 578113 words of memory out of 3000000
+ 28434 multiletter control sequences out of 15000+600000
  422334 words of font info for 94 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
- 82i,21n,88p,802b,570s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 82i,21n,88p,802b,500s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\DELL\AppData\Local\MiKTeX\fonts/pk/ljfour/public/mathabx/dpi600\ma
 tha5.pk> <C:\Users\DELL\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600
 \tcrm1000.pk> <C:\Users\DELL\AppData\Local\MiKTeX\fonts/pk/ljfour/public/mathab
@@ -816,9 +816,9 @@ pe1/public/amsfonts/cm/cmtt9.pfb><D:/Program Files/MikTex/fonts/type1/public/am
 sfonts/symbols/msam10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/
 symbols/msbm10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/symbols
 /msbm7.pfb>
-Output written on Huy_Phi_2020.pdf (20 pages, 481477 bytes).
+Output written on Huy_Phi_2020.pdf (20 pages, 483790 bytes).
 PDF statistics:
- 810 PDF objects out of 1000 (max. 8388607)
- 165 named destinations out of 1000 (max. 500000)
+ 816 PDF objects out of 1000 (max. 8388607)
+ 168 named destinations out of 1000 (max. 500000)
  70 words of extra memory for PDF output out of 10000 (max. 10000000)
 
