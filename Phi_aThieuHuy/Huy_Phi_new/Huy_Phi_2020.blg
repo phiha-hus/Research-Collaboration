@@ -37,6 +37,10 @@ Repeated entry---line 13801 of file Phi_July_2018.bib
  : @article{ChyDL08
  :                 ,
 I'm skipping whatever remains of this entry
+Repeated entry---line 13815 of file Phi_July_2018.bib
+ : @book{Cop78
+ :            ,
+I'm skipping whatever remains of this entry
 Repeated entry---line 13836 of file Phi_July_2018.bib
  : @article{DieE99
  :                ,
@@ -76,24 +80,24 @@ I'm skipping whatever remains of this entry
 Warning--can't use both author and editor fields in AltH18
 You've used 25 entries,
             2118 wiz_defined-function locations,
-            994 strings with 12594 characters,
-and the built_in function-call counts, 7503 in all, are:
-= -- 742
-> -- 298
+            993 strings with 12586 characters,
+and the built_in function-call counts, 7459 in all, are:
+= -- 737
+> -- 292
 < -- 1
-+ -- 119
-- -- 92
-* -- 494
-:= -- 1273
++ -- 117
+- -- 90
+* -- 488
+:= -- 1266
 add.period$ -- 82
 call.type$ -- 25
-change.case$ -- 109
+change.case$ -- 107
 chr.to.int$ -- 0
 cite$ -- 26
 duplicate$ -- 299
 empty$ -- 644
-format.name$ -- 92
-if$ -- 1589
+format.name$ -- 90
+if$ -- 1580
 int.to.chr$ -- 0
 int.to.str$ -- 25
 missing$ -- 37
@@ -101,9 +105,9 @@ newline$ -- 128
 num.names$ -- 51
 pop$ -- 129
 preamble$ -- 1
-purify$ -- 96
+purify$ -- 95
 quote$ -- 0
-skip$ -- 186
+skip$ -- 185
 stack$ -- 0
 substring$ -- 481
 swap$ -- 35
@@ -114,5 +118,5 @@ type$ -- 74
 warning$ -- 1
 while$ -- 69
 width$ -- 27
-write$ -- 277
-(There were 17 error messages)
+write$ -- 276
+(There were 18 error messages)

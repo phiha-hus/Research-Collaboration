@@ -94,9 +94,8 @@ the exponential dichotomy of the associated linear system
 E(t)\dot{x}(t) = A(t) x(t), \quad t\in [0,+\infty).
 \end{equation}
 %
-Here $E=\m{\bfE_1(t) \\ 0}$, $A = \m{\bfA_1(t) \\ \bfA_2(t)}$ are assumed to be matrix-valued functions acting 
-on $\r_+$ to $\r^{n,n}$, 
-$x: \r_+  \rightarrow \r^{n}$, $f:\r_+ \times \r{^n} \rightarrow \r{^n}$. Furthermore, we assume that for all $t$, the matrices $\bfE_1(t)$, $\bfA_2(t)$ have full row rank. 
+Here $E=\m{\bfE_1(t) \\ 0}$, $A = \m{\bfA_1(t) \\ \bfA_2(t)}$ are matrix-valued functions acting 
+on $\r_+$ to $\r^{n,n}$, $x: \r_+  \rightarrow \r^{n}$, and $f:\r_+ \times \r{^n} \rightarrow \r{^n}$. Furthermore, we assume that for all $t$, the matrices $\bfE_1(t)$, $\bfA_2(t)$ have full row rank. 
 
 DAE systems of the forms \eqref{semi linDAE}, \eqref{linDAE} arise in many applications, include multibody dynamics, electrical circuits, chemical engineering, and many other applications. 
 Due to the rank-deficiency of $E(t)$, the qualitative behavior of DAEs is much richer, in comparison to ordinary differential equations (ODEs). We refer the reader to recent monographs \cite{BieCM12,KunM06,LamMT13,IlcR13} and the references therein. 
@@ -183,23 +182,12 @@ and the (exponentially) unstable subspace ($\ker(P(t))$).
 \subsection{A short review of DAE solvability theory}
 %================================================================================================================================
 %Now let us recall some basic concepts and properties for DAEs, starting with \emph{fundamental solution matrix} as below.
-%
-\begin{definition}
-	(i) Consider the DAE \eqref{linDAE}. A matrix function $X \in C([0,\infty),\r^{n,k})$, $d\leq k \leq n$, is called \emph{a fundamental solution matrix} of \eqref{linDAE} if each of its columns is a solution to \eqref{linDAE} and $\rank X(t)=d$, for all $t\geq 0$. \\
-	(ii) A fundamental solution matrix is said to be \emph{maximal} if $k=n$ and \emph{minimal} if $k=d$, respectively. A maximal fundamental solution is called \emph{principal} if it satisfies the \emph{projected initial condition}
-	%
-	\begin{equation}\label{projected intial condition}
-	 E(0) \left( X(0) - Id \right) = 0.
-	\end{equation}
-	%
-\end{definition}
-%
-We can easily see that, the fundamental solution matrices for DAEs are not necessarily square or of full rank. Furthermore, each fundamental solution matrix has exactly $d$-linear independent columns, and a minimal fundamental solution matrix can be made maximal by adding $n-d$ zero columns. This is the major difference between ODEs and DAEs. Consequently, we are unable to define the evolution family for a DAE in the classical sense. The modified concept, but still capture the essence of an original one, has been proposed and carefully discussed in \cite{LinM09}. We recall it below, and notice that this concept is equivalent to the one proposed by Lentini and M\"arz in \cite{LenM90} within the context of the matrix chains approach and tractability index.
 
-\textbf{\huge LinM09}
+Linear DAEs of the form \ref{linDAE} have been extensively studied in the last thirty years, see \cite{KunM06} and the references therein. 
+In order to understand the solution behavior and to obtain numerical solutions, the necessary information about derivatives of equations has to be utilized. 
+This has led to the concept of the strangeness index, which allows to use the DAE and (some of) its derivatives to be reformulated as a system with the same solution that is \emph{strangeness-free}, i.e., for which the algebraic and differential part of the system are easily separated. In this paper we restrict ourselves to regular DAEs with sufficiently smooth coefficients, i.e., we require that \eqref{linDAE} (or the nonlinear DAE \eqref{semi linDAE} locally) has a unique solution for appropriately chosen (consistent) initial conditions, see \cite{KunM06} for a discussion of more general nonregular DAEs. 
+With the theory and appropriate numerical methods available, then throughout this paper, for regular DAEs we may assume that the homogeneous DAE \ref{linDAE} in consideration fulfills the following presumption.
 
-
-Therefore, throughout this paper, we will assume the following.
 %
 \begin{assumption}\label{Ass1}
 Assume that the function pair $(E,A)$ in the DAEs \eqref{semi linDAE}, \eqref{linDAE} is \emph{strangeness-free}, i.e., 
@@ -244,7 +232,7 @@ Indeed, one can directly verify that this orthogonal equivalence concept is an e
 %%
 %\textbf{\large Need to write more about Moore-Penrose pseudo inverse for $E(t)$ to prepare for Section 3}
 %%
-By making use of some smooth factorizations, for example QR or SVD (\cite{DieE99}  or \cite[Thm 3.9]{KunM06}), we can decouple and then exploit the structure of the DAE \eqref{linDAE} in the following lemma.
+By making use of some smooth factorizations, for example QR or SVD (\cite{DieE99}  or \cite[Thm 3.9]{KunM06}), we can decouple the differential and algebraic parts of the DAE \eqref{linDAE} in the following lemma.
 
 %\begin{lemma}\label{lem0}
 %	Consider the DAE \eqref{semi linDAE} and assume that it satisfies Assumption \ref{Ass1}. \\
@@ -299,7 +287,20 @@ Let $\hA_3 := -A^{-1}_4 A_3$, $\hA_1 := \Si^{-1} \left( A_1 - A_2 A^{-1}_4 A_3 \
 \end{subequations}
 %
 Since $V(t)$ is orthogonal for all $t\geq 0$, we see that all important qualitative properties of $x(t)$, such as boundedness, exponential stability, contractivity, expansiveness, etc., can be carried out for the function $y(t)$ without any difficulty. Clearly, we see that \eqref{eq10.2} gives an \emph{algebraic constraint} that the solution to \eqref{semi-explicit system} must obey, while \eqref{eq10.1} gives the dynamic of \eqref{semi-explicit system}. 
-For this reason, we call it \emph{an underlying ODE} to \eqref{semi-explicit system}.\\
+For this reason, we call it \emph{an underlying ODE} to \eqref{semi-explicit system}.
+
+%
+\begin{definition}
+	(i) Consider the DAE \eqref{linDAE}. A matrix function $X \in C([0,\infty),\r^{n,k})$, $d\leq k \leq n$, is called \emph{a fundamental solution matrix} of \eqref{linDAE} if each of its columns is a solution to \eqref{linDAE} and $\rank X(t)=d$, for all $t\geq 0$. \\
+	(ii) A fundamental solution matrix is said to be \emph{maximal} if $k=n$ and \emph{minimal} if $k=d$, respectively. A maximal fundamental solution is called \emph{principal} if it satisfies the \emph{projected initial condition}
+	%
+	\begin{equation}\label{projected intial condition}
+		E(0) \left( X(0) - Id \right) = 0.
+	\end{equation}
+	%
+\end{definition}
+%
+We can easily see that, the fundamental solution matrices for DAEs are not necessarily square or of full rank. Furthermore, each fundamental solution matrix has exactly $d$-linear independent columns, and a minimal fundamental solution matrix can be made maximal by adding $n-d$ zero columns. This is the major difference between ODEs and DAEs. Consequently, we are unable to define the evolution family for a DAE in the classical sense. The modified concept, but still capture the essence of an original one, has been proposed and carefully discussed in \cite{LinM09}. We recall it below, and notice that this concept is equivalent to the one proposed by Lentini and M\"arz in \cite{LenM90} within the context of the matrix chains approach and tractability index.
 
 Let $\{\hY_1(t,s)\}_{t\geq s \geq 0}$ be the evolution family associated with \eqref{eq10.1}, then we can define the corresponding evolution families for two DAEs \eqref{semi-explicit system}, \eqref{linDAE} consecutively as follows.
 %
@@ -336,75 +337,81 @@ Let us assume that we have two semi-explicit forms of system \eqref{linDAE} obta
 \end{alignat}
 \end{subequations}
 %
-Now we will prove that the two corresponding systems have the same evolution family $\{X(t,s)\}_{t\geq s\geq 0}$. 
-Without loss of generality, we assume that $(E,A)$ is already in the form of the right hand side of \eqref{eq13.1}. 
+Now we will prove that the two corresponding systems have the same evolution family $\{\hX(t,s)\}_{t\geq s\geq 0}$. 
+Without loss of generality, we assume that $(E,A)$ is already in the form of the right hand side of \eqref{eq13.1}, so $\hX(t,s)=\hY(t,s)$ for all $t\geq s \geq 0$. 
 The corresponding system to the right hand side of \eqref{eq13.2} reads
 %
-\begin{subequations}\label{eq17}
+\begin{subequations}\label{eq14}
 	\begin{alignat}{2}
-		\dot{\ty}_1(t) &= \hat{\cA}_1(t) \ty_1(t), \label{eq17.1} \\ 
-		\ty_2(t) &= \hat{\cA}_3(t) \ty_1(t). \label{eq17.2}
+		\dot{\ty}_1(t) &= \hat{\cA}_1(t) \ty_1(t), \label{eq14.1} \\ 
+		\ty_2(t) &= \hat{\cA}_3(t) \ty_1(t). \label{eq14.2}
 	\end{alignat}
 \end{subequations}
 %  
 where $\hat{\cA}_3 := -\tA^{-1}_4 \tA_3$, $\hat{\cA}_1 := \tSi^{-1} \left( \tA_1 - \tA_2 \tA^{-1}_4 \tA_3 \right)$.\\
 The transitivity applied to \eqref{eq13} implies that there exist pointwise-orthogonal matrix-valued functions $S\!=\!\sm{S_1 & S_2 \\ S_3 & S_4}\in \! C^0([0,\infty),\r^{n,n})$ and $T\!=\!\sm{T_1 & T_2 \\ T_3 & T_4}\in \! C^1([0,\infty),\r^{n,n})$, such that $y(t) = T(t) \ty(t)$ and 
 %
-\begin{eqnarray}
-	&& \m{\tSi & 0 \\ 0 & 0}  = \m{S_1 & S_2 \\ S_3 & S_4} \m{\Si & 0 \\ 0 & 0} \m{T_1 & T_2 \\ T_3 & T_4},  \label{14}\\
-	&& \m{\tA_1 & \tA_2 \\ \tA_3 & \tA_4} =  \m{S_1 & S_2 \\ S_3 & S_4} \left( \m{A_1 & A_2 \\ A_3 & A_4} \m{T_1 & T_2 \\ T_3 & T_4} - 
-	\m{\Si & 0 \\ 0 & 0} \m{\dot{T}_1 & \dot{T}_2 \\ \dot{T}_3 & \dot{T}_4} \right) \ . \label{15}
-\end{eqnarray}
+\begin{subequations}\label{eq15}
+	\begin{alignat}{2}
+		& \m{\tSi & 0 \\ 0 & 0}  = \m{S_1 & S_2 \\ S_3 & S_4} \m{\Si & 0 \\ 0 & 0} \m{T_1 & T_2 \\ T_3 & T_4},  \label{15.1}\\
+		& \m{\tA_1 & \tA_2 \\ \tA_3 & \tA_4} =  \m{S_1 & S_2 \\ S_3 & S_4} \left( \m{A_1 & A_2 \\ A_3 & A_4} \m{T_1 & T_2 \\ T_3 & T_4} - 
+		\m{\Si & 0 \\ 0 & 0} \m{\dot{T}_1 & \dot{T}_2 \\ \dot{T}_3 & \dot{T}_4} \right) \ . \label{15.2}
+	\end{alignat}
+\end{subequations}
 %
-Let $\{\hcY_1(t,s)\}_{t\geq s \geq 0}$ be the evolution family associated with \eqref{eq17.1}, then the evolution family associated with system \eqref{eq17} is
+Let $\{\hcY_1(t,s)\}_{t\geq s \geq 0}$ be the evolution family associated with \eqref{eq14.1}, then the evolution family associated with system \eqref{eq14} is
 %
-\begin{equation}\label{eq18}
+\begin{equation}\label{eq16}
 	\hcY(t,s) = \m{\hcY_1(t,s) & 0 \\ \hcA_3(t) \hcY_1(t,s) & 0} , \ \hcX(t,s) := T(t)\hcY(t,s) T^T(s) \mbox{ for all } t\geq s \geq 0 \ .
 \end{equation}
 %
-Thus, we need to prove that $\hcX(t,s) = \hX(t,s)$.
-
-From \eqref{14}, it implies that $S_3 \Si \m{T_1 & T_2} = 0$. Thus, we have
+Thus, we need to prove that $\hcX(t,s) = \hX(t,s)$. \\
+%
+From \eqref{15.1}, it implies that $S_3 \Si \m{T_1 & T_2} = 0$. Thus, we have
 %
 \[
 \m{S_3 & 0} \m{\Si & 0 \\ 0 & I} \m{T_1 & T_2 \\ T_3 & T_4} = \m{0 & 0},
 \]
 %
-and hence, this follows that $S_3 = 0$. Thus, $S=\sm{S_1 & S_2 \\ 0 & S_4}$, and hence, due to the orthogonality of $S$, we see that both $S_1$ is nonsingular and $S_4$ is also orthogonal. Also from \eqref{14}, we see that $S_1\Si T_2 = 0$, and hence $T_2 = 0$. Consequently, by inserting $S_3=0$ and $T_2=0$ into \eqref{14} and \eqref{15} we obtain
+and hence, this follows that $S_3 = 0$. Thus, $S=\sm{S_1 & S_2 \\ 0 & S_4}$, and then, due to the orthogonality of $S$, we see that both $S_1$ is nonsingular and $S_4$ is also orthogonal. Also from \eqref{15.1}, we see that $S_1\Si T_2 = 0$, which yields that $T_2 = 0$. Moreover, due to the orthogonality of $S$ and $T$, from \eqref{eq14.1} we see that 
 %
-\begin{subequations}\label{eq16}
-\begin{alignat}{4}
-& \tSi = S_1 \Si T_1, \\	
-& \tA_1 = \m{S_1 & S_2} \left( \m{A_1 & A_2 \\ A_3 & A_4} \m{T_1 \\ T_3} - \m{\Si \dot{T}_1 \\ 0 } \right) , \\
-& \tA_2 = \m{S_1 & S_2} \m{A_2 \\ A_4} T_4, \\
-& \tA_3 = S_4 \m{A_3 & A_4}  \m{T_1 \\ T_3} , \\
-& \tA_4 = S_4 A_4 T_4 \ .
+\[
+  \m{\Si & 0 \\ 0 & 0}  = \m{S^T_1 & S^T_3 \\ S^T_2 & S^T_4} \m{\tSi & 0 \\ 0 & 0} \m{T^T_1 & T^T_3 \\ T^T_2 & T^T_4}.
+\]
+%
+Therefore, using similar arguments as above, we can prove that $S_2=0$ and $T_3=0$. \\
+%
+Consequently, by inserting $S_3=T_3=0$ and $S_2=T_2=0$ into \eqref{15.1} and \eqref{15.2} we obtain
+%
+\begin{subequations}\label{eq17}
+\begin{alignat}{2}
+ \tSi &= S_1 \Si T_1, \\
+ \m{\tA_1 & \tA_2 \\ \tA_3 & \tA_4} &= \m{S_1  \left( A_1 T_1 - \Si \dot{T}_1 \right) & S_1 A_2 T_4 \\ S_4 A_3 T_1 & S_4 A_4 T_4}  \ ,
+%& \tA_1 = S_1  \left( A_1 T_1 - \Si \dot{T}_1 \right) , \\
+%& \tA_2 = S_1 A_2 T_4, \\
+%& \tA_3 = S_4 A_3 T_1 , \\
+%& \tA_4 = S_4 A_4 T_4 \ ,
 \end{alignat}
 \end{subequations}
 %
-Furthermore, making use of \eqref{eq16} we see that 
+where the matrix-valued function $S_i$, $T_i$ ($i=1$, $4$) are pointwise orthogonal. Thus, we see that 
+%
+\begin{subequations}\label{eq18}
+	\begin{alignat}{2}
+		\hat{\cA}_3 &= - \tA^{-1}_4 \tA_3 = - \left( S_4 A_4 T_4 \right)^{-1} S_4 A_3 T_1 =  T_4^{-1} \hA_3 T_1 \ , \\
+		\hat{\cA}_1 &= \tSi^{-1} \left( \tA_1 - \tA_2 \tA^{-1}_4 \tA_3  \right) =  T_1^{-1} \left( \hA_1 T_1 - \dot{T}_1 \right) \ .  		
+	\end{alignat}
+\end{subequations}
+%
+Furthermore, since $y = T \ty $, the structure of $T$ implies that $y_1 = T_1 \ty_1$ and $y_4 = T_4 \ty_4$. 
+Therefore, the underlying ODE \eqref{eq14.1} is directly obtained from \eqref{eq10.1} by applying the variable transformation $\ty_1(t)=T_1(t) y_1(t)$ and scaling the system with $T^{-1}_1$. So, we have that $\hcY_1(t,s) = T_1^{-1} \hY_1(t,s) T_1(s)$. 
+Making use of \eqref{eq18}, we can deduce the evolution family $\{\hcX(t,s)\}_{t\geq s \geq 0}$ as follows 
 %
 \[
-\hat{\cA}_3 = - \tA^{-1}_4 \tA_3 = - \left( S_4 A_4 T_4 \right)^{-1} S_4 \m{A_3 & A_4}  \m{T_1 \\ T_3} = - T_4^{-1} \m{-\hA_3 & I}  \m{T_1 \\ T_3} \ , 
+ \hcX(t,s)  = \m{T_1(t) & 0 \\ 0 & T_4(t)} \m{\hcY_1(t,s) & 0 \\ \hcA_3 \hcY_1(t,s) & 0} \m{T^T_1(s) & 0 \\ 0 & T^T_4(s)} = \m{\hY_1(t,s) & 0 \\ \hA_3 \hY_1(t,s) & 0},
 \]
 %
-and 
-%
-\begin{align*}
-\tSi \hat{\cA}_1 &= \tA_1 - \tA_2 \tA^{-1}_4 \tA_3 \\
-		  		 &= \m{S_1 & S_2} \left( \m{A_1 & A_2 \\ A_3 & A_4} \m{T_1 \\ T_3} - \m{\Si \dot{T}_1 \\ 0 } \right) - 
-		  		 \m{S_1 & S_2} \m{A_2 \\ A_4} T_4 \left( S_4 A_4 T_4 \right)^{-1} S_4 \m{A_3 & A_4}  \m{T_1 \\ T_3} \\
-		  		 &= S_1 \left( \left(A_1 + A_2 A^{-1}_4 A_3 \right) T_1 - \Si \dot{T}_1 \right) \\
-		  		 &= S_1 \Si \left(  \hA_1 T_1 - \dot{T}_1 \right) \ .
-\end{align*}
-%
-Hence, we have
-%
-\[
-\hat{\cA}_1 = \left(S_1 \Si T_1\right)^{-1} \ S_1 \Si \left(  \hA_1 T_1 - \dot{T}_1 \right) = T_1^{-1} \left(  \hA_1 T_1 - \dot{T}_1 \right) \ .
-\]
-%
-Therefore, the underlying ODE \eqref{eq17.1} is directly obtained from \eqref{eq10.1} by the variable transformation $\ty_1(t)=T_1(t) y_1(t)$. 
+and hence, this completes the proof.
 \end{proof}
 
 \begin{lemma}\label{lem5}
@@ -562,7 +569,7 @@ belong to $E$. In particular, if $\underset{t\ge 0}{\sup}\int_t^{t+1}\varphi(\ta
 if $ \varphi\in E$ (see remark \ref{2.4}))
 then  $\Lb'_\sigma\varphi $ and $\Lb''_\sigma\varphi$ are bounded.
 Moreover, denoted by $\|\cdot\|_\infty$ for $ess\sup$-norm, we have
-\begin{equation}\label{eq2.1}
+\begin{equation}\label{eq22}
 \|\Lb'_\sigma\varphi\|_\infty\le
 \frac{N_1}{1-e^{-\si}}\|\Lb_1T^+_1\varphi\|_\infty\hbox{\quad and\quad }
 \|\Lb''_\sigma\varphi\|_\infty\le
@@ -576,70 +583,109 @@ c) $E$ does not contain exponentially growing functions $f(t):=e^{bt}$ for any c
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Exponential Dichotomy for linear DAEs}\label{Sec 3}
 
-In the qualitative analysis of ODEs, one of the central topic is to 
-find sufficient and necessary conditions for the considered systems to admit exponential dichotomy. Many researches have been devoted to this topic, and critical results have been achieved for ODEs  in finite and infinite dimensional phase spaces (e.g. \cite[Chap. 4]{DalK02}, \cite{Zhi72}). For DAEs, the only result that we are aware of is recalled below.
+In the qualitative analysis of ODEs, one of the central topics is to find necessary and sufficient conditions such that the considered system admits an exponential dichotomy. Many researches have been devoted to this topic, and critical results have been achieved for ODEs  in finite and infinite dimensional phase spaces (e.g. \cite[Chap. 4]{DalK02}, \cite{Zhi72}). For DAEs, the only result that we are aware of is recalled below.
 
 \begin{proposition}\label{prop1} (\cite{LinM09})
-	The DAE \eqref{semi-explicit system} has an exponential dichotomy if and only if the corresponding underlying ODE \eqref{eq10.1} also has exponential dichotomy, and the matrix function $\hA_3(t)$ is bounded. Moreover, the existence of exponential dichotomy imlies that $\underset{t\geq 0}{\sup \ } \|\Py(t)\| < \infty$. 
+The DAE \eqref{semi-explicit system} has an exponential dichotomy if and only if the corresponding underlying ODE \eqref{eq10.1} also has exponential dichotomy and the matrix function $\hA_3(t)$ is bounded. Moreover, the existence of an exponential dichotomy implies that $\underset{t\geq 0}{\sup \ } \|\Py(t)\| < \infty$. 
 \end{proposition}
 
+Notice that, Proposition \ref{prop1} is only valid for finite-dimensional but it is very hard to generalize for infinite dimensional DAE systems.  
+For this reason, we aim at another approach, motivated from one classical result stated below.
+%
+\begin{proposition}\label{prop2} (\cite[Chap. 3]{Cop78}) The ODE \eqref{eq3} has an exponential dichotomy if and only if one of the following conditions
+is satisfied. \\
+i) For any function $g\in  \mathbf{M}_{1}(\r_+)$ there exists a continuous, bounded solution $x(t)$ to the inhomogeneous system
+%
+\begin{equation}\label{inho ODE}
+	\dot{x}(t) = A(t) x(t) + g(t) \ .  
+\end{equation}
+%
+ii) For any function $g \in C_{\infty}(\r_+)$, there exists a continuous, bounded solution $x(t)$ to the inhomogeneous system \eqref{inho ODE}, provided that 
+the ODE \eqref{eq3} has bounded growth.	
+\end{proposition}
+%
+Comparable results to Proposition \ref{prop2} have not been achieved for DAEs, and hence, this will be our main aim in this section.
 Together with \eqref{linDAE}, let us consider the following system
 %
-\begin{equation}\label{eq3.1}
+\begin{equation}\label{eq2.1}
 	E(t)\dot{x}(t) = A(t) x(t) + g(t) \ .  
 \end{equation}
 %
-Notice that, even for ODEs, Proposition \ref{prop1} is only valid for finite-dimensional systems but not for infinite dimensional systems, \cite{DalK02}. 
-For this reason, we recall a classical result by Perron below.
-%
-\begin{proposition}\label{prop2} (\cite{DalK02}) The ODE \eqref{eq3} has an exponential dichotomy if and only if for any continuous, bounded function $g(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to the system
-%
-\begin{equation}\label{eq31}
-	\dot{x}(t) = A(t) x(t) + g(t) \ .  
-\end{equation}
-%	
-\end{proposition}
-%
-In view of Proposition \ref{prop2}, comparable result has not been achieved for DAEs, and hence, this will be our main aim in this section.
+
+The following example shows that Proposition \ref{prop2} could not be directly applied to the DAE \eqref{eq2.1}.
+\begin{example}\label{Exam2.1}
+Consider the system \eqref{eq2.1} with $E=\sm{1 & 0 \\ 0 & 0}$, $A=\sm{-1 & 0 \\ 0 & e^{-t}}$, $f=\sm{0 \\ 1}$. Clearly, $f$ is bounded. The explicit solution
+$x(t) = \sm{e^{-t}x_1(0) \\ e^{t}}$ is clearly unbounded no matter how the initial condition $x(0)$ is chosen.  On the other hand, the homogeneous system clearly has an exponential dichotomy.
+\end{example}
 
 \begin{definition}\label{EA-bounded}
 	Consider the matrix functions $E$, $A$ in system \eqref{linDAE}. Then, a function $g:\r_+ \rar \r^n$ satisfying the condition 
 	%
-	\[
+	\begin{equation}\label{eq2.2}
 	\underset{t\geq 0}{\sup} \bigg\{ \bigg\| \m{\Si^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & A^{-1}_4(t)} g(t) \bigg\| \bigg\} < +\infty,
-	\]
+	\end{equation}
 	%
 	is called $(E,A)$-bounded. We denote the set of all continuous and
 	 $(E,A)$-bounded functions by $\BEA$.
 \end{definition}
 
+\begin{lemma}
+The $(E,A)$-boundedness is invariant with respect to orthogonal transformations.  
+\end{lemma}
+\begin{proof}
+Let us consider two orthogonally equivalent systems
+%
+\[
+\left( \m{\Si & 0 \\ 0 & 0},\m{A_1 & A_2 \\ A_3 & A_4} \right) \osim \left( \m{\tSi & 0 \\ 0 & 0},\m{\tA_1 & \tA_2 \\ \tA_3 & \tA_4} \right) \ .
+\]
+%
+As shown in the proof of Lemma \ref{lem4}, the identities \eqref{eq17} hold true for some pointwise orthogonal matrix-valued function $S_i$, $T_i$ ($i=1$, $4$). 
+Thus, we see that
+%
+\begin{align*}
+\m{\tSi^{-1}(t) & -\tSi^{-1}(t) \tA_2(t) \tA^{-1}_4(t) \\ 0 & \tA^{-1}_4(t)} g(t) = 
+\m{T^T_1 & 0 \\ 0 & T^T_4} \m{\Si^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & A^{-1}_4(t)} \m{S^T_1 & 0 \\ 0 & S^T_4} g(t) \ .
+\end{align*}
+%
+Since Euclidean norm is preserved under orthogonal transformation, this identity completes the proof.
+\end{proof}
+
 The main result of this section is to prove a characterization of the exponential dichotomy for DAEs. Roughly speaking, the DAE \eqref{linDAE} admits exponential dichotomy if and only if the mapping $\cL := E\dfrac{d}{dt} - A$ is surjective on the space $\BEA$. 
 We formulate our main result in this section as follows.
 \begin{theorem}\label{thm3.1}
-	Consider the linear, strangeness-free DAE \eqref{linDAE} and the associated inhomogeneous DAE \eqref{eq3.1}. 
-	%Then, the DAE \eqref{linDAE} admits exponential dichotomy if and only if for any continuous, $(E,A)$-bounded function $g(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to the DAE \eqref{eq3.1}.
+	Consider the linear, strangeness-free DAE \eqref{linDAE} and the associated inhomogeneous DAE \eqref{eq2.1}. 
+	%Then, the DAE \eqref{linDAE} admits exponential dichotomy if and only if for any continuous, $(E,A)$-bounded function $g(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to the DAE \eqref{eq2.1}.
 	Then the following assertions hold. 
 	\begin{enumerate}[(i)]
-	\item If the DAE \eqref{linDAE} admits exponential dichotomy then for any continuous, $(E,A)$-bounded function $g(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to the DAE \eqref{eq3.1}. 
+	\item If the DAE \eqref{linDAE} admits an exponential dichotomy then for any continuous, $(E,A)$-bounded function $g(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to the DAE \eqref{eq2.1}. 
 	\item If the matrix function $\hA_3(t)$ is bounded, then the converse of assertion (i) holds true.
 	\end{enumerate}
 \end{theorem}
 
 \begin{proof}
-	Firstly, we notice that, since $\hg = \m{\Sigma^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & -\hA_4^{-1}} U(t)
-	 g(t)$, the $(E,A)$-boundedness of $f$ is equivalent to the boundedness of $\hf$. Recall that the semi-explicit system \eqref{semi-explicit system} reads
+	Firstly, we notice that, since $\hg = \m{\Sigma^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & -\hA_4^{-1}} U(t) g(t)$, where $U$ is orthogonal, so the $(E,A)$-boundedness of $g$ is equivalent to the boundedness of $\hg$. Recall that the semi-explicit system \eqref{semi-explicit system} reads
 	%
-	\begin{align} %\label{eq3.10}
+	\begin{subequations}\label{eq3.10}	
+	\begin{alignat}{2}
 		\label{eq3.10a} \dot{y}_1(t) &= \hA_1(t) y_1(t) + \hg_1(t), \\
 		\label{eq3.10b} y_2(t) &= \hA_3(t) y_1(t) + \hg_2(t).
-	\end{align}
-	%  
-	
-	(i) Assuming that the DAE \eqref{linDAE} admits exponential dichotomy, then \eqref{semi-explicit system} also has an exponential dichotomy. Proposition \ref{prop1} implies that equation \eqref{eq3.10a} has an exponential dichotomy, and the function $\hA_3$ is bounded. Therefore, Proposition \ref{prop2} implies that $y_1$ is bounded, and consequently, $y_2$ is also bounded.   
+	\end{alignat}
+	\end{subequations}
 	%
-
-	(ii) From Proposition \ref{prop2}, it follows that \eqref{eq3.10a} has exponential dichotomy \textbf{May be wrong, since the domains of g and hg are not the same}.  On the other hand, the boundedness of $\hA_3$ implies that \eqref{linDAE} admits exponential dichotomy.
+	\noindent (i) Assuming that the DAE \eqref{linDAE} admits an exponential dichotomy, then \eqref{semi-explicit system} also has an exponential dichotomy. Proposition \ref{prop1} implies that equation \eqref{eq3.10a} has an exponential dichotomy, and the function $\hA_3$ is bounded. Therefore, Proposition \ref{prop2} implies that $y_1$ is bounded, and consequently, $y_2$ is also bounded.   \\
+	%
+	(ii) Notice that the mapping 
+	%
+	\[
+		\m{\Sigma^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & -\hA_4^{-1}} U(t) \ : \BEA \rightarrow C_{\infty}(\r_+,\r^n)
+	\]
+	%
+	is surjective, so $g_1(t)$ can be freely chosen in the space $C_{\infty}(\r_+,\r^n)$. Proposition \ref{prop2} applied to system \eqref{eq3.10a} follows that \eqref{eq3.10a} has exponential dichotomy. 
+	On the other hand, the boundedness of $\hA_3$ implies that \eqref{linDAE} admits exponential dichotomy.
 \end{proof}
+
+% We further notice, that the boundedness of $\hA_3$ is only the sufficient but not necessary condition so that the converse of Theorem \ref{thm3.1}i) holds true. 
+% The following example demonstrates this fact. 
 
 %\begin{remark}
 %Making use of admissible function spaces, stronger conditions for characterizing the exponential dichotomy of the DAE \eqref{linDAE} have been obtained in \cite{HuyP19b}, where an inhomogeneity function $g(t)$ belongs to less restricted spaces than $\BEA$. There, we also study the robustness of exponential dichotomy under structured-perturbations.%
@@ -651,7 +697,7 @@ We formulate our main result in this section as follows.
 In this section we study the existence of a local stable manifold for the semi-linear DAE  \eqref{semi linDAE}. 
 Throughout this section we assume that the evolution family  $(X(t,s))_{t\geq s\geq 0}$ associated with the linear, homogeneous DAE \eqref{linDAE} admits an exponential dichotomy on $\hro{R_+}$. 
 
-From Lemma \ref{lem1}, by using orthogonal transformation $x(t)=V(t)y(t)$, where $y(t)= \m{y_1(t) \\ y_2(t)}  \in \r^{d+a}$ 
+From Lemma \ref{lem1}, by using orthogonal transformation $x(t)=V(t)y(t)$, where $y(t)= \sm{y_1(t) \\ y_2(t)}  \in \r^{d+a}$ 
 we can transform \eqref{semi linDAE} to the coupled system
 %
 \begin{align}
@@ -663,17 +709,10 @@ where
 %
 \begin{equation}\label{eq4.2}
 \hf(t,y(t)) = \m{\hf_1(t,y(t)) \\ \hf_2(t,y(t)) } := 
-\m{\Sigma^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & -\hA_4^{-1}} U(t) \m{f_1(t,y(t)) \\ f_2(t,y(t))} \ .
+\m{\Sigma^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & -\hA_4^{-1}} U(t) \m{f_1(t,x(t)) \\ f_2(t,x(t))} \ .
 \end{equation}
 %
-
-%
-\[
-\hf = \m{\hf_1 \\ \hf_2} := \m{\Si^{-1}(t) & 0 \\ 0 & -A^{-1}_4(t) } U(t) f(t,x(t)) 
-\]
-%
-
-Notice that, unlike the DAEs \eqref{linDAE} and \eqref{eq3.1}, equation \eqref{eq4.1b} only gives an implicit algebraic constraint in terms of $y_1$ and $y_2$. In order to guarantee the strangeness-free of system \eqref{semi linDAE}, we need the following assumption. 
+Notice that, unlike the DAEs \eqref{linDAE} and \eqref{eq2.1}, equation \eqref{eq4.1b} only gives an implicit algebraic constraint in terms of $y_1$ and $y_2$. In order to guarantee the strangeness-free of system \eqref{semi linDAE}, we need the following assumption. 
 
 \def\r{\mathbb{R}}
 \begin{assumption}\label{Ass4.1}
@@ -717,10 +756,34 @@ Let	$\vphi$ be a positive function belonging to an admissible Banach function sp
 Assume that the function \ $t\mapsto \Sigma^{-1}(t) \m{I_d & -A_2(t) A^{-1}_4(t)} f(t,x(t))$  belongs to class $(M,\vphi,\rho)$ for some positive constants $M$, $\rho$ and a positive function $\vphi \in E$.
 \end{assumption}
 
+The following lemma shows that Assumptions \ref{Ass4.1}, \ref{Ass4.2} are invariant with respect to orthogonal transformations. 
+%
+\begin{lemma}\label{lem4.2}
+Assumptions \ref{Ass4.1}, \ref{Ass4.2} are also invariant with respect to orthogonal transformations. 
+\end{lemma}
+%
+\begin{proof}
+Let us consider two orthogonally equivalent systems
+%
+\[
+\left( \m{\Si & 0 \\ 0 & 0},\m{A_1 & A_2 \\ A_3 & A_4} \right) \osim \left( \m{\tSi & 0 \\ 0 & 0},\m{\tA_1 & \tA_2 \\ \tA_3 & \tA_4} \right) \ .
+\]
+%
+As shown in the proof of Lemma \ref{lem4}, the identities \eqref{eq17} hold true for some pointwise orthogonal matrix-valued function $S_i$, $T_i$ ($i=1$, $4$). 
+Therefore, we have that
+%
+\begin{align*}
+\| \tA^{-1}_4(t) \left( f_2(t,x) - f_2(t,\tx) \right) \| 
+= \n{T_4^{-1}(t)  A^{-1}_4(t)  S_4^{-1}(t) \left( f_2(t,x) - f_2(t,\tx) \right) } 
+\leq L \|x-\tx \|, 
+\end{align*}%
+Then, the desired claim is directly followed.
+\end{proof}
+
 The following proposition gives one sufficient condition for examining Assumptions \ref{Ass4.1}, \ref{Ass4.2}.
 
 \begin{proposition}
-Consider the semi-linear DAE \eqref{semi linDAE}. Furthermore, assume that all three functions $\Si^{-1}$, $A^{-1}_4$, $\Si^{-1} A_2 A^{-1}_4$ are bounded. If the function $f = \m{f_1 \\ f_2}$ belongs to the class $(M,\vphi,\rho)$ then the following claims hold true. \\
+Consider the semi-linear DAE \eqref{semi linDAE}. Furthermore, assume that all three functions $\Si^{-1}$, $A^{-1}_4$, $\Si^{-1} A_2 A^{-1}_4$ are bounded. If the function $f = \sm{f_1 \\ f_2}$ belongs to the class $(M,\vphi,\rho)$ then the following claims hold true. \\
 i) $\hf_1$ belongs to the class $(M,\vphi,\rho)$, and \\
 ii) $f_2$ is Lipschitz with the Lipschitz constant $\vphi \ \underset{t\geq 0}{\sup} \ \n{A^{-1}_4}$.
 
@@ -794,7 +857,7 @@ Now let us estimate $\n{z(t)}$. Making use of Lemma \ref{lem4.1} and \eqref{4.3}
 \[
 \n{z(t)} \leq \int_{t_0}^{\infty} (1+H_1)(1+H_2) \ Ne^{-\nu |t-\tau|} \ M \vphi(\tau) \ d\tau \ + L\rho, 
 \]
-and then, from \eqref{eq2.1} it follows that
+and then, from \eqref{eq22} it follows that
 %
 	\[
 \n{z(t)} \leq M \ (1+H_1)(1+H_2) \ \frac{N}{1-e^{-\nu}} \ \left( \|\Lb_1T^+_1\varphi\|_\infty + \|\Lb_1\varphi\|_\infty \right) \ + L\rho \ , 

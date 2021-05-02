@@ -23,6 +23,11 @@ Chuan-Jen Chyan, Nguyen~Huu Du, and Vu~Hoang Linh.
   linear time-varying differential-algebraic systems.
 \newblock {\em Journal of Differential Equations}, 245(8):2078 -- 2102, 2008.
 
+\bibitem{Cop78}
+W.~A. Coppel.
+\newblock {\em {D}ichotonies in {S}tability {T}heory}.
+\newblock Springer-Verlag, New York, NY, 1978.
+
 \bibitem{DalK02}
 J.L. Daleckii and M.G. Krein.
 \newblock {\em Stability of Solutions of Differential Equations in Banach
@@ -40,11 +45,6 @@ Nguyen~Huu Du and Vu~Hoang Linh.
 \newblock Stability radii for linear time-varying differential–algebraic
   equations with respect to dynamic perturbations.
 \newblock {\em Journal of Differential Equations}, 230(2):579 -- 599, 2006.
-
-\bibitem{GolV96}
-G.~H. Golub and C.~F. {Van Loan}.
-\newblock {\em Matrix Computations}.
-\newblock The Johns Hopkins University Press, Baltimore, MD, 3rd edition, 1996.
 
 \bibitem{GroR07}
 C.~Grossmann, H.G. Roos, and M.~Stynes.
