@@ -338,7 +338,7 @@ Let us assume that we have two semi-explicit forms of system \eqref{linDAE} obta
 \end{subequations}
 %
 Now we will prove that the two corresponding systems have the same evolution family $\{\hX(t,s)\}_{t\geq s\geq 0}$. 
-Without loss of generality, we assume that $(E,A)$ is already in the form of the right hand side of \eqref{eq13.1}, so $\hX(t,s)=\hY(t,s)$ for all $t\geq s \geq 0$. 
+Without loss of generality, we assume that $(E,A)$ is already in the form of the right hand side of \eqref{eq13.1}, so $U$ and $V$ in Lemma \ref{lem1} are identity matrices and $\hX(t,s)=\hY(t,s)$ for all $t\geq s \geq 0$. 
 The corresponding system to the right hand side of \eqref{eq13.2} reads
 %
 \begin{subequations}\label{eq14}
@@ -373,7 +373,7 @@ From \eqref{15.1}, it implies that $S_3 \Si \m{T_1 & T_2} = 0$. Thus, we have
 \m{S_3 & 0} \m{\Si & 0 \\ 0 & I} \m{T_1 & T_2 \\ T_3 & T_4} = \m{0 & 0},
 \]
 %
-and hence, this follows that $S_3 = 0$. Thus, $S=\sm{S_1 & S_2 \\ 0 & S_4}$, and then, due to the orthogonality of $S$, we see that both $S_1$ is nonsingular and $S_4$ is also orthogonal. Also from \eqref{15.1}, we see that $S_1\Si T_2 = 0$, which yields that $T_2 = 0$. Moreover, due to the orthogonality of $S$ and $T$, from \eqref{eq14.1} we see that 
+and hence, this follows that $S_3 = 0$. Thus, $S=\sm{S_1 & S_2 \\ 0 & S_4}$, and then, due to the orthogonality of $S$, $S_1$ is nonsingular and $S_4$ is orthogonal. Also from \eqref{15.1}, we see that $S_1\Si T_2 = 0$, which yields that $T_2 = 0$. Moreover, due to the orthogonality of $S$ and $T$, from \eqref{eq14.1} we have
 %
 \[
   \m{\Si & 0 \\ 0 & 0}  = \m{S^T_1 & S^T_3 \\ S^T_2 & S^T_4} \m{\tSi & 0 \\ 0 & 0} \m{T^T_1 & T^T_3 \\ T^T_2 & T^T_4}.
@@ -394,7 +394,7 @@ Consequently, by inserting $S_3=T_3=0$ and $S_2=T_2=0$ into \eqref{15.1} and \eq
 \end{alignat}
 \end{subequations}
 %
-where the matrix-valued function $S_i$, $T_i$ ($i=1$, $4$) are pointwise orthogonal. Thus, we see that 
+where the matrix-valued function $S_i$, $T_i$ ($i=1$, $4$) are pointwise orthogonal. Thus, we have
 %
 \begin{subequations}\label{eq18}
 	\begin{alignat}{2}
@@ -432,17 +432,19 @@ In the following, for ease of notation, we will use the abbreviation $\hX(t):=\h
 
 \begin{definition}\label{def dichotomy}(\cite{LinM09}) The DAE \eqref{semi-explicit system} is said to have an \emph{exponential dichotomy} if there exist a family of projection matrices $\{\Py(t)\}_{t\geq 0}$ in $\r^{d,d}$ and positive constants $N$, $\nu$ such that
 %
-\begin{align}\label{eq7}
-\bigg\| \hY(t) \m{\Py(t) & 0 \\ 0 & 0} \hY^-(s)   \bigg\| \leq N e^{-\nu (t-s)}, \mbox{ for all } t\geq s \geq 0, \notag \\
-\bigg\| \hY(t) \m{I_d-\Py(t) & 0 \\ 0 & 0} \hY^-(s)   \bigg\| \leq N e^{\nu (t-s)}, \mbox{ for all } s \geq t \geq 0,
-\end{align}
+\begin{equation}\label{eq19}
+\begin{split}
+& \bigg\| \hY(t) \m{\Py(t) & 0 \\ 0 & 0} \hY^-(s)   \bigg\| \leq N e^{-\nu (t-s)}, \mbox{ for all } t\geq s \geq 0, \\
+& \bigg\| \hY(t) \m{I_d-\Py(t) & 0 \\ 0 & 0} \hY^-(s)   \bigg\| \leq N e^{\nu (t-s)}, \mbox{ for all } s \geq t \geq 0,
+\end{split}
+\end{equation}
 % 
 \end{definition} 
 
-Since the Euclidean norm is preserved under orthogonal transformations, due to \eqref{eq11}-\eqref{eq7} we see that 
+Since the Euclidean norm is preserved under orthogonal transformations, due to \eqref{eq11} and \eqref{eq19} we have
 %
 \begin{equation*}
-\bigg\| \hX(t) V^T(0) \m{\Py(t) & 0 \\ 0 & 0} V(0) \hX^-(s) \bigg\| \leq N e^{-\nu (t-s)}, \mbox{ for all } t\geq s \geq 0.
+\bigg\| \hX(t) V^T(0) \m{\Py(t) & 0 \\ 0 & 0} V(0) \hX^-(s) \bigg\| \leq N e^{-\nu (t-s)}, \mbox{ for all } t\geq s \geq 0,
 \end{equation*}
 %
 and
@@ -542,7 +544,7 @@ Following directly from Definition \ref{defE1} we have that
 \frac{M}{\inf_{t\ge 0}\|\chi_{[t,t+1]}\|_E} \|\varphi\|_E,
 \]
 %
-and hence, $E\hookrightarrow {\mathbf M}_1(\r_+)$. Furthermore, $C_{b}(\r^+)$ is dense in ${\mathbf M}_1$.
+and hence, $E\hookrightarrow {\mathbf M}_1(\r_+)$. Furthermore, $C_{b}(\r^+)$, the Banach space of bounded, continuous function from $\r_+$ to $\r^n$, is dense in ${\mathbf M}_1$.
 \end{remark}
 	
 We present here some important features of 
@@ -614,37 +616,51 @@ Together with \eqref{linDAE}, let us consider the following system
 
 The following example shows that Proposition \ref{prop2} could not be directly applied to the DAE \eqref{eq2.1}.
 \begin{example}\label{Exam2.1}
-Consider the system \eqref{eq2.1} with $E=\sm{1 & 0 \\ 0 & 0}$, $A=\sm{-1 & 0 \\ 0 & e^{-t}}$, $f=\sm{0 \\ 1}$. Clearly, $f$ is bounded. The explicit solution
-$x(t) = \sm{e^{-t}x_1(0) \\ e^{t}}$ is clearly unbounded no matter how the initial condition $x(0)$ is chosen.  On the other hand, the homogeneous system clearly has an exponential dichotomy.
+Consider the system \eqref{eq2.1} with $E=\sm{1 & 0 \\ 0 & 0}$, $A=\sm{-1 & 0 \\ 0 & e^{-t}}$, $f=\sm{0 \\ 1}$. Clearly, $f$ is bounded. 
+On the other hand, the homogeneous system clearly has an exponential dichotomy.
+Nevertheless, the explicit solution $x(t) = \sm{e^{-t}x_1(0) \\ e^{t}}$ is unbounded no matter how an initial condition $x(0)$ is chosen.  
 \end{example}
 
-\begin{definition}\label{EA-bounded}
-	Consider the matrix functions $E$, $A$ in system \eqref{linDAE}. Then, a function $g:\r_+ \rar \r^n$ satisfying the condition 
-	%
-	\begin{equation}\label{eq2.2}
-	\underset{t\geq 0}{\sup} \bigg\{ \bigg\| \m{\Si^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & A^{-1}_4(t)} g(t) \bigg\| \bigg\} < +\infty,
-	\end{equation}
-	%
-	is called $(E,A)$-bounded. We denote the set of all continuous and
-	 $(E,A)$-bounded functions by $\BEA$.
-\end{definition}
+%\begin{definition}\label{EA-bounded}
+%	Consider the matrix functions $E$, $A$ in system \eqref{linDAE}. Then, a function $g:\r_+ \rar \r^n$ satisfying the condition 
+%	%
+%	\begin{equation}\label{eq2.2}
+%	\underset{t\geq 0}{\sup} \bigg\{ \bigg\| \m{\Si^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & A^{-1}_4(t)} g(t) \bigg\| \bigg\} < +\infty,
+%	\end{equation}
+%	%
+%	is called $(E,A)$-bounded. We denote the set of all continuous and
+%	 $(E,A)$-bounded functions by $\BEA$.
+%\end{definition}
 
-\begin{lemma}
-The $(E,A)$-boundedness is invariant with respect to orthogonal transformations.  
+We define the linear space $\Csys$ associated with the system \eqref{linDAE} as follows.
+%
+\begin{equation}\label{eq2.2}
+C_b^{sys}(\r_+):=\left\{g \in C(\r_+) \ \Bigg| \ \underset{t\geq 0}{\sup} \bigg\{ \bigg\| \m{\Si^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & A^{-1}_4(t)} U(t) g(t) \bigg\| \bigg\} < +\infty \right\} \ ,
+\end{equation}
+%
+
+\begin{lemma}\label{lem2.4}
+The space $\Csys$ is invariant with respect to system orthogonal transformations.  
 \end{lemma}
-\begin{proof}
-Let us consider two orthogonally equivalent systems
+\begin{proof} Let us consider two orthogonally equivalent systems
+\begin{align*}
+& E(t) \dot{x}(t) = A(t) x(t) + g(t), \\
+& \tE(t) \dot{\tx}(t) = \tA(t) \tx(t) + \tg(t),
+\end{align*}
+%
+where $(E,A,g) \osim (\tE,\tA,\tg)$. Without loss of generality, in analogous to Lemma \ref{lem4}, we may assume that 
 %
 \[
-\left( \m{\Si & 0 \\ 0 & 0},\m{A_1 & A_2 \\ A_3 & A_4} \right) \osim \left( \m{\tSi & 0 \\ 0 & 0},\m{\tA_1 & \tA_2 \\ \tA_3 & \tA_4} \right) \ .
+(E,A) = \left( \m{\Si & 0 \\ 0 & 0},\m{A_1 & A_2 \\ A_3 & A_4} \right), \mbox{ and } (\tE,\tA) = \left( \m{\tSi & 0 \\ 0 & 0},\m{\tA_1 & \tA_2 \\ \tA_3 & \tA_4} \right) \ .
 \]
 %
-As shown in the proof of Lemma \ref{lem4}, the identities \eqref{eq17} hold true for some pointwise orthogonal matrix-valued function $S_i$, $T_i$ ($i=1$, $4$). 
+Under this assumption, $U(t)=\tU(t)=I_n$ for all $t\geq 0$. As shown in the proof of Lemma \ref{lem4}, the identities \eqref{eq17} hold true for some pointwise orthogonal matrix-valued functions $S_i$, $T_i$ ($i=1$, $4$). 
 Thus, we see that
 %
 \begin{align*}
-\m{\tSi^{-1}(t) & -\tSi^{-1}(t) \tA_2(t) \tA^{-1}_4(t) \\ 0 & \tA^{-1}_4(t)} g(t) = 
-\m{T^T_1 & 0 \\ 0 & T^T_4} \m{\Si^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & A^{-1}_4(t)} \m{S^T_1 & 0 \\ 0 & S^T_4} g(t) \ .
+\m{\tSi^{-1} & -\tSi^{-1} \tA_2 \tA^{-1}_4 \\ 0 & \tA^{-1}_4} \tg &= 
+\m{T^T_1 & 0 \\ 0 & T^T_4} \m{\Si^{-1} & -\Si^{-1} A_2 A^{-1}_4 \\ 0 & A^{-1}_4} \m{S^T_1 & 0 \\ 0 & S^T_4} S g \\
+&= \m{T^T_1 & 0 \\ 0 & T^T_4} \m{\Si^{-1} & -\Si^{-1} A_2 A^{-1}_4 \\ 0 & A^{-1}_4} g \ .
 \end{align*}
 %
 Since Euclidean norm is preserved under orthogonal transformation, this identity completes the proof.
@@ -657,13 +673,13 @@ We formulate our main result in this section as follows.
 	%Then, the DAE \eqref{linDAE} admits exponential dichotomy if and only if for any continuous, $(E,A)$-bounded function $g(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to the DAE \eqref{eq2.1}.
 	Then the following assertions hold. 
 	\begin{enumerate}[(i)]
-	\item If the DAE \eqref{linDAE} admits an exponential dichotomy then for any continuous, $(E,A)$-bounded function $g(t)$ on $[0,\infty)$, there exists a continuous, bounded solution $x(t)$ to the DAE \eqref{eq2.1}. 
+	\item If the DAE \eqref{linDAE} admits an exponential dichotomy then for any function $g \in \Csys$, there exists a continuous, bounded solution $x(t)$ to the DAE \eqref{eq2.1}. 
 	\item If the matrix function $\hA_3(t)$ is bounded, then the converse of assertion (i) holds true.
 	\end{enumerate}
 \end{theorem}
 
 \begin{proof}
-	Firstly, we notice that, since $\hg = \m{\Sigma^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & -\hA_4^{-1}} U(t) g(t)$, where $U$ is orthogonal, so the $(E,A)$-boundedness of $g$ is equivalent to the boundedness of $\hg$. Recall that the semi-explicit system \eqref{semi-explicit system} reads
+	Firstly, we notice that, since $\hg(t) = \m{\Sigma^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & -\hA_4^{-1}} U(t) g(t)$, so the fact $g \in \Csys$ implies the boundedness of $\hg$. Recall that the semi-explicit system \eqref{semi-explicit system} reads
 	%
 	\begin{subequations}\label{eq3.10}	
 	\begin{alignat}{2}
@@ -677,10 +693,10 @@ We formulate our main result in this section as follows.
 	(ii) Notice that the mapping 
 	%
 	\[
-		\m{\Sigma^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & -\hA_4^{-1}} U(t) \ : \BEA \rightarrow C_{\infty}(\r_+,\r^n)
+		\m{\Sigma^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & -\hA_4^{-1}} U(t) \ : \BEA \rightarrow C_{b}(\r_+,\r^n)
 	\]
 	%
-	is surjective, so $g_1(t)$ can be freely chosen in the space $C_{\infty}(\r_+,\r^n)$. Proposition \ref{prop2} applied to system \eqref{eq3.10a} follows that \eqref{eq3.10a} has exponential dichotomy. 
+	is surjective, so $g_1(t)$ can be freely chosen in the space $C_{b}(\r_+,\r^n)$. Proposition \ref{prop2} applied to system \eqref{eq3.10a} follows that \eqref{eq3.10a} has exponential dichotomy. 
 	On the other hand, the boundedness of $\hA_3$ implies that \eqref{linDAE} admits exponential dichotomy.
 \end{proof}
 
@@ -756,10 +772,10 @@ Let	$\vphi$ be a positive function belonging to an admissible Banach function sp
 Assume that the function \ $t\mapsto \Sigma^{-1}(t) \m{I_d & -A_2(t) A^{-1}_4(t)} f(t,x(t))$  belongs to class $(M,\vphi,\rho)$ for some positive constants $M$, $\rho$ and a positive function $\vphi \in E$.
 \end{assumption}
 
-The following lemma shows that Assumptions \ref{Ass4.1}, \ref{Ass4.2} are invariant with respect to orthogonal transformations. 
+The following lemma shows that Assumptions \ref{Ass4.1}, \ref{Ass4.2} are invariant with respect to system orthogonal transformations. 
 %
 \begin{lemma}\label{lem4.2}
-Assumptions \ref{Ass4.1}, \ref{Ass4.2} are also invariant with respect to orthogonal transformations. 
+Assumptions \ref{Ass4.1}, \ref{Ass4.2} are also invariant with respect to system orthogonal transformations. 
 \end{lemma}
 %
 \begin{proof}
@@ -773,11 +789,11 @@ As shown in the proof of Lemma \ref{lem4}, the identities \eqref{eq17} hold true
 Therefore, we have that
 %
 \begin{align*}
-\| \tA^{-1}_4(t) \left( f_2(t,x) - f_2(t,\tx) \right) \| 
-= \n{T_4^{-1}(t)  A^{-1}_4(t)  S_4^{-1}(t) \left( f_2(t,x) - f_2(t,\tx) \right) } 
+\| \tA^{-1}_4(t) \left( \tf_2(t,x) - \tf_2(t,\tx) \right) \| 
+= \n{T_4^{-1}(t)  A^{-1}_4(t)  S_4^{-1}(t) S_4(t) \left( f_2(t,x) - f_2(t,\tx) \right) } 
 \leq L \|x-\tx \|, 
 \end{align*}%
-Then, the desired claim is directly followed.
+Then, due to the orthogonality of $T_4$, the desired claim is directly followed.
 \end{proof}
 
 The following proposition gives one sufficient condition for examining Assumptions \ref{Ass4.1}, \ref{Ass4.2}.
