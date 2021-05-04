@@ -639,12 +639,6 @@ C_b^{sys}(\r_+):=\left\{g \in C(\r_+) \ \Bigg| \ \underset{t\geq 0}{\sup} \bigg\
 \end{equation}
 %
 
-\begin{remark}
-In Theorem \ref{thm3.1} below we will see that $\Csys$ plays the role of 
-$C_b(\r_+)$  in Proposition \ref{prop1}. In fact, for the ODE case, $A_4$ is an empty matrix and $\Si=I_n$, we see that
-$\Csys$ coincides with $C_b(\r_+)$. 
-\end{remark}
-
 \begin{lemma}\label{lem2.4}
 The space $\Csys$ is invariant with respect to system orthogonal transformations.  
 \end{lemma}
@@ -672,7 +666,7 @@ Thus, we see that
 Since Euclidean norm is preserved under orthogonal transformation, this identity completes the proof.
 \end{proof}
 
-The main result of this section is to prove a characterization of the exponential dichotomy for DAEs. Roughly speaking, the DAE \eqref{linDAE} admits exponential dichotomy if and only if the mapping $\cL := E\dfrac{d}{dt} - A$ is surjective on the space $\Csys$. 
+The main result of this section is to prove a characterization of the exponential dichotomy for DAEs. Roughly speaking, the DAE \eqref{linDAE} admits exponential dichotomy if and only if the mapping $\cL := E\dfrac{d}{dt} - A$ is surjective on the space $\BEA$. 
 We formulate our main result in this section as follows.
 \begin{theorem}\label{thm3.1}
 	Consider the linear, strangeness-free DAE \eqref{linDAE} and the associated inhomogeneous DAE \eqref{eq2.1}. 
@@ -685,7 +679,7 @@ We formulate our main result in this section as follows.
 \end{theorem}
 
 \begin{proof}
-	Firstly, we notice that, since $\hg(t) = \sm{\Sigma^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & -\hA_4^{-1}} g(t)$, so the fact $g \in \Csys$ implies the boundedness of $\hg$. Recall that the semi-explicit system \eqref{semi-explicit system} reads
+	Firstly, we notice that, since $\hg(t) = \m{\Sigma^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & -\hA_4^{-1}} U(t) g(t)$, so the fact $g \in \Csys$ implies the boundedness of $\hg$. Recall that the semi-explicit system \eqref{semi-explicit system} reads
 	%
 	\begin{subequations}\label{eq3.10}	
 	\begin{alignat}{2}
@@ -699,18 +693,18 @@ We formulate our main result in this section as follows.
 	(ii) Notice that the mapping 
 	%
 	\[
-		g \mapsto \m{\Sigma^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & -\hA_4^{-1}}g 
+		\m{\Sigma^{-1}(t) & -\Si^{-1}(t) A_2(t) A^{-1}_4(t) \\ 0 & -\hA_4^{-1}} U(t) \ : \BEA \rightarrow C_{b}(\r_+,\r^n)
 	\]
 	%
-	is a surjection from $\Csys$ to $C_{b}(\r_+,\r^n)$, so $g(t)$ can be freely chosen in the space $C_{b}(\r_+,\r^n)$. Proposition \ref{prop2} applied to system \eqref{eq3.10a} follows that \eqref{eq3.10a} has exponential dichotomy. 
-	If, in addition, the boundedness of $\hA_3$ is presumed then Proposition \ref{prop1} implies that system \eqref{linDAE} admits exponential dichotomy.
+	is surjective, so $g_1(t)$ can be freely chosen in the space $C_{b}(\r_+,\r^n)$. Proposition \ref{prop2} applied to system \eqref{eq3.10a} follows that \eqref{eq3.10a} has exponential dichotomy. 
+	On the other hand, the boundedness of $\hA_3$ implies that \eqref{linDAE} admits exponential dichotomy.
 \end{proof}
 
 % We further notice, that the boundedness of $\hA_3$ is only the sufficient but not necessary condition so that the converse of Theorem \ref{thm3.1}i) holds true. 
 % The following example demonstrates this fact. 
 
 %\begin{remark}
-%Making use of admissible function spaces, stronger conditions for characterizing the exponential dichotomy of the DAE \eqref{linDAE} have been obtained in \cite{HuyP19b}, where an inhomogeneity function $g(t)$ belongs to less restricted spaces than $\Csys$. There, we also study the robustness of exponential dichotomy under structured-perturbations.%
+%Making use of admissible function spaces, stronger conditions for characterizing the exponential dichotomy of the DAE \eqref{linDAE} have been obtained in \cite{HuyP19b}, where an inhomogeneity function $g(t)$ belongs to less restricted spaces than $\BEA$. There, we also study the robustness of exponential dichotomy under structured-perturbations.%
 %\end{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 4%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -738,10 +732,10 @@ Notice that, unlike the DAEs \eqref{linDAE} and \eqref{eq2.1}, equation \eqref{e
 
 \def\r{\mathbb{R}}
 \begin{assumption}\label{Ass4.1}
-Assume that for some $\rho > 0$, the function $\m{0 & A^{-1}_4(t)} U(t) f(t,x)$ is a contraction mapping  in the ball $B_{\rho}:=\{x\in\r^n | \ \|x\|\le \rho\}$ (uniformly in time), i.e., 
+Assume that for some $\rho > 0$, the function $A^{-1}_4(t) f_2(t,x)$ is a contraction mapping  in the ball $B_{\rho}:=\{x\in\r^n | \ \|x\|\le \rho\}$ (uniformly in time), i.e., 
 %
 \[
-\n{ \m{0 & A^{-1}_4(t)} U(t) \left( f(t,x) - f(t,\tx) \right) } \leq L \|x-\tx \|, 
+\| A^{-1}_4(t) \left( f_2(t,x) - f_2(t,\tx) \right) \| \leq L \|x-\tx \|, 
 \]
 %
 for a.e. $t\in\hro{R_+}$, and for all $x, \tx \in B_{\rho}$ where the Lipschitz constant $L$ satisfies that $L<1$.
