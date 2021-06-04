@@ -1,18 +1,14 @@
-%\newcommand {\rank}     {\mathop{\rm rank}\nolimits}
+\newcommand {\rank}     {\mathop{\rm rank}\nolimits}
 \newcommand {\corank}   {\mathop{\rm corank}\nolimits}
 \newcommand {\range}  {\mathop{\rm range}\nolimits}
-\newcommand {\vspan}  {\mathop{\rm span}\nolimits}
 \newcommand {\corange}  {\mathop{\rm corange}\nolimits}
 \newcommand {\kernel}   {\mathop{\rm kernel}\nolimits}
 \newcommand {\cokernel} {\mathop{\rm cokernel}\nolimits}
 \newcommand {\basis}    {\mathop{\rm basis}\nolimits}
 \newcommand {\sigmin}   {\mathop{\sigma_{\rm min}}\nolimits}
-%\newcommand {\ind}      {\mathop{\rm ind}\nolimits}
+\newcommand {\ind}      {\mathop{\rm ind}\nolimits}
 \newcommand {\opt}      {\mathop{\rm opt}\nolimits}
-
-%\newcommand{\const}{\mbox{\rm const.}}
-
-%\newcommand{\diag}{\mbox{\rm diag}}
+\newcommand{\diag}{\mbox{\rm diag}}
 \newcommand{\upt}{\mbox{\rm up}}
 \newcommand{\re}{\mbox{\rm Re}}
 \newcommand{\im}{\mbox{\rm Im}}
@@ -20,8 +16,6 @@
 \newcommand{\sct} {{\,\stackrel{c}{\sim}\,}}
 \newcommand{\sue} {\,{\stackrel{u}{\sim}\,}}
 \newcommand{\suc} {\,{\stackrel{uc}{\sim}\,}}
-
-
 %\renewcommand{\comment}[1]{}
 %\renewcommand{\proof}{\par\noindent{\bf Proof}. \ignorespaces}
 %\newcommand{\eproof}{\space
@@ -30,23 +24,27 @@
 %=======================================================================================
 % new def-s and commands
 %\include{HaMe12_Feb18_command}
+
 \def\bbI{\mathbb{I}}
+\def\bbL{\mathbb{L}}
+\def\bbM{\mathbb{M}}
+
 \def\om{\omega}
 \def\leq{\leqslant}
 \def\rar{\rightarrow}
 \def\Rar{\Rightarrow}
-\def\td{\tilde{d}}
+\def\td{\Leftrightarrow}
 \def\r{\hro{R}}
 \def\C{\hro{C}}
 \def\hro{\mathbb}
 \def\N{\hro{N}}
-\def\hphi{\hat{\varphi}}
 
 \def\a{\alpha}
 \def\b{\beta}
+\def\B{\mathcal B}
 \def\lb{\lambda}
+\def\Lb{\Lambda}
 \def\vphi{\varphi}
-\def\tvphi{\tilde{\varphi}}
 \def\de{\delta}
 \def\De{\Delta}
 \def\ga{\gamma}
@@ -54,24 +52,23 @@
 \def\si{\sigma}
 \def\ka{\kappa}
 \def\tka{\tilde{\kappa}}
-\def\CE{\cal{E}}
+\def\CE{\mathcal{E}}
 \def\tE{\tilde{E}}
 \def\hE{\hat{E}}
 \def\tA{\tilde{A}}
 \def\hA{\hat{A}}
 \def\bA{\breve{A}}
-\def\tB{\widetilde{B}}
-\def\tD{\widetilde{D}}
+\def\tB{\tilde{B}}
+\def\tD{\tilde{D}}
 \def\hB{\hat{B}}
 \def\hr{\hat{r}}
 \def\hv{\hat{v}}
 \def\tr{\tilde{r}}
-\def\txi{\tilde{\xi}}
-\def\tv{\tilde{v}}
-\def\barB{\widebar{B}}
-\def\barA{\widebar{A}}
+\def\trho{\tilde{\rho}}
 
+\def\nab{\nabla}
 
+\def\cB{\mathcal B}
 \def\cM{\mathcal M}
 \def\tcM{\tilde{\mathcal M}}
 \def\cN{\mathcal N}
@@ -79,18 +76,20 @@
 \def\cS{\mathcal S}
 \def\tU{\tilde{U}}
 \def\cU{\mathcal U}
+\def\cL{\mathcal L}
 
-\def\hD{\hat{D}}
-
-\def\hM{\hat{M}}
 \def\tN{\tilde{N}}
 \def\hN{\hat{N}}
 \def\tk{\tilde{k}}
 \def\hk{\hat{k}}
-\def\hK{\hat{K}}
+\def\tx{\tilde{x}}
 \def\tX{\tilde{X}}
 \def\hX{\hat{X}}
-
+\def\tY{\tilde{Y}}
+\def\hY{\hat{Y}}
+\def\ty{\tilde{y}}
+\def\tv{\tilde{v}}
+\def\tw{\tilde{w}}
 
 \def\tM{\tilde{M}}
 \def\tm{\tilde{m}}
@@ -107,18 +106,13 @@
 \def\tG{\tilde{G}}
 \def\hG{\hat{G}}
 \def\cG{{\cal G}}
-\def\cK{{\cal K}}
 \def\baf{\bar{f}}
 \def\tg{\tilde{g}}
 \def\hg{\hat{g}}
-\def\tK{\widetilde{K}}
-\def\hu{\hat{u}}
-\def\cW{{\cal W}}
-\def\cP{{\cal P}}
+\def\tK{\tilde{K}}
 
-\def\cR{\mathcal{R}}
-\def\Rext{\mathcal{R}_{ext}}
-\def\tR{\widetilde{R}}
+\def\cW{{\cal W}}
+
 \def\tS{\tilde{S}}
 \def\tZ{\tilde{Z}}
 
@@ -140,23 +134,11 @@
 \def\ide{\Delta_{-1}}
 
 
-%\newcommand{\FHWM}{\textnormal{\tiny \textsc{fhwm}}}
-\newcommand{\Jbone}{	J_{\textrm{\tiny \textsc{B1}}}	}
-\newcommand{\Jbtwo}{	J_{\textrm{\tiny \textsc{B2}}}	}
-\newcommand{\Jcone}{	J_{\textrm{\tiny \textsc{C1}}}	}
-\newcommand{\Jctwo}{	J_{\textrm{\tiny \textsc{C2}}}	}
-\newcommand{\Jd}{	J_{\textrm{\tiny \textsc{D}}}	}
-%\newcommand{\rq}{	r_{\textrm{\tiny \textsc{Q}}}	}
-%\newcommand{\rpq}{	r_{\textrm{\tiny \textsc{[P;Q]}}}	}
-
 \def\be{\begin{equation}}
 \def\ee{\end{equation}}         
 
 \newcommand{\ben}{\begin{eqnarray}}
 \newcommand{\een}{\end{eqnarray}}
-
-\newcommand{\bea}{\begin{align}}
-\newcommand{\eea}{\end{align}}
 
 \newcommand{\bsen}{\begin{subeqnarray}}
 \newcommand{\esen}{\end{subeqnarray}}
@@ -182,20 +164,11 @@
 	\end{matrix}
 }
 
-\newcommand{\sm}[1]{
-	\left[
-	\begin{smallmatrix}
-		#1 
-	\end{smallmatrix}
-	\right]
+\newcommand{\n}[1]{
+	\|	#1 \|
 }
 
-\newcommand{\sbm}[1]{
-	\begin{smallmatrix}
-		#1 
-	\end{smallmatrix}
-}
+\def\Px{P_{\mathrm{x}}}
+\def\Py{P_{\mathrm{y}}}
 
-\newenvironment{bsmallmatrix}
-{\begin{smallmatrix}}
-	{\end{smallmatrix}}
+\def\BEA{\cB^{EA}(\r_+,\r^n)}

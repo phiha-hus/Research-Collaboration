@@ -5,44 +5,44 @@ Reallocating 'name_of_file' (item size: 1) to 9 items.
 The style file: amsplain.bst
 Reallocating 'name_of_file' (item size: 1) to 14 items.
 Database file #1: Phi_July_2019.bib
-You've used 31 entries,
+You've used 35 entries,
             2213 wiz_defined-function locations,
-            1035 strings with 13483 characters,
-and the built_in function-call counts, 9586 in all, are:
-= -- 839
-> -- 402
+            1061 strings with 14067 characters,
+and the built_in function-call counts, 10993 in all, are:
+= -- 969
+> -- 474
 < -- 1
-+ -- 161
-- -- 127
-* -- 798
-:= -- 1551
-add.period$ -- 31
-call.type$ -- 31
-change.case$ -- 158
++ -- 189
+- -- 151
+* -- 934
+:= -- 1779
+add.period$ -- 35
+call.type$ -- 35
+change.case$ -- 182
 chr.to.int$ -- 0
-cite$ -- 31
-duplicate$ -- 373
-empty$ -- 874
-format.name$ -- 127
-if$ -- 2018
+cite$ -- 35
+duplicate$ -- 417
+empty$ -- 986
+format.name$ -- 151
+if$ -- 2303
 int.to.chr$ -- 0
-int.to.str$ -- 31
-missing$ -- 71
-newline$ -- 103
-num.names$ -- 63
-pop$ -- 212
+int.to.str$ -- 35
+missing$ -- 79
+newline$ -- 115
+num.names$ -- 71
+pop$ -- 239
 preamble$ -- 1
-purify$ -- 125
+purify$ -- 145
 quote$ -- 0
-skip$ -- 207
+skip$ -- 228
 stack$ -- 0
-substring$ -- 702
-swap$ -- 44
+substring$ -- 818
+swap$ -- 48
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 104
+type$ -- 120
 warning$ -- 0
-while$ -- 90
-width$ -- 33
-write$ -- 277
+while$ -- 105
+width$ -- 37
+write$ -- 310

@@ -1,7 +1,7 @@
 \backcite {BreCP96, DuLMT13, KunM06, LCB07, Lue77}{{1}{1}{equation.1.2}}
 \backcite {LinNT16,LP21,MehrT15}{{1}{1}{equation.1.2}}
 \backcite {BeR13,Dai89, KG14}{{1}{1}{equation.1.2}}
-\backcite {Aga00,Ela13,Kel01,MKA19}{{1}{1}{equation.1.2}}
+\backcite {Aga00,Ela13,Kel01,MoyKA19,MKA19}{{1}{1}{equation.1.2}}
 \backcite {LosM08,MehS06,Wun06,Wun08}{{2}{1}{equation.1.2}}
 \backcite {LosM08}{{2}{1}{equation.1.2}}
 \backcite {LosM08}{{2}{1}{equation.1.2}}
@@ -9,10 +9,10 @@
 \backcite {Dai89}{{2}{2}{equation.2.1}}
 \backcite {MehrT15}{{2}{2}{equation.2.1}}
 \backcite {VerLK81}{{3}{2}{equation.2.3}}
-\backcite {BeR13,Dai89, KG14}{{4}{2}{equation.2.5}}
+\backcite {BeR13,Dai89, KG14}{{4}{2}{equation.2.4}}
 \backcite {Bro70,Green12,Son13,Zhou96}{{4}{2}{theorem.2.3}}
 \backcite {LinNT16}{{4}{2.5}{theorem.2.5}}
-\backcite {KunM06}{{4}{2.5}{equation.2.6}}
+\backcite {KunM06}{{4}{2.5}{equation.2.5}}
 \backcite {LP21}{{5}{2.8}{theorem.2.8}}
 \backcite {LP21}{{6}{2}{theorem.2.9}}
 \backcite {LosM08}{{6}{3}{section.3}}
@@ -21,17 +21,19 @@
 \backcite {LP21}{{6}{3}{theorem.3.1}}
 \backcite {LosMPR08,Lue77}{{7}{3}{theorem.3.2}}
 \backcite {LosM08}{{7}{3.7}{theorem.3.7}}
-\backcite {LP21}{{10}{3.1}{theorem.3.9}}
 \backcite {LP21}{{10}{3.10}{theorem.3.10}}
-\backcite {LosM08}{{10}{3.12}{theorem.3.12}}
-\backcite {LosM08}{{10}{3.12}{theorem.3.12}}
-\backcite {LosM08}{{10}{3.2}{subsection.3.2}}
+\backcite {LP21}{{10}{3.11}{theorem.3.11}}
+\backcite {LosM08}{{10}{3.13}{theorem.3.13}}
+\backcite {LosM08}{{10}{3.13}{theorem.3.13}}
+\backcite {LosM08}{{11}{3.2}{subsection.3.2}}
 \backcite {Abd16}{{11}{3.2}{subsection.3.2}}
 \backcite {YuZ16}{{11}{3.2}{subsection.3.2}}
-\backcite {HugS80}{{12}{3.17}{theorem.3.17}}
+\backcite {HugS80}{{11}{3.17}{theorem.3.17}}
+\backcite {BunBMN99,ChuM00,ChuMN99}{{12}{3.19}{theorem.3.19}}
 \backcite {LP21}{{14}{4}{equation.4.3}}
-\backcite {LP21}{{16}{4.8}{equation.4.6}}
-\backcite {LosM08}{{16}{4.9}{theorem.4.9}}
+\backcite {LP21}{{16}{4.7}{equation.4.6}}
+\backcite {LosM08}{{16}{4.8}{theorem.4.8}}
 \backcite {Dai89}{{18}{4}{equation.4.9}}
 \backcite {Dai89}{{19}{4}{equation.4.11}}
-\backcite {MehS06,LosM08}{{19}{6}{section.6}}
+\backcite {LosM08}{{20}{5}{theorem.5.3}}
+\backcite {MehS06,LosM08}{{21}{6}{section.6}}

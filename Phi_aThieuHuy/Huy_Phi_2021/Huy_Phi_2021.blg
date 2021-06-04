@@ -1,122 +1,122 @@
 This is BibTeX, Version 0.99d
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
-The top-level auxiliary file: Huy_Phi_2020.aux
+The top-level auxiliary file: Huy_Phi_2021.aux
 Reallocating 'name_of_file' (item size: 1) to 6 items.
 The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 14 items.
 Database file #1: Phi_July_2018.bib
-Repeated entry---line 3488 of file Phi_July_2018.bib
+Repeated entry---line 3487 of file Phi_July_2018.bib
  : @article{ChyDL08
  :                 ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 4313 of file Phi_July_2018.bib
+Repeated entry---line 4312 of file Phi_July_2018.bib
  : @article{DuL06
  :               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 6646 of file Phi_July_2018.bib
+Repeated entry---line 6645 of file Phi_July_2018.bib
  : @book{IlcR13
  :             ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 6657 of file Phi_July_2018.bib
+Repeated entry---line 6656 of file Phi_July_2018.bib
  : @book{IlcR13
  :             ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 8027 of file Phi_July_2018.bib
+Repeated entry---line 8026 of file Phi_July_2018.bib
  : @article{LenM90
  :                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 13480 of file Phi_July_2018.bib
+Repeated entry---line 13479 of file Phi_July_2018.bib
  : @article{Ria04
  :               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 13669 of file Phi_July_2018.bib
+Repeated entry---line 13668 of file Phi_July_2018.bib
  : @article{Ria04
  :               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 13801 of file Phi_July_2018.bib
+Repeated entry---line 13800 of file Phi_July_2018.bib
  : @article{ChyDL08
  :                 ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 13815 of file Phi_July_2018.bib
+Repeated entry---line 13814 of file Phi_July_2018.bib
  : @book{Cop78
  :            ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 13836 of file Phi_July_2018.bib
+Repeated entry---line 13835 of file Phi_July_2018.bib
  : @article{DieE99
  :                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 13848 of file Phi_July_2018.bib
+Repeated entry---line 13847 of file Phi_July_2018.bib
  : @article{DuL06
  :               ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 13991 of file Phi_July_2018.bib
+Repeated entry---line 13990 of file Phi_July_2018.bib
  : @book{IlcR13
  :             ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 14036 of file Phi_July_2018.bib
+Repeated entry---line 14035 of file Phi_July_2018.bib
  : @book{KunM06
  :             ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 14045 of file Phi_July_2018.bib
+Repeated entry---line 14044 of file Phi_July_2018.bib
  : @book{LamMT13
  :              ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 14054 of file Phi_July_2018.bib
+Repeated entry---line 14053 of file Phi_July_2018.bib
  : @article{LenM90
  :                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 14080 of file Phi_July_2018.bib
+Repeated entry---line 14079 of file Phi_July_2018.bib
  : @article{LinM09
  :                ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 14265 of file Phi_July_2018.bib
+Repeated entry---line 14264 of file Phi_July_2018.bib
  : @book{BieCM12
  :              ,
 I'm skipping whatever remains of this entry
-Repeated entry---line 14343 of file Phi_July_2018.bib
+Repeated entry---line 14342 of file Phi_July_2018.bib
  : @book{GroR07
  :             ,
 I'm skipping whatever remains of this entry
 Warning--can't use both author and editor fields in AltH18
-You've used 25 entries,
+You've used 33 entries,
             2118 wiz_defined-function locations,
-            993 strings with 12586 characters,
-and the built_in function-call counts, 7459 in all, are:
-= -- 737
-> -- 292
+            1050 strings with 13909 characters,
+and the built_in function-call counts, 9970 in all, are:
+= -- 984
+> -- 393
 < -- 1
-+ -- 117
-- -- 90
-* -- 488
-:= -- 1266
-add.period$ -- 82
-call.type$ -- 25
-change.case$ -- 107
++ -- 157
+- -- 122
+* -- 676
+:= -- 1690
+add.period$ -- 106
+call.type$ -- 33
+change.case$ -- 146
 chr.to.int$ -- 0
-cite$ -- 26
-duplicate$ -- 299
-empty$ -- 644
-format.name$ -- 90
-if$ -- 1580
+cite$ -- 34
+duplicate$ -- 388
+empty$ -- 855
+format.name$ -- 122
+if$ -- 2104
 int.to.chr$ -- 0
-int.to.str$ -- 25
-missing$ -- 37
-newline$ -- 128
-num.names$ -- 51
-pop$ -- 129
+int.to.str$ -- 33
+missing$ -- 46
+newline$ -- 168
+num.names$ -- 67
+pop$ -- 159
 preamble$ -- 1
-purify$ -- 95
+purify$ -- 127
 quote$ -- 0
-skip$ -- 185
+skip$ -- 243
 stack$ -- 0
-substring$ -- 481
-swap$ -- 35
+substring$ -- 675
+swap$ -- 43
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 74
+type$ -- 104
 warning$ -- 1
-while$ -- 69
-width$ -- 27
-write$ -- 276
+while$ -- 93
+width$ -- 35
+write$ -- 363
 (There were 18 error messages)

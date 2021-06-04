@@ -6,6 +6,12 @@ R.~Altmann and J.~Heiland.
   Equations}, pages 277--312.
 \newblock Springer International Publishing, Cham, 2019.
 
+\bibitem{Ber12}
+Thomas Berger.
+\newblock Bohl exponent for time-varying linear differential-algebraic
+  equations.
+\newblock {\em International Journal of Control}, 85(10):1433--1451, 2012.
+
 \bibitem{BieCM12}
 Lorenz~T. Biegler, Stephen~L. Campbell, and Volker Mehrmann, editors.
 \newblock {\em Control and Optimization with Differential-Algebraic
@@ -40,11 +46,24 @@ L.~Dieci and T.~Eirola.
 \newblock On smooth decompositions of matrices.
 \newblock {\em {SIAM} J. Matr. Anal. Appl.}, 20:800--819, 1999.
 
+\bibitem{DuLN16}
+N.~H. Du, V.~H. Linh, and N.~T.~T. Nga.
+\newblock On stability and bohl exponent of linear singular systems of
+  difference equations with variable coefficients.
+\newblock {\em Journal of Difference Equations and Applications},
+  22(9):1350--1377, 2016.
+
 \bibitem{DuL06}
 Nguyen~Huu Du and Vu~Hoang Linh.
 \newblock Stability radii for linear time-varying differential–algebraic
   equations with respect to dynamic perturbations.
 \newblock {\em Journal of Differential Equations}, 230(2):579 -- 599, 2006.
+
+\bibitem{EmmM13}
+Etienne Emmrich and Volker Mehrmann.
+\newblock Operator differential-algebraic equations arising in fluid dynamics.
+\newblock {\em Computational Methods in Applied Mathematics}, 13(4):443--470,
+  2013.
 
 \bibitem{GroR07}
 C.~Grossmann, H.G. Roos, and M.~Stynes.
@@ -97,6 +116,19 @@ Vu~Hoang Linh and Volker Mehrmann.
 \newblock {\em Journal of Dynamics and Differential Equations}, 21(1):153--194,
   Mar 2009.
 
+\bibitem{Mas13}
+Pierangelo Masarati.
+\newblock Estimation of lyapunov exponents from multibody dynamics in
+  differential-algebraic form.
+\newblock {\em Proceedings of the Institution of Mechanical Engineers, Part K:
+  Journal of Multi-body Dynamics}, 227(1):23--33, 2013.
+
+\bibitem{Mas15}
+Pierangelo Masarati and Aykut Tamer.
+\newblock Sensitivity of trajectory stability estimated by lyapunov
+  characteristic exponents.
+\newblock {\em Aerospace Science and Technology}, 47:501--510, 2015.
+
 \bibitem{Mas66}
 J.L. Massera and J.J. Sch{\"a}ffer.
 \newblock {\em Linear differential equations and function spaces}.
@@ -132,11 +164,27 @@ R.~Riaza.
   non-linear circuits.
 \newblock {\em Internat. J. Circ. Theor. Appl.}, 32:23--46, 2004.
 
+\bibitem{Dia18}
+Diagana {T.}
+\newblock {\em Semilinear Evolution Equations and Their Applications}.
+\newblock Springer, Cham, 2018.
+
+\bibitem{ThuNHQ20}
+Do~Duc Thuan, Khong~Chi Nguyen, Nguyen~Thu Ha, and Pham~Van Quoc.
+\newblock On stability, bohl exponent and bohl–perron theorem for implicit
+  dynamic equations.
+\newblock {\em International Journal of Control}, 0(0):1--13, 2020.
+
 \bibitem{Tri78}
 H.~Triebel.
 \newblock {\em Interpolation Theory, Function Spaces, Differential Operators}.
 \newblock Carnegie-Rochester Conference Series on Public Policy. North-Holland
   Publishing Company, 1978.
+
+\bibitem{TroW19}
+Sascha Trostorff and Marcus Waurick.
+\newblock On differential–algebraic equations in infinite dimensions.
+\newblock {\em Journal of Differential Equations}, 266(1):526 -- 561, 2019.
 
 \bibitem{Zhi72}
 V.V. Zhikov.

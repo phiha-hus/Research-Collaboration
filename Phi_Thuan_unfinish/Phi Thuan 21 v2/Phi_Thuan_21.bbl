@@ -42,6 +42,20 @@ K.~E. Brenan, S.~L. Campbell, and L.~R. Petzold, \emph{Numerical solution of
 R.~W. Brockett, \emph{Finite dimensional linear systems}, {John Wiley and
   Sons}, New York, NY, 1970.
 
+\bibitem{BunBMN99}
+A.~Bunse-Gerstner, R.~Byers, V.~Mehrmann, and N.~K. Nichols, \emph{Feedback
+  design for regularizing descriptor systems}, {Lin. Alg. Appl.} \textbf{299}
+  (1999), 119--151.
+
+\bibitem{ChuM00}
+D.~Chu and V.~Mehrmann, \emph{Disturbance decoupling for descriptor systems},
+  {{SIAM} J. Cont.} \textbf{38} (2000), 1830--1858.
+
+\bibitem{ChuMN99}
+D.~Chu, V.~Mehrmann, and N.~K. Nichols, \emph{Minimum norm regularization of
+  descriptor systems by output feedback}, {Lin. Alg. Appl.} \textbf{296}
+  (1999), 39--77.
+
 \bibitem{Dai89}
 L.~Dai, \emph{Singular control systems}, {Springer-Verlag}, Berlin, Germany,
   1989.
@@ -121,6 +135,12 @@ V.~Mehrmann and C.~Shi, \emph{Transformation of high order linear
 Volker Mehrmann and Do~Duc Thuan, \emph{Stability analysis of implicit
   difference equations under restricted perturbations}, {{SIAM} J. Matr. Anal.
   Appl.} \textbf{36} (2015), 178 -- 202.
+
+\bibitem{MoyKA19}
+Lazaros Moysis, Nicholas Karampetakis, and Efstathios Antoniou,
+  \emph{Observability of linear discrete-time systems of algebraic and
+  difference equations}, International Journal of Control \textbf{92} (2019),
+  no.~2, 339--355.
 
 \bibitem{MKA19}
 Lazaros Moysis, Nicholas~P. Karampetakis, and Efstathios Antoniou,
