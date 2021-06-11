@@ -1,4 +1,7 @@
-%Version 1.0 Phi 10.03.21
+% Version 1.0 Phi 10.03.21
+% Version 1.1 Thuan 01.05.21
+% Version 1.2 Phi  07.06.21
+
 \documentclass{siamltex}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
@@ -20,11 +23,14 @@
 \usetikzlibrary{positioning}
 \usepackage{cancel}
 
-%\usepackage[right]{showlabels} 
-%\renewcommand{\showlabelfont}{\ttfamily\scriptsize} 
-\usepackage[notref,notcite]{showkeys}
-\definecolor{refkey}{gray}{.75}
-\definecolor{labelkey}{gray}{.75}
+\usepackage{lineno}
+\linenumbers
+
+\usepackage[right]{showlabels} 
+\renewcommand{\showlabelfont}{\ttfamily\scriptsize} 
+%\usepackage[notref,notcite]{showkeys}
+%\definecolor{refkey}{gray}{.75}
+%\definecolor{labelkey}{gray}{.75}
 
 \usepackage{xcolor}
 \usepackage[pagebackref]{hyperref}
@@ -811,7 +817,7 @@ In this section, using the condensed forms \eqref{condensed form 1}, \eqref{desc
 
 It is straightforward to see that all these controllability concepts are invariant under left equivalent transformation. In the following theorem, we give a characterization for the strongly C2- and R2-controllability.
 
-\begin{theorem}\label{Theorem strongly C2 & R2}
+\begin{theorem}\label{Thm strongly C2 & R2}
 	Consider the descriptor system \eqref{descriptor 2nd order discrete} and its first order companion form \eqref{first order companion form}. Then the following assertions hold true.\\
 	i) System \eqref{descriptor 2nd order discrete} is R2-controllable if and only if the system matrix coefficients satisfy condition $\mathbf{C21}$. \\
 	ii) Besides that, system \eqref{descriptor 2nd order discrete} is  strongly C2-controllable if and only if the system matrix coefficients satisfy both conditions $\mathbf{C21}$ and $\mathbf{C24}$. 
@@ -931,7 +937,7 @@ will omit the super script $new$ and rewrite our system as follows.
 \qquad \pm{r_{2} \\ r_{1} \\ r_{0} \\ \hline  \vphi_{1} \\ \vphi_{0} \\  v}
 \end{equation}
 %
-where $M_1$, $D_2$, $K_3$ have full row rank, and the matrices $\Si_0$, $\Si_1$ are digonal and nonsingular. \\
+where $M_1$, $D_2$, $K_3$ have full row rank, and the matrices $\Si_0$, $\Si_1$ are digonal and nonsingular.
 We recall, that due to \cite[Lemma 4.4]{LP21}, one step index reduction in the strangeness-free formulation is indeed 
 % removing the hidden redundancy in the upper part of system \eqref{a3} by 
 transforming \eqref{a3} into the new form which reads
@@ -1025,7 +1031,7 @@ In comparison to Theorem \ref{Thm 2}, the advantage of the minimal extension for
 	Consider the descriptor system \eqref{descriptor 2nd order discrete}, its the strangeness-free from \eqref{descriptor 2nd order sfree} and the minimal extension form \eqref{descriptor minimal extension}. 
 	If system \eqref{descriptor 2nd order discrete} is R2-controllable then so is system \eqref{descriptor 2nd order sfree}. Furthermore, if this is the case, then system \eqref{descriptor minimal extension} is $R$-controllable.
 \end{theorem}
-\begin{proof} Making use of Theorem \ref{Theorem strongly C2 & R2} i) and Lemma \ref{lem4.5} ii) we see that the constant rank condition $\mathbf{C21}$ holds for the coefficients of system \eqref{descriptor minimal extension}.
+\begin{proof} Making use of Theorem \ref{Thm strongly C2 & R2} i) and Lemma \ref{lem4.5} ii) we see that the constant rank condition $\mathbf{C21}$ holds for the coefficients of system \eqref{descriptor minimal extension}.
 	As in the proof of Lemma \ref{lem4.5},	due to simple matrix row manipulations, from system \eqref{descriptor minimal extension} we see that
 	%
 	\[ \rank \m{\lb \tE- \tA,\ \tB} = \rank \m{\lb^2 M + \lb D + K, \ B} + r_2 \ ,
@@ -1087,7 +1093,7 @@ The following example shows that condition $\mathbf{C23}$ is not invariant under
 	\]
 	%
 	As obtained above, since $\rank\m{\hM, \ \hD, \ \hB} \!=\! 1<3$, system \eqref{eq4.1} is not $C2$-controllable.
-	In fact, from \eqref{eq4.2}, we see that system \eqref{eq4.1} is not even $C$-controllable.
+	In fact, from \eqref{eq4.2}, it is straightforward that system \eqref{eq4.1} is not $C$-controllable.
 \end{example}
 
 \begin{remark}\label{rem4.9}
@@ -1281,6 +1287,7 @@ $\im \cK(\barA_1 ,\barB_1) = \R^{n_1}$. Furthermore, notice that the first $r_2$
 \section{Observability of second order descriptor systems}
 %=================================================================================================================
 In this section we give a few result about the corresponding observability of system \eqref{descriptor 2nd order discrete}.
+For this let us denote by $\cP_{r,2}$ the projection onto the right finite eigenspace corresponding to the finite eigenvalues of the matrix polynomial $\lb^2M+\lb D+K$, \cite{GohLR82}. 
 First we recall three important concepts.
 
 \begin{definition}
@@ -1297,10 +1304,10 @@ for any unknown initial condition $(x(0),x(1))$, there exists a finite integer $
 It is straightforward to see that all three observability concepts above are invariant under left equivalent transformation. 
 On the other hand, since the index reduction procedure, which transforms system \eqref{descriptor 2nd order discrete} to the form \eqref{descriptor 2nd order sfree}, does not alter the solution set of system \eqref{descriptor 2nd order discrete}, the C- and R-observability are preserved.
 Furthermore, due to Remark \ref{rem 3.10}, the index reduction procedure has been performed only on the causal uncontrollable part, which implies that the Y-observability is also preserved. 
-
+%
 The following lemma plays the key role in our study about the observability of \eqref{descriptor 2nd order discrete}.
-
-\begin{lemma}
+%
+\begin{lemma}\label{lem5.1}
 Consider system \eqref{descriptor 2nd order discrete}, the the strangeness-free from \eqref{descriptor 2nd order sfree} and the minimal extension form \eqref{descriptor minimal extension}. Then, system \eqref{descriptor 2nd order sfree} is Y-observable (resp., $R$-observable) if and only if system \eqref{descriptor minimal extension} is also Y-observable 
 (resp., $R$-observable).
 \end{lemma}
@@ -1309,15 +1316,94 @@ Concerning about the $Y$-observability, the proof is straightforward, since the 
 About the $R$-observability, the proof is essentially the same as the proof of \cite[Thm 4.3]{LosM08}, so we will omit it to keep the brevity of this paper.
 \end{proof}
 
+Making use of Lemma \ref{lem5.1}, we see that the first order duality of controllability and observability \cite{Dai89,Dua10} can be directly extended to the second order case 
+for system \eqref{descriptor 2nd order discrete} and the dual system 
+%
+\begin{equation}\label{dual system}
+	\begin{split}
+		& M^T x(n+2) + D^T x(n+1) + K^T x(n) = C^T u(n) \ \mbox{ for all } n \geq n_0, \\
+		&y(k) = Bx(k),\\
+		& x(n_0) = x_0, \ x(n_0+1) = x_1 .
+	\end{split}
+\end{equation}
+%
+%\textbf{Theorem \ref{Thm Obsv} and Corollary \ref{coro 5.1} are translated from Loose/Mehrmann.}
+\begin{theorem}\label{Thm Obsv}
+Consider the second order descriptor system \eqref{descriptor 2nd order discrete} and the dual system \eqref{dual system}. Then the following assertions hold true.\\
+i) System \eqref{descriptor 2nd order discrete} is $C$-observable if and only if the dual system \eqref{dual system} is $C2$-controllable. \\
+ii) System \eqref{descriptor 2nd order discrete} is $R$-observable if and only if the dual system \eqref{dual system} is $R2$-controllable. \\
+iii) System \eqref{descriptor 2nd order discrete} is $Y$-observable if and only if the dual system \eqref{dual system} is $Y$-controllable via displacement-velocity feedback.
+\end{theorem}
+\begin{proof}
+Due to Lemma \ref{lem5.1}, the proof is directly obtained by checking rank conditions for the first order system \eqref{descriptor minimal extension}, so it will be omitted to keep the brevity of this paper.
+\end{proof}
+
+\begin{corollary}\label{coro 5.1}
+Consider the second order descriptor system \eqref{descriptor 2nd order discrete}. Then, it is \\
+i) $R$-observable if and only if 
+%
+\[ \rank \m{\lb^2M+\lb D+K \\ C} = d ; 
+\]
+%
+ii) $C$-observable if and only if it is $R$-observable and the matrix coefficients in the strangeness-free form of the dual system \eqref{dual system} satisfy
+%
+\begin{equation}\label{eq5.1}
+\rank \m{\hM^T & \hD^T & \hC^T} = d ; 
+\end{equation}
+%
+iii) $Y$-observable if and only if 
+%
+\[
+\rank \m{M \\ \ T^1_{\infty} D \\ T^2_{\infty} K \\ C} = d, 
+\]
+%
+where rows of $T^1_{\infty}$ form a basis of $\cokernel M$, and rows of $T^2_{\infty}$ form the basis of 
+%
+\[
+\cokernel \sm{M \\ D Z_1} \setminus \cokernel \sm{ M \\ D Z_1 \\ K Z_3},
+\]
+%
+and rows of $Z_1$ and of $Z_3$ form a basis of $\kernel M$ and $\kernel \m{M \\ D}$, respectively.
+\end{corollary}
+
+In analogous to the controllability case, see Example \ref{exam3.2}, here we notice that the rank condition $\rank \m{M^T \ D^T \ C^T} = d$ implies \eqref{eq5.1}, but the converse is not true.
+Consequently, system \eqref{descriptor 2nd order discrete} may not be $Y$-observable, even if $\rank \m{M^T \ D^T \ C^T} = d$, as illustrated in the following example.
+
+\begin{example}\label{exa5.1}
+Consider the system \eqref{descriptor 2nd order discrete} which reads
+%
+\begin{align}\label{eq5.3}
+& \underbrace{\m{1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 }}_{M} x(n+2) 
++ \underbrace{\m{0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 0 }}_{D} x(n+1) 
++ \underbrace{\m{1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 }}_{K} x(n) 
+= \underbrace{\m{0 \\ 0 \\ 1}}_{B} u(n), \\
+& y(n) = \underbrace{\m{0 & 0 & 1}}_{C} x(n) \ . \notag 
+\end{align}
+%
+Since the matrices $M$, $D$, $K$ are symmetric and $C^T=B$, we see that the dual system of \eqref{eq5.3} is nothing else than itself.
+As in Example \ref{exam3.2}, the strangeness-free formulation of this dual system reads
+%
+\be\label{eq5.4}
+\underbrace{\m{0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 }}_{\hM^T} x(n+2) 
++ \underbrace{\m{0 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 }}_{\hD^T} x(n+1) 
++ \underbrace{\m{1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0 }}_{\hK^T} x(n) 
+= \underbrace{\m{0 \\ 0 \\ 1}}_{\hC^T} u(n) \ .
+\ee
+%
+Consequently, the dual system is not $C$-controllable (and hence not $C2$-controllable). Theorem \ref{Thm Obsv} i) applied to system \eqref{eq5.3} implies that this system is not $C$-observable, 
+despite the fact that $\rank \m{M^T \ D^T \ C^T} = 3$. This agrees with Corollary \ref{coro 5.1} ii), since $\rank\m{\hM^T \ \hD^T \ \hC^T}=1<3$. 
+Besides that, by direct computation, we see that system \eqref{eq5.3} is $R$-observable but not $Y$-observable.
+%from \eqref{eq5.3}, we see that $y(n)=u(n)=0$ for all $n\geq 0$ implies that $x(n)=0$, and hence system \eqref{eq5.3} is $C$-observable.
+\end{example}
 
 %=================================================================================================================
-\newpage
+%\newpage
 \section{Conclusion and Outlook}
 %=================================================================================================================
 In this paper we have presented the theoretical analysis for the controllability of linear, second order descriptor systems in 
 %both continuous-time and 
 discrete-time.
-We have modified an algebraic method proposed in \cite{MehS06,LosM08} to make it more convenient and reliable to apply, in order to study second order descriptor systems. We have given several necessary and sufficient conditions, which are numerically verifiable, in order to characterize all the fundamental controllability concepts for the considered systems. 
+We have modified an algebraic method proposed in \cite{LosM08,MehS06} to make it more convenient and reliable to apply, in order to study second order descriptor systems. We have given several necessary and sufficient conditions, which are numerically verifiable, in order to characterize all the fundamental controllability concepts for the considered systems. 
 We have pointed out that C-controllable does not imply Y-controllable, and have also presented suitable feedback design strategy in order to eliminate the causal behavior of the considered systems. Future research includes the generalization of this approach to higher order descriptor systems, and also a comparable framework for the observability concepts. 
 
 %============================================================================

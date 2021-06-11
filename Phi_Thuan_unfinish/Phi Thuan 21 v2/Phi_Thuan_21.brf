@@ -35,5 +35,7 @@
 \backcite {LosM08}{{16}{4.8}{theorem.4.8}}
 \backcite {Dai89}{{18}{4}{equation.4.9}}
 \backcite {Dai89}{{19}{4}{equation.4.11}}
+\backcite {GohLR82}{{19}{5}{section.5}}
 \backcite {LosM08}{{20}{5}{theorem.5.3}}
-\backcite {MehS06,LosM08}{{21}{6}{section.6}}
+\backcite {Dai89,Dua10}{{20}{5}{theorem.5.3}}
+\backcite {LosM08,MehS06}{{21}{6}{section.6}}

@@ -66,9 +66,17 @@ Nguyen~Huu Du, Vu~Hoang Linh, Volker Mehrmann, and Do~Duc Thuan,
   differential-algebraic equations.}, {{SIAM} J. Matr. Anal. Appl.} \textbf{34}
   (2013), no.~4, 1631--1654.
 
+\bibitem{Dua10}
+G.R. Duan, \emph{Analysis and design of descriptor linear systems}, Advances in
+  Mechanics and Mathematics, Springer New York, 2010.
+
 \bibitem{Ela13}
 S.N. Elaydi, \emph{An introduction to difference equations}, Undergraduate
   Texts in Mathematics, Springer New York, 2013.
+
+\bibitem{GohLR82}
+I.~Gohberg, P.~Lancaster, and L.~Rodman, \emph{Matrix polynomials}, Academic
+  Press, New York, NY, 1982.
 
 \bibitem{Green12}
 M.~Green and D.J.N. Limebeer, \emph{Linear robust control}, Dover Books on
