@@ -1,0 +1,18 @@
+TY  - JOUR
+AU  - Wang, Zheng
+AU  - Cong, Yuhao
+AU  - Hu, Xiulin
+PY  - 2021
+DA  - 2021/03/01
+TI  - Static output feedback stabilization for second-order singular systems using model reduction methods
+JO  - Applied Mathematics and Mechanics
+SP  - 457
+EP  - 466
+VL  - 42
+IS  - 3
+AB  - In this paper, the static output feedback stabilization for large-scale unstable second-order singular systems is investigated. First, the upper bound of all unstable eigenvalues of second-order singular systems is derived. Then, by using the argument principle, a computable stability criterion is proposed to check the stability of second-order singular systems. Furthermore, by applying model reduction methods to original systems, a static output feedback design algorithm for stabilizing second-order singular systems is presented. A simulation example is provided to illustrate the effectiveness of the design algorithm.
+SN  - 1573-2754
+UR  - https://doi.org/10.1007/s10483-021-2710-7
+DO  - 10.1007/s10483-021-2710-7
+ID  - Wang2021
+ER  - 

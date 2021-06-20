@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.29)  6 JUN 2021 23:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.29)  14 JUN 2021 23:02
 entering extended mode
 **./Phi_Thuan_21.tex
 (Phi_Thuan_21.tex
@@ -1047,59 +1047,59 @@ LaTeX Info: Redefining \nameref on input line 70.
 \openout4 = `Phi_Thuan_21.out'.
 
 LaTeX Font Info:    Trying to load font information for T1+lmss on input line 7
-9.
+8.
 
 (D:\Program Files\MikTex\tex/latex/lm\t1lmss.fd
 File: t1lmss.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 7
-9.
+8.
 
 (D:\Program Files\MikTex\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 7
-9.
+8.
 
 (D:\Program Files\MikTex\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-79.
+78.
 
 (D:\Program Files\MikTex\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-79.
+78.
 
 (D:\Program Files\MikTex\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 79.
+(Font)              <8> on input line 78.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 79.
+(Font)              <6> on input line 78.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 79.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 79.
+(Font)              <5> on input line 78.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 78.
 
 
 (D:\Program Files\MikTex\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 79.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 78.
 
 
 (D:\Program Files\MikTex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 108.
+(Font)              <10> on input line 109.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 108.
+(Font)              <7> on input line 109.
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-13.
+14.
 
 (D:\Program Files\MikTex\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1113,14 +1113,14 @@ Underfull \vbox (badness 2460) has occurred while \output is active []
 
  [4]
 [5]
-Underfull \hbox (badness 4024) in paragraph at lines 413--414
+Underfull \hbox (badness 4024) in paragraph at lines 414--415
 []\T1/lmr/m/n/10 velocity feed-back \T1/lmr/m/it/10 if there ex-ists a ma-trix 
 $\OML/lmm/m/it/10 F[] \U/matha/m/n/10 P \U/msb/m/n/10 R[]$ \T1/lmr/m/it/10 such
  that
  []
 
 
-Underfull \hbox (badness 1552) in paragraph at lines 414--415
+Underfull \hbox (badness 1552) in paragraph at lines 415--416
 []\T1/lmr/m/n/10 acceleration feed-back \T1/lmr/m/it/10 if there ex-ists a ma-t
 rix $\OML/lmm/m/it/10 F[] \U/matha/m/n/10 P \U/msb/m/n/10 R[]$ \T1/lmr/m/it/10 
 such that
@@ -1131,29 +1131,26 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [13]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <9> on input line 947.
+(Font)              <9> on input line 948.
 
 Underfull \vbox (badness 5119) has occurred while \output is active []
 
  [14]
-[15] [16] [17] [18] [19] [20] (Phi_Thuan_21.bbl (Phi_Thuan_21.brf)
+[15] [16] [17] [18] [19] [20] [21] (Phi_Thuan_21.bbl (Phi_Thuan_21.brf)
 \tf@brf=\write5
 \openout5 = `Phi_Thuan_21.brf'.
 
- [21]
-Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [22])
-[23] (Phi_Thuan_21.aux)
+[22]) [23] (Phi_Thuan_21.aux)
 Package rerunfilecheck Info: File `Phi_Thuan_21.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package rerunfilecheck Info: File `Phi_Thuan_21.brf' has not changed.
-(rerunfilecheck)             Checksum: FF052F9FB271044598703525BA48F201;1910.
+(rerunfilecheck)             Checksum: 47814897C7FCB80CED20C7792AC1A55E;1910.
  ) 
 Here is how much of TeX's memory you used:
  22138 strings out of 479321
  391643 string characters out of 2866504
- 683592 words of memory out of 3000000
+ 681683 words of memory out of 3000000
  38998 multiletter control sequences out of 15000+600000
  495467 words of font info for 99 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1190,7 +1187,7 @@ s/type1/public/lm/lmss8.pfb><D:/Program Files/MikTex/fonts/type1/public/lm/lmsy
 10.pfb><D:/Program Files/MikTex/fonts/type1/public/lm/lmsy8.pfb><D:/Program Fil
 es/MikTex/fonts/type1/public/lm/lmtt8.pfb><D:/Program Files/MikTex/fonts/type1/
 public/amsfonts/symbols/msbm10.pfb>
-Output written on Phi_Thuan_21.pdf (23 pages, 647998 bytes).
+Output written on Phi_Thuan_21.pdf (23 pages, 648096 bytes).
 PDF statistics:
  907 PDF objects out of 1000 (max. 8388607)
  153 named destinations out of 1000 (max. 500000)
