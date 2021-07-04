@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.29)  3 JUL 2021 15:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.29)  4 JUL 2021 11:08
 entering extended mode
 **./NamPhi_21_positive_systems.tex
 (NamPhi_21_positive_systems.tex
@@ -536,17 +536,34 @@ Overfull \hbox (5.19507pt too wide) in paragraph at lines 224--226
  []
 
 [4] [5] [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 456--463
+Underfull \hbox (badness 10000) in paragraph at lines 457--464
 
  []
 
-[8] [9] [10]
+[8] [9]
+Overfull \hbox (1.16708pt too wide) in paragraph at lines 531--534
+[][]\OT1/cmr/m/n/10 ``$\OMS/cmsy/m/n/10 )$\OT1/cmr/m/n/10 " For any fixed $\OML
+/cmm/m/it/10 t \OMS/cmsy/m/n/10 2 \OT1/cmr/m/n/10 (0\OML/cmm/m/it/10 ; \OT1/cm
+r/m/n/10 )$, since the in-te-gral part $[][] \OML/cmm/m/it/10 e[][]x[]\OT1/cmr/
+m/n/10 (\OML/cmm/m/it/10 s\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ds$
+ []
+
+
+
+pdfTeX warning: pdflatex.exe (file ./Fig1.pdf): PDF inclusion: found PDF versio
+n <1.7>, but at most version <1.5> allowed
+<Fig1.pdf, id=321, 468.75125pt x 376.40625pt>
+File: Fig1.pdf Graphic file (type pdf)
+<use Fig1.pdf>
+Package pdftex.def Info: Fig1.pdf  used on input line 550.
+(pdftex.def)             Requested size: 169.0pt x 135.70142pt.
+[10 <./Fig1.pdf>] [11] [12]
 :<+ NamPhi_21_positive_systems.bbl
 (NamPhi_21_positive_systems.bbl (NamPhi_21_positive_systems.brf)
 \tf@brf=\write4
 \openout4 = `NamPhi_21_positive_systems.brf'.
 
- [11]
+
 Underfull \hbox (badness 1194) in paragraph at lines 81--81
 [][]\OT1/cmr/m/n/10 Emilia Frid-man.  Sta-bil-ity of lin-ear de-scrip-tor sys-t
 ems with de-lay: a
@@ -558,12 +575,12 @@ Underfull \hbox (badness 2042) in paragraph at lines 81--81
 .\OT1/cmr/m/n/10 , 273(1):24 -- 44,
  []
 
-
+[13]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [12])
+ [14])
 :<-
-[13] (NamPhi_21_positive_systems.aux)
+[15] (NamPhi_21_positive_systems.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
@@ -579,38 +596,41 @@ ged.
 (rerunfilecheck)             Checksum: C17437D25344BDB8FA33D6DACB75BD21;904.
 Package rerunfilecheck Info: File `NamPhi_21_positive_systems.brf' has not chan
 ged.
-(rerunfilecheck)             Checksum: C78C4D488094E783F1130438BA5EA3D8;1925.
+(rerunfilecheck)             Checksum: B9EE8F29BF16B57B88547B4BC590125C;1925.
  ) 
 Here is how much of TeX's memory you used:
- 11131 strings out of 479321
- 158395 string characters out of 2866504
- 486524 words of memory out of 3000000
- 28328 multiletter control sequences out of 15000+600000
- 412573 words of font info for 62 fonts, out of 8000000 for 9000
+ 11151 strings out of 479321
+ 158625 string characters out of 2866504
+ 486850 words of memory out of 3000000
+ 28340 multiletter control sequences out of 15000+600000
+ 413194 words of font info for 64 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 98i,23n,102p,998b,479s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 98i,23n,102p,998b,499s stack positions out of 5000i,500n,10000p,200000b,80000s
 <D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmbsy10.pfb><D:/Progr
 am Files/MikTex/fonts/type1/public/amsfonts/cm/cmbx10.pfb><D:/Program Files/Mik
 Tex/fonts/type1/public/amsfonts/cm/cmbx12.pfb><D:/Program Files/MikTex/fonts/ty
 pe1/public/amsfonts/cm/cmbx7.pfb><D:/Program Files/MikTex/fonts/type1/public/am
-sfonts/cm/cmex10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cm
-mi10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><D:/
-Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/Program Files
-/MikTex/fonts/type1/public/amsfonts/cm/cmr10.pfb><D:/Program Files/MikTex/fonts
-/type1/public/amsfonts/cm/cmr5.pfb><D:/Program Files/MikTex/fonts/type1/public/
-amsfonts/cm/cmr7.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cm
-r8.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmss8.pfb><D:/Pr
-ogram Files/MikTex/fonts/type1/public/amsfonts/cm/cmsy10.pfb><D:/Program Files/
-MikTex/fonts/type1/public/amsfonts/cm/cmsy7.pfb><D:/Program Files/MikTex/fonts/
-type1/public/amsfonts/cm/cmsy8.pfb><D:/Program Files/MikTex/fonts/type1/public/
-amsfonts/cm/cmti10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/
-cmtt10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmtt8.pfb><D
-:/Program Files/MikTex/fonts/type1/public/amsfonts/symbols/msam10.pfb><D:/Progr
-am Files/MikTex/fonts/type1/public/amsfonts/symbols/msbm10.pfb><D:/Program File
-s/MikTex/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
-Output written on NamPhi_21_positive_systems.pdf (13 pages, 366729 bytes).
+sfonts/cm/cmbx8.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cme
+x10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmmi10.pfb><D:/
+Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmmi5.pfb><D:/Program Files
+/MikTex/fonts/type1/public/amsfonts/cm/cmmi7.pfb><D:/Program Files/MikTex/fonts
+/type1/public/amsfonts/cm/cmmi8.pfb><D:/Program Files/MikTex/fonts/type1/public
+/amsfonts/cm/cmr10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/
+cmr5.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmr6.pfb><D:/P
+rogram Files/MikTex/fonts/type1/public/amsfonts/cm/cmr7.pfb><D:/Program Files/M
+ikTex/fonts/type1/public/amsfonts/cm/cmr8.pfb><D:/Program Files/MikTex/fonts/ty
+pe1/public/amsfonts/cm/cmss8.pfb><D:/Program Files/MikTex/fonts/type1/public/am
+sfonts/cm/cmsy10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cm
+sy7.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/cm/cmsy8.pfb><D:/P
+rogram Files/MikTex/fonts/type1/public/amsfonts/cm/cmti10.pfb><D:/Program Files
+/MikTex/fonts/type1/public/amsfonts/cm/cmtt10.pfb><D:/Program Files/MikTex/font
+s/type1/public/amsfonts/cm/cmtt8.pfb><D:/Program Files/MikTex/fonts/type1/publi
+c/amsfonts/symbols/msam10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfo
+nts/symbols/msbm10.pfb><D:/Program Files/MikTex/fonts/type1/public/amsfonts/sym
+bols/msbm7.pfb>
+Output written on NamPhi_21_positive_systems.pdf (15 pages, 404990 bytes).
 PDF statistics:
- 506 PDF objects out of 1000 (max. 8388607)
- 95 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 542 PDF objects out of 1000 (max. 8388607)
+ 100 named destinations out of 1000 (max. 500000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 

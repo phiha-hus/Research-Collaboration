@@ -256,7 +256,7 @@ It is well-known that in this example $\ind(E,A) = 2$. Furthermore, depending on
 
 Let $E$ have index $\tnu$, i.e., $\ind(E,I_n)=\tnu$, the Drazin inverse $E^D$ of E is uniquely defined by the properties
 %
-\begin{equation}
+\begin{equation}\label{Drazin property}
 E^DE = E E^D, \ E^D E E^D = E^D ,\ E^D E^{\tnu+1} = E^{\tnu} .
 \end{equation}
 %
@@ -270,8 +270,9 @@ E^DE = E E^D, \ E^D E E^D = E^D ,\ E^D E^{\tnu+1} = E^{\tnu} .
 %
 Furthermore, the following commutative identities hold true.
 %
-\[ \hE \hA^D = \hA^D \hE, \ \hE^D \hA = \hA \hE^D, \ \hE^D \hA^D = \hA^D \hE^D \ . 
-\]
+\begin{equation}\label{eq12}
+	\hE \hA^D = \hA^D \hE, \ \hE^D \hA = \hA \hE^D, \ \hE^D \hA^D = \hA^D \hE^D \ . 
+\end{equation}
 %
 \end{lemma}
 We notice that the matrix products $\hE^D \hE$, $\hE^D \hA$, $\hE\hA^D$, $\hE^D \hB$, $\hA^D \hB$ do not depend on the choice of $\lb$ (see e.g. \citet{Dai89}). Furthermore, they can be numerically computed by transforming the pair $(E,A)$ to their Weierstrass canonical form \eqref{KW form} (see e.g. \citet{Varga19,Vir08}).
@@ -494,7 +495,7 @@ x_1(t) =&
 	\int_{0}^{t} e^{\bhA (t-s)} \bhAd x_0(s) ds 
 }_{x_{zi}(t)}  \notag  \\
 &+ \underbrace{
-	\int_{0}^{t} e^{\bhA (t-s)}  \bhB u_j(s) ds \!+\!
+	\int_{0}^{t} e^{\bhA (t-s)}  \bhB u_j(s) ds +
 	(P - I) \sum_{i=0}^{\nu-1}  \bhA^i  \hA^D \hB u^{(i)}_{j}(t)}_{x_{zs}(t)} \ .
 \end{align}
 %
@@ -527,13 +528,41 @@ i) There exists a Metzler matrix $H$ such that $\bhA = HP$. \\
 ii) $\bhA_d \geq 0$, $(P-I) \hA^D\hA_d \geq 0$. 
 \end{lemma}
 \begin{proof}
-[Necessity] For any fixed $t\in (0,\tau)$, since the integral part $\int_{0}^{t} e^{\bhA (t-s)} \bhAd x_0(s)ds$ can be arbitrarily small chosen, independent of the two boundary points $0$ and $t$, we see that the sum $e^{\bhA t} P x_0(\tau) + (P - I) \hA^D \hA_d x_0(t)$ must be non-negative for any non-negative vectors $x_0(\tau)$ and $x_0(t)$. The independence of these two vectors leads to the fact that the sum $e^{\bhA t} P x_0(\tau) + (P - I) \hA^D \hA_d x_0(t)$ is non-negative if and only if both terms are non-negative.
+``$\Rightarrow$" For any fixed $t\in (0,\tau)$, since the integral part $\int_{0}^{t} e^{\bhA (t-s)} \bhAd x_0(s)ds$ can be arbitrarily small chosen, independent of the two boundary points $0$ and $t$, we see that the sum $e^{\bhA t} P x_0(\tau) + (P - I) \hA^D \hA_d x_0(t)$ must be non-negative for any non-negative vectors $x_0(\tau)$ and $x_0(t)$. The independence of these two vectors leads to the fact that the sum $e^{\bhA t} P x_0(\tau) + (P - I) \hA^D \hA_d x_0(t)$ is non-negative if and only if both terms are non-negative.
 Thus, due to Proposition \ref{Rami12}, the non-negativity of the term $e^{\bhA t} P x_0(\tau)$ is equivalent to the claim i). On the other hand, the non-negativity of the 
-term $(P - I) \hA^D \hA_d x_0(t)$ implies that $(P - I) \hA^D \hA_d \geq 0$. \\
-To prove that $\bhA_d \geq 0$, we assume the contrary, i.e. there exist some indices $i$, $j$ with $[\bhA_d]_{ij}<0$. 
-Then, for $e_j$, the jth unit vector, and for t > 0 small enough, we obtain which contradicts (3.5). Therefore, we conclude that ... .
+term $(P - I) \hA^D \hA_d x_0(t)$ implies that $(P - I) \hA^D \hA_d \geq 0$. 
 
-[Sufficiency]
+To prove that $\bhA_d \geq 0$, we assume the contrary, i.e. there exist some indices $i$, $j$ with $[\bhA_d]_{ij}<0$. Thus, for the jth unit vector $e_j$, we have $[\bhA_d e_j]_i < 0$.
+For a sufficiently small $\ep > 0$, let us choose the initial function $x_0$ as follows
+%
+\begin{equation}\label{x0 function}
+	x_0(s) = 
+	\begin{cases}		
+		\left( 1 - \frac{1}{\ep} |t-\ep-s| \right) e_j \ \mbox{ for all } \ |t-\ep-s| \leq \ep, \\
+		0 \ \mbox{ otherwise. }.
+	\end{cases}
+\end{equation}
+%
+The graph of the magnitude of $x_0(s)$ is given in Figure \ref{fig1}. \
+%
+\begin{figure}[h!]
+	\centering 	
+	\includegraphics[width=0.5\linewidth]{Fig1.pdf}
+	\caption{The function $x_0$ in \eqref{x0 function} with $\tau=4$, $t=2$, $\ep=0.5$.}
+	\label{fig1}
+\end{figure}
+%
+Since $u\equiv 0$, $x_0(0)=x_0(\tau)=0$, the consistency condition \eqref{consistency} is trivially satisfied.
+Then, we have that 
+%
+\begin{align*}
+x_1(t)  &= \int_{0}^{t} e^{\bhA (t-s)} \bhAd x_0(s) ds = \int_{t-2\ep}^{t} e^{\bhA (t-s)} \bhAd x_0(s) ds, \\ 
+		&= \int_{t-2\ep}^{t} \left(I + \bhA (t-s) + {\cal O}((t-s)^2) \right) \left( 1 - \frac{1}{\ep} |t-\ep-s| \right) \bhAd e_j  ds \ . 
+\end{align*}
+%
+Thus, for sufficiently small $\ep$, the coordinate $(x_1(t))_i$ have exactly the same sign as $[\bhAd e_j]_i$, which is strictly negative. This is contradicted to the non-negativity of the solution $x(t)$, and hence, we conclude that $\bhA_d \geq 0$. \\
+``$\Leftarrow$" It is directly followed from i) and ii) that all three summands of $x_{zi}(t)$ are non-negative, 
+%and hence, $x_{zi}(t) \geq 0$ for all $t\geq 0$. This completes the proof.\\
 \end{proof}
 
 \begin{theorem}\label{Thm positivity}
@@ -544,13 +573,29 @@ Then, for $e_j$, the jth unit vector, and for t > 0 small enough, we obtain whic
 	iii) $C$ is non-negative on the subspace 
 	%
 	\begin{equation}\label{reachable subspace}
-		{\cal X} : = \im_+ \left[ P,\ (P - I)\hA^D \hA_d, \ (P - I) \ \Ka_{\nu}(\hE\hA^D,\hA^D\hB) \right] \ .
+		{\cal X} : = \im_+ \left[ P,\ (P - I)\hA^D \hA_d, \ (P - I) \ \Ka_{\nu}(\bhA,\hA^D\hB) \right] \ .
 	\end{equation} 
 	%
 \end{theorem}
 \begin{proof}
-	$\Rightarrow$ Due to Lemma \ref{zero input lemma}, we only need to prove part 3. \\
-	$\Leftarrow$ Quite simple. 
+``$\Rightarrow$" By consecutively choosing $u\equiv 0$ and $\phi \equiv 0$, we see that both the free solution $x_{zi}(t)$ and the zero-state solution $x_{zs}$ are non-negative for all $t\geq 0$.
+Analogous to the proof of the necessity part in Lemma \ref{zero input lemma}, from the non-negativity of the integral $\int_{0}^{t} e^{\bhA (t-s)}  \bhB u_j(s) ds$, we obtain $\bhB \geq 0$. 
+Thus, only the claim iii) needs to be proven. We notice that due to Lemma \ref{lem1} and the property \eqref{Drazin property} of the Drazin inverse, we have that $P$ and $\bhA$ commute, and $P\hE^D = \hE^D$, and hence,
+%
+\[
+e^{\bhA} \hE^D = \hE^D e^{\bhA} = \hE^D \hE \hE^D e^{\bhA} = P e^{\bhA} \hE^D \ .  
+\]
+%
+Therefore, we see that
+%
+\begin{align*}
+& e^{\bhA t} P x_0(\tau) + \int_{0}^{t} e^{\bhA (t-s)} \bhAd x_0(s) ds + \int_{0}^{t} e^{\bhA (t-s)}  \bhB u_j(s) ds \subseteq \im_+(P), \\
+& (P - I) \hA^D \hA_d x_0(t) + (P - I) \sum_{i=0}^{\nu-1}  \bhA^i  \hA^D \hB u^{(i)}_{j}(t) \\
+& \ \subseteq \im_+ \left[ (P - I)\hA^D \hA_d, \ (P - I) \ \Ka_{\nu}(\bhA,\hA^D\hB) \right] \ .
+\end{align*}
+%
+Thus, the claim iii) is directly followed.\\
+``$\Leftarrow$" It is straightforward that from i) and ii) we obtain the non-negativity of $x(t)$, and due to iii) we obtain the non-negativity of $y(t)$. This completes the proof. 
 \end{proof}
 
 If we restrict ourself to the non-delayed case (i.e. $A_d=0$), the direct corollary of Theorem \ref{Thm positivity} is straightforward. We, moreover, notice that this corollary has slightly improved the result \cite[Thm. 3.4]{Vir08}.
@@ -560,7 +605,7 @@ If we restrict ourself to the non-delayed case (i.e. $A_d=0$), the direct coroll
 	Then, system \eqref{eq1.2} is positive if and only if the following conditions hold. \\
 	i) $\bhA = H \ P$ for some Metzler matrix $H$. \\
 	ii) $\bhB \geq 0$, \\
-	iii) $C$ is non-negative on the subspace ${\cal X}$.
+	iii) $C$ is non-negative on the subspace ${\cal X}$ defined in \eqref{reachable subspace}.
 \end{corollary}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
