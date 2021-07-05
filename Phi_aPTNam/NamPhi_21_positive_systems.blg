@@ -6,45 +6,45 @@ The style file: unsrtnat.bst
 Reallocating 'name_of_file' (item size: 1) to 14 items.
 Database file #1: Phi_July_2020.bib
 Warning--can't use both author and editor fields in Varga19
-You've used 26 entries,
+You've used 31 entries,
             2481 wiz_defined-function locations,
-            1090 strings with 13828 characters,
-and the built_in function-call counts, 9972 in all, are:
-= -- 941
-> -- 348
-< -- 25
-+ -- 148
-- -- 96
-* -- 740
-:= -- 1566
-add.period$ -- 109
-call.type$ -- 26
-change.case$ -- 47
-chr.to.int$ -- 26
-cite$ -- 27
-duplicate$ -- 510
-empty$ -- 957
-format.name$ -- 148
-if$ -- 2170
+            1133 strings with 14978 characters,
+and the built_in function-call counts, 12045 in all, are:
+= -- 1136
+> -- 439
+< -- 27
++ -- 184
+- -- 122
+* -- 914
+:= -- 1905
+add.period$ -- 135
+call.type$ -- 31
+change.case$ -- 57
+chr.to.int$ -- 31
+cite$ -- 32
+duplicate$ -- 605
+empty$ -- 1142
+format.name$ -- 181
+if$ -- 2617
 int.to.chr$ -- 1
-int.to.str$ -- 27
-missing$ -- 31
-newline$ -- 167
-num.names$ -- 78
-pop$ -- 181
+int.to.str$ -- 32
+missing$ -- 36
+newline$ -- 203
+num.names$ -- 93
+pop$ -- 205
 preamble$ -- 1
-purify$ -- 26
+purify$ -- 31
 quote$ -- 0
-skip$ -- 300
+skip$ -- 353
 stack$ -- 0
-substring$ -- 549
-swap$ -- 72
+substring$ -- 658
+swap$ -- 82
 text.length$ -- 3
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 164
+type$ -- 199
 warning$ -- 1
-while$ -- 81
+while$ -- 96
 width$ -- 0
-write$ -- 406
+write$ -- 493
 (There was 1 warning)

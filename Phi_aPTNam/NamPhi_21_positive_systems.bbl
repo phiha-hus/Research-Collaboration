@@ -1,4 +1,4 @@
-\begin{thebibliography}{26}
+\begin{thebibliography}{31}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -195,5 +195,50 @@ M.~A. {Rami} and D.~{Napp}.
   (10):\penalty0 2668--2673, Oct 2012.
 \newblock ISSN 1558-2523.
 \newblock \doi{10.1109/TAC.2012.2190211}.
+
+\bibitem[Cui et~al.(2018)Cui, Shen, Feng, and Chen]{Cui.et.al'17}
+Yukang Cui, Jun Shen, Zhiguang Feng, and Yong Chen.
+\newblock Stability analysis for positive singular systems with time-varying
+  delays.
+\newblock \emph{IEEE Transactions on Automatic Control}, 63\penalty0
+  (5):\penalty0 1487--1494, 2018.
+\newblock \doi{10.1109/TAC.2017.2749524}.
+
+\bibitem[Ha(2018)]{Ha18}
+Phi Ha.
+\newblock Spectral characterizations of solvability and stability for delay
+  differential-algebraic equations.
+\newblock \emph{Acta Mathematica Vietnamica}, 43:\penalty0 715--735, 2018.
+\newblock ISSN 2315-4144.
+\newblock \doi{10.1007/s40306-018-0279-7}.
+\newblock URL \url{https://doi.org/10.1007/s40306-018-0279-7}.
+
+\bibitem[Liu et~al.(2009)Liu, Yu, and Wang]{Liu.et.al'09}
+Xingwen Liu, Wensheng Yu, and Long Wang.
+\newblock Stability analysis of positive systems with bounded time-varying
+  delays.
+\newblock \emph{IEEE Transactions on Circuits and Systems II: Express Briefs},
+  56\penalty0 (7):\penalty0 600--604, 2009.
+\newblock \doi{10.1109/TCSII.2009.2023305}.
+
+\bibitem[Phat and Sau(2014)]{Phat14}
+V.N. Phat and N.H. Sau.
+\newblock On exponential stability of linear singular positive delayed systems.
+\newblock \emph{Applied Mathematics Letters}, 38:\penalty0 67--72, 2014.
+\newblock ISSN 0893-9659.
+\newblock \doi{https://doi.org/10.1016/j.aml.2014.07.003}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S0893965914002250}.
+
+\bibitem[Sau et~al.(2016)Sau, Niamsup, and Phat]{Sau16}
+Nguyen~H. Sau, P.~Niamsup, and Vu~N. Phat.
+\newblock Positivity and stability analysis for linear implicit difference
+  delay equations.
+\newblock \emph{Linear Algebra and its Applications}, 510:\penalty0 25--41,
+  2016.
+\newblock ISSN 0024-3795.
+\newblock \doi{https://doi.org/10.1016/j.laa.2016.08.012}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S0024379516303391}.
 
 \end{thebibliography}

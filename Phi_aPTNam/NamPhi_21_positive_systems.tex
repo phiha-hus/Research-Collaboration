@@ -144,7 +144,7 @@ where the matrix $E$ is allowed to be singular ($\det E=0$), and \emph{delay-dif
 \end{equation}
 %
 Delay-descriptor systems of the form \eqref{delay-descriptor} have been arisen in various applications, see \citet{AscP95,Cam80,HalL93,ShaG06,ZhuP97} and the references there in. 
-From the theoretical viewpoint, the study for such systems is much more complicated than that for standard DDEs or DAEs. The dynamics of DDAEs has been strongly enriched, and many interesting properties, which occur neither for DAEs nor for DDEs, have been observed for DDAEs \citet{Cam95c,DuLMT13,HaM12,HaM16}. Due to these reasons, recently more and more attention has been devoted to DDAEs, \citet{CamL09,Fri02,HaM12,HaM16,Mic11,ShaG06,TiaYK11,LinT15}. \\
+From the theoretical viewpoint, the study for such systems is much more complicated than that for standard DDEs or DAEs. The dynamics of DDAEs has been strongly enriched, and many interesting properties, which occur neither for DAEs nor for DDEs, have been observed for DDAEs \citet{Cam95c,DuLMT13,Ha18}. Due to these reasons, recently more and more attention has been devoted to DDAEs, \citet{CamL09,Fri02,HaM12,HaM16,Mic11,ShaG06,TiaYK11,LinT15}. \\
 
 [....] \\
 
@@ -396,7 +396,7 @@ Then, this system is non-advanced if and only if the following rank condition is
 %
 Theorem \ref{thm check advancedness} applied to the index two case straightly gives us the following corollary.
 %
-\begin{corollary}
+\begin{corollary}\label{coro3}
 Consider the zero-input descriptor system \eqref{free system} and assume that the pair $(E,A)$ is regular with index $\ind(E,A)=2$.  	
 Then, system \eqref{free system} is non-advanced if and only if the following identity hold true.
 %
@@ -611,34 +611,112 @@ If we restrict ourself to the non-delayed case (i.e. $A_d=0$), the direct coroll
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 4 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Stability of positive delay-descriptor system} \label{sec4}
 
-\begin{remark}
-Remark 3.6: We stress out that in previous results on positivity of
-autonomous descriptor systems (the case when ..... ) it is assumed
-that .... , which is an unnecessary condition, see for instance [11],
-[14]. In contrast, our result in Theorem 3.5 provides necessary and sufficient conditions for the positivity of (1) without any a priori assumptions on the projector .... .
+In this section we focus our attention on systems which is both stable and positive. 
+First we demonstrate that the non-advancedness is necessary for the stability. 
+Then, we present several sufficient conditions to examining the stability of positive delay-descriptor systems, followed by an illustrate example.
+
+\begin{example}
+Non-advanced system is unstable.
+\end{example}
+
+To study the stability of system \eqref{delay-descriptor}, we first transform this system to an equivalent impulse-free system, in the sense that the solution of the original system and the transformed system coincide.
+
+Let $y_j(t) := P x_j(t)$ and $z_j(t):= (I-P)x_j(t)$ for all $j\in \N$, $t\geq 0$, then 
+from the solution's representation \eqref{j-th solution} we obtain
+%
+\begin{equation*}
+x_j(t) = e^{\bhA t}x_j(0) + \int_{0}^{t} e^{\bhA (t-s)}  \bhA_d \left( y_{j-1}(s) + z_{j-1}(s) \right) ds + (P - I) \hA^D \hA_d x_{j-1}(t),
+\end{equation*}
+% 
+for all $t\in (0,\tau)$. Premultiply this equation with $P$ and $I-P$, we then obtain the system
+%
+\begin{subequations}\label{transformed system}
+\begin{alignat}{2}
+y_j(t) &= e^{\bhA t}y_j(0) + \int_{0}^{t} e^{\bhA (t-s)}  \bhA_d \left( y_{j-1}(s) + z_{j-1}(s) \right) ds \\
+z_j(t) &= (P-I) \hA^D \hA_d \left( y_{j-1}(t) + z_{j-1}(t) \right) \ .
+\end{alignat}
+\end{subequations}
+%
+Therefore, we see that this transformed system is impulse-free, and hence we can applied already known results to study the its stability. The following results are directly extended from \cite{Cui.et.al'17}
+
+\begin{theorem}\label{Thm 6}
+Consider the delay-descriptor system \eqref{delay-descriptor}. Assume that the matrix pair (E,A) is regular, and system \eqref{delay-descriptor} is non-advanced. Then, system \eqref{delay-descriptor} is positive and asymptotically stable if 
+the following conditions hold true. 
+\begin{enumerate}
+\item[i)] $\bhA_d \geq 0$, \ $(P - I) \hA^D\hA_d \geq 0$, 
+\item[ii)] $C$ is non-negative on the subspace $\im_+ \left[ P,\ (P - I)\hA^D \hA_d \right]$,
+\item[iii)] the matrix $\bar{H}$ is Hurwitz, where
+%
+\begin{equation}\label{bH}
+\bar{H}:=\m{\bhA_d + H & \bhA_d \\ (P-I)\hA^D\hA \ & \quad (P-I)\hA^D\hA - I} \ .
+\end{equation}
+%
+\end{enumerate}
+\end{theorem}
+
+\begin{theorem}\label{Thm 7}
+	Consider the delay-descriptor system \eqref{delay-descriptor}. Assume that the matrix pair (E,A) is regular, and system \eqref{delay-descriptor} is non-advanced. 
+	Furthermore, assume that there exist a positive vector $w\in\r^n_+$ such that $(P-I)\hA^D\hA w > 0$. 
+	Then, system \eqref{delay-descriptor} is positive and asymptotically stable if and only if
+	the following conditions hold true. 
+	\begin{enumerate}
+		\item[i)] $\bhA_d \geq 0$, \ $(P - I) \hA^D\hA_d \geq 0$, 
+		\item[ii)] $C$ is non-negative on the subspace $\im_+ \left[ P,\ (P - I)\hA^D \hA_d \right]$,
+		\item[iii)] the matrix $\bar{H}$ is Hurwitz, where
+		%
+		\begin{equation}\label{bH}
+			\bar{H}:=\m{\bhA_d + H & \bhA_d \\ (P-I)\hA^D\hA \ & \quad (P-I)\hA^D\hA - I} \ .
+		\end{equation}
+		%
+	\end{enumerate}
+\end{theorem}
+
+\begin{remark}\label{Remark 2}
+We stress out that in previous results on positivity of delay-descriptor systems (except \cite{Ha18}) it is always assumed that the system is impulse-free, which is an unnecessary condition, see for instance \cite{Cui.et.al'17,Liu.et.al'09,Phat14,Sau16}. In contrast, our result in Theorems \ref{Thm 6}, \ref{Thm 7} provide (necessary and) sufficient conditions for the positivity of \eqref{delay-descriptor} without this impulse-free assumption.
 \end{remark}
 
-
-In light of Remark 3.6, we illustrate how Theorem 3.5 applies to
-general situations by presenting an example where ...  is not positive
-and ....  is not Metzler, but the system is nevertheless positive.
+In light of Remark \ref{Remark 2}, we illustrate how Theorem \ref{Thm 6} and \ref{Thm 7} apply to general situations by presenting an example where system \eqref{delay-descriptor}  is not impulse-free, but the system is positive and also stable. We emphasize that in our example, the system is of index $\nu(E,A) = 2$, even though arbitrarily high-index system can be constructed in the same fashion.
 
 \begin{example}\label{exam 3}
 Let us consider system \eqref{delay-descriptor} whose the matrix coefficients are
 %
-\begin{align*}
-& E = \m{-8.5025  &  0.9037  &  -6.1960 \\ -4.8967 &  0.7359  & -3.5750 \\ -0.2285  &  0.1870  &  -0.1715}, \
-A = \m{0.1628 &   0.7510  &  0.3814 \\ -0.2259   & 1.0891 &   0.1289 \\ -0.1859 &   0.5633 &  -0.0226}, \\
-& Ad = \m{-0.6120  &  0.1289 &  -0.5673 \\ -0.7736  &  0.1510  & -0.6626 \\ -0.2798 &  0.1117 & -0.2308} \ .
-\end{align*}
+{\tiny
+\[
+E = \m{-8.5025  &  0.9037  &  -6.1960 \\ -4.8967 &  0.7359  & -3.5750 \\ -0.2285  &  0.1870  &  -0.1715}, \
+A = \m{0.1628 &   0.7510  &  0.3814 \\ -0.2259   & 1.0891 &   0.1289 \\ -0.1859 &   0.5633 &  -0.0226}, \
+Ad = \m{-0.6120  &  0.1289 &  -0.5673 \\ -0.7736  &  0.1510  & -0.6626 \\ -0.2798 &  0.1117 & -0.2308} \ .
+\]
+}
+%\begin{align*}
+%& E = \m{-8.5025  &  0.9037  &  -6.1960 \\ -4.8967 &  0.7359  & -3.5750 \\ -0.2285  &  0.1870  &  -0.1715}, \
+%A = \m{0.1628 &   0.7510  &  0.3814 \\ -0.2259   & 1.0891 &   0.1289 \\ -0.1859 &   0.5633 &  -0.0226}, \\
+%& Ad = \m{-0.6120  &  0.1289 &  -0.5673 \\ -0.7736  &  0.1510  & -0.6626 \\ -0.2798 &  0.1117 & -0.2308} \ .
+%\end{align*}
 %
 Direct computation yields that the matrix polynomial $\det(sE-A)$ is 
 \[
 \det(sE-A) = 0.0688184 \ s + 0.00897097,
 \]
-and hence the system is not impulse-free, since $\rank(E)=2$. Nevertheless, 
-Theorem \ref{thm check advancedness} implies that the system is non-advanced.
-Furthermore, by verifying Theorem \ref{Thm positivity} we see that the system is both positive and stable. 
+and hence the system is not impulse-free, since $\rank(E)=2$. For $s = 1$ we have $\det(sE-A)\not= 0$, so we obtain
+%
+{\tiny
+\[
+\hE = \m{0.2138 &   0.3835  &  0.2750 \\ -4.6091 &   2.7123  &  1.3030 \\ 6.1139  &  -4.0732 &  -2.0414}, 
+\hA = \m{-0.7862 &   0.3835  &  0.2750 \\ -4.6091  &   1.7123 &  1.3030 \\ 6.1139 &  -4.0732 &  -3.0414} , 
+\hA_d = \m{-1.1984  & -0.8890 &  -0.7284 \\ -8.3226 &  -6.8410 &  -5.5140 \\ 10.6268  &  7.4234  &  6.2056} \ .
+\]
+}
+We also see that the index of system \eqref{delay-descriptor} is $\ind(E,A)=2$. Corollary \ref{coro3} applied here implies that the system is non-advanced.
+Furthermore, we have that 
+%
+{\tiny
+\[
+\hE^D = \m{-0.0406  &  0.0021  & -0.0029 \\ -5.5203  &   0.2817 &  -0.3934 \\ 7.5995 &   -0.3878  &  0.5416}, 
+P = \m{-0.0359  &  0.0018 &  -0.0026 \\ -4.8837 &  0.2492 &  -0.3480 \\ 6.7231  & -0.3431  &  0.4791}  \ .
+\]
+}
+%
+By verifying Theorem \ref{Thm positivity} we see that the system is both positive and stable. 
 \end{example}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -650,8 +728,8 @@ In this paper, we have discussed the positivity of strangeness-free descriptor s
 \textbf{Acknowledgment} The author would like to thank the anonymous referee for his suggestions to improve this paper.
 %=========================================================================================
 
-%\bibliographystyle{abbrv}
-\bibliographystyle{unsrtnat}
+\bibliographystyle{abbrv}
+%\bibliographystyle{unsrtnat}
 \bibliography{Phi_July_2020}
 
 %============================================================================

@@ -5,8 +5,7 @@
 \backcite {ZhuP97}{{2}{1}{equation.1.4}}
 \backcite {Cam95c}{{2}{1}{equation.1.4}}
 \backcite {DuLMT13}{{2}{1}{equation.1.4}}
-\backcite {HaM12}{{2}{1}{equation.1.4}}
-\backcite {HaM16}{{2}{1}{equation.1.4}}
+\backcite {Ha18}{{2}{1}{equation.1.4}}
 \backcite {CamL09}{{2}{1}{equation.1.4}}
 \backcite {Fri02}{{2}{1}{equation.1.4}}
 \backcite {HaM12}{{2}{1}{equation.1.4}}
@@ -44,3 +43,9 @@
 \backcite {RamN12}{{9}{3}{lemma.2}}
 \backcite {RamN12}{{9}{1}{proposition.1}}
 \backcite {Vir08}{{12}{3}{equation.3.25}}
+\backcite {Cui.et.al'17}{{12}{4}{equation.4.26b}}
+\backcite {Ha18}{{13}{2}{remark.2}}
+\backcite {Cui.et.al'17}{{13}{2}{remark.2}}
+\backcite {Liu.et.al'09}{{13}{2}{remark.2}}
+\backcite {Phat14}{{13}{2}{remark.2}}
+\backcite {Sau16}{{13}{2}{remark.2}}

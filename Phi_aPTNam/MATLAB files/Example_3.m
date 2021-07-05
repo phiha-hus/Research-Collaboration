@@ -67,18 +67,17 @@ vpaSols = vpa(p1,6)
 
 %% Computing Drazin inverse using Jordan decomposition
 % IS TERRIBLY BAD
-alpha = 1 ; 
-hE = inv(alpha * E - A) * E
-hA = inv(alpha * E - A) * A
+alpha = 1 ;
+U = alpha * E - A;  % VERY CAREFUL, DON'T USE INVERSE
+hE = U\E
+hA = U\A
+hAd = U\Ad
 
-n = size(E); 
-[V1,D] = eig(hE)
+rank(hE) - rank(E)
 
-V = real(V1)
-%V = V1
-
-%k = rank(D)
-%k = 1
+%n = size(E); 
+%[V1,D] = eig(hE)
+%k = 1  # In this example size of the dynamical part is 1
 
 %hE_D = inv(V) * blkdiag(inv(D(1:k,1:k)),zeros(n-k)) * V 
 %hE_D = inv(V) * blkdiag(1/D(1,1),zeros(2)) * V
@@ -88,7 +87,12 @@ V = real(V1)
 
 % pkg load symbolic # OCTAVE needs
 hEd = Drazin_inverse(hE)
-hEd * hE
+P = hEd * hE
 
+Abar = hEd * hA
+Ad_bar = hEd * hAd
+
+hAD = Drazin_inverse(hA) % Drazin inverse of hA
+K = ( P-eye(size(P)) ) * hAD * hAd 
 
 

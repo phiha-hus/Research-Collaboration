@@ -38,7 +38,8 @@ r = rank(a);
 rk = rank(ak) ;
 
 if rank(a) == n
-    disp('non-singular matrix')
+    disp('Warning: non-singular matrix')
+    a
 end
 
 while rk ~= r
