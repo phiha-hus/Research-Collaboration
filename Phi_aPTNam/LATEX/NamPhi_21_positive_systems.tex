@@ -1,13 +1,7 @@
+% Collaboration work Phi Ha, Phan Thanh Nam.
+% Version 1, Phi Ha 08.07.21
 %
-% This is a general template file for the LaTeX package SVJour3
-% for Springer journals.          Springer Heidelberg 2010/09/16
 %
-% Copy it to a new file with a new name and use it as the basis
-% for your article. Delete % signs as needed.
-%
-% This template includes a few options for different layouts and
-% content for various journals. Please consult a previous issue of
-% your journal as needed.
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
@@ -37,7 +31,9 @@
 \usepackage{lineno}
 \linenumbers
 
-\usepackage[right]{showlabels}
+\usepackage[misc,geometry]{ifsym} % For an envelopre symbol after the correspondign author
+
+%\usepackage[right]{showlabels}
 %
 % \usepackage{mathptmx}      % use Times fonts if available on your TeX system
 %
@@ -50,13 +46,13 @@
 %
 % Insert the name of "your journal" with
 % \journalname{myjournal}
-%
+%	
 \include{command}
 %\include{Newcommands}
 
 \begin{document}
 	
-\title{Stability analysis of arbitrarily high-index positive delay-descriptor systems % \thanks{Grants or other notes
+\title{Stability analysis of arbitrarily high-index, positive delay-descriptor systems % \thanks{Grants or other notes
 %about the article that should go on the front page should be
 %placed here. General acknowledgments should be placed at the end of the article.}
 }
@@ -65,32 +61,31 @@
 
 \titlerunning{Characterizations of positive descriptor systems}        % if too long for running head
 
-\author{Phan Thanh Nam \and Ha Phi 
-}
+\author{Ha Phi \and Phan Thanh Nam}
 
 %\authorrunning{Short form of author list} % if too long for running head
 
-\institute{Phan Thanh Nam \at
-          Department of Mathematics, Quynhon University, Vietnam \\
-          \email{phanthanhnam@qnu.edu.vn}
-          \and
-          Phi Ha \at
+\institute{Phi Ha \at
           Hanoi University of Science, VNU \\ 	Nguyen Trai Street 334, Thanh Xuan, Hanoi, Vietnam \\ 
-          \email{haphi.hus@vnu.edu.vn}          
+          \email{haphi.hus@vnu.edu.vn}  
+          \and          
+          Phan Thanh Nam  \Letter 
+          \at
+          Department of Mathematics, Quynhon University, Vietnam \\
+          \email{phanthanhnam@qnu.edu.vn}                 
 }
 
 \date{Received: \today / Accepted: date}
 % The correct dates will be entered by the editor
 
-
 \maketitle
 
 \begin{abstract}
 This paper deals with the stability analysis of positive delay-descrip\-tor systems with arbitrarily high index. 
-First we discuss the solvability problem (i.e., about the existence and uniqueness of a solution), which is followed by the study on characterizations of the (internal) positivity. Finally, we discuss the stability analysis. 
+First we discuss the solvability problem, which is followed by the study on characterizations of the (internal) positivity. Finally, we discuss the stability analysis. 
 Numerically verifiable conditions in terms of matrix inequality for the system's coefficients are proposed, and are examined in several examples. 
 
-\keywords{Positivity \and Delay \and Descriptor systems \and Strangeness-index . } 
+\keywords{Positivity \and Stability \and Delay \and Descriptor systems \and Singular systems . } 
 % \PACS{PACS code1 \and PACS code2 \and more}
 % \subclass{MSC code1 \and MSC code2 \and more}
 \end{abstract}
@@ -102,7 +97,8 @@ Numerically verifiable conditions in terms of matrix inequality for the system's
 \begin{tabular}{|c|c|}
 	\hline
 $\N$ ($\N_0$)	&  the set of natural numbers (including $0$)  \\
-$\R$ ($\C$)   	&  the set of real (complex) numbers \\
+$\R$ ($\R_+$)  	&  the set of real (non-negative real) numbers \\
+$\C$       		& the set of complex numbers \\
 $\C_{-}$		&  the set $\{\lb \in \C \ | \ Re \lb <0\}$ \\
 $I$ ($I_n$)		&  the identity matrix (of size $n \times n$) \\
 $x^{(j)}$       &  the $j$-th derivative of a function $x$ \\
@@ -121,15 +117,15 @@ $\cK(U,W)$ & the matrix $\cK(U,W) := \left[ W, \ U W, \ \dots, \ U^{\nu-1}W \rig
 Our focus in the present paper is on the positivity and stability analysis of linear, constant coefficients {\it delay-descriptor systems} of the form
 %
 \begin{align}\label{delay-descriptor}
-  E\dot{x}(t) &= A x(t) + A_d x(t-\tau) + B u(t), \ \mbox{ for all } t\in [t_0,t_f), \\
+  E\dot{x}(t) &= A x(t) + A_d x(t-\tau) + B u(t), \ \mbox{ for all } t\in [t_0,\infty ), \\
   y(t) &= C x(t), \notag 
 \end{align}
 %
-where $E$, $A \in \r^{n,n}$, $B\in \r^{n,p}$, $C\in \r^{q,n}$, $x:[t_0-\tau,t_f) \rar \r^n$, $f:[t_0,t_f)\to \r^{n}$, and $\tau>0$ is a constant delay. \
+where $E$, $A \in \r^{n,n}$, $B\in \r^{n,p}$, $C\in \r^{q,n}$, $x:[t_0-\tau,\infty ) \rar \r^n$, $f:[t_0,\infty )\to \r^{n}$, and $\tau>0$ is a constant delay. \
 Together with \eqref{delay-descriptor}, we are also concern with the associated \emph{zero-input/free system}
 %
 \be\label{free system}
-E\dot{x}(t) = A x(t) + A_d x(t-\tau), \ \mbox{ for all } t\in [t_0,t_f).
+E\dot{x}(t) = A x(t) + A_d x(t-\tau), \ \mbox{ for all } t\in [t_0,\infty ).
 \ee
 %
 Systems of the form \eqref{delay-descriptor} can be considered as a general combination of two important classes of dynamical systems, namely \emph{differential-algebraic equations (descriptor systems)} (DAEs)
@@ -146,15 +142,15 @@ where the matrix $E$ is allowed to be singular ($\det E=0$), and \emph{delay-dif
 Delay-descriptor systems of the form \eqref{delay-descriptor} have been arisen in various applications, see \citet{AscP95,Cam80,HalL93,ShaG06,ZhuP97} and the references there in. 
 From the theoretical viewpoint, the study for such systems is much more complicated than that for standard DDEs or DAEs. The dynamics of DDAEs has been strongly enriched, and many interesting properties, which occur neither for DAEs nor for DDEs, have been observed for DDAEs \citet{Cam95c,DuLMT13,Ha18}. Due to these reasons, recently more and more attention has been devoted to DDAEs, \citet{CamL09,Fri02,HaM12,HaM16,Mic11,ShaG06,TiaYK11,LinT15}. \\
 
-[....] \\
+[.... Em nho anh viet bo sung 1 phan gioi thieu ve viec can thiet phai nghien cuu tinh on dinh cua he duong voi chi so cao o day .... ] \\
 
-The short outline of this work is as follows. Firstly, in Section \ref{sec2}, we briefly recall the solvability analysis to system \eqref{delay-descriptor}, followed by a result about solution comparison for the free system \eqref{free system} (Theorem \ref{solution comparison 1}). 
-Based on the explicit solution representation in Section \ref{sec2}, we present a characterization for the positivity of system \eqref{delay-descriptor} in Section \ref{sec3}. Algebraic, numerically verifiable conditions in terms of the system matrix coefficients are established there. To follow, in Section \ref{sec4} we discuss further about the free system \eqref{free system} under biconditional requirements: stability and positivity. Finally, we conclude this research with some discussion and open questions. 
+The short outline of this work is as follows. Firstly, in Section \ref{sec2}, we briefly recall the solvability analysis to system \eqref{delay-descriptor} (Theorem \ref{Thm solvability}), followed by a result about solution comparison for the free system \eqref{free system} (Theorems \ref{solution comparison 1}, \ref{solution comparison 2}). 
+Based on the explicit solution representation in Section \ref{sec2}, we present a characterization for the positivity of system \eqref{delay-descriptor} in Section \ref{sec3}. Numerically verifiable conditions in terms of the matrix coefficients are established there. To follow, in Section \ref{sec4} we discuss further about the free system \eqref{free system} under biconditional requirements: stability and positivity (Theorems \ref{Thm 6},\ref{Thm 7}). Numerical examples are presented to illustrate the advantages of the proposed methods. Finally, we conclude this research with some discussion and open questions. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 2  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Preliminaries} \label{sec2}
 
-In this section we discuss the solvability analysis, including the solution representation and the comparison principal for the corresponding IVP to system \eqref{delay-descriptor}, which consists of \eqref{delay-descriptor} together with 
+In this section we discuss the solvability analysis (i.e., about the existence and uniqueness of a solution), including the solution representation and the comparison principal for the initial value problem (IVP) consisting of \eqref{delay-descriptor} with 
 an initial condition
 %
 \begin{equation}\label{initial condition}
@@ -162,29 +158,29 @@ an initial condition
 \end{equation}
 %
 Here, $\vphi$ is a prescribed initial trajectory (preshape function), which is necessary to achieve uniqueness of solutions.
-Without loss of generality, we assume that $t_0 = 0$ and $t_f = n_f \tau$, where $n_f \in \N$. 
+Without loss of generality, we assume that $t_0 = 0$.
 
 \subsection{Existence, uniqueness and explicit solution formula}
 It is well-known (e.g. \citet{DuLMT13}) that we may consider different solution concepts for system \eqref{delay-descriptor}.
 The reason is, that $E(0)\dot{x}(0^+)$ which arises from the right hand side in \eqref{delay-descriptor} at $0$ may not be equal to $E(0)\dot{\vphi}(0^-)$.
 %
-Moreover, it has been observed in \citet{BakPT02,Cam80,GugH07} that a discontinuity of $\dot{x}$ at $t=0$ may propagate with time, and typically $\dot{x}$ is discontinuous at every point $j\tau, \ j\in\N_0$ or it may not even exist. To deal with this property of DDAEs, we use the following solution concept. % for \eqref{delay-descriptor}.
+Moreover, it has been observed in \citet{BakPT02,Cam80,GugH07} that a discontinuity of $\dot{x}$ at $t=0$ may propagate with time, and typically $\dot{x}$ is discontinuous at every point $j\tau, \ j\in\N_0$ or $x$ may not even exist on the whole interval $[t_0,\infty)$. To deal with this property of DDAEs, we use the following solution concept. % for \eqref{delay-descriptor}.
 %
 \begin{definition}\label{solution} Let us consider a fixed input function $u(t)$.\\
-i) A function $x:[-\tau,\infty)\rar\r^n$ is called a \emph{piecewise differentiable solution} of \eqref{delay-descriptor}, if $Ex$ is piecewise continuously differentiable, $x$ is continuous and satisfies \eqref{delay-descriptor} at every  $t\in [t_0,t_f) \setminus \underset{j\in \N_0}{\cup} \{j\tau\}$. \\
+i) A function $x:[-\tau,\infty)\rar\r^n$ is called a \emph{piecewise differentiable solution} of \eqref{delay-descriptor}, if $Ex$ is piecewise continuously differentiable, $x$ is continuous and satisfies \eqref{delay-descriptor} at every  $t\in [t_0,\infty ) \setminus \underset{j\in \N_0}{\cup} \{j\tau\}$. \\
 ii) A function $x:[-\tau,\infty)\rar\r^n$ is called a \emph{classical solution} of \eqref{delay-descriptor}
-if it is at least continuous and satisfies \eqref{delay-descriptor} at every  $t\in [t_0,t_f)$. 
+if it is at least continuous and satisfies \eqref{delay-descriptor} at every  $t\in [t_0,\infty )$. 
 \end{definition}
 
 Throughout this paper whenever we speak of a solution, we mean a piecewise differentiable solution. Notice that, like DAEs, DDAEs are not solvable for arbitrary initial conditions, but they have to obey certain consistency conditions.
 %
-\begin{definition}\label{consistency} An initial function $\vphi$ is called \emph{consistent} with \eqref{delay-descriptor} if the associated initial value problem (IVP) \eqref{delay-descriptor}, \eqref{initial condition} has at least one solution.
+\begin{definition}\label{consistency} An initial function $\vphi$ is called \emph{consistent} with \eqref{delay-descriptor} if the associated IVP \eqref{delay-descriptor}, \eqref{initial condition} has at least one solution.
 	System \eqref{delay-descriptor} is called \emph{solvable} (resp. \emph{regular}) if for every consistent initial function $\vphi$,
 	the IVP \eqref{delay-descriptor}, \eqref{initial condition} has a solution (resp. has a unique solution).
 \end{definition}
 %
 
-Introducing sequences of matrix-valued and vector-valued functions $f_j$, $u_j$, $x_j$ for each $j\in \N$, on the time interval $[0,\tau]$ via
+For each $j\in \N$, we introduce sequences of matrix-valued and vector-valued functions $f_j$, $u_j$, $x_j$ on the time interval $[0,\tau]$ via
 \begin{align*}
 	f_j(t) &= f(t+(j-1)\tau), \   u_j(t) = u(t+(j-1)\tau), \\
 	x_j(t) &= x(t+(j-1)\tau), \ x_0(t) := \vphi(t-\tau),
@@ -195,7 +191,7 @@ we can rewrite the IVP \eqref{delay-descriptor}-\eqref{initial condition} as a s
 	E \dot{x}_j(t) = A x_j(t) + A_d x_{j-1}(t) + B u_j(t), 
 \end{equation}
 %
-for all $t\in (0,\tau)$ and for all $j=1,2,...,n_f$. We notice, that for each $j$, the initial condition $x_j(0)$ is given due to the continuity of the solution $x(t)$ at the point $(j-1)\tau$, i.e.,
+for all $t\in (0,\tau)$ and for all $j=1,2,...$. We notice, that for each $j$, the initial condition $x_j(0)$ is given due to the continuity of the solution $x(t)$ at the point $(j-1)\tau$, i.e.,
 \begin{equation}\label{continuity condition}
 	x_j(0) = x_{j-1}(\tau) \ .
 \end{equation}
@@ -208,8 +204,8 @@ time-delayed equation
 a_0 \dot{x}(t) + a_1\dot{x}(t-\tau) + b_0 x(t) + b_1 x(t-\tau) = f(t)
 \]
 %
-is retarded if $a_0\not= 0$ and $a_1=0$; is neutral if $a_0\not= 0$, $a_1\not= 0$; is advanced if $a_0=0$, $a_1\not= 0$, $b_0 \not=0$. \ Obviously, this classification is based on the smoothness comparison between $x(t)$ and $x(t-\tau)$. In literature, not only the theoretical but also numerical solution has been studied mainly for non-advanced systems (i.e., retarded or neutral), due to their apperance in various applications. For this reason, in \cite{Ha15,HaM16,Ung18} the authors poposed a concept of \emph{non-advancedness} for \eqref{delay-descriptor} (see Definition \ref{def2} below).
-We also notice, that even though not clearly proposed, due to the author's knowledge, so far results for delay-descriptor are only obtained for certain classes of non-advanced systems, e.g. \citet{AscP95,ShaG06,ZhuP97,ZhuP98,Mic11}.
+is retarded if $a_0\not= 0$ and $a_1=0$; is neutral if $a_0\not= 0$, $a_1\not= 0$; is advanced if $a_0=0$, $a_1\not= 0$, $b_0 \not=0$. \ Obviously, this classification is based on the smoothness comparison between $x_j(t)$ and $x_{j-1}(t)$. In literature, not only the theoretical but also the numerical solution has been studied mainly for retarded and neutral systems, due to their appearance in various applications. For this reason, in \cite{Ha15,HaM16,Ung18} the authors proposed a concept of \emph{non-advancedness} for the free system \eqref{free system} (see Definition \ref{def2} below).
+We also notice, that even though not clearly proposed, due to the author's knowledge, so far results for delay-descriptor are only obtained for certain classes of non-advanced systems, e.g. \citet{AscP95,ShaG06,ZhuP97,ZhuP98,Mic11,Phat14,Sau16,Cui.et.al'17,Ngoc18}.
 %
 \begin{definition}\label{def2}
 A regular delay-descriptor system \eqref{delay-descriptor} is called \emph{non-advanced} if for any consistent and continuous initial function $\vphi$, there exists a piecewise differentiable solution $x(t)$ to the IVP \eqref{delay-descriptor}, \eqref{initial condition}.
@@ -221,29 +217,35 @@ If, in addition, $B=0$ we say that the matrix pair $(E,A)$ (or the pencil $\lb E
 The sets $\si(E,A,B):= \{\lb \in \C \ | \ \det(\lb E -A-e^{-\lb \tau}B) = 0\}$ and $\rho(E,A,B)=\C\setminus \si(E,A,B)$ are called the \emph{spectrum} and the \emph{resolvent set} of \eqref{delay-descriptor}, respectively. 
 \end{definition}
 %
-Provided that the pair $(E,A)$ is regular, we can transform them to the Kronecker-Weierstra\ss canonical form (see e.g. \citet{Dai89,KunM06}). That is, there exist regular matrices $W$, $T\in \R^{n,n}$ such that
+Provided that the pair $(E,A)$ is regular, we can transform them to the Kronecker-Weierstra\ss \ canonical form (see e.g. \citet{Dai89,KunM06}). That is, there exist regular matrices $W$, $T\in \R^{n,n}$ such that
 %
 \begin{equation}\label{KW form}
 (E,A) = \left( W \m{I & 0 \\ 0 & N }T , \  W \m{ J & 0 \\ 0 & I}T \right) \ ,
 \end{equation}
 %
 where $N$ is a nilpotent matrix of nilpotency index $\nu$. We also say that the pair $(E,A)$ has a \emph{differentiation index} $\nu$, i.e., $\ind(E,A) = \nu$.
+Furthermore, the system \eqref{delay-descriptor} is called {\it impulse-free} if in the form \eqref{KW form} $N=0$.
 
 \begin{remark}
-Two concepts non-advancedness and differentiation index are independent. In details, a non-advanced system can have arbitrarily high index, as can be seen in the following example. 
+We notice that the impulse-freeness of system \eqref{delay-descriptor} is equivalent to the algebraic condition $\deg(\det(sE-A)) = \rank(E)$. 
+Furthermore, for regular matrix pair $(E,A)$, the impulse-freeness also has other names, such as strangeness-free or index 1 or causal, see \cite{DuLMT13,Sau16,Ngoc18}.
+\end{remark}
+
+\begin{remark}
+In general, the two concepts non-advancedness and differentiation index are independent. In details, a non-advanced system can have arbitrarily high index, as can be seen in the following example. 
 \end{remark}
 
 \begin{example}\label{example 1}
-Consider the following systems with the parameters $\ep_1$, $\ep_2$. 
+Consider the following systems with two parameters $\ep_1$, $\ep_2$. 
 %
 \begin{equation}\label{eq11}
 \underbrace{
-	\m{1 & 0 \\ 0 & 0} 
+	\m{0 & 1 \\ 0 & 0} 
 	% \m{0 & 1 &  & \\  & \ddots & \ddots & \\  &  & \ddots & 1 \\  &  &  & 0}
 }_{E}  \dot{x}(t) 
 = 
 \underbrace{
-	\m{0 & 1 \\ 1 & 0}
+	\m{1 & 0 \\ 0 & 1}
 	% \m{ 1 & & & & \\ & \ddots & & & \\ & & & 1 & \\ & & & & 1}
 }_{A}  x(t) 
 + 
@@ -251,7 +253,7 @@ Consider the following systems with the parameters $\ep_1$, $\ep_2$.
  \underbrace{   \m{0 & \ep_1 \\ 0 & \ep_2} }_{A_d} x(t-\tau)  \ .
 \end{equation}
 %
-It is well-known that in this example $\ind(E,A) = 2$. Furthermore, depending on the value of $\ep_2$, the system will be advanced (if $\ep_2\not=0$) and be non-advanced (if $\ep_2\not=0$). Analogously, one can construct a non-advanced system which has an arbitrarily high index. 
+In this example $\ind(E,A) = 2$. Furthermore, depending on the value of $\ep_2$, the system will be advanced (if $\ep_2\not=0$) and be non-advanced (if $\ep_2\not=0$). Analogously, one can construct a non-advanced system which has an arbitrarily high index. 
 \end{example}
 
 Let $E$ have index $\tnu$, i.e., $\ind(E,I_n)=\tnu$, the Drazin inverse $E^D$ of E is uniquely defined by the properties
@@ -262,7 +264,7 @@ E^DE = E E^D, \ E^D E E^D = E^D ,\ E^D E^{\tnu+1} = E^{\tnu} .
 %
 \vskip -1pt
 %
-\begin{lemma}\label{lem1}\citet{KunM06} Let (E,A) be a regular matrix pair. Then for any $\lb \in \rho(E,A)$, two following matrices commute.
+\begin{lemma}\label{lem1}\citet{KunM06} Let (E,A) be a regular matrix pair. Then for any $\lb \in \rho(E,A)$, the following matrices commute
 %
 \begin{equation}\label{eq20}
 \hE:=(\lb E-A)^{-1}E, \ \hA:=(\lb E-A)^{-1}A.
@@ -285,7 +287,7 @@ For any $\lb \in \rho(E,A)$, we denote
 %
 Making use of the Drazin inverse, in the following theorem we present the explicit solution representation of system \eqref{delay-descriptor}.
 
-\begin{theorem}\label{sol. rep. DAE}
+\begin{theorem}\label{Thm solvability}
 Consider the delay-descriptor system \eqref{delay-descriptor}. Assume that 
 $(E, A)$ is a regular matrix pair with a differentiation index $ind(E, A) = \nu$. Let $\hE$, $\hA$, $\hA_d$, $\hB$ be defined as in \eqref{eq20}, \eqref{eq21}. Furthermore, assume that $u$ is sufficiently smooth. Then, every solution $x_j$ of the DAE \eqref{j-th DAE} has the form
 %
@@ -301,7 +303,7 @@ for some vector $v_j \in \R^n$.
 The proof is straightly followed from the explicit solution of DAEs, see \cite[Chap. 2]{KunM06}.
 \end{proof}
 %
-Making use of \eqref{continuity condition}, we directly obtain the following corollary.
+From Theorem \ref{Thm solvability} and \eqref{continuity condition}, we directly obtain the following corollary.
 %
 \begin{corollary}
 The solution $x(t)$ of system \eqref{delay-descriptor} is continuous at the point $(j-1)\tau$ if and only if the following condition holds.
@@ -328,14 +330,14 @@ x_j(t) =& \  e^{\hE^D\hA t} \hE^D\hE v_j +
 %
 Furthermore, the consistency condition at $t=0$ reads
 %
-\begin{equation}\label{consistency}
+\begin{equation}\label{consistency at 0}
 (\hE^D\hE - I) \left( \vphi(0) + \hA^D \hA_d \vphi(-\tau) + \sum_{i=0}^{\nu-1} (\hE^D\hA)^i \hA^D \hB u^{(i)}(0) \right) = 0 \ .
 \end{equation}%
 \end{corollary}
 
 \subsection{A simple check for the non-advancedness}
 Assume that the pair $(E,A)$ is regular with index $\ind(E,A)=\nu$. 
-We want to give a simple check whether the free system \eqref{free system} is non-advanced or not. In analoguous to the case of DAEs \cite{BreCP96,KunM06}, we aim to extract the so-called \emph{underlying delay equation} of the form 
+We want to give a simple check whether the free system \eqref{free system} is non-advanced or not. In analoguous to the case of DAEs, see e.g. \cite{BreCP96,KunM06}, we aim to extract the so-called \emph{underlying delay equation} of the form 
 %
 \begin{equation}\label{underlying DDEs}
 	\dot{x}(t) = \bfA x(t) + \bfA_{d0} x(t-h) + \bfA_{d1} \dot{x}(t-h),
@@ -417,7 +419,7 @@ Let us reconsider system \eqref{eq11} in Example \ref{example 1}. Numerical veri
 In this part of Section \ref{sec2}, we will show how to generalize our result to delay-descriptor systems with time-varying delay of the following form
 %
 \begin{equation}\label{ltv delay-descriptor}
-E\dot{x}(t) = A x(t) + A_d x(t-\tau(t)) + B u(t), \ \mbox{ for all } t\in [t_0,t_f),
+E\dot{x}(t) = A x(t) + A_d x(t-\tau(t)) + B u(t), \ \mbox{ for all } t\in [t_0,\infty ),
 \end{equation}
 %
 where the delay function $\tau(t)$ is preassumed continuous and bounded, i.e. $0<\underline \tau \leq \tau(t) \leq \bar \tau$ for all $t\geq 0$. Here $\utau$, $\btau$ are two positive constants.
@@ -430,7 +432,7 @@ t_i - \tau(t_i) = t_{i-1} \ .
 \]
 %
 As shown in Theorems \ref{solution comparison 1}, \ref{solution comparison 2} below, we 
-can directly generalize our result to systems with bounded, time varying delay.
+can directly generalize our result to systems with bounded, time varying delay of the form \eqref{ltv delay-descriptor}.
 
 \begin{theorem}\label{solution comparison 1}
 Consider system \eqref{ltv delay-descriptor}  and assume that the corresponding constant delay system \eqref{delay-descriptor} is positive and non-advanced. 
@@ -466,13 +468,13 @@ ii) $u^{(i)}(t) \leq \tu^{(i)}(t)$ for all $t\geq 0$ and for all $i\leq (\nu-1) 
 The proof is also straightforward from the solution's representation \eqref{j-th solution}.
 \end{proof}
 
-From Theorems \ref{solution comparison 1}, \ref{solution comparison 2} above, we see that the time varying delay will affect neither the positivity nor the stability
+From Theorems \ref{solution comparison 1}, \ref{solution comparison 2} above, we see that the time varying delay will not affect our later results on the positivity and the stability
  of system \eqref{delay-descriptor}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 3 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Characterizations of positive delay-descriptor system} \label{sec3}
 
-Since most systems occur in application are non-advanced, in this section we focus on the chracterization for positivity of non-advanced delay descriptor systems. We, furthermore, notice that the non-advancedness is a necessary condition for the stability (in the Lyapunov sense) of any time-delayed system, see e.g. \cite{HalL93,DuLMT13}. 
+Since most systems occur in application are non-advanced, in this section we focus on the characterization for positivity of non-advanced delay descriptor systems. We, furthermore, notice that the non-advancedness is a necessary condition for the stability (in the Lyapunov sense) of any time-delayed system, see e.g. \cite{HalL93,DuLMT13}. 
 
 \begin{definition}
 Consider the delay-descriptor system \eqref{delay-descriptor} and assume that it is non-advanced, and that the pair $(E,A)$ is regular with $\ind(E,A)=\nu$. We call \eqref{delay-descriptor}  positive if for all $t\geq 0$ we have $x(t) \geq 0$ and $y(t)\geq 0$ for any input function $u$ and any consistent initial function $\vphi(t)$ that satisfy two following conditions. \\
@@ -486,7 +488,7 @@ For nontiaonal convenience, let us denote by
 	&& \Ka_{\nu}(\bhA,\hA^D\hB):=\m{\hA^D\hB, \bhA \ \hA^D\hB,\dots,\bhA^{\nu-1} \hA^D\hB} \ . \notag 
 \end{eqnarray}
 %
-Since our systems is linear, time invariant coefficients, it would be sufficient to study the positivity on the first time interval $[0,\tau]$. Making use of \eqref{sol. formula non-advanced}, and let $j=1$, we can split the solution $x_1 = x|_{[0,\tau]}$ as follows
+Since our systems is linear, time invariant coefficients, it would be sufficient to study the positivity on the first time interval $[0,\tau]$. Making use of \eqref{sol. formula non-advanced}, and let $j=1$, we can rewrite the solution $x_1 = x|_{[0,\tau]}$ as follows
 %
 \begin{align}\label{eq16}
 x_1(t) =& 
@@ -500,17 +502,16 @@ x_1(t) =&
 \end{align}
 %
 In the theory of linear systems, $x_{zi}(t)$ (resp. $x_{zs}(t)$) is often called the \emph{zero input/free} (resp. \emph{zero state}) solution.
-
-\begin{lemma}\label{Castelan'93}
-	Let $F\in\r^{p,n}$, $M\in\r^{n,n}$ and the system $\dot{z}(t) = Mz(t)$. Then, the implication 
-	\
-	$
-	[Fz(0) \geq 0] \Rightarrow [Fz(t) \geq 0 \mbox{ for all } t\geq 0]
-	$ \
-	holds true if and only if $FM=HF$ for some Metzler matrix $H$.	
-\end{lemma}
-
 The characterization for the positivity of the free solution $x_{zi}$ is given in \citet{RamN12} as follows.
+
+%\begin{lemma}\label{Castelan'93}
+%	Let $F\in\r^{p,n}$, $M\in\r^{n,n}$ and the system $\dot{z}(t) = Mz(t)$. Then, the implication 
+%	\
+%	$
+%	[Fz(0) \geq 0] \Rightarrow [Fz(t) \geq 0 \mbox{ for all } t\geq 0]
+%	$ \
+%	holds true if and only if $FM=HF$ for some Metzler matrix $H$.	
+%\end{lemma}
 
 \begin{proposition}\citet{RamN12}\label{Rami12}
 	The following statements are equivalent. \\
@@ -521,18 +522,18 @@ The characterization for the positivity of the free solution $x_{zi}$ is given i
 
 
 \begin{lemma}\label{zero input lemma}
-Consider the delay-descriptor system \eqref{delay-descriptor} and assume that it is non-advanced, and the pair $(E,A)$ is regular with index $\ind(E,A) = \nu$. 
+Consider the delay-descriptor system \eqref{delay-descriptor} and assume that it is non-advanced. Let the pair $(E,A)$ be regular with index $\ind(E,A) = \nu$. 
 Then, the free system \eqref{free system} has a non-negative solution $x_{zi}(t) \geq 0$ for all $t\geq 0$ and for all consistent initial function $\vphi(t) \geq 0$ if and only if 
 the following conditions are satisfied. \\
 i) There exists a Metzler matrix $H$ such that $\bhA = HP$. \\
 ii) $\bhA_d \geq 0$, $(P-I) \hA^D\hA_d \geq 0$. 
 \end{lemma}
 \begin{proof}
-``$\Rightarrow$" For any fixed $t\in (0,\tau)$, since the integral part $\int_{0}^{t} e^{\bhA (t-s)} \bhAd x_0(s)ds$ can be arbitrarily small chosen, independent of the two boundary points $0$ and $t$, we see that the sum $e^{\bhA t} P x_0(\tau) + (P - I) \hA^D \hA_d x_0(t)$ must be non-negative for any non-negative vectors $x_0(\tau)$ and $x_0(t)$. The independence of these two vectors leads to the fact that the sum $e^{\bhA t} P x_0(\tau) + (P - I) \hA^D \hA_d x_0(t)$ is non-negative if and only if both terms are non-negative.
+``$\Rightarrow$" Consider $x_zi(t)$ in \eqref{eq16}. For any fixed $t\in (0,\tau)$, since the integral part $\int_{0}^{t} e^{\bhA (t-s)} \bhAd x_0(s)ds$ can be arbitrarily small chosen, independent of the two boundary points $0$ and $t$, we see that the sum $e^{\bhA t} P x_0(\tau) + (P - I) \hA^D \hA_d x_0(t)$ must be non-negative for any non-negative vectors $x_0(\tau)$ and $x_0(t)$. The independence of these two vectors leads to the fact that the sum $e^{\bhA t} P x_0(\tau) + (P - I) \hA^D \hA_d x_0(t)$ is non-negative if and only if both terms are non-negative.
 Thus, due to Proposition \ref{Rami12}, the non-negativity of the term $e^{\bhA t} P x_0(\tau)$ is equivalent to the claim i). On the other hand, the non-negativity of the 
 term $(P - I) \hA^D \hA_d x_0(t)$ implies that $(P - I) \hA^D \hA_d \geq 0$. 
 
-To prove that $\bhA_d \geq 0$, we assume the contrary, i.e. there exist some indices $i$, $j$ with $[\bhA_d]_{ij}<0$. Thus, for the jth unit vector $e_j$, we have $[\bhA_d e_j]_i < 0$.
+To prove that $\bhA_d \geq 0$, we assume the contrary, that there exist some indices $i$, $j$ with $[\bhA_d]_{ij}<0$. Thus, for the jth unit vector $e_j$, we have $[\bhA_d e_j]_i < 0$.
 For a sufficiently small $\ep > 0$, let us choose the initial function $x_0$ as follows
 %
 \begin{equation}\label{x0 function}
@@ -552,7 +553,7 @@ The graph of the magnitude of $x_0(s)$ is given in Figure \ref{fig1}. \
 	\label{fig1}
 \end{figure}
 %
-Since $u\equiv 0$, $x_0(0)=x_0(\tau)=0$, the consistency condition \eqref{consistency} is trivially satisfied.
+Since $u\equiv 0$, $x_0(0)=x_0(\tau)=0$, the consistency condition \eqref{consistency at 0} is trivially satisfied.
 Then, we have that 
 %
 \begin{align*}
@@ -560,13 +561,14 @@ x_1(t)  &= \int_{0}^{t} e^{\bhA (t-s)} \bhAd x_0(s) ds = \int_{t-2\ep}^{t} e^{\b
 		&= \int_{t-2\ep}^{t} \left(I + \bhA (t-s) + {\cal O}((t-s)^2) \right) \left( 1 - \frac{1}{\ep} |t-\ep-s| \right) \bhAd e_j  ds \ . 
 \end{align*}
 %
-Thus, for sufficiently small $\ep$, the coordinate $(x_1(t))_i$ have exactly the same sign as $[\bhAd e_j]_i$, which is strictly negative. This is contradicted to the non-negativity of the solution $x(t)$, and hence, we conclude that $\bhA_d \geq 0$. \\
-``$\Leftarrow$" It is directly followed from i) and ii) that all three summands of $x_{zi}(t)$ are non-negative, 
-%and hence, $x_{zi}(t) \geq 0$ for all $t\geq 0$. This completes the proof.\\
+Thus, for sufficiently small $\ep$, the coordinate $(x_1(t))_i$ has exactly the same sign as $[\bhAd e_j]_i$, which is strictly negative. This is contradicted to the non-negativity of the solution $x(t)$, and hence, we conclude that $\bhA_d \geq 0$. \\
+``$\Leftarrow$" It is directly followed from i) and ii) that all three summands of $x_{zi}(t)$ are non-negative.
+%and hence, $x_{zi}(t) \geq 0$ for all $t\geq 0$. 
+This completes the proof.
 \end{proof}
 
 \begin{theorem}\label{Thm positivity}
-	Consider the delay-descriptor system \eqref{delay-descriptor} and assume that it is non-advanced, and the pair $(E,A)$ is regular with index $\ind(E,A) = \nu$. Furthermore, assume that 
+	Consider the delay-descriptor system \eqref{delay-descriptor} and assume that it is non-advanced. Let the pair $(E,A)$ be regular with index $\ind(E,A) = \nu$. Furthermore, assume that 
 	$(P - I) \ \bhA^i  \hA^D \hB \geq 0$ for all $i=0,\dots,\nu-1$. \ Then, system \eqref{delay-descriptor} is positive if and only if the following conditions hold. \\
 	i) $\bhA = H \ P$ for some Metzler matrix $H$. \\
 	ii) $\bhA_d \geq 0$, \ $\bhB \geq 0$, \ $(P - I) \hA^D\hA_d \geq 0$,  \\
@@ -578,8 +580,8 @@ Thus, for sufficiently small $\ep$, the coordinate $(x_1(t))_i$ have exactly the
 	%
 \end{theorem}
 \begin{proof}
-``$\Rightarrow$" By consecutively choosing $u\equiv 0$ and $\phi \equiv 0$, we see that both the free solution $x_{zi}(t)$ and the zero-state solution $x_{zs}$ are non-negative for all $t\geq 0$.
-Analogous to the proof of the necessity part in Lemma \ref{zero input lemma}, from the non-negativity of the integral $\int_{0}^{t} e^{\bhA (t-s)}  \bhB u_j(s) ds$, we obtain $\bhB \geq 0$. 
+``$\Rightarrow$" By consecutively choosing $u\equiv 0$ and $\phi \equiv 0$, we see that both the free solution $x_{zi}(t)$ and the zero-state solution $x_{zs}(t)$ are non-negative for all $t\geq 0$.
+Analogous to the proof of Lemma \ref{zero input lemma} (the necessity part), the non-negativity of the integral $\int_{0}^{t} e^{\bhA (t-s)}  \bhB u_j(s) ds$ follows that $\bhB \geq 0$. 
 Thus, only the claim iii) needs to be proven. We notice that due to Lemma \ref{lem1} and the property \eqref{Drazin property} of the Drazin inverse, we have that $P$ and $\bhA$ commute, and $P\hE^D = \hE^D$, and hence,
 %
 \[
@@ -598,7 +600,7 @@ Thus, the claim iii) is directly followed.\\
 ``$\Leftarrow$" It is straightforward that from i) and ii) we obtain the non-negativity of $x(t)$, and due to iii) we obtain the non-negativity of $y(t)$. This completes the proof. 
 \end{proof}
 
-If we restrict ourself to the non-delayed case (i.e. $A_d=0$), the direct corollary of Theorem \ref{Thm positivity} is straightforward. We, moreover, notice that this corollary has slightly improved the result \cite[Thm. 3.4]{Vir08}.
+Theorem \ref{Thm positivity} applied to the non-delayed case (i.e. $A_d=0$) gives us the following corollary. We notice that this corollary has slightly improved the result \cite[Thm. 3.4]{Vir08}.
 
 \begin{corollary}\label{Thm positivity - DAE version}
 	Consider the descriptor system \eqref{eq1.2} and assume that the pair $(E,A)$ is regular with index $\ind(E,A) = \nu$. Furthermore, assume that the inequalities $(P - I) \ \bhA^i  \hA^D \hB \geq 0$ hold true for $i=0,\dots,\nu-1$. \\
@@ -612,11 +614,18 @@ If we restrict ourself to the non-delayed case (i.e. $A_d=0$), the direct coroll
 \section{Stability of positive delay-descriptor system} \label{sec4}
 
 In this section we focus our attention on systems which is both stable and positive. 
-First we demonstrate that the non-advancedness is necessary for the stability. 
+Firstly, we demonstrate that the non-advancedness is necessary for the stability. 
 Then, we present several sufficient conditions to examining the stability of positive delay-descriptor systems, followed by an illustrate example.
 
 \begin{example}
-Non-advanced system is unstable.
+Let us recall system \eqref{eq11} with $\ep_2 = -1$, $\ep_1 = 0$. From the second equation we see that $x_2(t) = x_2(t-\tau)$. Inserting this into the first equation we obtain
+%
+\[
+\dot{x}_2(t-\tau) = x_1(t) \ .
+\]
+%
+Therefore, we have $x(t) = \m{0 & 0 \\ 0 & 1} x(t-\tau) + \m{0 & 1 \\ 0 & 0} \dot{x}(t-\tau)$, which implies that the system is of advanced type. 	
+Clearly, the solution formula implies that the system is unstable in the Lyapunov sense.
 \end{example}
 
 To study the stability of system \eqref{delay-descriptor}, we first transform this system to an equivalent impulse-free system, in the sense that the solution of the original system and the transformed system coincide.
@@ -630,12 +639,19 @@ x_j(t) = e^{\bhA t}x_j(0) + \int_{0}^{t} e^{\bhA (t-s)}  \bhA_d \left( y_{j-1}(s
 % 
 for all $t\in (0,\tau)$. Premultiply this equation with $P$ and $I-P$, we then obtain the system
 %
-\begin{subequations}\label{transformed system}
+\begin{subequations}
 \begin{alignat}{2}
-y_j(t) &= e^{\bhA t}y_j(0) + \int_{0}^{t} e^{\bhA (t-s)}  \bhA_d \left( y_{j-1}(s) + z_{j-1}(s) \right) ds \\
+y_j(t) &= e^{\bhA t}y_j(0) + \int_{0}^{t} e^{\bhA (t-s)}  \bhA_d \left( y_{j-1}(s) + z_{j-1}(s) \right) ds, \\
 z_j(t) &= (P-I) \hA^D \hA_d \left( y_{j-1}(t) + z_{j-1}(t) \right) \ .
 \end{alignat}
 \end{subequations}
+%
+This system can be rewritten as follows.
+%
+\begin{equation}\label{transformed system}
+\m{I & 0 \\ 0 & 0} \! \m{\dot{y}_j(t) \\ \dot{z}_j(t)} \!=\! \m{\bar{A} & 0 \\ 0 & I} \! \m{{y}_j(t) \\ {z}_j(t)} 
+\!+\! \m{\bhA_d & \bhA_d \\ (P-I) \hA^D \hA_d & \ (P-I) \hA^D \hA_d} \! \m{{y}_{j-1}(t) \\ {z}_{j-1}(t)} .   
+\end{equation}
 %
 Therefore, we see that this transformed system is impulse-free, and hence we can applied already known results to study the its stability. The following results are directly extended from \cite{Cui.et.al'17}
 
@@ -656,18 +672,13 @@ the following conditions hold true.
 
 \begin{theorem}\label{Thm 7}
 	Consider the delay-descriptor system \eqref{delay-descriptor}. Assume that the matrix pair (E,A) is regular, and system \eqref{delay-descriptor} is non-advanced. 
-	Furthermore, assume that there exist a positive vector $w\in\r^n_+$ such that $(P-I)\hA^D\hA w > 0$. 
+	Furthermore, assume that there exists a positive vector $w\in\r^n_+$ such that $(P-I)\hA^D\hA w > 0$. 
 	Then, system \eqref{delay-descriptor} is positive and asymptotically stable if and only if
 	the following conditions hold true. 
 	\begin{enumerate}
 		\item[i)] $\bhA_d \geq 0$, \ $(P - I) \hA^D\hA_d \geq 0$, 
 		\item[ii)] $C$ is non-negative on the subspace $\im_+ \left[ P,\ (P - I)\hA^D \hA_d \right]$,
-		\item[iii)] the matrix $\bar{H}$ is Hurwitz, where
-		%
-		\begin{equation}\label{bH}
-			\bar{H}:=\m{\bhA_d + H & \bhA_d \\ (P-I)\hA^D\hA \ & \quad (P-I)\hA^D\hA - I} \ .
-		\end{equation}
-		%
+		\item[iii)] the matrix $\bar{H}$ is Hurwitz, where $\bar{H}$ is defined in \eqref{bH}.
 	\end{enumerate}
 \end{theorem}
 
@@ -675,61 +686,73 @@ the following conditions hold true.
 We stress out that in previous results on positivity of delay-descriptor systems (except \cite{Ha18}) it is always assumed that the system is impulse-free, which is an unnecessary condition, see for instance \cite{Cui.et.al'17,Liu.et.al'09,Phat14,Sau16}. In contrast, our result in Theorems \ref{Thm 6}, \ref{Thm 7} provide (necessary and) sufficient conditions for the positivity of \eqref{delay-descriptor} without this impulse-free assumption.
 \end{remark}
 
-In light of Remark \ref{Remark 2}, we illustrate how Theorem \ref{Thm 6} and \ref{Thm 7} apply to general situations by presenting an example where system \eqref{delay-descriptor}  is not impulse-free, but the system is positive and also stable. We emphasize that in our example, the system is of index $\nu(E,A) = 2$, even though arbitrarily high-index system can be constructed in the same fashion.
+In light of Remark \ref{Remark 2}, we illustrate how Theorem \ref{Thm 6} and \ref{Thm 7} apply to general situations by presenting an example where system \eqref{delay-descriptor}  is not impulse-free, but it is positive and also stable. We notice that in this example, the system is of index $\nu(E,A) = 2$, even though arbitrarily high-index system can be constructed in the same fashion.
 
 \begin{example}\label{exam 3}
-Let us consider system \eqref{delay-descriptor} whose the matrix coefficients are
-%
-{\tiny
-\[
-E = \m{-8.5025  &  0.9037  &  -6.1960 \\ -4.8967 &  0.7359  & -3.5750 \\ -0.2285  &  0.1870  &  -0.1715}, \
-A = \m{0.1628 &   0.7510  &  0.3814 \\ -0.2259   & 1.0891 &   0.1289 \\ -0.1859 &   0.5633 &  -0.0226}, \
-Ad = \m{-0.6120  &  0.1289 &  -0.5673 \\ -0.7736  &  0.1510  & -0.6626 \\ -0.2798 &  0.1117 & -0.2308} \ .
-\]
-}
-%\begin{align*}
-%& E = \m{-8.5025  &  0.9037  &  -6.1960 \\ -4.8967 &  0.7359  & -3.5750 \\ -0.2285  &  0.1870  &  -0.1715}, \
-%A = \m{0.1628 &   0.7510  &  0.3814 \\ -0.2259   & 1.0891 &   0.1289 \\ -0.1859 &   0.5633 &  -0.0226}, \\
-%& Ad = \m{-0.6120  &  0.1289 &  -0.5673 \\ -0.7736  &  0.1510  & -0.6626 \\ -0.2798 &  0.1117 & -0.2308} \ .
-%\end{align*}
-%
-Direct computation yields that the matrix polynomial $\det(sE-A)$ is 
-\[
-\det(sE-A) = 0.0688184 \ s + 0.00897097,
-\]
-and hence the system is not impulse-free, since $\rank(E)=2$. For $s = 1$ we have $\det(sE-A)\not= 0$, so we obtain
-%
-{\tiny
-\[
-\hE = \m{0.2138 &   0.3835  &  0.2750 \\ -4.6091 &   2.7123  &  1.3030 \\ 6.1139  &  -4.0732 &  -2.0414}, 
-\hA = \m{-0.7862 &   0.3835  &  0.2750 \\ -4.6091  &   1.7123 &  1.3030 \\ 6.1139 &  -4.0732 &  -3.0414} , 
-\hA_d = \m{-1.1984  & -0.8890 &  -0.7284 \\ -8.3226 &  -6.8410 &  -5.5140 \\ 10.6268  &  7.4234  &  6.2056} \ .
-\]
-}
-We also see that the index of system \eqref{delay-descriptor} is $\ind(E,A)=2$. Corollary \ref{coro3} applied here implies that the system is non-advanced.
-Furthermore, we have that 
-%
-{\tiny
-\[
-\hE^D = \m{-0.0406  &  0.0021  & -0.0029 \\ -5.5203  &   0.2817 &  -0.3934 \\ 7.5995 &   -0.3878  &  0.5416}, 
-P = \m{-0.0359  &  0.0018 &  -0.0026 \\ -4.8837 &  0.2492 &  -0.3480 \\ 6.7231  & -0.3431  &  0.4791}  \ .
-\]
-}
-%
-By verifying Theorem \ref{Thm positivity} we see that the system is both positive and stable. 
+	Let us consider system \eqref{delay-descriptor} whose the matrix coefficients are
+	%
+	{\scriptsize
+		\[
+		E = \m{-11 & 1 & 0.1521\\ 	0 & 0 & 0.9365\\ 	0 & 0 & 0}, \
+		A = \m{0.2 & 0.61 & 0.9236\\	-1 & 0.6 & 0.4683 \\ 	0 & 0 & 0.7722}, \
+		A_d = \m{-1 & -0.2 & -1.9298\\ 	-0.8 & -0.01 & 0 \\ 	0 & 0 & 0} \ .
+		\]
+	}
+	%
+	Direct computation yields that the matrix polynomial $\det(sE-A)$ is 
+	\[
+	\det(sE-A) = - 4.32432 \ s - 0.563706 \ ,
+	\]
+	and hence the system is not impulse-free, since $\rank(E)=2$. For $s = 3$ we have $\det(sE-A)\not= 0$, so we obtain
+	%
+	{\scriptsize
+		\[
+		\hE \!=\! \m{0.3765 & -0.034227 & -0.13289\\ 0.6275 & -0.057045 & -1.7823\\ 0 & 0 & 0}, 
+		\hA \!=\! \m{0.12949 & -0.10268 & -0.39866\\ 1.8825 & -1.1711 & -5.3469\\ 0 & 0 & -1} , 
+		\hA_d \!=\! \m{0.1433 & 0.0082088 & 0.066051\\ 1.5722 & 0.030348 & 0.11009\\0 & 0 & 0}.
+		\]
+	}
+	We also see that the index of system \eqref{delay-descriptor} is $\ind(E,A)=2$. Corollary \ref{coro3} applied here implies that the system is non-advanced.
+	Furthermore, we have that 
+	%
+	{\scriptsize
+		\[
+		\bhA = \m{-0.0050085 & 0.00045532 & -0.0004569\\ -0.0083475 & 0.00075887 & -0.0007615\\	0 & 0 & 0} , 
+		\bhA_d = \m{4.4908e-05 & 0.00065547 & 0.0067405\\ 7.4847e-05 & 0.0010925 & 0.011234\\0 & 0 & 0},
+		\]
+	}
+	%
+	and 
+	%
+	{\scriptsize
+		\[
+		P = \m{0.038421 & -0.0034929 & 0.003505\\ 0.064036 & -0.0058214 & 0.0058417\\0 & 0 & 0}, \
+		(P-I) \hA^D \hA_d = \m{0.14371 & 0.05087 & 0.42647\\ 	1.5494 & 0.10116 & 0.71079\\0 & 0 & 0} \ .
+		\]
+	}
+	%
+	By solving the equality in Theorem \ref{Thm 6}, we obtain
+	%
+	{\scriptsize
+		\[	H = \m{-0.59167 & 0.27679 & 0\\ 0.27679 & -0.29643 & 0\\ 0 & 0 & -0.74313}
+		\]
+	}
+	%
+	The spectrum of $H$ and $\bar{H}$ are $\si(H)=\{-0.7577, -0.7431, -0.1304\}$ and $\si(\bar{H})=\{-1.2832, -0.7577, -0.1221, -0.3001, -0.7431, -1.0000\}$. 
+	Therefore, due to Theorem \ref{Thm 6} we see that system \eqref{delay-descriptor} is both positive and stable. 
 \end{example}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%  Section 6 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Conclusion}\label{conclusion}
-In this paper, we have discussed the positivity of strangeness-free descriptor systems in continuous time. Beside that, the characterization of positive delay-descriptor systems has been treated as well. The theoretical results are obtained mainly via an algebraic approach and a projection approach. The projection approach investigates the positivity of a given descriptor system by the positivity of an inherent ODE obtained by projecting the given system onto a subspace. On the other hand, the algebraic approach derives an underlying ODE without changing the state, input and output. Then, studying these hidden ODEs is the key point. The main difficulty here is that the derivative of the input $u$ may occur in the new system. Despite their disadvantages, these methods can provide both necessary conditions and sufficient conditions. Beside these theoretical methods, the behaviour approach, which leads to some feasible conditions, is also implemented.
+In this paper, we have studied the stability of positive delay-descriptor systems of arbitrarily high index without the impulse-free assumption. Firstly, a necessary and sufficient condition has been proposed to ensure the positivity of delay-descriptor system. Then, stability conditions for positive systems of arbitrarily high index have been established. 
 
 %========================================================================================
 \vskip 0.2cm
 \textbf{Acknowledgment} The author would like to thank the anonymous referee for his suggestions to improve this paper.
 %=========================================================================================
 
-\bibliographystyle{abbrv}
-%\bibliographystyle{unsrtnat}
+%\bibliographystyle{abbrv}
+\bibliographystyle{unsrtnat}
 \bibliography{Phi_July_2020}
 
 %============================================================================

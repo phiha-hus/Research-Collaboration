@@ -6,30 +6,16 @@
 
 clear all; close all; clc
 
-%%
-... Generate partial monomial transformation ...
-... Since the last coordinate x3 = 0, so it is partial...
-... Notice that Q must be a permutation matrix - in ...
-... order to guarantee the positivity
-    
-Q1 = [0 1.;1. 0];
-Q = blkdiag(Q1,rand(1,1))
-P = rand(3,3)
-%Q = eye(3);
-P = eye(3);
+E = [-11.0000    1.0000    0.1521
+         0         0    0.9365
+         0         0         0]
+A = [0.2000    0.6100    0.9236
+   -1.0000    0.6000    0.4683
+         0         0    0.7722]
+Ad = [-1.0000   -0.2000   -1.9298
+   -0.8000   -0.0100         0
+         0         0         0]
 
-%%
-E1 = [1.0 -11.0;0 0];
-E = [E1 rand(2,1); zeros(1,3)];
-rank(E);
-
-A1 = [0.61 0.2;0.60 -1.0;0 0];
-A = [A1 rand(3,1)];
-
-%Ad = [-0.2 -1. rand(1,1);-0.01 -0.80 rand(1,1);0 0 0];
-Ad = [-0.2 -1. 0;-0.01 -0.80 0;0 0 0];
-
-%% 
 n = size(E);
 % Check the regularity of the system
 for i = 1:(n+1)
@@ -42,25 +28,6 @@ for i = 1:(n+1)
     end
 end
 
-% Check the non-impulse-free of the system
-% pkg load symbolic # OCTAVE needs
-syms s
-s*E-A ;
-p = det(s*E-A);
-disp('The matrix polynomial det(sE-A) reads')
-vpa(p,6)
-% Function polynomialDegree Only occur in MATLAB 2021
-% We can check by hand
-% deg = polynomialDegree(p,s)  
-
-%%
-% Generate more beautiful system
-% From the original system
-
-E = P * E * Q 
-A = P * A * Q 
-Ad = P * Ad * Q 
-
 syms s
 s*E-A;
 p1 = det(s*E-A);
@@ -72,7 +39,7 @@ vpaSols = vpa(p1,6)
 
 %% Computing Drazin inverse using Jordan decomposition
 % IS TERRIBLY BAD
-alpha = 3 ;
+alpha = 3;
 U = alpha * E - A;  % VERY CAREFUL, DON'T USE INVERSE
 hE = U\E
 hA = U\A
@@ -100,4 +67,25 @@ Ad_bar = hEd * hAd
 hAD = Drazin_inverse(hA) % Drazin inverse of hA
 K = ( P-eye(size(P)) ) * hAD * hAd 
 
+[Up,Sp,Vp] = svd(P);
+Sp
 
+A1 = Up' * Abar * Vp
+
+% H1 = Up' * H * Up has the same stability property
+... as H
+    
+H1 = blkdiag(A1(1,1)/Sp(1,1),diag(-rand(2,1))) ;
+
+H = Up * H1 * Up'
+eig(H)  %-0.5499    -0.3264    -0.1304
+
+n = 3;
+I = eye(n);
+
+H_bar = [Ad_bar+H Ad_bar; K K-I] ;
+eig(H_bar)
+
+matrices_in_Example3
+
+    
