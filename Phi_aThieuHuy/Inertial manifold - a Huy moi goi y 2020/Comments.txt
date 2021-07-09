@@ -1,5 +1,6 @@
 Gửi Phi sách và Báo,
-Phi đọc sách của Chuesov, Chapter 3 (đó là Lyapunov-Perron methods) và sách của Temam, chapter VIII (là Graph Transform method) và bài báo của anh (Lyapunov-Perron method với điều kiện \varphi-Lipschitz).
+Phi đọc sách của Chuesov, Chapter 3 (đó là Lyapunov-Perron methods) và sách của Temam, chapter VIII (là Graph Transform method) và 
+bài báo của anh (Lyapunov-Perron method với điều kiện \varphi-Lipschitz).
 
 Bào báo chung DAE thì anh sẽ chỉnh qua một tý nữa rồi gửi đi.
 
