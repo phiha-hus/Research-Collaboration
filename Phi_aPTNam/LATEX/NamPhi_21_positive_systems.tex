@@ -256,13 +256,22 @@ Consider the following systems with two parameters $\ep_1$, $\ep_2$.
 In this example $\ind(E,A) = 2$. Furthermore, depending on the value of $\ep_2$, the system will be advanced (if $\ep_2\not=0$) and be non-advanced (if $\ep_2\not=0$). Analogously, one can construct a non-advanced system which has an arbitrarily high index. 
 \end{example}
 
+\begin{definition}\label{def3.2}
+	The null solution $x=0$ of the free system \eqref{free system} is called \emph{exponentially stable} if there exist positive constants 
+	$\de$ and $\ga$ such that for any consistent initial function $\vphi \in C([-\tau,0],\R^n)$, the solution $x=x(t,\vphi)$ of the corresponding 
+	IVP to \eqref{free system} satisfies
+	%
+	\[
+	\|x(t)\| \leq \de e^{-\ga t} \|\vphi\|_{\infty}, \ \mbox{ for every } \ t\geq 0.
+	\]
+	%
+\end{definition}
+
 Let $E$ have index $\tnu$, i.e., $\ind(E,I_n)=\tnu$, the Drazin inverse $E^D$ of E is uniquely defined by the properties
 %
 \begin{equation}\label{Drazin property}
 E^DE = E E^D, \ E^D E E^D = E^D ,\ E^D E^{\tnu+1} = E^{\tnu} .
 \end{equation}
-%
-\vskip -1pt
 %
 \begin{lemma}\label{lem1}\citet{KunM06} Let (E,A) be a regular matrix pair. Then for any $\lb \in \rho(E,A)$, the following matrices commute
 %
@@ -391,7 +400,7 @@ Then, this system is non-advanced if and only if the following rank condition is
 %
 \begin{equation}\label{adv. check eq.}
 \rank \m{\cE^T \\ \cA_d(:,2n+1 : end)^T}
-= \rank \left[ \pm{\cE^T \\ \cA_d(:,2n+1 : end)^T} \ \vline \ \pm{I_n \\ 0_{(2\nu-1)n,n} } \right]
+= \rank \left[ \pm{\cE^T \\ \cA_d(:,2n+1 : end)^T} \ \vline \ \pm{I_n \\ 0_{(\nu-1)n,n} } \right]
 \end{equation}
 %
 \end{theorem}
@@ -403,7 +412,7 @@ Consider the zero-input descriptor system \eqref{free system} and assume that th
 Then, system \eqref{free system} is non-advanced if and only if the following identity hold true.
 %
 \begin{equation}\label{check advanced}
-\rank \m{E^T & -A^T & 0 \\ 0 & E^T & -A^T \\ 0 & 0 & A_d^T } =
+\rank \m{E^T & -A^T & 0 \\ 0 & E^T & -A^T \\ 0 & 0 & E^T \\ 0 & 0 & A_d^T } =
 n + \rank \m{E^T & -A^T \\ 0 & E^T \\ 0 & A_d^T} \ .
 \end{equation}
 %
@@ -479,7 +488,7 @@ Since most systems occur in application are non-advanced, in this section we foc
 \begin{definition}
 Consider the delay-descriptor system \eqref{delay-descriptor} and assume that it is non-advanced, and that the pair $(E,A)$ is regular with $\ind(E,A)=\nu$. We call \eqref{delay-descriptor}  positive if for all $t\geq 0$ we have $x(t) \geq 0$ and $y(t)\geq 0$ for any input function $u$ and any consistent initial function $\vphi(t)$ that satisfy two following conditions. \\
 i)  $\vphi(t) \geq 0$ for all $t \in [-\tau,0]$, \\
-ii) $u^{(i)}(t) \geq 0$ for all $t\geq 0$ and all $i\leq (\nu-1) \ \floor{t/\tau}$.
+ii) For any $t\geq 0$, $u^{(i)}(t) \geq 0$ for all $i=0,$ $1,...,(\nu-1) \ \floor{t/\tau}$.
 \end{definition}
 %
 For nontiaonal convenience, let us denote by

@@ -1,0 +1,18 @@
+Some potential approach
+
+1. Cannot follows Michiels - too complicated and too long
+
+2. Follow LMI - Book of James Lam - Illustrated example
+This will show our advantage - Constructing Lyapunov functions depends on E^D E
+Example illustrate the advantage.
+
+See brief article of automatica
+
+
+3. Decay rate estimation, Bohl, Sacker-Sell interval 
+
+
+
+Ask A Hien, thay Phat xem co bai bao nao hien dang manh nhat khong
+
+Xem them co sv nao ma kha ve lap trinh LMI khong?

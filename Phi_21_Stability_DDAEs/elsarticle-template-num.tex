@@ -1,0 +1,171 @@
+%% Version 1 : xx/07/2021 Phi
+%% 
+%% ---------------------------------------------
+%%
+\documentclass[preprint,12pt]{elsarticle}
+%% Use the option review to obtain double line spacing
+%% \documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%% \documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% For including figures, graphicx.sty has been loaded in
+%% elsarticle.cls. If you prefer to use the old commands
+%% please give \usepackage{epsfig}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{algcompatible}
+
+%% The amssymb package provides various useful mathematical symbols
+%%\usepackage{amssymb}
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers.
+%% \usepackage{lineno}
+
+\usepackage{lineno}
+\linenumbers
+
+\usepackage{graphicx}
+\usepackage{amssymb,amsmath,bm,mathrsfs}
+%\let\proof\relax\let\endproof\relax
+% Using the package amsthm leads to confliction ''The \begin{pf} is already defined''
+\usepackage{amsthm}
+\usepackage{mathabx}
+
+\usepackage[final]{hyperref} %$#
+
+%\hypersetup{
+%	colorlinks=true,
+%	linkcolor=blue,
+%	filecolor=magenta,      
+%	urlcolor=red,
+%}
+
+\journal{Applied Mathematics Letters}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{example}[thm]{Example}
+\newtheorem{ass}[thm]{Assumption}
+\newdefinition{rem}{Remark}
+\newproof{pf}{Proof}
+\newtheorem{definition}[thm]{Definition}
+\newtheorem{coro}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+
+
+\include{command}
+
+\begin{document}
+
+\begin{frontmatter}
+
+%% Title, authors and addresses
+
+%% use the tnoteref command within \title for footnotes;
+%% use the tnotetext command for theassociated footnote;
+%% use the fnref command within \author or \address for footnotes;
+%% use the fntext command for theassociated footnote;
+%% use the corref command within \author for corresponding author footnotes;
+%% use the cortext command for theassociated footnote;
+%% use the ead command for the email address,
+%% and the form \ead[url] for the home page:
+%% \title{Title\tnoteref{label1}}
+%% \tnotetext[label1]{}
+%% \author{Name\corref{cor1}\fnref{label2}}
+%% \ead{email address}
+%% \ead[url]{home page}
+%% \fntext[label2]{}
+%% \cortext[cor1]{}
+%% \address{Address\fnref{label3}}
+%% \fntext[label3]{}
+
+\title{On the stability analysis of arbitrarily high-index singular systems with multiple delays}
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{}
+%% \address[label1]{}
+%% \address[label2]{}
+
+\author[add1]{Ha Phi\corref{cor1} \fnref{fn1}}
+\ead{haphi.hus@vnu.edu.vn}
+
+\author[add1]{Ha Trung\fnref{fn2}}
+\ead{hatrung.hus@vnu.edu.vn}
+
+
+\address[add1]{Faculty of Mathematics, Mechanics, and Informatics, VNU University of Science, Vietnam National University, Hanoi, Vietnam.}
+
+\cortext[cor1]{Corresponding author}
+\fntext[fn1]{Footnote of first author.}
+\fntext[fn2]{The second author was supported the National Foundation for Science and Technology Development (NAFOSTED) under the project number 101.01-2017.302. He also would like to thank the Vietnam Institute for Advanced Study in Mathematics (VIASM) for their kind hospitality during his research visit.}
+
+\begin{abstract}
+This paper deals with the class of continuous-time singular linear systems with multiple time-varying
+delays in a range. The global exponential stability problem of this class of systems is addressed. Delay range-dependent sufficient conditions such that the system is regular, impulse-free and $\alpha$-stable are
+developed in the linear matrix inequality (LMI) setting. Moreover, an estimate of the convergence rate
+of such stable systems is presented. A numerical example is employed to show the usefulness of the
+proposed results.	
+\end{abstract}
+
+\newpageafter{abstract}
+
+%%Graphical abstract
+%%\begin{graphicalabstract}
+%\includegraphics{grabs}
+%%\end{graphicalabstract}
+
+%%Research highlights
+%\begin{highlights}
+%\item Research highlight 1
+%\item Research highlight 2
+%\end{highlights}
+
+\begin{keyword}
+%% keywords here, in the form: keyword \sep keyword
+Singular systems \sep Delay \sep LMIs \sep Spectral \sep Stabilization \sep Feedback.
+%% PACS codes here, in the form: \PACS code \sep code
+
+%% MSC codes here, in the form: \MSC code \sep code
+%% or \MSC[2008] code \sep code (2000 is the default)
+\MSC 34A09 \sep 34A12 \sep 65L05 \sep 65H10
+\end{keyword}
+
+\end{frontmatter}
+
+%% \linenumbers
+
+%% main text
+
+\section{Introduction}\label{intro}
+%=================================================================
+
+\section{Preliminaries} \label{pre}
+
+%=================================================================
+\section{}\label{Sec3}
+           
+       
+%=================================================================
+\section{}\label{Sec4}
+
+
+%=================================================================
+\section{Conclusion and Outlook}\label{conclusion}
+   
+\end{document}
+\endinput
+
+%%
+%% End of file `elsarticle-template-num.tex'.

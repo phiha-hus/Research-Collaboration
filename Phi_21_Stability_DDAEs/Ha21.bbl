@@ -1,0 +1,167 @@
+\begin{thebibliography}{23}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Ascher and Petzold(1995)]{AscP95}
+U.~M. Ascher and L.~R. Petzold.
+\newblock The numerical solution of delay-differential algebraic equations of
+  retarded and neutral type.
+\newblock \emph{{SIAM} J. Numer. Anal.}, 32:\penalty0 1635--1657, 1995.
+
+\bibitem[Campbell(1995)]{Cam95c}
+S.~L. Campbell.
+\newblock Nonregular 2{D} descriptor delay systems.
+\newblock \emph{IMA J. Math. Control Appl.}, 12:\penalty0 57--67, 1995.
+
+\bibitem[Shampine and Gahinet(2006)]{ShaG06}
+L.~F. Shampine and P.~Gahinet.
+\newblock Delay-differential-algebraic equations in control theory.
+\newblock \emph{Appl. Numer. Math.}, 56\penalty0 (3-4):\penalty0 574--588,
+  March 2006.
+\newblock ISSN 0168-9274.
+\newblock \doi{10.1016/j.apnum.2005.04.025}.
+\newblock URL \url{http://dx.doi.org/10.1016/j.apnum.2005.04.025}.
+
+\bibitem[Ha(2015)]{Ha15}
+Phi Ha.
+\newblock \emph{Analysis and numerical solutions of delay
+  differential-algebraic equations}.
+\newblock Dissertation, Institut f{\"u}r Mathematik, TU Berlin, Berlin,
+  Germany, 2015.
+
+\bibitem[Ha and Mehrmann(2016)]{HaM16}
+Phi Ha and Volker Mehrmann.
+\newblock Analysis and numerical solution of linear delay
+  differential-algebraic equations.
+\newblock \emph{{BIT}}, 56:\penalty0 633 -- 657, 2016.
+
+\bibitem[Dai(1989)]{Dai89}
+L.~Dai.
+\newblock \emph{Singular Control Systems}.
+\newblock Springer-Verlag, Berlin, Germany, 1989.
+
+\bibitem[Kunkel and Mehrmann(2006)]{KunM06}
+P.~Kunkel and V.~Mehrmann.
+\newblock \emph{Differential-Algebraic Equations -- Analysis and Numerical
+  Solution}.
+\newblock EMS Publishing House, Z{\"u}rich, Switzerland, 2006.
+
+\bibitem[Ha and Nam(2021)]{HaN21}
+Phi Ha and Phan~Thanh Nam.
+\newblock Stability analysis of arbitrarily high-index, positive
+  delay-descriptor systems.
+\newblock In preparation, July 2021.
+
+\bibitem[Horn and Johnson(1990)]{HorJ90}
+R.A. Horn and C.R. Johnson.
+\newblock \emph{Matrix Analysis}.
+\newblock Cambridge University Press, 1990.
+\newblock ISBN 9780521386326.
+
+\bibitem[Bellman and Cooke(1963)]{BelC63}
+Richard Bellman and Kenneth~L. Cooke.
+\newblock \emph{Differential-difference equations}.
+\newblock Mathematics in Science and Engineering. Elsevier Science, 1963.
+
+\bibitem[Hale and Lunel(1993)]{HalL93}
+J.K. Hale and S.M.V. Lunel.
+\newblock \emph{Introduction to Functional Differential Equations}.
+\newblock Springer, 1993.
+
+\bibitem[Unger(2018)]{Ung18}
+Benjamin Unger.
+\newblock Discontinuity propagation in delay differential-algebraic equations.
+\newblock \emph{The Electronic Journal of Linear Algebra}, 34:\penalty0
+  582–601, Feb 2018.
+\newblock ISSN 1081-3810.
+
+\bibitem[Zhu and Petzold(1997)]{ZhuP97}
+Wenjie Zhu and Linda~R. Petzold.
+\newblock Asymptotic stability of linear delay differential-algebraic equations
+  and numerical methods.
+\newblock \emph{Appl. Numer. Math.}, 24:\penalty0 247 -- 264, 1997.
+\newblock \doi{http://dx.doi.org/10.1016/S0168-9274(97)00024-X}.
+
+\bibitem[Zhu and Petzold(1998)]{ZhuP98}
+Wenjie Zhu and Linda~R. Petzold.
+\newblock Asymptotic stability of {H}essenberg delay differential-algebraic
+  equations of retarded or neutral type.
+\newblock \emph{Appl. Numer. Math.}, 27\penalty0 (3):\penalty0 309 -- 325,
+  1998.
+\newblock ISSN 0168-9274.
+\newblock \doi{http://dx.doi.org/10.1016/S0168-9274(98)00008-7}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0168927498000087}.
+
+\bibitem[Michiels(2011)]{Mic11}
+W.~Michiels.
+\newblock Spectrum-based stability analysis and stabilisation of systems
+  described by delay differential algebraic equations.
+\newblock \emph{IET Control Theory Appl.}, 5\penalty0 (16):\penalty0
+  1829--1842, 2011.
+\newblock ISSN 1751-8644.
+\newblock \doi{10.1049/iet-cta.2010.0752}.
+
+\bibitem[Phat and Sau(2014)]{Phat14}
+V.N. Phat and N.H. Sau.
+\newblock On exponential stability of linear singular positive delayed systems.
+\newblock \emph{Applied Mathematics Letters}, 38:\penalty0 67--72, 2014.
+\newblock ISSN 0893-9659.
+\newblock \doi{https://doi.org/10.1016/j.aml.2014.07.003}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S0893965914002250}.
+
+\bibitem[Sau et~al.(2016)Sau, Niamsup, and Phat]{Sau16}
+Nguyen~H. Sau, P.~Niamsup, and Vu~N. Phat.
+\newblock Positivity and stability analysis for linear implicit difference
+  delay equations.
+\newblock \emph{Linear Algebra and its Applications}, 510:\penalty0 25--41,
+  2016.
+\newblock ISSN 0024-3795.
+\newblock \doi{https://doi.org/10.1016/j.laa.2016.08.012}.
+\newblock URL
+  \url{https://www.sciencedirect.com/science/article/pii/S0024379516303391}.
+
+\bibitem[Cui et~al.(2018)Cui, Shen, Feng, and Chen]{Cui.et.al'17}
+Yukang Cui, Jun Shen, Zhiguang Feng, and Yong Chen.
+\newblock Stability analysis for positive singular systems with time-varying
+  delays.
+\newblock \emph{IEEE Transactions on Automatic Control}, 63\penalty0
+  (5):\penalty0 1487--1494, 2018.
+\newblock \doi{10.1109/TAC.2017.2749524}.
+
+\bibitem[Ngoc(2018)]{Ngoc18}
+Pham Huu~Anh Ngoc.
+\newblock Exponential stability of coupled linear delay time-varying
+  differential–difference equations.
+\newblock \emph{IEEE Transactions on Automatic Control}, 63\penalty0
+  (3):\penalty0 843--848, 2018.
+\newblock \doi{10.1109/TAC.2017.2732064}.
+
+\bibitem[{Van Dooren}(1979)]{Van79}
+P.~{Van Dooren}.
+\newblock The computation of {K}ronecker's canonical form of a singular pencil.
+\newblock \emph{Lin. Alg. Appl.}, 27:\penalty0 103--141, 1979.
+
+\bibitem[Brenan et~al.(1996)Brenan, Campbell, and Petzold]{BreCP96}
+K.~E. Brenan, S.~L. Campbell, and L.~R. Petzold.
+\newblock \emph{Numerical Solution of Initial-Value Problems in Differential
+  Algebraic Equations}.
+\newblock {SIAM} Publications, Philadelphia, PA, 2nd edition, 1996.
+
+\bibitem[Du et~al.(2013)Du, Linh, Mehrmann, and Thuan]{DuLMT13}
+Nguyen~Huu Du, Vu~Hoang Linh, Volker Mehrmann, and Do~Duc Thuan.
+\newblock Stability and robust stability of linear time-invariant delay
+  differential-algebraic equations.
+\newblock \emph{{SIAM} J. Matr. Anal. Appl.}, 34\penalty0 (4):\penalty0
+  1631--1654, 2013.
+
+\bibitem[Golub and {Van Loan}(1996)]{GolV96}
+G.~H. Golub and C.~F. {Van Loan}.
+\newblock \emph{Matrix Computations}.
+\newblock The Johns Hopkins University Press, Baltimore, MD, 3rd edition, 1996.
+
+\end{thebibliography}
