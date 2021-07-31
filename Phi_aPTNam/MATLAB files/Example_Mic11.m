@@ -1,7 +1,8 @@
 % testing the code TDS_STSBIL written by Wim Michiels
-% serving the paper on stability of Delay-DAEs that I'm writing
+% serving the paper Ha21 on stability of Delay-DAEs
 % Syntax must see in the function tds_create
 % & compute_root_DDAE
+% @Copyright Phi Ha July, 2021
 
 clear all; close all; clc
 
@@ -21,9 +22,10 @@ A_2d = [0 0;0 1/2]
 tau = [1 2]; h = [0 tau]  % Option 1
 %tau = [0.99 2]; h = [0 tau]  % Option 2
 
-tds = tds_create({E},0,{A, A_1d, A_2d},h,'neutral')
+tds1 = tds_create({E},0,{A, A_1d, A_2d},h,'neutral')
 
 %% Modified Example in Michiels'11
+% clear all; close all; clc
 
 E = [1 0 0; 0 0 1; 0 0 0] 
 A = [0 -1/8 0; -1 1 0; 0 0 1] 
@@ -48,33 +50,30 @@ A_2d = [0 0 0; 0 1/2 0; 0 0 0]
 tau = [1 2]; h = [0 tau]  % Option 1
 %tau = [0.99 2]; h = [0 tau]  % Option 2
 
-tds = tds_create({E},0,{A, A_1d, A_2d},h,'neutral')
-
-
-%% Example by Phi - regular, impulse free
-% Matrix Coefficients are taken from 
-% Cui.et.al TAC2017
-% Result is Unstable - So Cui is wrong?
-% Only for sufficiently big tau (>=1.5) then stability holds.
-
-% E = [1.0000  -11.0000; 0 0]
-% A = [0.61000  0.200; 0.60000  -1.0000]
-% Ad = [-0.2000 -1.0000; -0.0100  -0.8000]
-% 
-% tau = 1.5; h = [0 tau];
-% tds = tds_create({E},0,{A, Ad},h,'neutral')
+tds2 = tds_create({E},0,{A, A_1d, A_2d},h,'neutral')
 
 %% Compute roots and plot
 options=tdsrootsoptions;
+v1 = compute_roots_DDAE(tds1,options)
+vv1 = [v1.l0; v1.l1];
+max(real(vv1))
 
-v = compute_roots_DDAE(tds,options)
-vv = [v.l0; v.l1]
-max(real(vv))
+v2 = compute_roots_DDAE(tds2,options)
+vv2 = [v2.l0; v2.l1];
+max(real(vv2))
 
 figure(1); clf;
-plot(vv,'r*')
-ylim([-10,10])
-xlim([-4,4])
+subplot(2,2,2)
+plot(vv1,'r*')
 grid on
+
+subplot(2,2,1)
+plot(vv2,'r*')
+grid on
+
+%print('Example14_Ha21','-depsc')
+%print -depsc Example14_Ha21.eps
+% ! epstopdf Example14_Ha21.eps
+
 
 

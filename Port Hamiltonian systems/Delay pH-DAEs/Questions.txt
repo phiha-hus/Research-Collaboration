@@ -1,0 +1,10 @@
+1. When does a delayed-pH DAEs is positive and stable.
+
+
+2. Non-delayed pH-DAE is nice ( Ctrb <=> Obsv )
+But not stability, since it has index >= 2 (typically).
+
+3. Trick S+N = XY does not work since it destroys the structure of pH. 
+
+
+For DAEs, no high index positivity has been considered?

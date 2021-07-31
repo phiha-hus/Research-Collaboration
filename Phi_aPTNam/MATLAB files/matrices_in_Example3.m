@@ -27,3 +27,5 @@ matrix2latex(hAd,'hAd.tex')
 
 matrix2latex(H,'H.tex');
 matrix2latex(H_bar,'H_bar.tex');
+
+movefile('*.tex','matrices_in_Example3\')

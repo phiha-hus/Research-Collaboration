@@ -1,0 +1,21 @@
+1. When does a delayed-pH DAEs is positive and stable.
+
+
+2. Non-delayed pH-DAE is nice ( Ctrb <=> Obsv )
+But not stability, since it has index >= 2 (typically).
+Conditions exist for linear homogenous systems, Ait-Rami,Virnik,Hannes'21
+
+
+Not all pH-DAE is stable (not really, since the algebaric part = 0), but stable pH-DAEs can be obtained from stable descriptor system
+using equivalent system transformation, making use of the solution to a matrix - Lyapunov equation.
+
+pH-Realization problem for positive and stable descriptor system with/without time-delays.
+
+3. Trick S+N = XY does not work since it destroys the structure of pH. => must work with positive system with D. 
+
+
+Passive pH is always stabilizable ==> Is it bad?
+
+
+
+For DAEs, no high index positivity has been considered?

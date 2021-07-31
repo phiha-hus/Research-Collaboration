@@ -5,14 +5,12 @@ E = [1 1 0; 1 -1 1; 2 0 1]
 A = [1.5 0.5 1; -1 0 1; 0.5 0 1]
 Ad = [-1 0 -1; 1 -1 0.5; 0.3 0.5 -1]
 
-%% Check the advancedness of the system
-[n,~] = size(E)
+%% Check the advancedness and impulse-freeness of the system
+[n,~] = size(E);
 
-Einf = [E' -A' zeros(n,n); zeros(n,n) E' -A'; zeros(n,2*n) E'; zeros(n,2*n) Ad]
-
-E1 = [E' -A'; zeros(n,n) E'; zeros(n,n) Ad']
-
-test = (rank(Einf)-rank(E1)-n == 0)
+Einf = [E' -A' zeros(n,n); zeros(n,n) E' -A'; zeros(n,2*n) E'; zeros(n,2*n) Ad] ;
+E1 = [E' -A'; zeros(n,n) E'; zeros(n,n) Ad'] ;
+test = (rank(Einf)-rank(E1)-n == 0) ;
 
 if test == 1
    disp('The system is non-advanced')
@@ -22,12 +20,19 @@ end
 
 % Pre-processing to achieve prettier system
 [U,S,V] = svd(E);
-E = S
+E = S 
 A = U' * A * V
 Ad = U' * Ad * V
 
+E2 = [E(1:rank(E),:) ; A(rank(E)+1:end,:)] ;
+if rank(E2)==n
+    disp('System is impulse-free')
+else
+    disp('System is not impulse-free')
+end
+
 %% Test LMIs
-setlmis([])
+setlmis([]) ;
 
 structure_Q = [n,1]
 Q = lmivar(1,structure_Q)
@@ -49,7 +54,7 @@ lmiterm([2,2,1,P'],Ad,eye(n))
 lmiterm([2,2,2,-Q],1,1)
 
 % getlmis
-LMISYS = getlmis 
+LMISYS = getlmis ;
 
 [t_min,X_feas] = feasp(LMISYS)
 

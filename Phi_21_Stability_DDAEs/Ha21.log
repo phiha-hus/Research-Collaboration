@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.29)  25 JUL 2021 18:17
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.29)  29 JUL 2021 12:08
 entering extended mode
 **./Ha21.tex
 (Ha21.tex
@@ -742,31 +742,31 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 130.
 \xmathstrut@dim=\dimen174
 ))
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 8
-6.
+9.
 
 (D:\Program Files\MikTex\tex/latex/psnfss\ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 ) (Ha21.aux)
 \openout1 = `Ha21.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 86.
-LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for U/mathx/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 89.
+LaTeX Font Info:    ... okay on input line 89.
 
 (D:\Program Files\MikTex\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -789,7 +789,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 (D:\Program Files\MikTex\tex/latex/00miktex\epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 86.
+Package hyperref Info: Link coloring OFF on input line 89.
 
 (D:\Program Files\MikTex\tex/latex/hyperref\nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -802,53 +802,53 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count318
 )
-LaTeX Info: Redefining \ref on input line 86.
-LaTeX Info: Redefining \pageref on input line 86.
-LaTeX Info: Redefining \nameref on input line 86.
+LaTeX Info: Redefining \ref on input line 89.
+LaTeX Info: Redefining \pageref on input line 89.
+LaTeX Info: Redefining \nameref on input line 89.
 
 (Ha21.out) (Ha21.out)
 \@outlinefile=\write4
 \openout4 = `Ha21.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 132
+LaTeX Font Info:    Trying to load font information for U+msa on input line 165
 .
  (D:\Program Files\MikTex\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 132
+LaTeX Font Info:    Trying to load font information for U+msb on input line 165
 .
 
 (D:\Program Files\MikTex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Trying to load font information for U+rsfs on input line 13
-2.
+LaTeX Font Info:    Trying to load font information for U+rsfs on input line 16
+5.
 
 (D:\Program Files\MikTex\tex/latex/jknappen\ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
 LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 1
-61.
+65.
 
 (D:\Program Files\MikTex\tex/latex/psnfss\ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
 LaTeX Font Info:    Trying to load font information for OT1+phv on input line 1
-61.
+65.
 
 (D:\Program Files\MikTex\tex/latex/psnfss\ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
 LaTeX Font Info:    Trying to load font information for OMS+pcr on input line 1
-73.
+77.
 
 (D:\Program Files\MikTex\tex/latex/psnfss\omspcr.fd
 File: omspcr.fd 
 )
 LaTeX Font Info:    Font shape `OMS/pcr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 173.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 177.
 
-Overfull \vbox (25.2196pt too high) has occurred while \output is active []
+Overfull \vbox (27.71674pt too high) has occurred while \output is active []
 
 
 Overfull \hbox (2.28003pt too wide) has occurred while \output is active
@@ -857,35 +857,19 @@ Overfull \hbox (2.28003pt too wide) has occurred while \output is active
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 187.
+(hyperref)                removing `\<def>-command' on input line 189.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\cnotenum' on input line 187.
+(hyperref)                removing `\cnotenum' on input line 189.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 187.
+(hyperref)                removing `\<def>-command' on input line 189.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@corref' on input line 187.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<let>-command' on input line 187.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\comma' on input line 187.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\<def>-command' on input line 187.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@fnmark' on input line 187.
+(hyperref)                removing `\@corref' on input line 189.
 
 [1
 
@@ -894,48 +878,185 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 {C:/Users/DELL/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
-Overfull \hbox (13.15015pt too wide) in paragraph at lines 213--214
+Overfull \hbox (13.15015pt too wide) in paragraph at lines 219--220
 []\OT1/ptm/m/n/12 Provided that the pair $\U/matha/m/n/12 p\OML/cmm/m/it/12 E; 
 A[]\U/matha/m/n/12 q$ \OT1/ptm/m/n/12 is reg-u-lar, we can trans-form them to t
 he Kronecker-
  []
 
 [2] [3] [4] [5] [6] [7]
-Overfull \hbox (22.27563pt too wide) in paragraph at lines 469--471
+Overfull \hbox (22.27563pt too wide) in paragraph at lines 482--484
 []\OT1/ptm/m/n/12 Again, we no-tice that due to the com-pli-ca-tion in com-put-
 ing the Kronecker-
  []
 
-[8] (Ha21.bbl [9] [10]
-Underfull \hbox (badness 1292) in paragraph at lines 109--116
-[]\OT1/ptm/m/n/12 V.N. Phat and N.H. Sau.  On ex-po-nen-tial sta-bil-ity of lin
--ear sin-gu-
+[8]
+Overfull \hbox (51.58557pt too wide) detected at line 531
+[]
+ []
+
+[9]
+
+pdfTeX warning: pdflatex.exe (file ./Example13_Ha21.pdf): PDF inclusion: found 
+PDF version <1.7>, but at most version <1.5> allowed
+<Example13_Ha21.pdf, id=268, 474.77374pt x 187.70125pt>
+File: Example13_Ha21.pdf Graphic file (type pdf)
+<use Example13_Ha21.pdf>
+Package pdftex.def Info: Example13_Ha21.pdf  used on input line 541.
+(pdftex.def)             Requested size: 379.8195pt x 150.1612pt.
+[10 <./Example13_Ha21.pdf>] (Ha21.bbl
+Underfull \hbox (badness 1715) in paragraph at lines 49--51
+[]\OT1/ptm/m/n/12 J. Hale, S. Lunel, In-tro-duc-tion to Func-tional Dif-fer-en-
+tial Equa-tions,
  []
 
 
-Underfull \hbox (badness 1776) in paragraph at lines 109--116
-\OT1/ptm/m/n/12 lar pos-i-tive de-layed sys-tems.  \OT1/ptm/m/it/12 Ap-plied Ma
-th-e-mat-ics Let-ters\OT1/ptm/m/n/12 , 38:67--
+Underfull \hbox (badness 6758) in paragraph at lines 57--63
+\OT1/ptm/m/n/12 algebraic equa-tions and nu-mer-i-cal meth-ods, Appl. Nu-mer. M
+ath.
  []
 
 
-Underfull \hbox (badness 2894) in paragraph at lines 109--116
-\OT1/ptm/m/n/12 07 . 003$.  URL []$\OT1/pcr/m/n/12 https : / / www . sciencedir
-ect . com / science /
+Underfull \hbox (badness 3601) in paragraph at lines 57--63
+\OT1/ptm/m/n/12 24 (1997) 247 -- 264.  []$\OT1/pcr/m/n/12 doi : http : / / dx .
+ doi . org / 10 . 1016 /
  []
 
-) [11] (Ha21.aux)
+[11]
+Underfull \hbox (badness 5607) in paragraph at lines 65--73
+[]\OT1/ptm/m/n/12 W. Zhu, L. R. Pet-zold, []Asymp-totic sta-bil-ity of Hes-sen-
+berg de-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--73
+\OT1/ptm/m/n/12 lay differential-algebraic equa-tions of re-tarded or neu-tral 
+type[],
+ []
+
+
+Underfull \hbox (badness 5563) in paragraph at lines 65--73
+\OT1/ptm/m/n/12 Appl. Nu-mer. Math. 27 (3) (1998) 309 -- 325.  []$\OT1/pcr/m/n/
+12 doi : http :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 65--73
+\OT1/ptm/m/n/12 URL []$\OT1/pcr/m/n/12 http : / / www . sciencedirect . com / s
+cience / article /
+ []
+
+
+Underfull \hbox (badness 3590) in paragraph at lines 82--89
+\OT1/ptm/m/n/12 URL []$\OT1/pcr/m/n/12 https : / / www . sciencedirect . com / 
+science / article /
+ []
+
+
+Underfull \hbox (badness 3590) in paragraph at lines 91--98
+\OT1/ptm/m/n/12 URL []$\OT1/pcr/m/n/12 https : / / www . sciencedirect . com / 
+science / article /
+ []
+
+[12]
+Underfull \hbox (badness 3590) in paragraph at lines 132--140
+\OT1/ptm/m/n/12 URL []$\OT1/pcr/m/n/12 https : / / www . sciencedirect . com / 
+science / article /
+ []
+
+
+Underfull \hbox (badness 5460) in paragraph at lines 142--145
+[]\OT1/ptm/m/n/12 W. Michiels, TDS-STABIL: A MAT-LAB tool for de-sign-ing sta-
+ []
+
+
+Underfull \hbox (badness 3884) in paragraph at lines 142--145
+\OT1/ptm/m/n/12 bi-liz-ing fixed-order con-trollers for time-delay sys-tems, av
+ail-able at
+ []
+
+
+Underfull \hbox (badness 7759) in paragraph at lines 154--165
+[]\OT1/ptm/m/n/12 H. Chen, P. Hu, []New re-sult on ex-po-nen-tial sta-bil-ity f
+or sin-
+ []
+
+
+Underfull \hbox (badness 7944) in paragraph at lines 154--165
+\OT1/ptm/m/n/12 gu-lar sys-tems with two in-ter-val time-varying de-lays[], IET
+ Con-
+ []
+
+
+Underfull \hbox (badness 3250) in paragraph at lines 154--165
+\OT1/ptm/m/n/12 trol The-ory & Ap-pli-ca-tions 7 (15) (2013) 1941--1949.  []$\O
+T1/pcr/m/n/12 arXiv :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 154--165
+\OT1/pcr/m/n/12 https : / / ietresearch . onlinelibrary . wiley . com /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 154--165
+\OT1/pcr/m/n/12 doi / pdf / 10 . 1049 / iet-[]cta . 2013 . 0396$[]\OT1/ptm/m/n/
+12 , []$\OT1/pcr/m/n/12 doi : https :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 154--165
+\OT1/ptm/m/n/12 URL []$\OT1/pcr/m/n/12 https : / / ietresearch . onlinelibrary 
+. wiley . com /
+ []
+
+[13]
+Underfull \hbox (badness 10000) in paragraph at lines 181--189
+\OT1/ptm/m/n/12 URL []$\OT1/pcr/m/n/12 http : / / www . sciencedirect . com / s
+cience / article /
+ []
+
+
+Underfull \hbox (badness 3039) in paragraph at lines 191--199
+[]\OT1/ptm/m/n/12 Y.-J. Sun, []Ex-po-nen-tial Sta-bil-ity for Continuous-Time S
+in-gu-lar Sys-
+ []
+
+
+Underfull \hbox (badness 1902) in paragraph at lines 191--199
+\OT1/ptm/m/n/12 sure-ment, and Con-trol 125 (2) (2003) 262--264.  []$\OT1/pcr/m
+/n/12 arXiv : https :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--199
+\OT1/pcr/m/n/12 / / asmedigitalcollection . asme . org / dynamicsystems /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 191--199
+\OT1/pcr/m/n/12 article-[]pdf / 125 / 2 / 262 / 5543651 / 244 \ _1 . pdf$[]\OT1
+/ptm/m/n/12 , []$\OT1/pcr/m/n/12 doi :
+ []
+
+
+Underfull \hbox (badness 3590) in paragraph at lines 205--212
+\OT1/ptm/m/n/12 URL []$\OT1/pcr/m/n/12 https : / / www . sciencedirect . com / 
+science / article /
+ []
+
+) [14] (Ha21.aux)
 Package rerunfilecheck Info: File `Ha21.out' has not changed.
-(rerunfilecheck)             Checksum: 6DE7438D9A5457E00D22EAA088C56627;1109.
+(rerunfilecheck)             Checksum: 9F62DEBA6A8D52603025E7353C143E80;1006.
  ) 
 Here is how much of TeX's memory you used:
- 12902 strings out of 479321
- 181223 string characters out of 2866504
- 495966 words of memory out of 3000000
- 30017 multiletter control sequences out of 15000+600000
- 442707 words of font info for 124 fonts, out of 8000000 for 9000
+ 12955 strings out of 479321
+ 181992 string characters out of 2866504
+ 495564 words of memory out of 3000000
+ 30054 multiletter control sequences out of 15000+600000
+ 441629 words of font info for 123 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 83i,23n,88p,642b,485s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 83i,23n,88p,592b,572s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\DELL\AppData\Local\MiKTeX\fonts/pk/ljfour/public/mathabx/dpi600\ma
 tha7.pk>{D:/Program Files/MikTex/fonts/enc/dvips/base/8r.enc} <C:\Users\DELL\Ap
 pData\Local\MiKTeX\fonts/pk/ljfour/public/mathabx/dpi720\mathx10.pk> <C:\Users\
@@ -955,9 +1076,9 @@ ts/type1/public/amsfonts/symbols/msbm10.pfb><D:/Program Files/MikTex/fonts/type
 8a.pfb><D:/Program Files/MikTex/fonts/type1/urw/times/utmb8a.pfb><D:/Program Fi
 les/MikTex/fonts/type1/urw/times/utmr8a.pfb><D:/Program Files/MikTex/fonts/type
 1/urw/times/utmri8a.pfb>
-Output written on Ha21.pdf (11 pages, 253390 bytes).
+Output written on Ha21.pdf (14 pages, 306300 bytes).
 PDF statistics:
- 421 PDF objects out of 1000 (max. 8388607)
- 83 named destinations out of 1000 (max. 500000)
- 65 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 571 PDF objects out of 1000 (max. 8388607)
+ 100 named destinations out of 1000 (max. 500000)
+ 62 words of extra memory for PDF output out of 10000 (max. 10000000)
 
