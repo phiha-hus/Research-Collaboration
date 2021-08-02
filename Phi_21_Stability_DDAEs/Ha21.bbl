@@ -210,4 +210,14 @@ W.~bin Chen, F.~Gao,
   {\path{doi:https://doi.org/10.1016/j.ejcon.2019.10.001}}.
 \newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S094735801930247X}
 
+\bibitem{cvx}
+I.~CVX~Research, {CVX}: Matlab software for disciplined convex programming,
+  version 2.0, \url{http://cvxr.com/cvx} (Aug. 2012).
+
+\bibitem{GraB08}
+M.~Grant, S.~Boyd, Graph implementations for nonsmooth convex programs, in:
+  V.~Blondel, S.~Boyd, H.~Kimura (Eds.), Recent Advances in Learning and
+  Control, Lecture Notes in Control and Information Sciences, Springer-Verlag
+  Limited, 2008, pp. 95--110, \url{http://stanford.edu/~boyd/graph_dcp.html}.
+
 \end{thebibliography}

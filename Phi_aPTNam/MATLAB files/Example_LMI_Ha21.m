@@ -36,8 +36,8 @@ tau = [1 2]; h = [0 tau]  % Option 1
 
 clear all; close all; clc
 
-alpha = 0;
-%alpha = 0.1270; 
+%alpha = 0;
+alpha = 0.1270; 
 
 E = [-11.0000    1.0000     0 %0.7885
          0         0         alpha
@@ -51,14 +51,25 @@ Ad = [-1.0000   -0.2000   -1.5970
    -0.8000   -0.0100         0
          0         0         0]
 
-syms s w
-p1 = det(s*E-A-w*Ad);
-% Very nice trick in MATLAB here. Computational error leads to p1 of degree
-% 3, but in fact it is of degree 1.
-disp('The matrix polynomial det(sE-A) reads')
-vpaSols = vpa(p1,6)
+% syms s w
+% p1 = det(s*E-A-w*Ad);
+% % Very nice trick in MATLAB here. Computational error leads to p1 of degree
+% % 3, but in fact it is of degree 1.
+% disp('The matrix polynomial det(sE-A) reads')
+% vpaSols = vpa(p1,6)
 
 [n,~] = size(E);
+
+%% System obtained after applied QZ
+E = [  -4.8020   -9.9469   -0.7885
+         0    0.0000         0
+         0         0         0]
+A = [  0.6260   -0.1423   -0.1891
+         0    1.1662    0.5607
+         0         0    0.2998]
+Ad = [ -0.6860   -0.7546    1.5970
+    0.4202    0.6808   -0.0000
+         0         0         0]
 
 %% Test LMIs
 setlmis([]) ;
