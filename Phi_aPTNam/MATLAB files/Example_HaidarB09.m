@@ -5,19 +5,13 @@
 % @Copyright Phi Ha July, 2021
 
 
-%% Example in Haidar/Boukas'09
+%% Original Example in Haidar/Boukas'09
 clear all; close all; clc
 
 E = [-1 2; -2 4]; 
 A = [4.7 0.4; -4.9 0.8]; 
 Ad1 = [0.7 -0.95; 1.1 -1.75]; 
 Ad2 = [1 -0.8; 1.4 -1.3];
-
-M = [1 0;-2 1]
-E = M * E
-A = M * A
-Ad1 = M * Ad1
-Ad2 = M * Ad2
 
 tau = [0.2 2];
 

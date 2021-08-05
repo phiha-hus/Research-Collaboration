@@ -1,0 +1,17 @@
+TY  - JOUR
+AU  - Linh, Vu Hoang
+AU  - März, Roswitha
+PY  - 2017
+DA  - 2017/06/01
+TI  - Adjoint Pairs of Differential-Algebraic Equations and Their Lyapunov Exponents
+JO  - Journal of Dynamics and Differential Equations
+SP  - 655
+EP  - 684
+VL  - 29
+IS  - 2
+AB  - This paper is devoted to the analysis of adjoint pairs of regular differential-algebraic equations with arbitrarily high tractability index. We consider both standard form DAEs and DAEs with properly involved derivative. We introduce the notion of factorization-adjoint pairs and show their common structure including index and characteristic values. We precisely describe the relations between the so-called inherent explicit regular ODE (IERODE) and the essential underlying ODEs (EUODEs) of a regular DAE. We prove that among the EUODEs of an adjoint pair of regular DAEs there are always those which are adjoint to each other. Moreover, we extend the Lyapunov exponent theory to DAEs with arbitrarily high index and establish the general class of DAEs being regular in Lyapunov’s sense. The Perron identity which is well known in the ODE theory does not hold in general for adjoint pairs of Lyapunov regular DAEs. We establish criteria for the Perron identity to be valid. Examples are also given for illustrating the new results.
+SN  - 1572-9222
+UR  - https://doi.org/10.1007/s10884-015-9474-6
+DO  - 10.1007/s10884-015-9474-6
+ID  - Linh2017
+ER  - 

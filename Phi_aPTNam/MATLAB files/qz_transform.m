@@ -1,14 +1,18 @@
-function [EES,AAS,AASd] = qz_transform(E,A,Ad)
+function [ES,AS,ASd] = qz_transform(E,A,Ad)
 
 [n,m] = size(E);
+[~,m1] = size(Ad);
+
+k = floor(m1/n);
 
 if n~=m
     error('Not square matrices')
 end
 
-[EE,AA,Q,Z] = qz(E,A);
-[EES,AAS,QS,ZS] = ordqz(EE,AA,Q,Z,'lhp');
+[EE,AA,Q,Z] = qz(E,A,'real');
+[ES,AS,QS,ZS] = ordqz(EE,AA,Q,Z,'lhp');
 
-AASd = QS * Ad * ZS ;
-%AASd1 = QS * Ad1 * ZS
-%AASd2 = QS * Ad2 * ZS
+ASd = QS * Ad;
+for i = 0:(k-1)
+    ASd(:,i*n+1:(i+1)*n) = ASd(:,i*n+1:(i+1)*n) * ZS ;
+end

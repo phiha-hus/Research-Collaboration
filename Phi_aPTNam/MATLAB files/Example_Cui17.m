@@ -33,15 +33,19 @@ alpha = 0;
 
 E = [-11.0000    1.0000    0.7885
          0         0         alpha
-         0         0         0]
-  
+         0         0         0];
 A = [0.2000    0.6100    0.1891
    -1.0000    0.6000    0.5607
-         0         0    0.2998]
-     
+         0         0    0.2998];
 Ad = [-1.0000   -0.2000   -1.5970
    -0.8000   -0.0100         0
-         0         0         0]
+         0         0         0];
+
+% Example of Xu et. al. 02
+E = [1 1 0; 1 -1 1; 2 0 1]
+A = [1.5 0.5 1; -1 0 1; 0.5 0 1]
+Ad = [-1 0 -1; 1 -1 0.5; 0.3 0.5 -1]
+A = A - 2 * E ; % Shift the eigenvalue to have stability
 
 syms s w
 p1 = det(s*E-A-w*Ad);
@@ -49,7 +53,6 @@ p1 = det(s*E-A-w*Ad);
 % 3, but in fact it is of degree 1.
 disp('The matrix polynomial det(sE-A) reads')
 vpaSols = vpa(p1,6)
-
 
 tau = 1; h = [0 tau];
 tds = tds_create({E},0,{A, Ad},h,'neutral')

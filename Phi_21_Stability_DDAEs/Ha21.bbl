@@ -51,64 +51,41 @@ J.~Hale, S.~Lunel, Introduction to Functional Differential Equations, Springer,
 
 \bibitem{Ung18}
 B.~Unger, Discontinuity propagation in delay differential-algebraic equations,
-  The Electronic Journal of Linear Algebra 34 (2018) 582–601.
+  The Electronic Journal of Linear Algebra 34 (2018) 582--601.
 
 \bibitem{ZhuP97}
 W.~Zhu, L.~R. Petzold, Asymptotic stability of linear delay
   differential-algebraic equations and numerical methods, Appl. Numer. Math. 24
   (1997) 247 -- 264.
-\newblock \href
-  {https://doi.org/http://dx.doi.org/10.1016/S0168-9274(97)00024-X}
-  {\path{doi:http://dx.doi.org/10.1016/S0168-9274(97)00024-X}}.
 
 \bibitem{ZhuP98}
-W.~Zhu, L.~R. Petzold,
-  \href{http://www.sciencedirect.com/science/article/pii/S0168927498000087}{Asymptotic
-  stability of {H}essenberg delay differential-algebraic equations of retarded
-  or neutral type}, Appl. Numer. Math. 27~(3) (1998) 309 -- 325.
-\newblock \href
-  {https://doi.org/http://dx.doi.org/10.1016/S0168-9274(98)00008-7}
-  {\path{doi:http://dx.doi.org/10.1016/S0168-9274(98)00008-7}}.
-\newline\urlprefix\url{http://www.sciencedirect.com/science/article/pii/S0168927498000087}
+W.~Zhu, L.~R. Petzold, Asymptotic stability of {H}essenberg delay
+  differential-algebraic equations of retarded or neutral type, Appl. Numer.
+  Math. 27~(3) (1998) 309 -- 325.
 
 \bibitem{Mic11}
 W.~Michiels, Spectrum-based stability analysis and stabilisation of systems
   described by delay differential algebraic equations, IET Control Theory Appl.
   5~(16) (2011) 1829--1842.
-\newblock \href {https://doi.org/10.1049/iet-cta.2010.0752}
-  {\path{doi:10.1049/iet-cta.2010.0752}}.
 
 \bibitem{Phat14}
-V.~Phat, N.~Sau,
-  \href{https://www.sciencedirect.com/science/article/pii/S0893965914002250}{On
-  exponential stability of linear singular positive delayed systems}, Applied
-  Mathematics Letters 38 (2014) 67--72.
-\newblock \href {https://doi.org/https://doi.org/10.1016/j.aml.2014.07.003}
-  {\path{doi:https://doi.org/10.1016/j.aml.2014.07.003}}.
-\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0893965914002250}
+V.~Phat, N.~Sau, On exponential stability of linear singular positive delayed
+  systems, Applied Mathematics Letters 38 (2014) 67--72.
 
 \bibitem{Sau16}
-N.~H. Sau, P.~Niamsup, V.~N. Phat,
-  \href{https://www.sciencedirect.com/science/article/pii/S0024379516303391}{Positivity
-  and stability analysis for linear implicit difference delay equations},
-  Linear Algebra and its Applications 510 (2016) 25--41.
-\newblock \href {https://doi.org/https://doi.org/10.1016/j.laa.2016.08.012}
-  {\path{doi:https://doi.org/10.1016/j.laa.2016.08.012}}.
-\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S0024379516303391}
+N.~H. Sau, P.~Niamsup, V.~N. Phat, Positivity and stability analysis for linear
+  implicit difference delay equations, Linear Algebra and its Applications 510
+  (2016) 25--41.
 
 \bibitem{Cui.et.al'17}
 Y.~Cui, J.~Shen, Z.~Feng, Y.~Chen, Stability analysis for positive singular
   systems with time-varying delays, IEEE Transactions on Automatic Control
   63~(5) (2018) 1487--1494.
-\newblock \href {https://doi.org/10.1109/TAC.2017.2749524}
-  {\path{doi:10.1109/TAC.2017.2749524}}.
 
 \bibitem{Ngoc18}
 P.~H.~A. Ngoc, Exponential stability of coupled linear delay time-varying
-  differential–difference equations, IEEE Transactions on Automatic Control
+  differential-difference equations, IEEE Transactions on Automatic Control
   63~(3) (2018) 843--848.
-\newblock \href {https://doi.org/10.1109/TAC.2017.2732064}
-  {\path{doi:10.1109/TAC.2017.2732064}}.
 
 \bibitem{Van79}
 P.~{Van Dooren}, The computation of {K}ronecker's canonical form of a singular
@@ -129,14 +106,8 @@ G.~H. Golub, C.~F. {Van Loan}, Matrix Computations, 3rd Edition, The Johns
   Hopkins University Press, Baltimore, MD, 1996.
 
 \bibitem{HaiB09}
-A.~Haidar, E.~Boukas,
-  \href{https://www.sciencedirect.com/science/article/pii/S000510980800469X}{Exponential
-  stability of singular systems with multiple time-varying delays}, Automatica
-  45~(2) (2009) 539--545.
-\newblock \href
-  {https://doi.org/https://doi.org/10.1016/j.automatica.2008.08.019}
-  {\path{doi:https://doi.org/10.1016/j.automatica.2008.08.019}}.
-\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S000510980800469X}
+A.~Haidar, E.~Boukas, Exponential stability of singular systems with multiple
+  time-varying delays, Automatica 45~(2) (2009) 539--545.
 
 \bibitem{Mic10}
 W.~Michiels, {TDS-STABIL: A MATLAB} tool for designing stabilizing fixed-order
@@ -147,30 +118,16 @@ W.~Michiels, {TDS-STABIL: A MATLAB} tool for designing stabilizing fixed-order
 C.~Noreddine, B.~A. Sadek, T.~El~Houssaine, B.~Boukili, Improved results on
   stability criteria for singular systems with interval time-varying delays,
   Journal of Circuits, Systems and Computers 30~(01) (2021) 2130001.
-\newblock \href {https://doi.org/10.1142/S0218126621300014}
-  {\path{doi:10.1142/S0218126621300014}}.
 
 \bibitem{CheP13}
-H.~Chen, P.~Hu,
-  \href{https://ietresearch.onlinelibrary.wiley.com/doi/abs/10.1049/iet-cta.2013.0396}{New
-  result on exponential stability for singular systems with two interval
-  time-varying delays}, IET Control Theory \& Applications 7~(15) (2013)
-  1941--1949.
-\newblock \href
-  {http://arxiv.org/abs/https://ietresearch.onlinelibrary.wiley.com/doi/pdf/10.1049/iet-cta.2013.0396}
-  {\path{arXiv:https://ietresearch.onlinelibrary.wiley.com/doi/pdf/10.1049/iet-cta.2013.0396}},
-  \href {https://doi.org/https://doi.org/10.1049/iet-cta.2013.0396}
-  {\path{doi:https://doi.org/10.1049/iet-cta.2013.0396}}.
-\newline\urlprefix\url{https://ietresearch.onlinelibrary.wiley.com/doi/abs/10.1049/iet-cta.2013.0396}
+H.~Chen, P.~Hu, New result on exponential stability for singular systems with
+  two interval time-varying delays, IET Control Theory \& Applications 7~(15)
+  (2013) 1941--1949.
 
 \bibitem{XuDSL02}
-S.~Xu, P.~Van~Dooren, R.~{\c{S}}tefan, J.~Lam,
-  \href{http://dx.doi.org/10.1109/TAC.2002.800651}{Robust stability and
+S.~Xu, P.~Van~Dooren, R.~{\c{S}}tefan, J.~Lam, Robust stability and
   stabilization for singular systems with state delay and parameter
-  uncertainty}, IEEE Trans. Automat. Control 47~(7) (2002) 1122--1128.
-\newblock \href {https://doi.org/10.1109/TAC.2002.800651}
-  {\path{doi:10.1109/TAC.2002.800651}}.
-\newline\urlprefix\url{http://dx.doi.org/10.1109/TAC.2002.800651}
+  uncertainty, IEEE Trans. Automat. Control 47~(7) (2002) 1122--1128.
 
 \bibitem{Saw21}
 A.~A. Sawoor, M.~Sadkane, Lyapunov-based stability of delayed linear
@@ -178,37 +135,22 @@ A.~A. Sawoor, M.~Sadkane, Lyapunov-based stability of delayed linear
   107--185.
 
 \bibitem{Fri02}
-E.~Fridman,
-  \href{http://www.sciencedirect.com/science/article/pii/S0022247X02002020}{Stability
-  of linear descriptor systems with delay: a {L}yapunov-based approach}, J.
-  Math. Anal. Appl. 273~(1) (2002) 24 -- 44.
-\newblock \href
-  {https://doi.org/http://dx.doi.org/10.1016/S0022-247X(02)00202-0}
-  {\path{doi:http://dx.doi.org/10.1016/S0022-247X(02)00202-0}}.
-\newline\urlprefix\url{http://www.sciencedirect.com/science/article/pii/S0022247X02002020}
+E.~Fridman, Stability of linear descriptor systems with delay: a
+  {L}yapunov-based approach, J. Math. Anal. Appl. 273~(1) (2002) 24 -- 44.
 
 \bibitem{Sun03}
-Y.-J. Sun, \href{https://doi.org/10.1115/1.1569952}{{Exponential Stability for
-  Continuous-Time Singular Systems With Multiple Time Delays }}, Journal of
-  Dynamic Systems, Measurement, and Control 125~(2) (2003) 262--264.
-\newblock \href
-  {http://arxiv.org/abs/https://asmedigitalcollection.asme.org/dynamicsystems/article-pdf/125/2/262/5543651/244\_1.pdf}
-  {\path{arXiv:https://asmedigitalcollection.asme.org/dynamicsystems/article-pdf/125/2/262/5543651/244\_1.pdf}},
-  \href {https://doi.org/10.1115/1.1569952} {\path{doi:10.1115/1.1569952}}.
-\newline\urlprefix\url{https://doi.org/10.1115/1.1569952}
+Y.-J. Sun, {Exponential Stability for Continuous-Time Singular Systems With
+  Multiple Time Delays }, Journal of Dynamic Systems, Measurement, and Control
+  125~(2) (2003) 262--264.
 
 \bibitem{Ngoc20}
 P.~H.~A. Ngoc, Stability of coupled functional differential-difference
   equations, International Journal of Control 93~(8) (2020) 1920--1930.
 
 \bibitem{Che20}
-W.~bin Chen, F.~Gao,
-  \href{https://www.sciencedirect.com/science/article/pii/S094735801930247X}{New
-  results on stability analysis for a kind of neutral singular systems with
-  mixed delays}, European Journal of Control 53 (2020) 59--67.
-\newblock \href {https://doi.org/https://doi.org/10.1016/j.ejcon.2019.10.001}
-  {\path{doi:https://doi.org/10.1016/j.ejcon.2019.10.001}}.
-\newline\urlprefix\url{https://www.sciencedirect.com/science/article/pii/S094735801930247X}
+W.~bin Chen, F.~Gao, New results on stability analysis for a kind of neutral
+  singular systems with mixed delays, European Journal of Control 53 (2020)
+  59--67.
 
 \bibitem{cvx}
 I.~CVX~Research, {CVX}: Matlab software for disciplined convex programming,
