@@ -1,0 +1,50 @@
+\begin{thebibliography}{1}
+
+\bibitem{AscP95}
+U.~M. Ascher and L.~R. Petzold.
+\newblock The numerical solution of delay-differential algebraic equations of
+  retarded and neutral type.
+\newblock {\em {SIAM} J. Numer. Anal.}, 32:1635--1657, 1995.
+
+\bibitem{CamL09}
+S.~L. Campbell and V.~H. Linh.
+\newblock Stability criteria for differential-algebraic equations with multiple
+  delays and their numerical solutions.
+\newblock {\em Appl. Math Comput.}, 208(2):397 -- 415, 2009.
+
+\bibitem{DuLMT13}
+N.~H. Du, V.~H. Linh, V.~Mehrmann, and D.~D. Thuan.
+\newblock Stability and robust stability of linear time-invariant delay
+  differential-algebraic equations.
+\newblock {\em {SIAM} J. Matr. Anal. Appl.}, 34(4):1631--1654, 2013.
+
+\bibitem{Ha18b}
+P.~Ha.
+\newblock On the stability analysis of delay differential-algebraic equations.
+\newblock {\em VNU Journal of Science: Mathematics - Physics}, 34(2), 2018.
+
+\bibitem{Ha18}
+P.~Ha.
+\newblock Spectral characterizations of solvability and stability for delay
+  differential-algebraic equations.
+\newblock {\em Acta Mathematica Vietnamica}, 43:715--735, 2018.
+
+\bibitem{Mic11}
+W.~Michiels.
+\newblock Spectrum-based stability analysis and stabilisation of systems
+  described by delay differential algebraic equations.
+\newblock {\em IET Control Theory Appl.}, 5(16):1829--1842, 2011.
+
+\bibitem{XuDSL02}
+S.~Xu, P.~Van~Dooren, R.~{\c{S}}tefan, and J.~Lam.
+\newblock Robust stability and stabilization for singular systems with state
+  delay and parameter uncertainty.
+\newblock {\em IEEE Trans. Automat. Control}, 47(7):1122--1128, 2002.
+
+\bibitem{ZhuP98}
+W.~Zhu and L.~R. Petzold.
+\newblock Asymptotic stability of {H}essenberg delay differential-algebraic
+  equations of retarded or neutral type.
+\newblock {\em Appl. Numer. Math.}, 27(3):309 -- 325, 1998.
+
+\end{thebibliography}

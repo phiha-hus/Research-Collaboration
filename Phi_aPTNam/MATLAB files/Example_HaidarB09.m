@@ -37,11 +37,11 @@ A = [A  beta ;0 0 1];
 Ad1 = [Ad1 gamma1; zeros(1,3)];
 Ad2 = [Ad2 gamma2; zeros(1,3)];
 
-MM = blkdiag(inv(M),epsilon)
-E = MM * E
-A = MM * A
-Ad1 = MM * Ad1
-Ad2 = MM * Ad2
+% MM = blkdiag(inv(M),epsilon)
+% E = MM * E
+% A = MM * A
+% Ad1 = MM * Ad1
+% Ad2 = MM * Ad2
 
 
 E =[  -1.0000    2.0000    0.2648
@@ -95,15 +95,19 @@ max(real(vv2))
 
 figure(1); clf;
 subplot(2,2,1)
-plot(vv1,'r*')
+plot(vv1,'r+')
+xlabel('Re(\lambda)')
+ylabel('Im(\lambda)')
 grid on
 
 subplot(2,2,2)
-plot(vv2,'r*')
+plot(vv2,'r+')
+xlabel('Re(\lambda)')
+ylabel('Im(\lambda)')
 grid on
 
 % print('Example13_Ha21','-depsc')
-% print -depsc Example13_Ha21.eps
-% ! epstopdf Example13_Ha21.eps
+%print -depsc Example13_Ha21.eps
+%! epstopdf Example13_Ha21.eps
 
 

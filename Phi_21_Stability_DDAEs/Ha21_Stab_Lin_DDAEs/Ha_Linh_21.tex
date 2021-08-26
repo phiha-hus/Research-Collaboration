@@ -1,0 +1,790 @@
+% Version 1 : 27/02/2019 Phi
+% Version 2 : 05/08 Phi; 24/08 Linh
+% Version 3 : 16/10/2019 Phi, 4/11 Linh
+
+%% Template article for Elsevier's document class `elsarticle'
+%% with numbered style bibliographic references
+%% SP 2008/03/01
+%%
+%% 
+%%
+%% $Id: elsarticle-template-num.tex 168 2019-02-25 07:15:41Z apu.v $
+%%
+%%
+\documentclass[preprint,10pt]{elsarticle}
+
+%% Use the option review to obtain double line spacing
+%%\documentclass[authoryear,preprint,review,12pt]{elsarticle}
+
+%% Use the options 1p,twocolumn; 3p; 3p,twocolumn; 5p; or 5p,twocolumn
+%% for a journal layout:
+%%\documentclass[final,1p,times]{elsarticle}
+%% \documentclass[final,1p,times,twocolumn]{elsarticle}
+%% \documentclass[final,3p,times]{elsarticle}
+%% \documentclass[final,3p,times,twocolumn]{elsarticle}
+%% \documentclass[final,5p,times]{elsarticle}
+%% \documentclass[final,5p,times,twocolumn]{elsarticle}
+
+%% For including figures, graphicx.sty has been loaded in
+%% elsarticle.cls. If you prefer to use the old commands
+%% please give \usepackage{epsfig}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{algcompatible}
+
+%% The amssymb package provides various useful mathematical symbols
+%%\usepackage{amssymb}
+%% The amsthm package provides extended theorem environments
+%% \usepackage{amsthm}
+
+%% The lineno packages adds line numbers. Start line numbering with
+%% \begin{linenumbers}, end it with \end{linenumbers}. Or switch it on
+%% for the whole article with \linenumbers.
+%% \usepackage{lineno}
+
+\usepackage{lineno}
+\linenumbers
+
+\usepackage{graphicx}
+\usepackage{amssymb,amsmath,bm,mathrsfs}
+\usepackage{amsthm}
+\usepackage{mathabx}
+
+\usepackage[final]{hyperref} %$#
+
+%\hypersetup{
+%	colorlinks=true,
+%	linkcolor=blue,
+%	filecolor=magenta,      
+%	urlcolor=red,
+%}
+
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{example}[thm]{Example}
+\newtheorem{ass}[thm]{Assumption}
+\newdefinition{rem}{Remark}
+\newproof{pf}{Proof}
+\newtheorem{definition}[thm]{Definition}
+\newtheorem{coro}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+
+\numberwithin{thm}{section}
+
+
+\journal{Journal of The Franklin Institute}
+
+\include{command}
+%===============================================================================
+\begin{document}
+
+\begin{frontmatter}
+
+\title{On the stability analysis of arbitrarily high-index singular systems with multiple delays}
+
+%% use optional labels to link authors explicitly to addresses:
+%% \author[label1,label2]{}
+%% \address[label1]{}
+%% \address[label2]{}
+
+\author[add1]{Ha Phi %\fnref{fn1}
+}
+\ead{haphi.hus@vnu.edu.vn}
+
+\author[add1]{Vu Hoang Linh \corref{cor1}}
+\ead{linhvh@vnu.edu.vn}
+
+
+\address[add1]{Faculty of Mathematics, Mechanics, and Informatics, VNU University of Science, Vietnam National University, Hanoi, Vietnam.}
+
+\cortext[cor1]{Corresponding author}
+%\fntext[fn1]{Footnote of first author.}
+%\fntext[fn2]{The second author was supported the National Foundation for Science and Technology Development (NAFOSTED) under the project number 101.01-2017.302. He also would like to thank the Vietnam Institute for Advanced Study in Mathematics (VIASM) for their kind hospitality during his research visit.}
+
+\begin{abstract}
+	This paper is devoted to the stability analysis for linear, singular systems with multiple delays of arbitrarily high-index. 
+	By transforming a given system to an equivalent regular, impulse-free system, the global exponential stability problem is studied by using both approaches: 
+	spectral method and Lyanpunov-Krasovskii functional method. Characterizations for the stability are developed in both the spectral condition and the linear matrix inequality (LMI) setting. 
+	%Moreover, an estimate of the convergence rate of such stable systems is presented. 
+	Numerical examples are presented to illustrate the advantages of the proposed results.	
+\end{abstract}
+
+% \newpageafter{abstract}
+
+%%Graphical abstract
+%%\begin{graphicalabstract}
+%\includegraphics{grabs}
+%%\end{graphicalabstract}
+
+%%Research highlights
+%\begin{highlights}
+%\item Research highlight 1
+%\item Research highlight 2
+%\end{highlights}
+
+\begin{keyword}
+	%% keywords here, in the form: keyword \sep keyword
+	Singular systems \sep Delay \sep LMIs \sep Spectral \sep Stabilization \sep Feedback.
+	%% PACS codes here, in the form: \PACS code \sep code
+	
+	%% MSC codes here, in the form: \MSC code \sep code
+	%% or \MSC[2008] code \sep code (2000 is the default)
+	\MSC 34D20 \sep 93D05 \sep 93D20
+\end{keyword}
+
+\end{frontmatter}
+
+%% \linenumbers
+
+%% main text
+
+\section{Introduction}\label{intro}
+In this paper we study the stability analysis for linear (continuous time) singular system with multiple delays of the following form
+%
+%\begin{align}\label{delay-descriptor}
+%	E\dot{x}(t) &= A_0 x(t) + \sum_{i=1}^{m} A_i x(t-\tau_i) + B u(t), \ \mbox{ for all } t\in [t_0,\infty ), \\
+%	x(t) &= \phi(t), \mbox{ for all } t_0-\tau_m \leq t \leq t_0 ,
+%\end{align}
+%
+\begin{align}\label{free system}
+E\dot{x}(t) &= A_0 x(t) + \sum_{i=1}^{m} A_i x(t-\tau_i), \ \mbox{ for all } t\in [t_0,\infty ), \\
+x(t) &= \phi(t), \mbox{ for all } t_0-\tau_m \leq t \leq t_0 ,
+\end{align}
+where $E \in \R^{n,n}$ is allowed to be singular. Here the state is $x:[t_0-\tau_m,\infty ) \rar \r^n$, and the (constant) time-delays satisfy $ 0 < \tau_1 < \tau_2 < ... < \tau_m$. The capital letters are real-valued matrices of appropriate dimensions. 
+%The system is called \emph{free (or DDAE)} if we let $u\equiv 0$, i.e., the system reads
+%%
+%\begin{equation}
+%	E\dot{x}(t) = A_0 x(t) + \sum_{i=1}^{m} A_i x(t-\tau_i) \ .
+%\end{equation}
+%%
+Time-delayed singular systems of the form \eqref{free system} are a combination of delay-differential equations along with (implicitly hidden) difference/algebraic constraints. 
+They play important roles in the mathematical modeling of real-life problems arising in a wide variety of scientific and engineering applications, e.g.  
+human balance control and multibody control systems \cite{Mil_et_al_09}, circuits analysis including power systems \cite{Min62,Milano16} and lossless transmission lines \cite{Bra68}, 
+chemical engineering \cite{WilO60,Ran09}, fluid dynamics \cite{Liu02,PlaH08}, etc. 
+Due to the singular structure of the system, the existence of these time-delays can affect profoundly the behavior of the systems, and many
+interesting properties, which occur neither for non-delayed singular systems nor for regular delay differential equations, have been observed, e.g. \cite{Cam95c,DuLMT13,Ha18,HaM16}.
+For these reasons time-delayed singular systems has attracted significant attention of many researchers in the last two decades, in particular about the stability analysis. 
+This topic has been studied by many methods, and we name here two popular methods namely (1) the \emph{spectral method}, e.g. \cite{Boi13,CamL09,DuLMT13,Ha18,LinT15,Mic11}, and (2) the \emph{Lyapunov-Krasovskii functional method}, e.g. \cite{XuDSL02,Fri02,HaiB09,MicN07,Phat14}. 
+% the comparison-based method \cite{Ngoc18}.
+Due to our best knowledge, most of the existing stability results are established for impulse-free (which is also known as strangeness-free, index-1) systems, see Lemma \ref{KW lemma}.
+Nevertheless, singular systems of high-index are frequently occur in many applications, for example in multibody dynamics, electric circuits, chemical engineering or fluid dynamic,
+e.g. \cite{BreCP96,KunM06,BieCM12}. A stability analysis for these systems (including time-delayed) is still missing. 
+We notice, that the index reduction procedure, which is used to reduce high-index to low-index systems, can be applied for certain classes of time-delayed singular system, as has been done in the solvability analysis, e.g. \cite{Cam95b,HaM16}. However, from the theoretical viewpoint, till now there is not any investigation about the affection of the index reduction procedure to the system spectrum. Therefore, additional difficulties may arise while applying spectral method for system \eqref{free system}, e.g. \cite{DuLMT13}.
+
+This paper aim to addresses the exponential stability of arbitrarily high-index systems. The main idea is to transform a given system to a regular, impulse-free system, while still keeping both the solution and the spectrum invariant. Based on this technique, the stability problem is studied by using both the spectral method and the Lyanpunov-Krasovskii functional method. 
+The rest of the paper is organized as follows. In Section \ref{pre}, some definitions concerning about the solution and the system classification are recalled. Auxiliary Lemmas about the solution's presentation and the non-advanced test are also presented. In Section \ref{Stability}, the preservation of the system spectrum under the index-reduction technique is discussed. 
+Based on this, characterization for the exponential stability of arbitrarily high-index systems is given in term of a spectral condition (Theorem \ref{Thm3.1}). 
+Then, the advantages of the index-reduction technique for the Lyapunov-Krasovskii functional method has been proven in the linear matrix inequality (LMI) setting (Theorem \ref{Thm3.2}). 
+Numerical examples are presented to confirm the theoretical results.
+%illustrate the advantages of the proposed results.	
+% In Sections \ref{Stabilization}, we discuss the stabilization problem via the Lyapunov-Krasovskii functional method. 
+Finally, in Section \ref{conclusion}, conclusion and outlook are given.
+
+%=================================================================
+
+\section{Preliminaries} \label{pre}
+
+To keep the brevity of this research, we refer the interested readers to \cite{AscP95,Cam95c,ShaG06,Ha15,HaM16} for the solvability analysis of the IVP \eqref{free system}.
+
+%
+\begin{definition}\label{def stability}
+The null solution $x=0$ of the free system \eqref{free system} is called \emph{exponentially stable} if there exist positive constants 
+$\de$ and $\ga$ such that for any consistent initial function $\vphi \in C([-\tau,0],\R^n)$, the solution $x=x(t,\vphi)$ of the corresponding 
+IVP to \eqref{free system} satisfies
+%
+\[
+\|x(t)\| \leq \de e^{-\ga t} \|\vphi\|_{\infty}, \ \mbox{ for every } \ t\geq 0.
+\]
+%
+\end{definition}
+%
+
+%
+\begin{definition}\label{regularity} i) Consider the DDAE \eqref{free system}. The matrix pair $(E,A_0 )$ is called \emph{regular} if the \emph{polynomial} $\det(\lb E - A_0 )$ is not identically zero. \\
+ii) The sets $\si(E,A_0,...,A_m):= \{\lb \in \C \ | \det(\lb E -A_0 - e^{-\lb \tau_i} A_i) \!=\! 0\}$ is called the \emph{spectrum} of system \eqref{free system}. \\
+iii) The real number $\rho(E,A_0,...,A_m):= \max\{ Re(\lb), \ \lb \in \si(E,A_0,...,A_m) \}$ is called the \emph{spectral abcissa} of system \eqref{free system}.
+\end{definition}
+%
+
+\begin{definition}\label{equiv rel.}
+Two matrix tuples $(E,A_0,...,A_m)$ and $(\tE,\tA_0,...,\tA_m)$ are called \emph{(strongly) equivalent} if there exist non-singular matrices $W$, $T\in \R^{n,n}$ such that
+%
+\[
+\tE = WET, \ \tA_i = WA_iT, \ \mbox{ for all } i=0,...,m. 
+\]
+%
+If this is the case, we write $(E,A_0,...,A_m) \sim (\tE,\tA_0,...,\tA_m)$.
+\end{definition}
+%
+It is well-known that the relation introduced in Definition \ref{equiv rel.} is an equivalence relation, i.e., it is is reflexive, symmetric, and transitive.
+%
+Provided that the pair $(E,A_0 )$ is regular, we can transform them to the Kronecker-Weierstra\ss \ canonical form as follows. 
+
+\begin{lem}\label{KW lemma}(\cite{Dai89,KunM06}) Provided that the matrix pair $(E,A_0 )$ is regular, then there exist nonsingular matrices $W$, $T\in \R^{n,n}$ such that
+%
+\begin{equation}\label{KW form}
+	(W E T, W A_0 T ) = \left(  \m{I & 0 \\ 0 & N } , \ \m{ J & 0 \\ 0 & I} \right) \ ,
+\end{equation}
+%
+where $N$ is a nilpotent, upper triangular matrix of nilpotency index $\nu$. We also say that the pair $(E,A_0 )$ has an \emph{index} $\nu$, i.e., $\ind(E,A_0 ) = \nu$.
+Furthermore, the system \eqref{free system} is called {\rm impulse-free (index 1, or strangeness-free)} if $N=0$.
+\end{lem}
+
+\begin{rem}
+Due to our best knowledge, if the system has high index, i.e. bigger than one, then in many cases it \textbf{may have} impulsive behavior. This is the reason why index 1 is also called impulse-free.
+Consequently, till now most of the research on the stability analysis are devoted to impulse-free systems, see e.g. \cite{Mic11,HaiB09,Nor.et.al.21,CheP13,XuDSL02,Saw21,Fri02,Sun03,Ngoc20,Che20}. 
+Nevertheless, there are plenty singular systems of high-index arising from various applications, for example in multibody dynamics, electric circuits, chemical engineering or fluid dynamic,
+see e.g. \cite{BreCP96,KunM06,BieCM12}. A stability analysis for these systems (including time-delayed) is still missing. 
+%
+In the following example, we illustrate that there exist systems with arbitrarily high-index (and hence, not impulse-free) which are stable.
+\end{rem}
+
+\begin{example}\label{Exam Navier Stokes}
+Let us consider the (single) time-delayed incompressible Navier-Stokes equation on an open, bounded domain $\Omega \subset \r^k$, $k=2$ or $3$, of the form
+%
+\begin{align*}
+	\frac{\partial u}{\partial t} &= \nu \De u - \nab p - (u\cdot \nab )u + f(t,u(t-\tau),p(t-\tau)), \\
+	\nab \cdot u &= 0,\\
+	u\mid_{\partial \Omega}&=0,\\
+	u\mid_{t=0}&=u_0,
+\end{align*}
+%
+where $\nu>0$ is the viscosity, $u=u(t,\xi)$ is the velocity field which is a function of the time $t$ and the position $\xi$, $p$ is the pressure, $f$ is the external force or disturbance.
+Then, discretizing the space variable by finite difference, finite volumes, or finite element methods \cite{GroR07}, one obtains the delay singular system
+%
+\begin{equation}\label{NavS}
+	\m{M & 0 \\ 0 & 0} \m{\dot{U} \\ \dot{P}} = \m{K & -C \\ C^T & 0} \m{U \\ P} + \m{F(t,U(t-\tau),P(t-\tau)) \\ 0},
+\end{equation}
+%
+where $U(t)$, $P(t)$ approximate the velocity $u(t,\xi)$ and the pressure $p(t,\xi)$, respectively. Furthermore, in many applications, the matrix $C^T M^{-1} C$ is nonsingular. It is well-known that system \eqref{NavS} has index 2.
+%By choosing the matrix coefficients as follows
+%\begin{align*}
+%& M = \m{1 & 0 \\ 0 & 1}, \ C = \m{0 \\ 1}, \ K = \m{0 & 0 \\ 0 & 0}, \\ 
+%& F(t,U(t-\tau),P(t-\tau)) = \ U(t-\tau) +  \ P(t-\tau),
+%\end{align*}
+%then system \eqref{NavS} reads
+Let us choose the matrix coefficients and the external force such that the system \eqref{NavS} reads
+%
+\begin{equation}\label{eq6}
+	\m{1 & 0 & \! \vline \! & 0 \\ 0 & 1 & \! \vline \! & 0 \\\hline  0 & 0 & \! \vline \! & 0} \! \m{\dot{U}_1 \\ \dot{U}_2 \\ \dot{P}} \!=\!
+	\m{0.11 & 0.6 & \! \vline \! & 0 \\ 0.6 & 1 & \! \vline \! & \! - 1 \\\hline  0 & 1 & \! \vline \! & 0} \! \m{U_1 \\ U_2 \\ P} + 
+	\m{\! - \!0.2 & 0 & \! \vline \! & \! - 1 \\ \! - \!0.01 & 0 & \! \vline \! & \! - 0.8  \\\hline  0 & 0 & \! \vline \! & 0 } \! \m{U_1(t\!\! - \!\!\tau) \\ U_2(t\!\! - \!\!\tau) \\ P(t\!\! - \!\!\tau)}.
+\end{equation}
+%
+Here $\tau=1.5$. From the last equation, we see that $U_2 = 0$. Thus, by crossing out the coefficients associated with $U_2$, we 
+obtain an impulse-free system for the variable $\sm{U_1 \\ P}$. The spectrum of system \eqref{NavS}, given in Figure \ref{fig2}, implies that this equation is stable. 
+\end{example}
+
+\begin{figure}
+\centering
+\includegraphics[scale = 0.99]{Example_NavS_Ha21}
+\caption{Spectrum of the system \eqref{eq6} using the MATLAB Toolbox TDS\_STABIL (\cite{Mic10}).}
+\label{fig2}
+\end{figure}
+
+\begin{lem}(\cite{HorJ90}) \label{Neumann inverse}
+For a nilpotent, upper triangular matrix $N$ of nilpotency index $\nu$, the matrix $I-\lb N$ is invertible for all $\lb \in \C$, and $\det(I-\lb N) = 1$.
+Furthermore, the following identity holds true.
+%
+\[
+(I-\lb N)^{-1} = I + \sum_{i=1}^{\nu} (\lb N)^i. 
+\]
+%
+\end{lem}
+
+\subsection{System classification}
+It is well-known (see e.g. \cite{BelC63,HalL93}) that in general, time-delayed systems has been classified into three different types (retarded, neutral, advanced). For example, the 
+time-delayed equation
+%
+\[
+a_0 \dot{x}(t) + a_1\dot{x}(t-\tau) + b_0 x(t) + b_1 x(t-\tau) = f(t)
+\]
+%
+is retarded if $a_0\not= 0$ and $a_1=0$; is neutral if $a_0\not= 0$, $a_1\not= 0$; is advanced if $a_0=0$, $a_1\not= 0$, $b_0 \not=0$. This classification is based on the smoothness comparison between $x(t)$ and $x(t-\tau)$. In literature, not only the theoretical but also the numerical solution has been studied mainly for retarded and neutral systems, due to their appearance in various applications. For this reason, in \cite{Ha15,HaM16,Ung18} the authors proposed a concept of \emph{non-advancedness} for the free system (see Definition \ref{def2} below). 
+We also notice, that even though not clearly proposed, due to the author's knowledge, so far results for delay-descriptor are only obtained for certain classes of non-advanced systems, e.g. \cite{AscP95,ShaG06,ZhuP97,ZhuP98,Mic11,Phat14,Sau16,Cui.et.al'17,Ngoc18}.
+%
+\begin{definition}\label{def2}
+A regular delay-descriptor system \eqref{free system} is called \emph{non-advanced} if for any consistent and continuous initial function $\vphi$, there exists a continuous, piecewise differentiable solution $x(t)$.
+\end{definition} 
+%
+From Definition \eqref{def2}, we can directly see three important consequences as follows. Firstly, in the solution's formula of $x(t)$, only $x(t-\tau_i)$ but not its 
+derivative $x^{(j)}(t-\tau_i)$, $j\geq 1$ can appear. Otherwise $x(t)$ will no-longer be continuous. Secondly, non-advancedness is a necessary condition for the classical Lyapunov stability in Definition \ref{def stability}. Finally, the non-advancedness of a system is invariant under equivalence transformation in Definition \ref{equiv rel.}.
+
+Making use of Lemma \ref{KW lemma}, we change the variable $x\!=\!Ty$ and scale the whole system \eqref{free system} with $W$ to obtain the transformed system 
+%
+\begin{equation}\label{eq9}
+\m{I & 0 \\ 0 & N } \dot{y}(t) = \m{ J & 0 \\ 0 & I} y(t) + \sum_{i=1}^{m} \tAi{i} y(t-\tau_i),
+\end{equation}
+%
+where $WA_iT = \tAi{i}$ for all $i=1,...,m$. The following lemma gives us the necessary and sufficient condition for the non-advancedness of system \eqref{free system}.
+
+\begin{lem}\label{lem4}
+i) System \eqref{free system} is non-advanced if and only if the matrix coefficients of the transformed system \eqref{eq9} satisfy
+%
+\begin{equation}\label{non-advanced cond.}
+	N \m{\tA_{i,3} & \tA_{i,4}} = \m{0 & 0} \ \mbox{ for all } \ i=1,\dots,m.
+\end{equation}
+%
+ii) Consequently, system \eqref{eq9} has exactly the same solution as the so-called \emph{index-reduced system} 
+%
+\begin{equation}\label{index reduced system}	
+	\tE  \dot{y}(t) = \tA_0 y(t) + \sum_{i=1}^{m} \tA_i y(t-\tau_i),
+\end{equation}
+%
+where $\tE := \m{I & 0 \\ 0 & \mathbf{0}}, \ \tA_0:= \m{ J & 0 \\ 0 & I}, \ \tA_i := \tAi{i}, \ i=1,...,m.$ 
+%
+%	\begin{equation*}
+%		\tE := \m{I & 0 \\ 0 & \mathbf{0}}, \ \tA_0:= \m{ J & 0 \\ 0 & I}, \ \tA_i := \tAi{i}, \ i=1,...,m.
+%	\end{equation*}
+%
+\end{lem}
+\begin{pf} 
+Partitioning $y:=\sm{y_1 \\ y_2}$ conformably, we can rewrite system \eqref{eq9} as follows 
+%
+\begin{align}\label{eq14.2}
+	\dot{y}_1 &= J y_1 + \sum_{i=1}^{m} \m{\tA_{i,1} & \tA_{i,2}} y(t-\tau_i), \notag \\
+	N \dot{y}_2 &= y_2 + \sum_{i=1}^{m} \m{\tA_{i,3} & \tA_{i,4}} y(t-\tau_i), 
+\end{align}
+%
+The second equation has a unique solution
+%
+\begin{equation}\label{eq10}
+	y_2(t) = -  \m{\tA_{i,3} & \tA_{i,4}} y(t-\tau_i) - \sum_{j=1}^{\nu} \sum_{i=1}^{m} N^i \m{\tA_{i,3} & \tA_{i,4}} y^{(j)}(t-\tau_i).
+\end{equation}
+%
+Since the system \eqref{free system} is non-advanced, then so is system \eqref{eq9}. 
+Consequently, $y(t)$ must not depend on $y^{(j)}(t-\tau_i)$ for all $j\geq 1$ and $i=1,...,m$. This implies the identity \eqref{non-advanced cond.}.
+Then, equation \eqref{eq10} becomes
+%
+\[
+y_2(t) = -  \m{\tA_{i,3} & \tA_{i,4}} y(t-\tau_i),
+\]
+%
+and hence, the second claim is trivially followed.
+\end{pf}
+
+\begin{rem}
+From Lemma \ref{lem4} ii), we see that if system \eqref{free system} is non-advanced, then there is a linear, bijective mapping $x\mapsto y = T^{-1} x$ (where $T$ is the matrix given in the Kronecker-Weierstra\ss \ form \eqref{KW form}) between the solution set of the high-index system \eqref{free system} and the impulse-free system \eqref{index reduced system}. This will play the key role in the stability analysis in Section \ref{Stability}.
+\end{rem}
+
+%=================================================================
+\section{Main results}\label{Stability}
+
+\subsection{Stability via the spectral method}
+
+In this method, the stability analysis of the null solution of \eqref{free system} is based on a spectrum determined growth property of the
+solutions, which allows us to infer stability information from the location of the characteristic roots. For instance,
+exponential stability will be related to a strictly negative spectral abscissa. 
+
+\begin{prop}\label{Wim11}(\cite{Mic11,DuLMT13})
+Consider the linear, homogeneous DDAE \eqref{free system}. Furthermore, assume that it is regular, impulse-free. Then it is stable if and only if the corresponding spectrum of this system lies entirely on the left half plane and is bounded away from the imaginary axis.
+\end{prop}
+
+As have seen in Example \ref{Exam Navier Stokes}, system of the form \eqref{free system} can be stable without the impulse-free assumption. However, the non-advancedness is necessary. Without it, 
+the system can not be stable, even if the spectrum lies entirely on the left half plane and is bounded away from the imaginary axis. The following example is taken from \cite{Ha18}.
+
+\begin{example}
+Consider the following system on the time interval $[0,\infty)$
+%
+\begin{equation}\label{eq3.5}
+	\m{1 & 0 & 0\\0 & 0 & 1\\0 & 0 & 0} \! \m{\dot{x}_1(t) \\ \dot{x}_2(t) \\ \dot{x}_3(t)} \!=\! 
+	\m{-1 & 0 & 0\\0 & 1 & 0\\0 & 0 & 1} \! \m{x_1(t) \\ x_2(t) \\ x_3(t)} \!+\!
+	\m{0 & 0 & 0\\0 & 0 & 0\\-1 & 0 & 0} \! \m{x_1(t-\tau) \\ x_2(t-\tau) \\ x_3(t\!-\!\tau)}.
+\end{equation}
+% 
+This system has an index $\nu(E,A_0) = 2$ and hence, it is not impulse-free. Direct computation yields that the spectrum is $\si(E,A_0,A_1)=\{-1\} \subseteq \C_{-}$. 
+Nevertheless, by checking condition \eqref{non-advanced cond.}, we see that system \eqref{eq3.5} is advanced, so it is unstable.
+We can also see the unstability of \eqref{eq3.5} by taking derivative of $x_3(t)$ from the third equation, and then substituting it into the second one to obtain
+%
+\begin{equation}
+	0 = x_2(t) - \dot{x}_1(t-\tau) \ .
+\end{equation}
+%
+This implies that system \eqref{eq3.5} is not stable, since on the interval $[0,\tau]$ we have $x_2(t)=\dot{\vphi}_1(t-\tau)$ can be arbitrarily large. 
+\end{example}
+
+The following lemma plays the key role in the proof of the main Theorem \ref{Thm3.1} below.
+
+\begin{lem}\label{key lemma}
+Consider the linear, homogeneous DDAE \eqref{free system}. Furthermore, assume that it is non-advanced. Then system \eqref{free system} has the same spectrum (without counting multiplicity) as the index-reduced system \eqref{index reduced system}.
+\end{lem}
+\begin{pf} We will show that both systems \eqref{free system} and \eqref{index reduced system} have the same spectrum (without counting multiplicity) as the 
+system \eqref{eq9}. Due to the variable transformation $x=Ty$ and the identity
+%
+\[
+W \left( \lb E -A_0 - e^{-\lb \tau_i} A_i \right) T = \m{I & 0 \\ 0 & N } - \m{ J & 0 \\ 0 & I} - e^{-\lb \tau_i} \tAi{i},  
+\]
+%
+it is straightforward that 
+%
+\begin{equation}\label{eq11}
+	\si(E,A_0,...,A_m) \!=\! \si \left( \m{I & 0 \\ 0 & N },\m{ J & 0 \\ 0 & I},\tAi{1},...,\tAi{m} \right).
+\end{equation}
+%
+Now let us consider the right hand side of \eqref{eq11}, due to Lemma \ref{Neumann inverse} we see that for an arbitrary $\lb \in \C$
+%
+\begin{align*}
+	& \det\left( \m{I & 0 \\ 0 & N } - \m{ J & 0 \\ 0 & I} - \sum_{i=1}^{m} e^{-\lb \tau_i} \tAi{i} \right) \\
+	& = \det\left( \m{I & 0 \\ 0 & (I\!-\!\lb N)^{\!-\!1} } \cdot 
+	\m{I\!-\!J\!-\! \sum_{i=1}^{m} e^{\!-\!\lb \tau_i} \tA_{i,1} & \!-\! \sum_{i=1}^{m} e^{\!-\!\lb \tau_i} \tA_{i,2} \\ 
+		\!-\! \sum_{i=1}^{m} e^{\!-\!\lb \tau_i} \tA_{i,3} & \lb N \!-\! I \!-\! \sum_{i=1}^{m} e^{\!-\!\lb \tau_i} \tA_{i,4} } \right) .
+\end{align*}
+%
+Due to Lemma \ref{Neumann inverse}  and the identity \eqref{non-advanced cond.}, we have
+%
+\begin{align*}
+	& (I+\sum_{i=1}^{\nu} (\lb N)^i) \cdot \sum_{i=1}^{m} e^{-\lb \tau_i} \tA_{i,3} =  \sum_{i=1}^{m} e^{-\lb \tau_i} \tA_{i,3}, \\
+	& (I+\sum_{i=1}^{\nu} (\lb N)^i) \cdot \left( \lb N - I - \sum_{i=1}^{m} e^{-\lb \tau_i} \tA_{i,4} \right) =  - I - \sum_{i=1}^{m} e^{-\lb \tau_i} \tA_{i,4} .
+\end{align*}
+%
+Hence, it follows that for any $\lb \in \C$
+%
+\begin{align*}
+	& \det\left( \m{I & 0 \\ 0 & N } - \m{ J & 0 \\ 0 & I} - \sum_{i=1}^{m} e^{-\lb \tau_i} \tAi{i} \right) \\
+	& = \det \left( 
+	\m{I-J- \sum_{i=1}^{m} e^{-\lb \tau_i} \tA_{i,1} & - \sum_{i=1}^{m} e^{-\lb \tau_i} \tA_{i,2} \\ 
+		- \sum_{i=1}^{m} e^{-\lb \tau_i} \tA_{i,3} 
+		&  - I - \sum_{i=1}^{m} e^{-\lb \tau_i} \tA_{i,4} 
+	}
+	\right),
+\end{align*}
+%
+which yields that
+%
+\begin{equation}\label{eq12}
+	\si \left( \m{I & 0 \\ 0 & N },\m{ J & 0 \\ 0 & I},\tAi{1},...,\tAi{m} \right) \!=\! \si(\tE,\tA_0,...,\tA_m) .
+\end{equation}
+%
+From \eqref{eq11} and \eqref{eq12} we have $\si(E,A_0,...,A_m) \!=\! \si(\tE,\tA_0,...,\tA_m)$.
+%
+\hfill $\square$
+\end{pf}
+
+\begin{thm}\label{Thm3.1}
+Consider the free system \eqref{free system}. Furthermore, we assume that the matrix pair $(E,A_0)$ is regular. Then, \eqref{free system} is exponentially stable if and only if the following assertions hold.
+\begin{enumerate}
+	\item[i)] System \eqref{free system} is non-advanced. 
+	\item[ii)] The spectrum $\si(E,A_0,\dots,A_m)$ lies entirely on the left half plane and it is bounded away from the imaginary axis.  
+\end{enumerate} 
+\end{thm}
+\begin{pf}
+$``\Rightarrow"$ Assume that system \eqref{free system} is exponentially stable. Clearly, it is non-advanced, so we only need to prove ii).
+Furthermore, due to Lemma \ref{lem4}ii),  system \eqref{free system} is stable if and only if the index-reduced system \eqref{index reduced system} is also stable. 
+Thus, the spectrum $\si(\tE,\tA_0,\dots,\tA_m)$ lies entirely on the left half plane and it is bounded away from the imaginary axis,
+and hence, due to Lemma \ref{key lemma} we obtain the desired claim. \\
+%
+$``\Leftarrow"$ Since the index-reduced system \eqref{index reduced system} is impulse-free, Proposition \ref{Wim11} applied to it implies that the index-reduced system \eqref{index reduced system} is exponentially stable,
+and so is system \eqref{free system}. This completes the proof.
+\hfill $\square$
+\end{pf}
+
+From the numerical viewpoint, the numerical computation of the Kronecker-Weierstra\ss \ form \eqref{KW form} is complicated and unstable (see \cite{Van79}), 
+so Lemma \ref{lem4} has more theoretical than numerical meaning for checking the non-advancedness and/or the stability of \eqref{free system}. 
+Instead, we will make use of the (reordered) QZ-decomposition (\cite{GolV96}) of the matrix pair $(E,A_0)$ as follows
+%
+\begin{equation}\label{eq15}
+Q E Z^T = \m{\Si_E & \hE_{2} \\ 0 & N_E }, \ Q A_0 Z^T = \m{ J_A & \hA_{2} \\ 0 & \Si_A}, \ Q A_i Z^T = \hAi{i}	,
+\end{equation}
+%
+for all $i=1,...,m$. Here $Q$ and $Z$ are orthogonal matrices, $\Si_E$ and $\Si_A$ are nonsingular, upper triangular matrices, $N_E$ is a nilpotent, upper triangular matrix. \\
+
+Using the same argument as in Lemma \ref{lem4}, we have the following lemma. 
+%
+\begin{lem}\label{lem6}
+Consider the free system \eqref{free system} and the QZ-decomposition \eqref{eq15}. Then, the following assertions hold true.\\
+i) System \eqref{free system} is non-advanced if and only if the following identities hold.
+%
+\begin{equation}\label{non-advanced QZ cond.}
+	N_E \Si_A^{-1} \m{\hA_{i,3} & \hA_{i,4}} = 0 \mbox{ for all } i=1,...,m.
+\end{equation}
+%
+ii) If this is the case, then there is a linear, bijective mapping $x\mapsto y = Z x$ (where $Z$ is the matrix given in \eqref{eq15}) between the solution set of the high-index system 
+\eqref{free system} and the following index-reduced system
+%
+\begin{equation}\label{impulse free system}
+	\underbrace{\m{\Si_E & \hE_{2} \\ 0 & \mathbf{0} }}_{\hE} \dot{y}(t) = 
+	\underbrace{\m{ J_A & \hA_{02} \\ 0 & \Si_A}}_{\hA_0} y(t) + 
+	\sum_{i=1}^{m} \underbrace{\hAi{i}}_{\hA_i} y(t-\tau_i) \ .
+\end{equation}
+%
+iii) The spectrum (without counting multiplicity) of two systems \eqref{free system} and \eqref{impulse free system} coincide.
+\end{lem}
+\begin{pf}
+The proof is essentially the same as the proof of Lemmas \ref{lem4} and \ref{key lemma}, so it will be omitted to keep the brevity of this research.
+\end{pf}
+
+To determine the stability (or the decay rate of the solution) of system \eqref{free system}, we will make use of the spectral discretization approach in \cite{Mic11}. 
+Nevertheless, since this method has only been developed for impulse-free (or index-1) system, we will apply it for the index-reduced system \eqref{impulse free system}.
+
+\begin{example}
+To illustrate the advantage of the proposed method, we consider the following system, motivated from \cite{HaiB09}.
+%
+\begin{align}\label{eq17}
+	\notag \sm{-1 & 2 & 0.2648\\
+		-2 & 4 & 0.8476\\
+		0 & 0 & 0
+	} \dot{x}(t)
+	= & \sm{4.7 & 0.4 & 0.1192\\
+		-4.9 & 0.8 & 1.1783\\
+		0 & 0 & 0.6473
+	} x(t) 
+	+  \sm{0.7 & -0.95 & 0.6456\\
+		1.1 & -1.75 & 1.7706\\
+		0 & 0 & 0} x(t-0.2)
+	\\
+	&  
+	+ \sm{1 & -0.8 & 0.6393\\
+		1.4 & -1.3 & 1.8234\\
+		0 & 0 & 0
+	} x(t-2) . 
+\end{align}
+%
+We notice that the matrix pair $(E,A_0)$ in system \eqref{eq17} has index $\nu=2$, and hence the system is not impulse-free. 
+Using the MATLAB Toolbox TDS\_STABIL (\cite{Mic10,Mic11}) we obtain the dominant eigenvalues of the original system \eqref{eq17} and that of
+the index-reduced system \eqref{impulse free system}, as shown in Figure \ref{fig1}. 
+Clearly, we see that without the index reduction step, the spectrum is not properly computed and hence, is not reliable to determine the
+stability of system \eqref{eq17}. 
+
+\begin{figure}
+	\centering
+	\includegraphics[scale = 0.8]{Example13_Ha21}
+	\caption{Spectrum of the system \eqref{eq17} (left) and the index-reduced system \eqref{impulse free system} (right), using the MATLAB Toolbox TDS\_STABIL (\cite{Mic10}).}
+	\label{fig1}
+\end{figure}
+\end{example}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Lyapunov-Krasovskii functional method}           
+
+Adopting the Lyapunov-Krasovskii approach, (sufficient) stability conditions for many classes of singular systems with different types of delays (single, multiple, time-varying, etc.) have been 
+proposed, see for example, \cite{HaiB09,Nor.et.al.21,CheP13,XuDSL02,Saw21,Fri02,Sun03,Ngoc20,Che20}.
+We, again, notice that all the conditions on the references mentioned above are only valid for impulse-free system. We recall one important result in the following proposition.
+
+\begin{prop}\label{Xu02}(\cite{Fri02,XuDSL02})
+Consider the linear, homogeneous DDAE \eqref{free system}. Furthermore, assume that it is regular, impulse-free. Then it is stable if there exist
+matrix $P$ and matrices $Q_i \succ 0$, $i=1,...,m$ such that following linear matrix inequialities (LMIs) are satisfied
+%
+\begin{align*}
+	& E P^T = P^T E \succ 0, \\
+	& M := \m{A_0 P^T+P A_0^T + \sum_{i=1}^m Q_i & \vline & A_1 P^T & ... 	& A_m P^T \\ \hline \\[-.45cm]
+		P A_1^T  & \vline & -Q_1      &     	&           \\
+		\vdots & \vline &           & \ddots &			\\
+		P A_m^T  & \vline &        	& 		& -Q_m	} 
+	\prec 0 \ .
+\end{align*}
+%
+\end{prop}
+
+Similarly, in order to generalize this result for arbitrarily-high index systems, first we need to transform system \eqref{free system} to the index-reduced form \eqref{impulse free system}.
+The following theorem is a direct consequence of Lemma \ref{lem6} and Proposition \ref{Xu02}.
+
+\begin{thm}\label{Thm3.2}
+Consider the time-delayed singular system \eqref{free system}, the index-reduced system \eqref{impulse free system}. 
+Furthermore, assume that system \eqref{free system} is non-advanced and the matrix pair $(E,A_0)$ is regular.   
+Then system \eqref{free system} is stable if there exist matrix $P$ and matrices $Q_i \succ 0$, $i=1,...,m$ such that following LMIs are satisfied
+%
+\begin{align}\label{LMI}
+	& \hE P^T = P^T \hE \succ 0, \notag \\
+	& M := \m{\hA_0 P^T+P\hA_0^T+\sum_{i=1}^m Q_i & \vline & \hA_1 P^T & ... 	& \hA_m P^T \\ \hline \\[-.45cm]
+		P \hA_1^T  & \vline & -Q_1      &     	&           \\
+		\vdots & \vline &           & \ddots &			\\
+		P \hA_m^T  & \vline &        	& 		& -Q_m	} 
+	\prec 0 \ .
+\end{align}
+%
+\end{thm}
+
+
+We illustrate the advantage of this strategy in the following example.
+
+%\begin{example}\label{Haidar_Boukas'09}
+%Let us reconsider system \eqref{eq17}, which is not impulse-free and having an index $\nu(E,A)=2$. If we directly apply the MATLAB LMI-Toolbox or the package CVX \cite{cvx,GraB08} to the 
+%system \eqref{eq17} then the obtained matrix $M$ (defined by \eqref{LMI}) is not negative definite. 
+%\end{example}
+
+\begin{example}\label{exam14}
+Motivated from \cite{Cui.et.al'17}, let us consider the following system whose matrix coefficients are  
+%
+\begin{equation}\label{eq18}
+	E = \sm{-11 & 1 & 0\\
+		0 & 0 & 0.127\\
+		0 & 0 & 0
+	} , \  
+	A_0 = \sm{0.2 & 0.61 & 0.1891\\
+		-1 & 0.6 & 0.5607\\
+		0 & 0 & 0.2998 
+	} ,
+	A_1 = \sm{-1 & -0.2 & -1.597\\
+		-0.8 & -0.01 & 0\\
+		0 & 0 & 0
+	} \ .
+\end{equation}
+%
+The system is not impulse-free and having an index $\nu(E,A)=2$. If we directly apply the MATLAB LMI-Toolbox or the package CVX \cite{cvx,GraB08} to the system \eqref{eq17} then the obtained matrix $M$ (defined by \eqref{LMI}) is not negative definite. \ Nevertheless, by transforming the system to the index-reduced form \eqref{impulse free system} which reads
+%
+\begin{align}\label{eq19}
+	\notag 		\sm{-4.802 & -9.9469 & -0.7885\\
+		0 & 0 & 0\\
+		0 & 0 & 0 
+	} \dot{x}(t) 
+	= & \sm{0.626 & -0.1423 & -0.1891\\
+		0 & 1.1662 & 0.5607\\
+		0 & 0 & 0.2998 
+	} x(t) + \\
+	&+ \sm{-0.686 & -0.7546 & 1.597\\
+		0.4202 & 0.6808 & 0\\
+		0 & 0 & 0 
+	} x(t-\tau),
+\end{align}
+%
+then both the MATLAB LMI-Toolbox or the package CVX work properly. The matrices $P$, $Q_1$ are
+%
+\begin{equation*}
+	P = \sm{-15.3413  &  2.2457  &  -2.6746 \\ 	8.5630 &  -4.1706  &   0.4629 \\  0.1705 &  -0.0140 & -0.8608}, \ 
+	Q_1 = \sm{5.9597  & -1.1767  &  0.2239 \\ -1.1767  &   2.9958  &   0.3278 \\ 	0.2239 &   0.3278  &  0.3995} \ .
+\end{equation*}
+% 
+Thus, we can conclude that system \eqref{eq19} is stable.
+\end{example}
+
+We summarize the results above in the following algorithm for cheking the exponential stability of system \eqref{free system}.
+%
+\begin{algorithm}[H]
+\caption{Checking the exponential stability of system \eqref{free system}}
+\label{Alg1}
+\textbf{Input:} The time-delayed singular system \eqref{free system}. \\
+\textbf{Output:} The stability of \eqref{free system} and the decay rate $\gamma$.
+\begin{algorithmic}[1]
+	\State	Set $is\_stable = 0$, $is\_advanced = 0$. 
+	\State  Transform the system coefficiens via QZ-decomposition as in \eqref{eq15}.
+	\State Check the non-advancedness of the system.
+	%		%
+	%		\algstore{myalg}
+	%		\end{algorithmic}
+	%		\end{algorithm}	
+	%		\begin{algorithm}[H]
+	%		\begin{algorithmic}[1]
+	%		\algrestore{myalg}
+	%		%
+	\IF{ condition \eqref{non-advanced QZ cond.} does not hold true } set  $is\_advanced = 1$ and STOP. 
+	%
+	\ELSE{ transform the system to the index-reduced form \eqref{impulse free system}.} 
+	\ENDIF
+	\STATE Choose 1 of 2 following approaches: (1) Spectral method (GO TO STEP 8) ; (2) Lyapunov-Krasovskii functional method (GO TO STEP 12). 
+	\State Compute the spectrum $\si(E,A_0,...,A_m)$ (or dominant eigenvalues) of system \eqref{impulse free system} using TDS\_STABIL.
+	\IF{ $\rho(E,A_0,...,A_m) < 0$ } set $is\_stable = 1$, $\ga = \rho(E,A_0,...,A_m)$. 
+	\ELSE{ $is\_stable = 0$, i.e. the system is not exponentially stable. }
+	\ENDIF
+	%	
+	\State Solve the LMI system \eqref{LMI}.  		
+	\IF{ the solution $P$, $Q$ exist } set $is\_stable = 1$.	
+	\ELSE{ give a warning ``LMIs do not have a solution. The system may not be exponentially stable."}
+	\ENDIF
+\end{algorithmic}
+\end{algorithm}
+
+%\begin{rem}\label{rem15}
+%In comparison to the stability result obtained in \cite{Cui.et.al'17}, we do not make use of the Drazin inverse, and hence, the computation is stable and more reliable.
+%\end{rem}
+
+%=================================================================
+%\section{Robust stabilization}\label{Stabilization}
+
+%=================================================================
+\section{Conclusion and Outlook}\label{conclusion}
+The exponential stability of arbitrarily high index, time-delayed singular systems has been investigated. The preservation of the system spectrum under the index-reduction technique is proven, and numerically verifiable criteria for the exponential stability are given using both the spectral method and the Lyapunov-Krosovskii functional methods. 
+Further study on the robust stability and stabilization (of high-index systems) under this index-reduction technique is still an open problem for future research.
+
+%========================================================================================
+\vskip 0.2cm
+\textbf{Acknowledgment} The author would like to thank the anonymous referee for his suggestions to improve this paper.
+%=========================================================================================
+
+%\bibliographystyle{abbrv}
+%\bibliographystyle{unsrtnat}
+\bibliographystyle{elsarticle-num}
+\bibliography{Phi_July_2020}
+%\bibliography{Phi21}
+
+
+\appendix
+
+\section{A second test for checking non-advancedness}
+Below we will construct a second test for checking non-advancedness without using the system transformations as in Lemmas \ref{lem4}, \ref{lem6}. 
+Assume that the pair $(E,A_0 )$ is regular with index $\ind(E,A_0 )=\nu$. We want to give a simple check whether the system \eqref{free system} is non-advanced or not. In analoguous to the case of DAEs, see e.g. \cite{BreCP96,KunM06}, we aim to extract the so-called \emph{underlying delay equation} of the form 
+%
+\begin{equation}\label{underlying DDEs}
+\dot{x}(t) = \bfA_0 x(t) + \sum_{i=1}^{m}\bfA_{i} x(t-\tau_i) + \sum_{i=1}^{m}\bfF_{i} \dot{x}(t-\tau_i),
+\end{equation}
+%
+from an augmented system consisting of system \eqref{free system} and its derivatives, which read in details
+%
+\[
+\dfrac{d^j}{dt^j} \left(  E\dot{x}(t) - A_0 x(t) - \sum_{i=1}^{m} A_i x(t-\tau_i) \right) = 0, \mbox{ for all } j=0,1,\dots,\nu.
+\]
+%
+We rewrite these equations into the so-called \emph{inflated system}
+%
+\begin{align}\label{inflated}
+& 
+\underbrace{
+	\m{E & & & & \\ -A_0 & E & & & \\ & & \ddots & \ddots & \\ & & & -A_0 & E}
+}_{\cE}	
+\m{\dot{x} \\ \ddot{x} \\ \vdots \\ x^{(\nu+1)}}
+= 
+\underbrace{
+	\m{A_0 & 0 & \hdots & & 0 \\ 0 & 0 & \hdots & & 0 \\ \vdots & \vdots & & & \vdots \\ 0 & 0 & \hdots &  & 0}
+}_{\cA_0}	
+\m{x \\ \dot{x} \\ \vdots \\ x^{(\nu)}} \notag \\
+& \ + 
+\sum_{i=1}^{m}
+\underbrace{
+	\m{A_i & & & \\ & A_i & & \\  & & \ddots & \\ & & & A_i}
+}_{\cA_i}	
+\m{x(t-\tau_i) \\ \dot{x}(t-\tau_i) \\ \vdots \\ x^{(\nu)}(t-\tau_i)} \ .
+\end{align}
+%
+Here the matrix coefficients are $\cE,\cA_0,\cA_i \in \R^{(\nu+1) n,(\nu+1) n}$ for all $i=1,...,m$. For the reader's convenience, below we will use MATLAB notations. An underlying delay system \eqref{underlying DDEs} can be extracted from \eqref{inflated} if and only if there exists a matrix $P=\m{P_0 & P_1 & \dots & P_{\nu}}^T$ in $\R^{(\nu+1) n,n}$ such that
+%
+\begin{align*}
+P^T \cE &= \m{ I_n \ & 0_{n,\nu n} } , \\
+P^T \cA_i &= \m{* \ & * \ & 0_{n,(\nu-1)n}}, \mbox{ for all } i=1,...,m,
+\end{align*}
+%
+where $*$ stands for an arbitrary matrix. Consequently, $P$ is the solution to the following linear systems
+%
+\[
+\m{\cE^T \\ \cA_1(:,2n+1 : end)^T \\ \vdots \\ \cA_m(:,2n+1 : end)^T} P = \m{ \m{I_n \ & 0_{n,\nu n}}^T \\ 0_{(\nu-1)n,n} \\ \vdots \\ 0_{(\nu-1)n,n}} \ .
+\]
+%
+Therefore, making use of Crammer's rule we directly obtain the simple check for the non-advancedness of system \eqref{free system} in the following theorem.
+%
+\begin{thm}\label{thm check advancedness}
+Consider the zero-input descriptor system \eqref{free system} 
+and assume that the pair $(E,A_0 )$ is regular with index $\ind(E,A_0 )=\nu$. 
+Then, this system is non-advanced if and only if the following rank condition is satisfied 
+%
+\begin{equation}\label{adv. check eq.}
+	\rank \m{\cE^T \\ \cA_1(:,2n\!+\!1 : end)^T \\ \vdots \\ \cA_m(:,2n\!+\!1 : end)^T}
+	\!=\! \rank \left[ \! \pm{\cE^T \\ \cA_1(:,2n\!+\!1 : end)^T \\ \vdots \\ \cA_m(:,2n\!+\!1 : end)^T} \vline \pm{ \m{I_n \ & 0_{n,\nu n}}^T \\ 0_{(\nu-1)n,n} \\ \vdots \\ 0_{(\nu-1)n,n}} \! \right] . 
+\end{equation}
+%
+\end{thm}
+%
+Theorem \ref{thm check advancedness} applied to the index two case straightly gives us the following corollary.
+%
+\begin{coro}\label{coro3}
+Consider the zero-input descriptor system \eqref{free system} and assume that the pair $(E,A_0 )$ is regular with index $\ind(E,A_0 )=2$.  	
+Then, system \eqref{free system} is non-advanced if and only if the following identity hold true.
+%
+\begin{equation}\label{check advanced}
+	\rank \m{E^T & -A_0^T & 0 \\ 0 & E^T & -A_0^T \\ 0 & 0 & E^T \\ \hline \\[-.4cm] 0 & 0 & A_1^T \\ \vdots & \vdots & \vdots \\ 0 & 0 & A_m^T} =
+	n + \rank \m{E^T & -A_0^T \\ 0 & E^T \\ \hline \\[-.4cm] 0 & A_1^T \\ \vdots & \vdots \\ 0 & A_m^T} \ .
+\end{equation}
+%
+\end{coro} 
+
+
+\end{document}
+\endinput

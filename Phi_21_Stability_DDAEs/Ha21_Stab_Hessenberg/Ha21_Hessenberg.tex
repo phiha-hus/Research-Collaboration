@@ -1,0 +1,421 @@
+% Editing tex file using vim in bash mode and then commit it with git
+
+%%%%%%%%%%%class file
+\documentclass[smallextended]{svjour3}       % onecolumn (second format)
+\usepackage[10pt]{extsizes}
+
+%\smartqed % flush right qed marks, e.g. at end of proof
+%%%%%%%%%%%%%%%%%
+%call  packages
+\usepackage[sort&compress]{natbib}
+\usepackage{lipsum}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pdfoutput=1
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{algcompatible}
+
+%\usepackage[notcite]{showkeys}
+%\usepackage{color}
+%\usepackage{showlabels}
+%\renewcommand{\showlabelfont}{\small\slshape\color{red}}
+
+\usepackage{lineno}
+\linenumbers
+
+\usepackage{graphicx}
+\usepackage{amssymb,amsmath,bm,mathrsfs}
+\let\proof\relax\let\endproof\relax
+% Using the package amsthm leads to confliction ''The \begin{proof} is already defined''
+\usepackage{amsthm}
+\usepackage{mathabx}
+\usepackage{hyperref} %$#
+
+%%%%%%%%%%%%%%%%%
+
+%Math environments===========================================================
+%\newtheorem{theorem}{Theorem}[section]
+%\newtheorem{lemma}[theorem]{Lemma}
+%\theoremstyle{definition}
+%\newtheorem{definition}[theorem]{Definition}
+%\newtheorem{example}[theorem]{Example}
+%\newtheorem{corollary}[theorem]{Corollary}
+%\newtheorem{proposition}[theorem]{Proposition}
+%\newtheorem{remark}[theorem]{Remark}
+%\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{hypo}[theorem]{Hypothesis}
+\renewcommand{\labelenumi}{\roman{enumi}}
+\numberwithin{equation}{section}
+\newtheorem{procedure}[theorem]{Procedure}
+
+\include{command}
+
+%===============================================================================
+\begin{document}
+	
+%\title{Regularization of Second Order Singular Difference Equations\footnotemark[1]}
+%\titlerunning{Regularization of Second Order Singular Difference Equations}% Part of RIGHT running header
+\title{On the Stability Analysis of linear, time-delayed Hessenberg Differential-Algebraic Equations \footnotemark[1]}
+\titlerunning{On the Stability Analysis of linear, time-delayed Hessenberg Differential-Algebraic Equations} % Part of RIGHT running header
+\author{ {\sc Phi Ha %\thanks{This work was supported by the research project Naforsted, and was done during the first author's visit at VIASM}
+	and Do Duc Thuan}}
+	%\authorrunning{Short author list}% Part of LEFT running header
+
+\institute{Phi Ha and Do Duc Thuan \at Institute of Math-Mechanics-Informatics, Hanoi University of Science, VNU \\ 	Nguyen Trai Street 334, Thanh Xuan, Hanoi, Vietnam\\ 
+		\email{\{haphi.hus;linhvu\}@vnu.edu.vn}
+	}
+\date{Version 1 : \today \\ Received: date / Accepted: date}      
+	
+\maketitle
+	
+\begin{abstract}
+In this paper we discuss the stability analysis for linear Hessenberg Differential-Algebraic Equations with time delay.  
+First we discuss the classification of these systems, which is followed by the stability analysis for not only non-advanced but also 
+for \emph{weakly-advanced} systems. The idea is to transform a given system to an equivalent regular, impulse-free system via an \emph{index reduction procedure}, 
+which preserves the spectrum of the original system. 
+Then, we introduce a new concept of $C^p$-weak exponential stability and study it via the the spectral method.
+Numerical examples are presented to illustrate the advantages of the proposed results.	
+\end{abstract}
+	
+\noindent
+{\bf Keywords:} Singular systems; Delay; Spectral.
+
+\noindent
+{\bf AMS Subject Classification:} 34A09, 34A12, 65L05, 65H10
+
+%=========================================================================================
+\noindent \textbf{Nomenclature} \\[.1cm]
+%
+\begin{tabular}{|c|c|}
+	\hline
+	$\N$ ($\N_0$)	&  the set of natural numbers (including $0$)  \\
+	$\R$ ($\R_+$)  	&  the set of real (non-negative real) numbers \\
+	$\C$ ($\C_{-}$) & the set of complex numbers (the set $\{\lb \in \C \ | \ Re \lb <0\}$) \\
+	$I$ ($I_n$)		&  the identity matrix (of size $n \times n$) \\
+	$x^{(j)}$       &  the $j$-th derivative of a function $x$ \\
+	$C^p([-\tau,0],\r^n)$ & the space of $p$-times continuously differentiable functions \\
+					& from $[-\tau,0]$ to $\r^n$ (for $ 0 \leq p < \infty$) \\
+	$\|\cdot\|_{p}$ & the $p$-norm of the Banach space $C^p([-\tau,0],\r^n)$, i.e. \\
+	                & $\n{f}_p := \sum_{j=1}^{p} \underset{t\in [-\tau,0]}{\sup} \n{f^{(p)}(t)}$ \\ 
+	$\|\cdot\|_{\infty}$ & the sup-norm of the Banach space $C^0([-\tau,0],\r^n)$ \\ 
+    $A(i,:)$        & the $i$-th row of matrix $A$ (in MATLAB notation) \\
+    $A(i:j,:)$      & the rows of $A$, ranging from the $i$-th row to the $j$-th row (for $i\leq j$) \\
+    $\Row(i)$        & the $i$-th block row equation of a system \\
+    $\Row(i:j)$      & the block row equations, ranging from the $i$-th row to the $j$-th row (for $i\leq j$) \\
+    $\De$             & the shift backward operator $\De: x(t) \mapsto x(t-\tau)$  \\
+\hline
+\end{tabular}
+
+%=========================================================================================
+
+\section{Introduction and Preliminaries}\label{intro}
+
+In the present paper we study the stability analysis of linear, time invariant {\it delay dif\-fe\-ren\-tial-al\-ge\-braic equations (DDAEs)} of the following form
+%
+\begin{equation}\label{H-DDAE}
+ E \dot{x}(t) = A^{(0)} x(t) + A^{(1)} x(t-\tau), 
+\end{equation}
+%
+for all $t\in [0,\infty)$, where the matrix coefficients belong to $\R^{n,n}$, $x:[-\tau,\infty) \rar \R^n$, and $\tau>0$ is a constant delay. 
+However, we do not aim at the stability of general system, but only for a class of Hessenberg system, where the matrix coefficients have the special structure as follows
+%
+{\scriptsize
+\begin{equation}
+E \!=\! \m{I &  &  &  &  & \\ & I  &  &  &  & \\  &  &  & \ddots & & \\ &  &  &  & I & \\ &  &  &   &   & 0 }, A^{(0)} \!=\! \HkA{0}, A^{(1)} \!=\! \HkA{1},
+\end{equation}
+}
+%
+and the matrix product
+%
+\[ A^{(0)}_{k,k-1} A^{(0)}_{k-1,k-2}  \cdots A^{(0)}_{2,1} A^{(0)}_{1,k} \]
+%
+is nonsingular. Here $k \geq 2$ and we say that the Hessenberg DDAE \eqref{H-DDAE} has an index $k$. On the other hand, index-1 (Hessenberg) systems take the form
+%
+\begin{equation}\label{H-DDAE index 1}
+	\m{I & 0 \\ 0 & 0} \dot{x}(t) = \m{\HA{0}_{11} & \HA{0}_{12} \\ \HA{0}_{21} & \HA{0}_{22}} x(t) + \m{\HA{1}_{11} & \HA{1}_{12} \\ \HA{1}_{21} & \HA{1}_{22}} x(t-\tau),
+\end{equation}
+%
+where $\HA{0}_{22}$ is nonsingular.
+
+{\textbf{write some more ... Hessenberg differential-algebraic equations arises from ... \\
+In the following example we demonstrate some difficulties that may arise in the stability analysis of DDAEs. \\
+}}
+
+To achieve uniqueness of solutions for DDAEs of the form \eqref{H-DDAE} one typically has to prescribe an initial function, which takes the form
+%
+\begin{equation}\label{initial function}
+	x|_{[-\tau,0]}=\vphi: [-\tau,0] \rightarrow \R^{n}.
+\end{equation}
+%
+Throughout this paper, we use the following solution concept. % for \eqref{H-DDAE}.
+%
+\begin{definition}\label{solution}
+i) A function $x:[-\tau,\infty)\rar\R^n$ is called a \emph{piecewise differentiable solution} of \eqref{H-DDAE}, if $Ex$ is piecewise continuously 
+	differentiable, $x$ is continuous and satisfies \eqref{H-DDAE} at every  $t\in [0,\infty) \setminus \underset{j\in \N_0}{\cup} \{j\tau\}$. \\
+ii) An initial function $\vphi$ is called \emph{consistent} with \eqref{H-DDAE} if the associated initial value problem (IVP) \eqref{H-DDAE}, \eqref{initial function} has at least one solution. \\
+iii) System \eqref{H-DDAE} is called \emph{solvable} (resp. \emph{regular}) if for every consistent initial function $\vphi$,
+	the associated IVP \eqref{H-DDAE}, \eqref{initial function} has a solution (resp. has a unique solution). \\
+iv) The set $\si(E,\HA{0},\HA{1}):= \{\lb \in \C \ | \ \det(\lb E -\HA{0}-e^{-\lb \tau}\HA{1}) = 0\}$ is called the \emph{spectrum} of \eqref{H-DDAE}. 
+\end{definition}
+%
+
+%=================================================================
+% \section{}\label{Sec2}
+
+%=================================================================
+\section{Main Results}\label{Sec3}
+
+\subsection{The case of index $k = 2$, $3$}\label{Sec3.1}
+In this part we demonstrate the index reduction strategy for Hessenberg DDAEs of index $k\leq 3$ and its consequences to the solvability and stability analysis of system \eqref{H-DDAE}.
+For $k=2$, we rewrite the system as follows
+%
+\begin{equation}\label{H-DDAE index 2}
+	\m{0 \\ 0} = -\m{I & 0 \\ 0 & 0} \dot{x}(t) + \HtwoA{0} x(t) + \HtwoA{1} x(t-\tau), \mbox{ for all } t\geq 0,
+\end{equation}
+%
+where $A^{(0)}_{21} A^{(0)}_{12}$ is nonsingular. \\
+%
+We transform the system to the Hessenberg index 1 form by replacing the second block row equation, denoted by $\Row(2)$, 
+by the new one $\Row(2)^{new}$ defined by
+%
+\begin{equation}\label{eq3.1}
+	\Row(2)^{new} = \dfrac{d}{dt} \ \Row(2) + A^{(0)}_{21} \ \Row(1) + A^{(1)}_{21} \De \ \Row(1),
+\end{equation}
+%
+where $\De$ is the shift backward operator, which maps $x(t)$ to $x(t-\tau)$. Here by $\De \ \Row(2)$ we mean that the whole block row equation has been shifted backward, i.e.
+%
+\[
+ 0 = A^{(0)}_{21}x(t-\tau) + A^{(1)}_{21} x(t-2\tau), \mbox{ for all } t\geq \tau.
+\]
+%
+Consequently, the equation \eqref{eq3.1} becomes
+%
+\begin{align}\label{eq3.2}
+\notag   0 = & A^{(0)}_{21} \m{A^{(0)}_{11} & A^{(0)}_{12}} x(t) + \left( A^{(0)}_{21} \m{A^{(1)}_{11} & A^{(1)}_{12}} + A^{(1)}_{21} \m{A^{(0)}_{11} & A^{(0)}_{12}} \right) x(t-\tau)  \\
+     & + A^{(1)}_{21} \m{A^{(1)}_{11} & A^{(1)}_{12}} x(t-2\tau),  \mbox{ for all } t\geq \tau.
+\end{align}
+%
+Thus, combining this equation with the first equation of \eqref{H-DDAE index 2} gives us the system
+%
+\begin{align}\label{eq3.3}
+\notag 	\m{0 \\ 0} = & -\m{I & 0 \\ 0 & 0} \dot{x}(t) + \m{A^{(0)}_{11} & A^{(0)}_{12} \\ A^{(0)}_{21}A^{(0)}_{11} & A^{(0)}_{21}A^{(0)}_{12} } x(t) + \m{A^{(0)}_{11} & A^{(0)}_{12} \\ * & *} x(t-\tau)\\
+					 & + \m{0 & 0 \\ A^{(1)}_{21} A^{(1)}_{11} & A^{(1)}_{21} A^{(1)}_{12} }  x(t-2\tau), \mbox{ for all } t\geq \tau,
+\end{align}
+%
+which is clearly an index 1 system, since $A^{(0)}_{21} A^{(0)}_{12}$ is nonsingular.
+
+\begin{remark}\label{rem 1}
+We notice, that if we rewrite system \eqref{H-DDAE index 2} in the operator form 
+%
+\begin{equation}\label{eq3.4}
+ 0 = \cP(\dfrac{d}{dt},\De) x := \left( -\m{I & 0 \\ 0 & 0} \dfrac{d}{dt} + \HtwoA{0} + \HtwoA{1} \ \De \right) x(t),
+\end{equation}
+%
+then system \eqref{eq3.3} is obtained by simply acting the operator $\sm{I & \quad 0 \\ A^{(0)}_{21} + A^{(1)}_{21} \De &  \quad \dfrac{d}{dt}}$ on \eqref{H-DDAE index 2}. This leads to a consequence, that \emph{an index reduction step}, which transforming the index-2 system \eqref{H-DDAE index 2} to the index-1 system \eqref{eq3.3}, 
+does not alter the non-zero eigenvalues. This is very important, in particular to study the stability analysis, as we will see later in Section \ref{Sec3.3}.  
+\end{remark}
+
+\begin{remark}\label{rem 2}
+From the numerical viewpoint, in fact we can simplify the index reduction step above by transforming the matrix coefficient in the second row as follows.
+%
+\begin{align*}
+	& A^{(0)}(2,:) := A^{(0)}(2,:) \ A^{(0)}, \\
+	& A^{(1)}(2,:) := A^{(0)}(2,:) \ A^{(1)} + A^{(1)}(2,:) \ A^{(0)}, 
+\end{align*}
+%
+and introduce a new matrix coefficient $A^{(2)}$ associated with $x(t-2\tau)$ via
+%
+\[
+  A^{(2)} := \m{ 0 \\ A^{(1)}(2,:)  \ A^{(1)} } \ . 
+\]
+%
+\end{remark}
+
+Now let us consider the case of index-3 Hessenberg DDAEs (i.e., $k=3$) of the form
+%
+\begin{equation}\label{H-DDAE index 3}
+ 	\m{0 \\ 0  \\ 0} \!=\! -\m{I & 0 & 0 \\  0 & I & 0 \\ 0 & 0 & 0} \dot{x}(t) +\! \HthreeA{0} x(t) +\! \HthreeA{1} x(t-\tau),
+\end{equation}
+%
+for all $t\geq 0$, where the matrix product $A^{(0)}_{32} A^{(0)}_{21} A^{(0)}_{13}$ is nonsingular. 
+Our index reduction procedure consists of two steps: Step 1: reduce an index from $k=3$ to $k=2$; and Step 2: reduce an index from $k=2$ to $k=1$ as above.
+Similarly to \eqref{eq3.1}, Step 1 is done by performing a transformation on the last row only, i.e.,
+%
+\begin{equation}
+ \Row(3) \mapsto \Row(3)^{new} := \dfrac{d}{dt} \ \Row(3) + A^{(0)}_{32} \ \Row(2) + A^{(1)}_{32} \De \ \Row(2).
+\end{equation}
+%
+The new system now takes the from
+%
+\begin{equation}
+	0 = \m{I \quad & 0 & \quad 0 \\  0 \quad & I &  \quad 0 \\ 0 \quad &   A^{(0)}_{32}+A^{(1)}_{32} \De & \quad \dfrac{d}{dt}} \cP(\dfrac{d}{dt},\De) x \ .
+\end{equation}
+%
+Continue performing Step 2, as in the case $k=2$, we obtain an index-1 Hessenberg DDAE of the form
+%
+\begin{align}
+\notag	    \m{0 \\ 0  \\ 0} \!=\! & -\m{I & 0 & 0 \\  0 & I & 0 \\ 0 & 0 & 0} \dot{x}(t) \!+\! \m{A^{(0)}_{11} & A^{(0)}_{12} & A^{(0)}_{13} \\ A^{(0)}_{21} & A^{(0)}_{22} & 0 \\ * & * & A^{(0)}_{32} A^{(0)}_{21} A^{(0)}_{13} } x(t) \!+\! \m{A^{(1)}_{11} & A^{(1)}_{12} & A^{(1)}_{13} \\ A^{(1)}_{11} & A^{(1)}_{12} & 0 \\ * & * & *} x(t-\tau) \\
+	 	& + \m{0 & 0 & 0 \\ 0 & 0 & 0 \\ * & * & *}x(t-2\tau) +  \m{0 & 0 & 0 \\ 0 & 0 & 0 \\ * & * & *}x(t-3\tau) , \mbox{ for all } t\geq \tau.
+\end{align}
+%
+Here $*$ stands for an arbitrary matrix. Here we notice again, that the index reduction procedure does not alter the non-zero eigenvalues of system \eqref{H-DDAE index 3}.
+
+
+\subsection{The general case}\label{Sec3.2}
+
+The index reduction procedure presented above can ge directly generalized to index-$k$ Hessenberg DDAEs in the following algorithm.
+
+\begin{algorithm}[H]
+	\caption{Index reduction procedure of the index-$k$ Hessenberg DDAE \eqref{H-DDAE}}
+	\label{Alg1}
+	\textbf{Input:} The system coefficients $E$, $A^{(0)}$, $A^{(1)}$. \\
+	\textbf{Output:} The system coefficients $E$, $A^{(0)},\dots,A^{(k)}$ of the new system. 
+	\begin{algorithmic}[1]
+		\FOR{ j = 1: k-1}
+		\State Update the last row of matrices $A^{(0)},\dots,A^{(j)}$ by 
+		\begin{align*}
+			& A^{(0)} (k,:)   = A^{(0)} (k,:) A^{(0)}, \\
+			& A^{(\ell)}(k,:) = A^{(0)}(k,:) A^{(\ell)} + A^{(1)}(k,:) A^{(\ell-1)}. 
+		\end{align*} 
+		\State	Introduce a new matrix $A^{(j+1)} := \m{ 0 \\ A^{(j)} (k,:) A^{(1)} } \in \R^{n,n}$. 
+		%		%
+		%		\algstore{myalg}
+		%		\end{algorithmic}
+		%		\end{algorithm}	
+		%		\begin{algorithm}[H]
+		%		\begin{algorithmic}[1]
+		%		\algrestore{myalg}
+		%		%
+		\ENDFOR		
+	\end{algorithmic}
+\end{algorithm}
+
+
+
+\begin{theorem}\label{thm 1}
+	Consider the index-k Hessenberg DDAE \eqref{H-DDAE} and assume that it is uniquely solvable for all consistent and sufficiently smooth initial function $\phi$. Provided that the solution $x$ is alrealdy known/computed on the interval $[0,(k-1)\tau]$, then system \eqref{H-DDAE} has exactly the same solution $x$ on $[(k-1)\tau,\infty)$
+	as the index-1 system of the form
+%
+{\small
+\begin{align}\label{transfored system}
+	\notag	
+	& \m{I &  &  &  &  & \\ & I  &  &  &  & \\  &  &  & \ddots & & \\ &  &  &  & I & \\ \hline &  &  &   &   & 0 } \dot{x}(t) 
+	\!=\!   
+	\m{ A^{(0)}_{11} & A^{(0)}_{12} & \hdots & A^{(0)}_{1,k-1} 		& \quad A^{(0)}_{1,k} 	\\ 
+		A^{(0)}_{21} & A^{(0)}_{22} & \hdots & A^{(0)}_{2,k-1} 		& \quad 0 				\\ 
+					 & \ddots        & \ddots & \vdots 				& \quad \vdots         	\\ 
+					 &               & \ddots & A^{(0)}_{k-1,k-1} 	& \quad 0 				\\ \hline   												
+		*		  	 &   *           &   *    & *			 		& \quad \mathbf{\HA{0}_{k,k}}	}
+	x(t)
+	\\
+	& +
+	\m{ A^{(1)}_{11} & A^{(1)}_{12}  & \hdots & \quad A^{(1)}_{1,k-1} 		& \quad A^{(1)}_{1,k} 	\\ 
+		A^{(1)}_{21} & A^{(1)}_{22}  & \hdots & \quad A^{(1)}_{2,k-1} 		& \quad 0 				\\ 
+					 & \ddots        & \ddots & \quad \vdots 				& \quad \vdots         	\\ 
+		 			 &               & \ddots & \quad A^{(1)}_{k-1,k-1} 	& \quad 0 				\\ \hline   												
+		*			 &   *           & *      & \quad 	*			 		& \quad * 				}
+	x(t-\tau) 
+	+ \sum_{j=2}^{k}  \m{0 & 0 & \dots & 0 & 0 \\ 0 & 0 & \dots & 0 & 0 \\ 0 & 0 & \dots & 0 & 0 \\\hline * & * & \dots & * & *} x(t-j\tau) , 
+\end{align}
+}
+%
+for all $t\geq \tau$, where $*$ stands for an arbitrary matrix, and the matrix
+%
+\[
+ \mathbf{\HA{0}_{k,k}} :=  A^{(0)}_{k,k-1} A^{(0)}_{k-1,k-2}  \cdots A^{(0)}_{2,1} A^{(0)}_{1,k}
+\]
+%
+is nonsingular. Furthermore, the transformed system \eqref{transfored system} preserves all non-zero eigenvalues of system \eqref{H-DDAE}.
+\end{theorem}
+
+\begin{corollary}\label{coro 1} 
+	Consider the index-k Hessenberg DDAE \eqref{H-DDAE} and assume that it is uniquely solvable for all consistent and sufficiently smooth initial function $\phi$.
+	In order to have a continuous, piecewise differentiable solution $x|_{[0,\infty)}$, the smoothness requirement for $\phi$ is upper-bounded by $(k-1)^2$. 
+\end{corollary}
+
+\subsection{Stability analysis}\label{Sec3.3}
+
+We recall the stability concept for DDAEs as follows.
+%
+\begin{definition}\label{def3.2}(\cite{Mic11,XuDSL02}) \ The null solution $x=0$ of the DDAE \eqref{H-DDAE} is called \emph{exponentially stable} if there exist positive constants 
+	$\de$ and $\ga$ such that for any consistent initial function $\vphi \in C([-\tau,0],\R^n)$, the solution $x=x(t,\vphi)$ of the corresponding 
+	IVP to \eqref{H-DDAE} satisfies
+	%
+	\[
+	\|x(t)\| \leq \de e^{-\ga t} \|\vphi\|_{\infty}, \ \mbox{ for every } \ t\geq 0.
+	\]
+	%
+\end{definition}
+%
+
+\begin{definition} The DDAE \eqref{H-DDAE} is called \\
+i)  \emph{non-advanced} (or \emph{impulse-free}) if for any consistent $\vphi \in C([-\tau,0],\R^n)$, there exists a unique solution $x$ to the corresponding IVP for \eqref{H-DDAE}. \\ 
+ii) \emph{$C^k$-weakly advanced} if for any consistent $\vphi \in C^p([-\tau,0],\R^n)$, there exists a unique solution $x$ to the corresponding IVP for \eqref{H-DDAE}. 
+\end{definition}
+
+\begin{example}
+It is well-known, see e.g. \cite{AscP95,ZhuP98,CamL09}, that for index-$2$ Hessenberg system \eqref{H-DDAE index 2}, the system is non-advanced if $A^{(1)}_{21} = 0$.  
+For index-$2$ Hessenberg system \eqref{H-DDAE index 2}, the system is non-advanced if $A^{(1)}_{32} = 0$ and $A^{(1)}_{21} = 0$. 
+From our discussion in Section \ref{Sec3.1}, we see that system \eqref{H-DDAE index 2} is $C^2$-weakly advanced if $A^{(1)}_{21} \m{A^{(1)}_{11} & A^{(1)}_{12}} \not= 0$. 
+In case of the index-$3$ system \eqref{H-DDAE index 3}, it is $C^4$-weakly advanced if $A^{(1)}_{32} \m{A^{(1)}_{21} & A^{(1)}_{22}} \not= 0$. 
+Furthermore, it is $C^2$-weakly advanced if $A^{(1)}_{32} \m{A^{(1)}_{21} & A^{(1)}_{22}} = 0$.
+Due to Corollary \ref{coro 1}, we see that the index-$k$ Hessenberg system \eqref{H-DDAE} is $C^{(k-1)^2}$-weakly advanced. 
+\end{example}
+
+The characterization for exponential stability of the index-$1$ DDAE \eqref{H-DDAE index 1} is given in the following proposition.
+%
+\begin{proposition}(\cite{Mic11,DuLMT13}) The index-$1$ DDAE \eqref{H-DDAE index 1} is exponentially stable if and only if the spectrum $\si(E,A^{(0)},A^{(1)})$ lies entirely on the left half plane and is bounded away from the imaginary axis.
+	
+\end{proposition}
+
+%
+\begin{definition}\label{def3.3}
+	The null solution $x=0$ of the DDAE \eqref{H-DDAE} is called \emph{$C^p$-weakly exponentially stable ($C^p$-w.e.s)} if there exist an integer 
+	$0\leq p < \infty$ and positive constants $\de$ and $\ga$ such that for any consistent initial function $\vphi \in C^p([-\tau,0],\R^n)$, the solution $x=x(t,\vphi)$ of the corresponding IVP for \eqref{H-DDAE} satisfies
+	%
+	\[ \|x(t)\| \leq \de e^{-\ga t} \|\vphi\|_{p}, \ \mbox{ for all } t\geq 0. \]
+	%
+\end{definition}
+%
+Notice that the (classical) exponential stability is exactly $C^0$-w.e.s.. 
+Furthermore, even though $C^p$-w.e.s. has been considered for ODEs and PDEs as well, till now there are very few reference for DDAEs, see \cite{Ha18,Ha18b}.
+
+\begin{theorem}
+ Consider the index-k Hessenberg DDAE \eqref{H-DDAE} and assume that it is uniquely solvable for all consistent and sufficiently smooth initial function $\phi$. 
+ We also consider the transformed system \eqref{transfored system} obtained by applying Algorithm \ref{Alg1} to system \eqref{H-DDAE}. 
+ Furthermore, we assume that $0\notin \si(E,A^{(0)},A^{(1)})$. 
+ Then system \eqref{H-DDAE} is $C^{(k-1)^2}$-weakly exponentially stable, provided that the spectrum $\si(E,A^{(0)},A^{(1)})$ lies entirely on the left half plane and is bounded away from the imaginary axis.
+\end{theorem}
+
+
+\begin{corollary}
+Stability condition
+\end{corollary}
+
+
+\begin{example}
+Numerical test
+\end{example}
+
+
+%=================================================================
+\section{Conclusion and Outlook}\label{conclusion}
+
+
+%========================================================================================
+\vskip 0.2cm
+\textbf{Acknowledgment} The author would like to thank the anonymous referee for his suggestions to improve this paper.
+
+
+%============================================================================
+\bibliographystyle{abbrv}
+\bibliography{Phi_July_2020}
+
+%\appendix
+%\section{Proof of Lemma \ref{lem5.1}}\label{appendixA}
+
+
+
+\end{document}
